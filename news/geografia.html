@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>El Informativo</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="favicon.ico" />
+	<script src="js/jquery 1.9.0.min.js"></script>
+	<link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/fonts-icon.css">
+	
+</head>
+
+<style>
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+	
+}
+
+.main-contain{
+	width:100%;
+	height:auto;
+    top:0;	
+	font-size: 15px;   
+    margin-bottom:10px;
+	margin-left:;
+ }
+
+ 
+ .noticias {
+	width:100%;
+	height:auto;
+    font-size:20px;
+    padding-top:px; 
+	padding-bottom:15px;
+	margin:0 auto;
+	margin-bottom:0px;  
+   background-color:snow;
+}
+
+.noticias h1, .noticias h2, .noticias h3, .noticias h4{
+	font-weight: bold;
+	color:white;
+	margin:0 auto;
+	margin-left:20px;
+	margin-top:35px;
+	padding-bottom:30px;
+}
+
+.noticias h2{
+	width:100%;
+	margin:0 auto;
+	padding-top:30px;
+	padding-bottom: 10px;
+	background-color: #2E2E2E;
+	color:white;
+	font-size:20px;
+	text-align:center;
+  }
+  
+
+.noticias h2 a {
+	color:white;
+	padding-top:30px;
+}
+
+.noticias h2 a:hover {
+	color: white;
+}
+
+.noticias .datetime{
+	color:red;
+	text-align: right;
+	margin-top:15px;
+	margin-bottom: 10px;
+	padding-right: 10px;
+	font-size: 12px;
+	font-style: italic;
+}
+
+.datetime .glyphicon{
+	color: #B40431;
+}
+
+.noticias .read{
+	text-align: right;
+	margin-top: 20px;
+	padding-right: 10px;
+	font-style: italic;
+	font-weight: bold; 
+	font-size: 16px;
+}
+
+.noticias .read a{
+	color: red; 
+}
+
+
+.noticias .blue{
+	width:98%;
+	text-align: center;
+	margin-top: 20px;
+	padding-right: 20px;
+	font-style: italic;
+	font-weight: bold; 
+	font-size: 16px; 
+}
+
+.noticias .blue a{
+	color: black;
+	padding-right: 10px;
+}
+
+.informacion p{
+	width:85%;
+	height:auto;
+	color:black;
+	text-align:justify;
+	margin-bottom:10px;
+	margin-top:10px;
+	font-size:16px;
+	margin:0 auto; 
+}
+
+.informacion h3{
+	color:black;
+	text-align:center;
+	padding-top:20px;
+	padding-bottom:20px;
+	margin-top:10px;
+	font-size:18px;
+	margin:0 auto; 
+}
+
+.informacion h5{
+	font-size:13px;
+	color:black;
+	margin-left:;
+	text-align:center;
+	padding-bottom:10px;   
+	padding-top:25px;
+    margin: 0 auto;	
+	font-family: sans-serif;
+}
+
+
+.noticias ul li {
+	width:80%;
+	height:auto;
+	padding-top:8px;
+	padding-bottom:8px;
+	color:white;
+	margin:0 auto;
+	font-size:16px;
+}
+
+ .noticias .declaraciones p{
+	font-style: italic;
+	color: #6E6E6E;
+	font-size:12px;
+}
+
+.noticias .imagen img{
+	width:80%;
+	height:300px;
+	margin: 0 auto;
+	padding-bottom:5px;   
+	display:flex;
+	flex-flow:row wrap; 
+	margin-top:30px;	
+}
+
+.informacion .imagen h5{
+	font-size:13px;
+	color:red;
+	margin-left:;
+	text-align:center;
+	padding-bottom:20px;   
+	padding-top:2px;
+    margin: 0 auto;	
+}
+
+.imagen, .media {
+	margin-bottom: 10px;
+	margin:0 auto;
+}
+
+ .informacion .iframe-video{
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+	width:50%;
+	height:320px;
+	margin:0 auto;
+	margin-top:35px;
+	margin-bottom:15px;
+}
+
+ #notas{
+	 width:100%;
+	 height:auto;
+	 display:inline-block;
+	 vertical-align:top;
+	 margin-top:10px;
+	 margin-bottom:20px;
+	 display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+ }
+ 
+section .informes{
+	width:45%;
+	height:auto;
+	display:inline-block;
+	text-align: center;
+	font-size:30px;
+	padding-top:20px;
+	margin: 20px;
+	background-color:black;	
+}
+
+section .informes h2{
+	width:95%;
+	height:auto;
+	background-color:#1C1C1C;
+	text-align: center;
+	padding-top:5px;
+	color:white;
+	font-size:18px;
+	margin-bottom:20px;
+	margin:0 auto;
+
+}
+
+.informacion p{
+	margin-bottom:10px;
+	width:80%;
+	height:auto;
+	color:black;
+	padding-top:30px;
+	text-align:justify;
+	font-size:14px;
+	margin:0 auto; 
+}
+
+.informacion .imagen img{
+	width:50%;
+	height:300px;
+	margin: 0 auto;
+	margin-top:30px;
+	padding-bottom:5px;   
+	display:flex;
+	flex-flow:row wrap; 
+	padding-top:30px;	
+}
+
+.informacion .imagen h5{
+	font-size:13px;
+	color:black;
+	margin-left:;
+	text-align:center;
+	padding-bottom:5px;   
+	padding-top:5px;
+    margin: 0 auto;	
+}
+
+.informes .read{
+	text-align: right;
+	margin-top: 20px;
+	padding-bottom:20px;
+	padding-right: 10px;
+	font-style: italic;
+	font-weight: bold; 
+	font-size:16px;
+}
+
+.informacion .read a{
+	color: red; 
+}
+
+
+.stats .glyphicon, .container_pie .glyphicon {
+    font-size: 250%;
+    margin-bottom: 20px;
+    color: #B40431;
+    vertical-align: middle; 
+}
+
+.container_pie {
+	width:100%;
+	margin:0 auto;
+	padding-top:2px;
+	background-color: #1C1C1C;
+    color: #fff;
+}
+.container_pie p {
+	padding-top:0px;
+	padding-bottom:5px;
+    color:white;
+	text-align:center;
+}
+
+.container_pie .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color:white; 
+	padding-top:20px;
+}
+
+
+#myPage{
+    color:coral;
+    vertical-align: middle;
+	text-align:center;
+	padding-top:0px;
+}
+
+@media screen  and (max-width: 640px) {
+	
+	.informacion p{
+	margin-bottom:10px;
+	width:95%;
+	height:auto;
+	color:black;
+	padding-top:30px;
+	text-align:justify;
+	font-size:14px;
+	margin:0 auto; 
+}
+
+.informacion .imagen img{
+	width:90%;
+	height:300px;
+	margin: 0 auto;
+	margin-top:30px;
+	padding-bottom:5px;   
+	display:flex;
+	flex-flow:row wrap; 
+	padding-top:30px;	
+}
+
+  .informacion .iframe-video{
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+	width:90%;
+	height:320px;
+	margin:0 auto;
+	margin-top:15px;
+	margin-bottom:15px;
+  }
+}
+
+</style>
+
+<body id="myPage">
+
+		<div class="main-contain">
+		
+				<section class="noticias">
+					<h2><a href="news1.html">LA PAZ SANTANDER</a></h2>
+				
+					<div class="informacion">
+						<p>La Paz Santander un municipio ubicado al sur de Santander en la Provincia Veleña. Cuenta con un amplio territorio cuyo relieve se caracteriza por tierras fertiles, que la recorren elevaciones montañosas y le dan un paisaje variado en vegetación y con temperaturas de cálidas en la zona del Opón y con temperaturas más frescas en la parte alta donde se encuentra ubicado el casco urbano.</p>
+					
+						<div class="imagen">
+							<img class="img-responsive" src="../images/news/1.jpg" alt="">
+						     <h5></h5>
+						</div>
+
+			
+                        <p>La distancia de las ciudades capitales son las siguientes: A una distancia de 237 Km de Bucaramanga y a 240 Km de la ciudad de Bogotá. A lo largo del recorrido se puede dislumbrar los pastizales, cultivos de caña y en la zona cálida se abren cultivos de bananito, cacao y ganado entre productos tipicos de la región, a menor escala.</p>
+
+
+					
+							<iframe class="iframe-video" src="https://youtube.com/embed/MPNjgrbcYc"></iframe>
+						    <h5></h5>
+					
+
+						<p>Su poblacion se dedica a labores agricolas, de comercio y en menor medida la ganaderia, aunque sus ejemplares son de calidad. Su gente proviene de del mestizaje entre nativos y colonizadores, donde predomina la amabilidad y gentileza de su gente con los propios y visitantes.<br></p>
+                             
+					    <p>Su area se divide en 2 partes, la zona alta y zona cálida.</p> 
+
+						<p>Nuestro municipio tiene 20 veredas<br><br>
+						
+                         1.	En la parte alta se encuentran la Vereda del Hato, El Amarillo, La Loma, Casas Blancas, La Mata, El Centro, Carreo, San Pablo y Los Cedros.<br>
+                         2.	En la parte baja del municipio la conforman: La vereda del Palmar, Medios, Trochas, Macanal, Recreo, Colón, Linterna y Linternita.
+						 
+						 A su vez tiene 3 centros poblados: La Loma "Parte alta del municipio y Pueblo Nuevo y Trochas que corresponden a la parte cálida. 
+						 <br>
+              
+						 
+						 
+						<div class="imagen">
+							<img class="img-responsive" src="../images/news/2.jpg" alt="">
+						     <h5></h5>
+						</div>
+						
+					     <br>
+						
+						<div class="blue">
+						 <a href="news1.html" target="_self">Nota 1</a>
+						 <a href="news2.html" target="_self">Nota 2</a>
+						 
+					    </div>
+
+					</div>
+				</section>
+	
+		</div>
+
+	
+
+
+
+	<div class="container_pie">
+  	  <a href="#myPage" title="To Top">
+		<span class="botton-icon"><i class="glyphicon icon-circle-up"></i></span>
+		
+	  </a>
+	  
+  		<p>Elaborada por: Oscar C</p>
+
+		
+	</div>
+	
+	
+
+</body>
+</html>

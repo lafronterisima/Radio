@@ -1,0 +1,14 @@
+Options -Indexes
+
+RewriteEngine On
+RewriteCond %{ENV:HTTPS} on [NC]
+RewriteCond %{HTTP_HOST} soydelapazsantander\.com$ [OR]
+RewriteCond %{HTTP_HOST} www\.soydelapazsantander\.com$
+RewriteRule ^(.*)$ https://soydelapazsantander\.com/$1 [R=301,L,NE]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html?p=$1 [L]
+
+DirectoryIndex "index.html"
+

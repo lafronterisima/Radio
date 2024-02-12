@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>El Informativo</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="favicon.ico" />
+ 
+    <script src="js/news.js"></script>
+	<script src="js/jquery 1.9.0.min.js"></script>
+	<link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/fonts-icon.css">
+	
+</head>
+
+<style>
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+	
+}
+
+.main-contain{
+	width:100%;
+	height:auto;
+    top:0;	
+	font-size: 15px;   
+    margin-bottom:10px;
+	margin-left:;
+ }
+
+ 
+ .noticias {
+	width:100%;
+	height:auto;
+    font-size:20px;
+    padding-top:px; 
+	padding-bottom:15px;
+	margin:0 auto;
+	margin-bottom:0px;  
+   background-color:snow;
+}
+
+.noticias h1, .noticias h2, .noticias h3, .noticias h4{
+	font-weight: bold;
+	color:white;
+	margin:0 auto;
+	margin-left:20px;
+	margin-top:35px;
+	padding-bottom:30px;
+}
+
+.noticias h2{
+	width:100%;
+	margin:0 auto;
+	padding-top:30px;
+	padding-bottom: 10px;
+	background-color: #2E2E2E;
+	color:white;
+	font-size:20px;
+	text-align:center;
+  }
+  
+
+.noticias h2 a {
+	color:white;
+	padding-top:30px;
+}
+
+.noticias h2 a:hover {
+	color: white;
+}
+
+.noticias .datetime{
+	color:red;
+	text-align: right;
+	margin-top:15px;
+	margin-bottom: 10px;
+	padding-right: 10px;
+	font-size: 12px;
+	font-style: italic;
+}
+
+.datetime .glyphicon{
+	color: #B40431;
+}
+
+.noticias .read{
+	text-align: right;
+	margin-top: 20px;
+	padding-right: 10px;
+	font-style: italic;
+	font-weight: bold; 
+	font-size: 16px;
+}
+
+.noticias .read a{
+	color: red; 
+}
+
+
+.noticias .blue{
+	width:98%;
+	text-align: center;
+	margin-top: 20px;
+	padding-right: 20px;
+	font-style: italic;
+	font-weight: bold; 
+	font-size: 16px; 
+}
+
+.noticias .blue a{
+	color: black;
+	padding-right: 10px;
+}
+
+.informacion p{
+	width:85%;
+	height:auto;
+	color:black;
+	text-align:justify;
+	margin-bottom:10px;
+	margin-top:10px;
+	font-size:16px;
+	margin:0 auto; 
+}
+
+.informacion h3{
+	color:black;
+	text-align:center;
+	padding-top:20px;
+	padding-bottom:20px;
+	margin-top:10px;
+	font-size:18px;
+	margin:0 auto; 
+}
+
+.informacion h5{
+	font-size:13px;
+	color:black;
+	margin-left:;
+	text-align:center;
+	padding-bottom:10px;   
+	padding-top:25px;
+    margin: 0 auto;	
+	font-family: sans-serif;
+}
+
+
+.informacion ul li {
+	width:80%;
+	height:auto;
+	padding-top:8px;
+	padding-bottom:8px;
+	color:black;
+	margin:0 auto;
+	font-size:16px;
+}
+
+ .noticias .declaraciones p{
+	font-style: italic;
+	color: #6E6E6E;
+	font-size:12px;
+}
+
+.noticias .imagen img{
+	width:80%;
+	height:300px;
+	margin: 0 auto;
+	padding-bottom:5px;   
+	display:flex;
+	flex-flow:row wrap; 
+	margin-top:30px;	
+}
+
+.informacion .imagen h5{
+	font-size:13px;
+	color:red;
+	margin-left:;
+	text-align:center;
+	padding-bottom:20px;   
+	padding-top:2px;
+    margin: 0 auto;	
+}
+
+.imagen, .media {
+	margin-bottom: 10px;
+	margin:0 auto;
+}
+
+ .informacion .iframe-video{
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+	width:50%;
+	height:320px;
+	margin:0 auto;
+	margin-top:35px;
+	margin-bottom:15px;
+}
+
+ #notas{
+	 width:100%;
+	 height:auto;
+	 display:inline-block;
+	 vertical-align:top;
+	 margin-top:10px;
+	 margin-bottom:20px;
+	 display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+ }
+ 
+section .informes{
+	width:45%;
+	height:auto;
+	display:inline-block;
+	text-align: center;
+	font-size:30px;
+	padding-top:20px;
+	margin: 20px;
+	background-color:black;	
+}
+
+section .informes h2{
+	width:95%;
+	height:auto;
+	background-color:#1C1C1C;
+	text-align: center;
+	padding-top:5px;
+	color:white;
+	font-size:18px;
+	margin-bottom:20px;
+	margin:0 auto;
+
+}
+
+.informacion p{
+	margin-bottom:10px;
+	width:80%;
+	height:auto;
+	color:black;
+	padding-top:30px;
+	text-align:justify;
+	font-size:14px;
+	margin:0 auto; 
+}
+
+.informacion .imagen img{
+	width:50%;
+	height:300px;
+	margin: 0 auto;
+	margin-top:30px;
+	padding-bottom:5px;   
+	display:flex;
+	flex-flow:row wrap; 
+	padding-top:30px;	
+}
+
+.informacion .imagen h5{
+	font-size:13px;
+	color:black;
+	margin-left:;
+	text-align:center;
+	padding-bottom:5px;   
+	padding-top:5px;
+    margin: 0 auto;	
+}
+
+.informes .read{
+	text-align: right;
+	margin-top: 20px;
+	padding-bottom:20px;
+	padding-right: 10px;
+	font-style: italic;
+	font-weight: bold; 
+	font-size:16px;
+}
+
+.informacion .read a{
+	color: red; 
+}
+
+
+.stats .glyphicon, .container_pie .glyphicon {
+    font-size: 250%;
+    margin-bottom: 20px;
+    color: #B40431;
+    vertical-align: middle; 
+}
+
+.container_pie {
+	width:100%;
+	margin:0 auto;
+	padding-top:2px;
+	background-color: #1C1C1C;
+    color: #fff;
+}
+.container_pie p {
+	padding-top:0px;
+	padding-bottom:5px;
+    color:white;
+	text-align:center;
+}
+
+.container_pie .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color:white; 
+	padding-top:20px;
+}
+
+
+#myPage{
+    color:coral;
+    vertical-align: middle;
+	text-align:center;
+	padding-top:0px;
+}
+
+@media screen  and (max-width: 640px) {
+	
+	.informacion p{
+	margin-bottom:10px;
+	width:95%;
+	height:auto;
+	color:black;
+	padding-top:30px;
+	text-align:justify;
+	font-size:14px;
+	margin:0 auto; 
+}
+
+.informacion .imagen img{
+	width:90%;
+	height:300px;
+	margin: 0 auto;
+	margin-top:30px;
+	padding-bottom:5px;   
+	display:flex;
+	flex-flow:row wrap; 
+	padding-top:30px;	
+}
+
+  .informacion .iframe-video{
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+	width:90%;
+	height:320px;
+	margin:0 auto;
+	margin-top:15px;
+	margin-bottom:15px;
+  }
+}
+
+</style>
+
+<body id="myPage">
+
+		<div class="main-contain">
+		
+				<section class="noticias">
+                  <h2><a href="news1.html">La musica y su poder</a></h2>
+				  
+					<div class="informacion">
+						
+						<p>El arte músical es un complejo sistema de sonidos, melodías y ritmos que el hombre ha ido descubriendo y elaborando para obtener una infinidad de posibilidades diferentes. Se estima que la música cuenta con gran importancia para el ser humano ya que le permite expresar miedos, alegrías, sentimientos muy profundos de diverso tipo. </p>
+						
+				
+							<iframe class="iframe-video" src="https://youtube.com/embed/xVXsQIqReVM"></iframe>
+						      <h5>Video tomado de: Youtube Lenguajes Músicales</h5>
+					
+
+						<p>La música permite canalizar esos sentimientos y hacer que la persona aliviane sus penas o haga crecer su alegría dependiendo del caso. En pocas palabras, la música estimula casi todo nuestro cerebro e influye en el desarrollo de la inteligencia.<br><br> Por otra parte, la música proporciona efectos positivos para nuestra salud física y mental: </p>
+						
+						<h3>Por qué escuchar musica?</h3>
+
+						<blockquote class="declaraciones">
+							<p>Escuchar temas relajantes ayudan a aliviar el dolor, la depresión y el estrés, por eso la ley para ser un poco más felices es escuchar música positiva para el alma, que nos haga estremecer, me atrevería a decir que se convierte en un placebo para la vida.</p>
+						</blockquote>
+
+						<p>Así como la escritura ha sido un invento fundamental, para el desarrollo de la humanidad, plasmando sus vivencias desde la escritura cuneiforme, hasta las diversos lenguajes escritos de la actualidad. En efecto, la música es un lenguaje universal escrito e interpretado en distintos idiomas, pero causando sentimientos parecidos en las personas que se dejan contagiar de las letras y melodías.</p>
+
+					
+						<div class="imagen">
+							   <img src="../images/news/museo1.jpg" alt="" class="img-responsive">
+						      <h5>Imagen tomada de: pixabay.com</h5>
+						</div>
+                      
+					  <div class="informacion">
+					  
+					    <h3>Géneros Músicales</h3>
+						
+						<ul>
+						<li>Vallenato, Regge, Cumbia.</li>
+						<li>Rock, Salsa, Bachata.</li>
+						<li>Popular, Norteña, etc.</li>
+						</ul>
+						
+					   </div>
+
+						<p>Las personas escuchan melodías musicales en una parte del día o la noche dependiendo de la actividad que se esté realizando, por lo cual, la música se convierte en un símbolo cultural que establece estándares no sólo individuales si no también sociales respecto de los grupos que siguen a tal o cual música y que ven en ella representadas sus características más relevantes... de Importancia.</p>
+
+						
+						<p>La invitación es a apoyar a los artistas, escuchar su música, valorar su trabajo, que con tanto amor y sacrificio nos deleitan  y nos llevan a recorrer en el mundo de las melodías y letras. </p>
+						
+						<div class="blue">
+					
+						 <a href="news1.html" target="_self">Nota 1</a>
+						 <a href="news2.html" target="_self">Nota 2</a>
+						 
+					    </div>
+
+					</div>
+				</section>
+	
+		</div>
+
+	
+
+
+
+	<div class="container_pie">
+  	  <a href="#myPage" title="To Top">
+		<span class="botton-icon"><i class="glyphicon icon-circle-up"></i></span>
+		
+	  </a>
+	  
+  		<p>Elaborada por: Oscar Cañas & Cia </p>
+
+		
+	</div>
+	
+	
+
+</body>
+</html>

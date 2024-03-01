@@ -1,0 +1,26 @@
+<blockquote class="declaraciones">
+							<p>Escuchar temas relajantes ayudan a aliviar el dolor, la depresión y el estrés, por eso la ley para ser un poco más felices es escuchar música positiva para el alma, que nos haga estremecer, me atrevería a decir que se convierte en un placebo para la vida.</p>
+						</blockquote>
+
+						
+						<div class="imagen">
+							<img class="img-responsive center-block" src="images/song3.jpg" alt="">
+						      <h5>Imagen tomada de: pixabay.com</h5>
+						</div>
+
+						
+						<p>Así como la escritura ha sido un invento fundamental, para el desarrollo de la humanidad, plasmando sus vivencias desde la escritura cuneiforme, hasta las diversos lenguajes escritos de la actualidad. En efecto, la música es un lenguaje universal escrito e interpretado en distintos idiomas, pero causando sentimientos parecidos en las personas que se dejan contagiar de las letras y melodías.</p>
+
+					
+						<div class="imagen">
+							<img class="img-responsive center-block" src="images/song4.jpg" alt="">
+						      <h5>Imagen tomada de: pixabay.com</h5>
+						</div>
+                      
+					    <h3>Géneros Músicales</h3>
+						
+						<ul>
+						<li>Vallenato, Regge, Cumbia.</li>
+						<li>Rock, Salsa, Bachata.</li>
+						<li>Popular, Norteña, etc.</li>
+						</ul>

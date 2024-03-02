@@ -1,8 +1,8 @@
-<!Doctype html>
-<html>
-<head>
+<!DOCTYPE html>
+<html lang="es">
 
-<meta charset="utf-8">
+<head>
+ <meta charset="utf-8">
 <title>La Fronterísima </title>
 <meta name="description" content="Somos una plataforma online para compartir musica de artistas Colombianos e hispanos" />
 <meta name="keywords" content="La fronterisima, musica online, artistas de Colombia, La Paz Santander, Hoyo del Aire, artistas nuevos, canciones" />
@@ -10,8 +10,10 @@
 <meta property="og:image" content="https://www.lafronterisima.com/frontera.png">
 <meta name="author" content="Lafronterisima">
 <meta name="refresh" content="2"/>
-	
-	<meta name="viewport" content="width=device-width, user-scalable=no,
+ 
+  <link rel="stylesheet" href="css/outlined.css">
+  
+  <meta name="viewport" content="width=device-width, user-scalable=no,
 	initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="theme-color" content="#20B2AA">
@@ -33,19 +35,24 @@
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/fonts-icon.css">
 	<link rel="stylesheet" href="css/animate.css">
-
-    <script src="js/jquery 1.9.0.min.js"></script>
-    <script src="js/audio.js"></script>
-    <script src="js/prefix.min.js"></script>
-	<script src="js/image.js"></script>
-	<link rel="stylesheet" href="css/jquery.scrollflow.css">
-    <script src="js/jquery.scrollflow.min.js"></script>   
-	<link rel="stylesheet" href="owl/assets/owl.carousel.min.css">
-	<script src="js/iframe.js"></script>	
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <meta property="og:site_name" content="www.lafronterisima.com">
+  <meta property="og:image" content="https://lafronterisima.com/frontera.png">
+  <link rel="shortcut icon" href="image/frontera.png" type="image/x-icon"> 
+  <script src="js/jquery 1.9.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  
+  
+   <script src="js/audio.js"></script>
+  	<script src="js/iframe.js"></script>	
 	<script src="https://www.youtube.com/iframe_api"></script>	
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-  
-  <script>
+   
+   
+    <script>
     window.OneSignal = window.OneSignal || [];
     OneSignal.push(function() {
     OneSignal.init({
@@ -55,8 +62,8 @@
   </script>
   
   <script>
-
- $(document).ready(function () {
+  
+    $(document).ready(function () {
 		setUpSlider($('#slider1'));
 	})
 
@@ -95,190 +102,240 @@
 
   </script>
   
+
+
+    <div class="navbar-fixed">  
+    
+  <nav class="teal" role="navigation">
+   
+   <div class="nav-wrappers" class="menu">
+           
+    <div class="sidenav-trigger" data-target="nav-mobile" class="sidenav-overlay"><i class="material-icons-outlined">menu</i>
+      </div>
+	  
+	  
+	     <a class="share_btn">
+      <i class="material-icons-outlined">share</i></a> 
+
+    <div class="modal_wraper" data-action="modal_close"> 
+
+    <div class="modal_container"> 
+
+    <div class="header"><strong>Compartir aplicación</strong><button class="close" data-action="modal_close">
+    <i class="material-icons-outlined">close</i></button> 
+    </div>
+ 
+   <div class="boxes"> 
+ 
+   <div class="social_media"> 
+   <a href="http://www.facebook.com/sharer.php?u=https://www.amazon.com/dp/B0BD2J85V4/ref=apps_sf_sta%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared fb""> 
+    <i class="material-icons-outlined"> facebook</i>
+   </a>
+ 
+   <a href="https://wa.me/?text=https://www.amazon.com/dp/B0BD2J85V4/ref=apps_sf_sta%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared wa">
+    <i class="material-icons-outlined"> whatsapp</i>
+   </a> 
+ 
+   <a href="mailto:?Subject=Descarga%20nuestra%20app:%20La%20Fronterisima%20link%20https://www.amazon.com/dp/B0BD2J85V4/ref=apps_sf_sta" target="_blank" class="shared ce"> 
+    <i class="material-icons-outlined"> mail</i>
+   </a>
+   
+    <a href="https://telegram.me/share/url?url=https://www.amazon.com/dp/B0BD2J85V4/ref=apps_sf_sta%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tl"> 
+    <i class="material-icons-outlined"> telegram</i>
+   </a>
+
+   <a href="https://instagram.com/share?url=https://www.amazon.com/dp/B0BD2J85V4/ref=apps_sf_sta%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tt"> 
+     <i class="material-icons-outlined"> photo_camera</i>
+   </a>
+
+   
+ 
+  </div> 
+ 
+  <div class="copy_wraper"> 
+   <strong>Copiar link</strong>
+   <div class="copy_url_wraper">
+  <input type="url" id="shareable_url" value="https://www.amazon.com/dp/B0BD2J85V4/ref=apps_sf_sta"/> 
+ 
+   <button class="copy_url_btn"> Copiar </button> 
+ 
+  </div> 
+  
+  </div> 
+  </div> 
+   
+    <i class="ion-android-share"></i>
+    
+   </div>
+  </div>
+
+  <script>
+ 
+   let share_btns = document.querySelectorAll('.share_btn'),
+   modal_wraper = document.querySelector('.modal_wraper');
+   share_btns.forEach(share_btn => {
+   share_btn.addEventListener('click', ()=>{
+   modal_wraper.classList.add('active');
+   });
+  });
+  
+  addEventListener('click', (e)=>{
+  if(e.target.dataset.action == 'modal_close'){
+  modal_wraper.classList.remove('active');
+  }
+  });
+  let copy_url_btn = document.querySelector('.copy_url_btn');
+  if(copy_url_btn)
+  {
+  copy_url_btn.addEventListener('click', copyURL);
+  }
+  function copyURL(){
+  let copyInput = document.getElementById('shareable_url');
+  copyInput.select();
+  document.execCommand("copy");
+  }
+
+</script>
+      
+   <ul class="right hide-on-med-and-down" >
+     <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
+     <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>  
 	
-	 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6116874493728615"
+	<li> <a class="submenu"><span class="material-icons-outlined"" > map</span> Catálogo <span class="icon-circle-down"></span></a>  
+		 
+		 <ul class="dropdown">
+		 
+			 <li><a href="#VIDEOS"><span class="icon-film"></span>Videos</a></li>
+			 <li><a href="#PRIVACIDAD"><span class="icon-lock"></span>Privacidad</a></li>
+		 </ul>
+		 
+		 </li> 
+		
+        <li><a href="#NOTAS"><span class="material-icons-outlined"> map</span> Noticias</a></li>   
+        <li><a href="#ARTISTAS"><span class="material-icons-outlined"> map</span> Artistas</a>
+		</li>           
+   </ul>
+       
+     </div>
+    </nav>
+   </div>
+	  
+
+   <ul id="nav-mobile" class="sidenav"> 
+    <div class="sidenav-trigger" data-target="mobile-menu"></div>
+    
+    <div class="nav_perfil">
+        <div class="nav_logo">
+            <img src="image/frontera.png" style="height:100px;">
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> RADIO</a></li>
+        <li>
+		<li><a href="#INICIO"><span class="material-icons-outlined">cloud</span> INICIO</a></li>   
+           
+		   <li><a class="sub_item"><span class="material-icons-outlined">map</span> Catálogo <span class="icon-circle-down"></span>
+           
+		   <ul class="drop">
+                <li><a href="#VIDEOS"><span class="icon-film"></span>Videos</a></li>
+                <li><a href="#PRIVACIDAD"><span class="icon-lock"></span>Privacidad</a></li>
+            </ul>
+			
+           </li> 
+         
+        <li><a href="#NOTAS"><span class="material-icons-outlined">map</span> Noticias</a></li>   
+        <li><a href="#ARTISTAS"><span class="material-icons-outlined">map</span> Artistas</a></li>     
+
+        <div class="enlaces">
+            <h2><a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w"><span class="material-icons-outlined">speaker</span> Colombia</a></h2>
+        </div> 
+    </div>
+</ul>
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6116874493728615"
      crossorigin="anonymous"></script>
-	
+   
 </head>
-
-
 
 <body>
 
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v12.0&appId=275754110188363&autoLogAppEvents=1" nonce="o7sE84jb"></script>
-	   
-	  
-	    <!-- Menu de Navegacion -->
-    <header id="header">
-	
-    <nav class="menu">	
+
+
+ <main>
  
-    
-	  <div class="logo-box">
-
-       <h1 class="logo"><span></span></h1> 
-       <span class="btn-menu"><i class="icon-menu"></i></span>
-     </div>
-	 
-	   
-<div id="radio">
-  <audio id="track">
-    <source src="http://stream.zeno.fm/t100n9re6bruv">
-  </audio>
-  
-  <div id="ppbutton">
-    <div id="play-pause" class="play" onclick="playPause()"></div>
-  </div>
-</div>
-
-<script>
-  var track = document.getElementById('track');
-  var controlBtn = document.getElementById('play-pause');
-
-  function playPause() {
-    if (track.paused) {
-      track.play();
-      controlBtn.className = "pause";
-    } else {
-      track.pause();
-      controlBtn.className = "play";
-    }
-  }
-</script>
-
-     </div>
-	  
-	 
-	<div class="nav-menu" class="menu-fixed">
-	
-     <div class="list-container">
-	 
-	      <div class="nav_perfil">
-          
-          <img src="imagenes/emisora.png">
-         
-                      
-	      </div>
-	 
-	 
-	 
-	  <ul class="lists">
-		
-        <li><a href='#INICIO' class='activo'><span class="icon-home"></span>Inicio</a></li>
-        <!-- <li><a href='#GALERIA'><span class="icon-file-picture"></span>Galería</a></li>-->
-        <li><a href="#NOTAS"><span class="icon-newspaper"></span>Artículos</a></li>
-		
-		<li> <a href="#" class="submenu"><span class=" icon-file-text2" ></span>Catálogo <span class="icon-circle-down"></span></a>  
-		 
-		 <ul class="dropdown">
-		 
-			 <li><a href="#VIDEOS"><span class="icon-film"></span>Videos</a></li>
-		     <li><a href="#ENTREVISTA"><span class="icon-mic"></span>Entrevistas</a></li>
-			 <li><a href="#PRIVACIDAD"><span class="icon-lock"></span>Privacidad</a></li>
-		 </ul>
-		 
-		 </li> 
-				 
-		<li><a href='#ARTISTAS'><span class="icon-headphones"></span>Artistas</a></li>
-        <li><a href='#TURISMO'><span class="icon-map"></span>Turismo</a></li>
-		
-	 </ul>
-	
-		  
-     </div> 
-	 
-	 </div>  
-    </nav>
-	
-	
-</header>
- 
-
-  <main> 
-  
-	
   <section id="contenido">
   
+   <article id="RADIO" class="elemento visible">
+  	 
+  <section class="streaming">
    
-     <article id="INICIO" class="elemento visible">
-	 
-	 	  <section class="home">
-     
-	 <div class="slider">
-	 
-		<div class="slide active">
-			<div class="txt">
-				
-			</div>
-			
-			<img src="imagenes/1.jpg">
-			
-		 <div id="tickers">
-           <div class="news"> 
-           <div class="ticker">
-             <div class="ticker_item">Los acompañamos con los mejores temas musicales. </div>
-			 <div class="ticker_item">"Una alternativa musical sin limites" </div>
-             <div class="ticker_item">"Notas surcando fronteras" </div>
-			</div>
-            </div>
-          </div>
-			
-            <div class="container">
-                <div class="caption">	 
-                    <p><a href="#bloggers" style="color:white" class="btn">Nosotros</a></p>
-                    <p><a href="#fans" style="color:white" class="btn">Fans Page</a></p>
-                    <p><a href="#emisoras" style="color:white" class="btn">Emisoras</a></p>
-				    <p><a href="visitas.html" target="_blank"  style="color:white" class="btn">Visitas</a></p>
-                </div>
-            </div>
-			
-		</div>
+    <div class="contain_radio">
+      
+      
+      <div class="logo">
+        <img src="image/frontera.png" alt="logo">
 		
-	
-        <div class="slide">
-		   <img src="imagenes/2.jpg">
-		   
-              <div class="container">
-                <div class="caption">	 
-                    <p><a href="#bloggers" style="color:white" class="btn">Nosotros</a></p>
-                    <p><a href="#fans" style="color:white" class="btn">Fans Page</a></p>
-                    <p><a href="#emisoras" style="color:white" class="btn">Emisoras</a></p>
-				    <p><a href="visitas.html" target="_blank"  style="color:white" class="btn">Visitas</a></p>
-                </div>
-            </div>
-        </div>
-		
-        <div class="slide">
-		  <img src="imagenes/3.jpg">
-             <div class="container">
-                <div class="caption">	 
-                    <p><a href="#bloggers" style="color:white" class="btn">Nosotros</a></p>
-                    <p><a href="#fans" style="color:white" class="btn">Fans Page</a></p>
-                    <p><a href="#emisoras" style="color:white" class="btn">Emisoras</a></p>
-				    <p><a href="visitas.html" target="_blank"  style="color:white" class="btn">Visitas</a></p>
-                </div>
-            </div>
-        </div>
-		
-     </div>
+         <span class="radioplayer"
+	     data-src="http://stream.zeno.fm/t100n9re6bruv"
+	     data-playbutton="false"
+	     data-volumeslider="false"
+	     data-elapsedtime="false"
+	     data-nowplaying="true"
+	     data-showplayer="false">
+         </span>
+	       
+      </div>
+      
+         
+    <div class="player-container">
+    
+      <div class="live-message">
+        <i class="material-icons-outlined"></i>
+        <label class="live-icon">Live</label>
+      </div>
+      
+       <div class="live-messages">
+        <i class="material-icons-outlined"></i>
+        <label class="live-icon">stream</label>
+      </div>
+      
+      <div class="control-container">
+        
+        <audio id="track">
+          <source src="http://stream.zeno.fm/t100n9re6bruv">
+        </audio>
+
+         <div id="player-container">
+          <div id="play-pause" class="play"></div>
+         </div>
+    
+      </div>
    
-    <!-- controls  -->
-    <div class="controls">
-        <div class="prev"><</div>
-        <div class="next">></div>
     </div>
+    
+    
+    </div>
+   
+  
+    </section>  
 
-
-  </section>
+  </article>
+	 
+	 
 	  
-      <section class="inicio-matrix">	
+	 <article id="INICIO" class="elemento">
+	  
+		<section class="inicio-matrix">	
 	      
            <div class="caja-matrix">
             
 			<h3>LA FRONTERÍSIMA</h3>	
 		
-			<p>Somos una plataforma virtual cuyo objetivo es compartir y difundir temas musicales de artistas Hispanomericanos, para llegarles al corazón de los seguidores</p>					
+			<p>Somos una plataforma virtual cuyo objetivo es compartir y difundir temas musicales de artistas Hispanoamericanos, para llegarles al corazón de los seguidores</p>					
 			<p>Escúchala, gózala y siéntela, deja que la música fluya sin limites.</p>
             <p>Síguenos a través de las redes sociales.</p>
 			
@@ -294,7 +351,7 @@
 
 		     <div class="video-responsive">
 
-		       <div class="video-slider" id="slider1">
+		       <div class="video-slider">
 		
 		<div class="slides">
 			<iframe class="video" src="https://www.youtube.com/embed/ZGNqaE10Oeg
@@ -319,26 +376,7 @@
      </section>	
 	 
 	 
-	  <div class="publicidades">
-        
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6116874493728615"
-     crossorigin="anonymous"></script>
-         
-     <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-6116874493728615"
-     data-ad-slot="3266442575"
-     data-ad-format="auto"
-     data-full-width-responsive="false"></ins>
-    <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-	
-   </div> 
-	 
-	 
-
-  <section id="bloggers">
+	  <section id="bloggers">
      <h3>NOSOTROS</h3>
 				
 	<div class="contenido_block">
@@ -438,8 +476,8 @@
 	 			
  </section>
  
-
-<section class="boxes-podcast" id="podcast">	
+ 
+ <section class="boxes-podcast" id="podcast">	
 	
         <div class="caja-portfa">
            <h3>SOUNDS</h3>
@@ -497,7 +535,8 @@
 		  
      </section>	
 	 
-	 <section class="containers">
+	 
+	  <section class="containers">
       <div class="header-video">
         <video src="" muted autoplay loop></video>
       </div>
@@ -508,8 +547,9 @@
         <a class="btn" href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" class="btn">Síguenos</a>
       </div>
     </section>
-	 
-   <section class="boxes-portfolio" id="fans">	
+	
+	
+	 <section class="boxes-portfolio" id="fans">	
 	
         <div class="caja-portfolio">
            <h3>FAN PAGE</h3>
@@ -589,156 +629,8 @@
 		  
      </section>	
 	 
-
-    <section class="carousels-radio" id="emisoras">
-
-       <h2>EMISORAS <span class="icon-arrow-right"></span></h2>
-
-        <div class="owl-carousels">
-    
-       <div class="items">
-              <img src="emisora/altovoltaje.png" />
-               
-			  <div class="card-body">
-                <div class="card-title">Altovoltaje Radio</div>
-				 <div class="sub-title">Caldas</div>
-               
-			   <p class="card-description">
-               Programación con una variedad musical, cultural, deporte y noticias. Somos uno de los medios más importantes del Eje Cafetero en las plataformas de Radios Digitales. </p>
-              
-				<a class="btns">
-	   <audio controls> <source src="https://manager7.streamradio.fr:3045/stream?x=1700082229257" /></audio>
-	   </a> 
-				
-				
-               </div>
-        </div>
-    
-
-   	   <div class="items">
-           <img src="emisora/tropical.png" />
-            
-            <div class="card-body">
-                  <div class="card-title">El Palacio Tropoical</div>
-				  <div class="sub-title">Colombia</div>
-				  
-                <p class="card-description">
-                    Plataforma online que emite desde La Guajira, para difundir la música
-		            tropical y caribeña cuyo fin es conservar su raices, a traves de diversos géneros musicales.
-                </p>
-				
-              		<a class="btns">
-	                 <audio controls> <source src="http://stream.zeno.fm/qmen7kmxdf9uv" /></audio>
-	                </a> 
-	   
-            </div>
-        </div>
 	 
-     
-	  <div class="items">
-               <img src="emisora/la voz.png" />
-         
-            <div class="card-body">
-                 <div class="card-title">La Voz del Rey</div>
-				  <div class="sub-title">Planeta Rica</div>
-                <p class="card-description">
-                   Usar los medios digitales y radiales para difundir el evangelio; edificar y   consolar a los creyentes hispanos.
-		           Director: Seir Diaz.
-			       Solicita su exito preferido: +57 3112687477
-                </p>
-               
-			    <a class="btns">
-	                 <audio controls> <source src="http://stream.zeno.fm/qv0h7n21urhvv"" /></audio>
-	                </a> 
-					
-            </div>
-        </div>
-		
-		    <div class="items">
-                <img src="emisora/scom.png" />
-         
-            <div class="card-body">
-                  <div class="card-title">Radio Scom</div>
-				  <div class="sub-title">Cali</div>
-                <p class="card-description">
-                   Fomentar y difundir una cultura musical con excelente programación las 24 horas, que permitan estar a la vanguardia de las nuevas tendencias tecnológicas en comunicación.
-                </p>
-                
-				  <a class="btns">
-	                 <audio controls><source src="https://tustreamingradios2.com/8046/stream"/></audio>
-	                </a> 
-					
-            </div>
-        </div>
-		
-		  <div class="items">
-                <img src="emisora/empresa.png" />
-         
-            <div class="card-body">
-                  <div class="card-title">Musica Sin Fronteras</div>
-				  <div class="sub-title">Bogotá</div>
-                <p class="card-description">
-                   Promover en la plataforma exitos de artistas nacionales e internacionales. Por lo tanto, trasmite y produce una programación variada, para ofrecer musica a otro nivel. "Sin Fronteras".
-                </p>
-               
-			     <a class="btns">
-	                 <audio controls> <source src="http://stream.zeno.fm/672xk039ptzuv" /></audio>
-	                </a> 
-					
-            </div>
-        </div>
-		
-		 <div class="items">
-              <img src="emisora/palacio.png" />
-         
-            <div class="card-body">
-                  <div class="card-title">Palacio Vallenato</div>
-				  <div class="sub-title">Riohacha</div>
-                <p class="card-description">
-                  Gran propuesta musical vallenata desde el año 2012, para la difusión del folclor
-		          en su máxima expresión. Director: Lucas Palacio.
-			      Solicita su exito preferido: +57 3023062929.
-                </p>
-                
-				  <a class="btns">
-	                 <audio controls><source src="https://play8.tikast.com/proxy/lucas?mp=/stream"/></audio>
-	                </a> 
-					
-            </div>
-        </div>
-    
-    </div>
-    
-    
-  </section>
-
-
-  <script src="owl/owl.carousel.min.js"></script>
-
-  <script>
-    $('.owl-carousels').owlCarousel({
-      margin: 15,
-       loop: true,
-       autoplay:true,
-      nav: false,
-      navText: [""],
-      responsive: {
-        0: {
-          items: 1
-        },
-        580: {
-          items: 2
-        },
-        1000: {
-          items: 3
-        }
-      }
-    });
-  </script>
-  
-  
- 
-		<footer>
+	 	<footer>
 		<div class="footer-container">
 			<div class="footer-main">
 				<div class="footer-columna">
@@ -782,7 +674,8 @@
 		<div class="footer-copy-redes">
 			<div class="main-copy-redes">
 				<div class="footer-copy">
-					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4>
+					 <!-- <a href="">INICIO</a></h4><br> -->
 				       <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
 				</div>
 				<div class="footer-redes">
@@ -792,19 +685,328 @@
 				</div>
 			</div>
 		</div>
-       
-   
+		
     </footer>
-      
+	
+     </article>
+	 
+	 
+	 
+	  <article id='VIDEOS' class='elemento'>
+	
+	   <section class="artistas">
+	
+	
+		<div class="artistas-container">
+			<section class="artistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/02GlczrkIBk"></iframe>
+				   
+				    
+				</div>
+				<section class="artistas-text">
+				 
+				  <h3>Elfre Delgado</h3>
+					<h2>Vallenato</h2>
+					
+					  <p>Cantante del género vallenato, para gozar con !Sabrosura!</p>
+				</section>
+			</section>
+			
+			<section class="artistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/W_qrpb-u18w"></iframe>
+				    
+				</div>
+				<section class="artistas-text">
+				    <h3>Luis Alexis</h3>
+					<h2>Vallenato</h2>
+					<p>Artista Ecuatoriano del género Vallenato para el mundo. ¡Ay Ombe!</p>
+				</section>
+			</section>
+			
+			<section class="artistas-item">
+					<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/ubHvNue4Ma4"></iframe>
+				   
+				</div>
+				<section class="artistas-text">
+				   <h3>Rodolfo Chavijo</h3>
+					<h2>Popular</h2>
+					<p>Excelente intérprete dedicado al género norteño y popular.</p>
+				</section>
+			</section>
+		</div>
+		
+		
+		<div class="artistas-container">
+			<section class="artistas-item">
+					<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/rYyUEtOWIX4"></iframe>
+				   
+				</div>
+				<section class="artistas-text">
+				   <h3>Enrique Chávez</h3>
+					<h2>Variado</h2>
+					  <p>Talentoso artista y compositor Mexicano, destacándose en el género ranchero.</p>
+				</section>
+			</section>
+			
+			<section class="artistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/2vrBpjQjAbk"></iframe>
+				   
+				</div>
+				<section class="artistas-text">
+			       <h3>Urbano</h3>
+					<h2>Grupo Clybyer</h2>
+					<p>Un grupo de música urbana, cuyas raíces son de Putumayo.</p>
+				</section>
+			</section>
+			<section class="artistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/AT7HHYvbtq4"></iframe>
+				     
+				</div>
+				<section class="artistas-text">
+				   <h3>José Escarpeta</h3>
+					<h2>Popular</h2>
+					<p>Artista consagrado junto a su agrupación de música popular.</p>
+				</section>
+			</section>
+		</div>
+			
+	</section>
+   
 
- </article>
+	<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+				<!--<form action="correo.php" method="POST" id="formulario">-->
+					  
+				  <form action="" method="" id="formulario">
+				 
+					<!-- <input type="email" name="Sender" id="Sender" placeholder="Ingresa su correo" required>
+					  
+				      <textarea type="text" name="Message" id="Message"  placeholder="Ingresa su mensaje" required></textarea>
+					
+					  
+					   <input type="submit" value="Enviar" id="button"> -->
+					   
+					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+					   	
+				    </form>
+							
+				   
+        </div>
+				
+		
 
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					<p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br><br>
+                      Los invitamos a seguirnos a través de las redes sociales.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4>
+					 <!-- <a href="">INICIO</a></h4><br> -->
+				       <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/alma.lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+
+	</article> 
+	
+	 
+	  <article id='PRIVACIDAD' class='elemento'>
+	
+	 	  <section class="privacy">
+	
+		   <div class="privacy-container">
+			
+			
+		  <section class="privacy-text">
+		
+				
+   <h2><strong>POLÍTICA DE PRIVACIDAD</strong></h2>
+   
+<p>La presente política de privacidad establece los términos en que La Fronterisima 
+usa y protege la información que es proporcionada por sus usuarios al momento de 
+utilizar su sitio web. Esta compañía está comprometida con la seguridad de los datos
+ de sus usuarios. Cuando le pedimos llenar los campos de información personal
+ con la cual usted pueda ser identificado, lo hacemos asegurando que sólo
+ se empleará de acuerdo con los términos de este documento.<br>
  
+ Sin embargo esta Política de Privacidad puede cambiar con el tiempo o 
+ ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente 
+ esta página para asegurarse que está de acuerdo con dichos cambios.</p>
+ 
+ <h2><strong>Información que es recogida</strong></h2>
+ 
+ <p>Nuestro sitio web podrá recoger información personal por ejemplo: Nombre,&nbsp;
+ información de contacto como&nbsp; su dirección de correo electrónica. </p>
+
+<h2><strong>Uso de la información recogida</strong></h2>
+
+<p>Nuestro sitio web emplea la información con el fin de proporcionar el mejor 
+servicio posible, particularmente para mantener un registro de usuarios,
+ de pedidos en caso que aplique y mejorar nuestros servicios.
+ 
+ &nbsp;Es posible que sean enviados correos electrónicos periódicamente 
+ a través de nuestro sitio con para contactar un artísta u otra 
+ información publicitaria que consideremos relevante para usted o que pueda
+ brindarle algún beneficio, estos correos electrónicos serán enviados a la
+ dirección que usted proporcione y podrán ser cancelados en cualquier momento.</p>
+ 
+ <p>La Fronterisima está altamente comprometido para cumplir con el compromiso
+ de mantener su información segura. Usamos los sistemas más avanzados y 
+ los actualizamos constantemente, para asegurarnos que no exista ningún 
+ acceso no autorizado.</p>
+ 
+ <h2><strong>Cookies</strong></h2>
+ 
+ <p>Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar 
+ permiso para almacenarse en su ordenador, al aceptar dicho fichero se crea y la 
+ cookie sirve entonces para tener información respecto al tráfico web y también 
+ facilita las futuras visitas a una web recurrente. 
+ 
+ Otra función que tienen las cookies es que con ellas las web pueden reconocerte individualmente
+ y por tanto brindarte el mejor servicio personalizado de su web.</p>
+ 
+ <p>Nuestro sitio web emplea las cookies para poder identificar las páginas
+ que son visitadas y su frecuencia. Esta información es empleada únicamente para
+ análisis estadístico y después la información se elimina de forma permanente.
+ Usted puede eliminar las cookies en cualquier momento desde su ordenador. 
+ 
+ Sin embargo las cookies ayudan a proporcionar un mejor servicio de los sitios web,
+ estás no dan acceso a información de su ordenador ni de usted, 
+ a menos de que usted así lo quiera y la proporcione directamente.
+
+ Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de
+ navegadores aceptan cookies automáticamente pues sirve para tener un mejor
+ servicio web. 
+ 
+ También usted puede cambiar la configuración de su ordenador
+ para declinar las cookies.
+
+ Si se declinan es posible que no pueda utilizar algunos de nuestros servicios.</p>
+ 
+ <h2><strong>Enlaces a Terceros</strong></h2>
+ 
+ <p>Este sitio web pudiera contener enlaces a otros sitios que
+ pudieran ser de su interés. Una vez que usted de clic en estos enlaces 
+ y abandone nuestra página, ya no tenemos control sobre al sitio al que
+ es redirigido y por lo tanto no somos responsables de los 
+ ni de la protección de sus datos en esos otros sitios terceros. 
+ 
+ Dichos sitios están sujetos a sus propias políticas de privacidad
+ por lo cual es recomendable que los consulte para confirmar que 
+ usted está de acuerdo con estas.</p>
+ 
+ <h2><strong>Control de su información personal</strong></h2>
+ 
+ <p>La Fronterisima se reserva el derecho de cambiar los términos de la presente 
+ política de privacidad en cualquier momento.</p>
+
+
+
+	 </section>
+				
+		
+   </div>
+			
+
+	     </section>
+	
+   
+	<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+				<!--<form action="correo.php" method="POST" id="formulario">-->
+					  
+				  <form action="" method="" id="formulario">
+				 
+					<!-- <input type="email" name="Sender" id="Sender" placeholder="Ingresa su correo" required>
+					  
+				      <textarea type="text" name="Message" id="Message"  placeholder="Ingresa su mensaje" required></textarea>
+					
+					  
+					   <input type="submit" value="Enviar" id="button"> -->
+					   
+					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+					   	
+				    </form>
+							
+				   
+        </div>
+				
+		
+
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					<p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br><br>
+                      Los invitamos a seguirnos a través de las redes sociales.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4>
+					 <!-- <a href="">INICIO</a></h4><br> -->
+				       <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/alma.lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+
+  </article>
+  
+  
+
+     <article id="NOTAS" class="elemento">
 	  
-<article id='NOTAS' class='elemento'>
-   
-   
-   <div class="notas_page">
+	
+          <div class="notas_page">
   
 	<div id="publicaciones" class="containst">
 		
@@ -917,7 +1119,7 @@
 					 </div>
 					
 					
-			<div class="blue"> 
+			<div class="baseline"> 
 			   <ul>
 	           <a href="#" id="pulsar1" >Nota 1</a>
 	           <a href="#" id="pulsar2" >Nota 2</a>
@@ -943,500 +1145,72 @@
 		   </div>
 	     </div>	
 
-
-	<footer>
-		<div class="footer-container">
-			<div class="footer-main">
-				<div class="footer-columna">
-					<h3>Contacto</h3>
-					
-					<!--<form action="correo.php" method="POST"> -->
-					  
-				     <form action="" method="" id="formulario">
-				
-					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
-				    </form>
-					
-										   
-              </div>
-
-
-				<div class="footer-columna">
-					<h3>Dirección</h3>
-					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
-				</div>
-
-				<div class="footer-columna">
-					<h3>Nosotros</h3>
-					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
-					 <br>
-                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="footer-copy-redes">
-			<div class="main-copy-redes">
-				<div class="footer-copy">
-					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
-				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
-					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
-				</div>
-				<div class="footer-redes">
-					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
-					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
-					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
-				</div>
-			</div>
-		</div>
-		
-    </footer>
 	 
- </article>
- 
- 
- 
-  <article id='VIDEOS' class='elemento'>
-	
-	   <section class="artistas">
-	
-	
-		<div class="artistas-container">
-			<section class="artistas-item">
-				<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/02GlczrkIBk"></iframe>
-				   
-				    
-				</div>
-				<section class="artistas-text">
+	 	<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+				<!--<form action="correo.php" method="POST" id="formulario">-->
+					  
+				  <form action="" method="" id="formulario">
 				 
-				  <h3>Elfre Delgado</h3>
-					<h2>Vallenato</h2>
-					
-					  <p>Cantante del género vallenato, para gozar con !Sabrosura!</p>
-				</section>
-			</section>
-			
-			<section class="artistas-item">
-				<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/W_qrpb-u18w"></iframe>
-				    
-				</div>
-				<section class="artistas-text">
-				    <h3>Luis Alexis</h3>
-					<h2>Vallenato</h2>
-					<p>Artista Ecuatoriano del género Vallenato para el mundo. ¡Ay Ombe!</p>
-				</section>
-			</section>
-			
-			<section class="artistas-item">
-					<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/ubHvNue4Ma4"></iframe>
-				   
-				</div>
-				<section class="artistas-text">
-				   <h3>Rodolfo Chavijo</h3>
-					<h2>Popular</h2>
-					<p>Excelente intérprete dedicado al género norteño y popular.</p>
-				</section>
-			</section>
-		</div>
-		
-		
-		<div class="artistas-container">
-			<section class="artistas-item">
-					<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/rYyUEtOWIX4"></iframe>
-				   
-				</div>
-				<section class="artistas-text">
-				   <h3>Enrique Chávez</h3>
-					<h2>Variado</h2>
-					  <p>Talentoso artista y compositor Mexicano, destacándose en el género ranchero.</p>
-				</section>
-			</section>
-			
-			<section class="artistas-item">
-				<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/2vrBpjQjAbk"></iframe>
-				   
-				</div>
-				<section class="artistas-text">
-			       <h3>Urbano</h3>
-					<h2>Grupo Clybyer</h2>
-					<p>Un grupo de música urbana, cuyas raíces son de Putumayo.</p>
-				</section>
-			</section>
-			<section class="artistas-item">
-				<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/AT7HHYvbtq4"></iframe>
-				     
-				</div>
-				<section class="artistas-text">
-				   <h3>José Escarpeta</h3>
-					<h2>Popular</h2>
-					<p>Artista consagrado junto a su agrupación de música popular.</p>
-				</section>
-			</section>
-		</div>
-			
-	</section>
-   
-
-		<footer>
-		<div class="footer-container">
-			<div class="footer-main">
-				<div class="footer-columna">
-					<h3>Contacto</h3>
-					
-					<!--<form action="correo.php" method="POST"> -->
+					<!-- <input type="email" name="Sender" id="Sender" placeholder="Ingresa su correo" required>
 					  
-				     <form action="" method="" id="formulario">
-				
-					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
-				    </form>
+				      <textarea type="text" name="Message" id="Message"  placeholder="Ingresa su mensaje" required></textarea>
 					
-										   
-              </div>
-
+					  
+					   <input type="submit" value="Enviar" id="button"> -->
+					   
+					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+					   	
+				    </form>
+							
+				   
+        </div>
+				
+		
 
 				<div class="footer-columna">
 					<h3>Dirección</h3>
 					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				
 				</div>
 
 				<div class="footer-columna">
 					<h3>Nosotros</h3>
-					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
-					 <br>
-                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
+					<p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br><br>
+                      Los invitamos a seguirnos a través de las redes sociales.</p>
 				</div>
 			</div>
 		</div>
 
-
 		<div class="footer-copy-redes">
 			<div class="main-copy-redes">
 				<div class="footer-copy">
-					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
-				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
-					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4>
+					 <!-- <a href="">INICIO</a></h4><br> -->
+				       <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
 				</div>
 				<div class="footer-redes">
-					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://www.facebook.com/alma.lafronterisima" target="_blank" class="fa fa-facebook"></a>
 					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
 					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
 				</div>
 			</div>
 		</div>
-		
+       
     </footer>
 
-	</article> 
- 
-
- <article id='ENTREVISTA' class='elemento'>
-	
-	  <section class="entrevistas">
-	  	
-		<div class="entrevistas-container">
-			
-			<section class="entrevistas-item">
-				<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/58jN_PvL8EQ?html5=1&enablejsapi=1"></iframe>
-				    
-				</div>
-				<section class="entrevistas-text">
-				   <h3>Tucanes de Tijuana</h3>
-					<h2>Norteña</h2>
-					  <p>Es un honor presentar la entrevista realizada por "Dary el As de México" a Mario Quintero cantante de "Los Tucanes de Tijuana"</p>
-				</section>
-			</section>
-			
-			<section class="entrevistas-item">
-				<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/lkFln0-IEq8?html5=1&enablejsapi=1"></iframe>
-				   
-				</div>
-				<section class="entrevistas-text">
-				   <h3>Perla Quintanilla</h3>
-					<h2>Norteña</h2>
-					  <p>Entrevista realizada por "Dary el As de México" a la gran cantante "Perla Quintanilla"</p>
-				</section>
-			</section>
-			
-			<section class="entrevistas-item">
-				<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/npOWcDazxVI?html5=1&enablejsapi=1"></iframe>
-				   
-				</div>
-				<section class="entrevistas-text">
-				   <h3>León del Oriente</h3>
-					<h2>Popular</h2>
-					  <p>Entrevista "En Volando a México, por un sueño" al artista Marco Antonio Arias "El León del Oriente" </p>
-				</section>
-			</section>
-			
-			
-		</div>
-		
-		
-		
-		<div class="entrevistas-container">
-			
-			<section class="entrevistas-item">
-				<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/58jN_PvL8EQ?html5=1&enablejsapi=1"></iframe>
-				    
-				</div>
-				<section class="entrevistas-text">
-				   <h3>Tucanes de Tijuana</h3>
-					<h2>Norteña</h2>
-					  <p>Es un honor presentar la entrevista realizada por "Dary el As de México" a Mario Quintero cantante de "Los Tucanes de Tijuana"</p>
-				</section>
-			</section>
-			
-			<section class="entrevistas-item">
-				<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/lkFln0-IEq8?html5=1&enablejsapi=1"></iframe>
-				   
-				</div>
-				<section class="entrevistas-text">
-				   <h3>Perla Quintanilla</h3>
-					<h2>Norteña</h2>
-					  <p>Entrevista realizada por "Dary el As de México" a la gran cantante "Perla Quintanilla"</p>
-				</section>
-			</section>
-			
-			<section class="entrevistas-item">
-				<div class="embed-res">
-				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/npOWcDazxVI?html5=1&enablejsapi=1"></iframe>
-				   
-				</div>
-				<section class="entrevistas-text">
-				   <h3>León del Oriente</h3>
-					<h2>Popular</h2>
-					  <p>Entrevista "En Volando a México, por un sueño" al artista Marco Antonio Arias "El León del Oriente" </p>
-				</section>
-			</section>
-			
-			
-		</div>
-			
-	</section>
-	
+   </article>
    
-	<footer>
-		<div class="footer-container">
-			<div class="footer-main">
-				<div class="footer-columna">
-					<h3>Contacto</h3>
-					
-					<!--<form action="correo.php" method="POST"> -->
-					  
-				     <form action="" method="" id="formulario">
-				
-					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
-				    </form>
-					
-										   
-              </div>
-
-
-				<div class="footer-columna">
-					<h3>Dirección</h3>
-					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
-				</div>
-
-				<div class="footer-columna">
-					<h3>Nosotros</h3>
-					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
-					 <br>
-                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="footer-copy-redes">
-			<div class="main-copy-redes">
-				<div class="footer-copy">
-					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
-				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
-					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
-				</div>
-				<div class="footer-redes">
-					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
-					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
-					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
-				</div>
-			</div>
-		</div>
-		
-    </footer>
-
-  </article>
-  
-  
-  
-   <article id='PRIVACIDAD' class='elemento'>
-	
-	 	  <section class="privacy">
-	
-		   <div class="privacy-container">
-			
-			
-		  <section class="privacy-text">
-		
-				
-   <h2><strong>POLÍTICA DE PRIVACIDAD</strong></h2>
    
-<p>La presente política de privacidad establece los términos en que La Fronterisima 
-usa y protege la información que es proporcionada por sus usuarios al momento de 
-utilizar su sitio web. Esta compañía está comprometida con la seguridad de los datos
- de sus usuarios. Cuando le pedimos llenar los campos de información personal
- con la cual usted pueda ser identificado, lo hacemos asegurando que sólo
- se empleará de acuerdo con los términos de este documento.<br>
- 
- Sin embargo esta Política de Privacidad puede cambiar con el tiempo o 
- ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente 
- esta página para asegurarse que está de acuerdo con dichos cambios.</p>
- 
- <h2><strong>Información que es recogida</strong></h2>
- 
- <p>Nuestro sitio web podrá recoger información personal por ejemplo: Nombre,&nbsp;
- información de contacto como&nbsp; su dirección de correo electrónica. </p>
-
-<h2><strong>Uso de la información recogida</strong></h2>
-
-<p>Nuestro sitio web emplea la información con el fin de proporcionar el mejor 
-servicio posible, particularmente para mantener un registro de usuarios,
- de pedidos en caso que aplique y mejorar nuestros servicios.
- 
- &nbsp;Es posible que sean enviados correos electrónicos periódicamente 
- a través de nuestro sitio con para contactar un artísta u otra 
- información publicitaria que consideremos relevante para usted o que pueda
- brindarle algún beneficio, estos correos electrónicos serán enviados a la
- dirección que usted proporcione y podrán ser cancelados en cualquier momento.</p>
- 
- <p>La Fronterisima está altamente comprometido para cumplir con el compromiso
- de mantener su información segura. Usamos los sistemas más avanzados y 
- los actualizamos constantemente, para asegurarnos que no exista ningún 
- acceso no autorizado.</p>
- 
- <h2><strong>Cookies</strong></h2>
- 
- <p>Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar 
- permiso para almacenarse en su ordenador, al aceptar dicho fichero se crea y la 
- cookie sirve entonces para tener información respecto al tráfico web y también 
- facilita las futuras visitas a una web recurrente. 
- 
- Otra función que tienen las cookies es que con ellas las web pueden reconocerte individualmente
- y por tanto brindarte el mejor servicio personalizado de su web.</p>
- 
- <p>Nuestro sitio web emplea las cookies para poder identificar las páginas
- que son visitadas y su frecuencia. Esta información es empleada únicamente para
- análisis estadístico y después la información se elimina de forma permanente.
- Usted puede eliminar las cookies en cualquier momento desde su ordenador. 
- 
- Sin embargo las cookies ayudan a proporcionar un mejor servicio de los sitios web,
- estás no dan acceso a información de su ordenador ni de usted, 
- a menos de que usted así lo quiera y la proporcione directamente.
-
- Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de
- navegadores aceptan cookies automáticamente pues sirve para tener un mejor
- servicio web. 
- 
- También usted puede cambiar la configuración de su ordenador
- para declinar las cookies.
-
- Si se declinan es posible que no pueda utilizar algunos de nuestros servicios.</p>
- 
- <h2><strong>Enlaces a Terceros</strong></h2>
- 
- <p>Este sitio web pudiera contener enlaces a otros sitios que
- pudieran ser de su interés. Una vez que usted de clic en estos enlaces 
- y abandone nuestra página, ya no tenemos control sobre al sitio al que
- es redirigido y por lo tanto no somos responsables de los 
- ni de la protección de sus datos en esos otros sitios terceros. 
- 
- Dichos sitios están sujetos a sus propias políticas de privacidad
- por lo cual es recomendable que los consulte para confirmar que 
- usted está de acuerdo con estas.</p>
- 
- <h2><strong>Control de su información personal</strong></h2>
- 
- <p>La Fronterisima se reserva el derecho de cambiar los términos de la presente 
- política de privacidad en cualquier momento.</p>
-
-
-
-	 </section>
-				
-		
-   </div>
-			
-
-	     </section>
+    <article id="ARTISTAS" class="elemento">
+	  
 	
-   
-	<footer>
-		<div class="footer-container">
-			<div class="footer-main">
-				<div class="footer-columna">
-					<h3>Contacto</h3>
-					
-					<!--<form action="correo.php" method="POST"> -->
-					  
-				     <form action="" method="" id="formulario">
-				
-					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
-				    </form>
-					
-										   
-              </div>
-
-
-				<div class="footer-columna">
-					<h3>Dirección</h3>
-					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
-				</div>
-
-				<div class="footer-columna">
-					<h3>Nosotros</h3>
-					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
-					 <br>
-                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="footer-copy-redes">
-			<div class="main-copy-redes">
-				<div class="footer-copy">
-					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
-				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
-					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
-				</div>
-				<div class="footer-redes">
-					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
-					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
-					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
-				</div>
-			</div>
-		</div>
-		
-    </footer>
-
-  </article>
-  
-
-  
-   <article id='ARTISTAS' class='elemento'>	
-      	
-	 <div id="especiales">
+     <section id="especiales">
 	 
         <section class="especial scrollflow -slide-top">   
 	   <h3 class="programas__titulo">ARTISTAS REVELACIÓN</h3>
@@ -1495,10 +1269,79 @@ servicio posible, particularmente para mantener un registro de usuarios,
             </article>
             </div>
         </section>
-		</div>
+	
+		
+		   <section id="especiales">
+	 
+        <section class="especial scrollflow -slide-top">   
+	   <h3 class="programas__titulo">ARTISTAS POPULARES</h3>
+        <div class="contenedor">  
+             <article class="especial__columna1">
+          <img loading="lazy" src="artistas/indomables.jpg" alt="" class="especial__img">
+                <div class="informaciones">
+                <h3 class="especial__titulo">Las Indomables</h3>
+				
+				  <button class="button">Carrilera</button>
+				  
+                <p class="especial__txt">Tenemos el gusto de presentarles a "Las Indomables" (Género Tecno-Carrilera) con el mejor repertorio de éxitos 
+				del género, han alternado con varios artístas de cartelera en ferias y fiestas. Con su primer éxito y mp3 sonando en 
+				varios Departamentos de Colombia con su tema Popurrí de las Indomables.
+				
+				Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos
+				instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena.
+          
+                </p>
+				
+				</div>
+				
+            </article>
+			
+              <article class="especial__columna2">
+                <img loading="lazy" src="artistas/federales.jpg" alt="" class="especial__img">
+                  <div class="informaciones">
+                <h3 class="especial__titulo">Los Federales</h3>
+				
+			      <button class="button">Norteña</button> 
+				
+				   <p class="especial__txt">Con más de 18 años de carrera musical "Los Federales de Colombia" son reconocidos
+				   por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Cuncurso de Temas
+				   Inéditos en Sinaloa Radio TV, con Lupita Villa en México.
+				   
+				   Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por exitos como: Vivo como un rey, A mi pueblo querido,
+				   Un amor de calle entre otros.
+
+                </p>
+				
+				</div>
+				
+            </article>
+            
+              <article class="especial__columna3">
+                <img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="" class="especial__img">
+                  <div class="informaciones">
+                <h3 class="especial__titulo">Yo me llamo Alzate</h3>
+				
+				  <button class="button">Popular</button>
+				  
+                <p class="especial__txt">Es un gusto presentar a un artista como "Xavier El Gato blanco", artista principiante
+				en "Yo me llamo" interprentando a Alzate y catalogado como el "Mil Voces" por imitar artístas como Alzate, Yeison
+				Jiménez, Giovany Ayala, Jhon Alex Castaño, Jessi Uribe, Fernano Burbano, Jhony Rivera, Alexis Escobar entre otros.<br>
+				
+				La agrupación "Xavier El Gato Blanco" está integrada por: Voz oficial y un marco de (2) trompetas, (1) bajo, (1) piano o acordeón, (1) vihuela, (2) requintos,
+				y (1) batería, total de (8) integrantes en escena.
+            
+			 
+                </p>
+				
+				</div>
+				
+            </article>
+			
+            </div>
+        </section>
 		
 		
-		 <section class="especial scrollflow -slide-top">   
+		<section class="especial scrollflow -slide-top">   
 	       <h3 class="programas__titulo">ARTÍSTAS VARIADOS</h3>
         <div class="contenedor">  
             <article class="especial__columna1">
@@ -1564,593 +1407,45 @@ servicio posible, particularmente para mantener un registro de usuarios,
 			   
             </div>
         </section>
-		
-		
-		<section class="especial scrollflow -slide-top">   
-	       <h3 class="programas__titulo">ARTISTAS POPULARES </h3>
-        <div class="contenedor">  
-            <article class="especial__columna1">
-          <img loading="lazy" src="artistas/indomables.jpg" alt="" class="especial__img">
-                <div class="informaciones">
-                <h3 class="especial__titulo">Las Indomables</h3>
-				
-				  <button class="button">Tecno-Carrilera</button>
-				  
-                <p class="especial__txt">Tenemos el gusto de presentarles a "Las Indomables" (Género Tecno-Carrilera) con el mejor repertorio de éxitos 
-				del género, han alternado con varios artístas de cartelera en ferias y fiestas. Con su primer éxito y mp3 sonando en 
-				varios Departamentos de Colombia con su tema Popurrí de las Indomables.
-				
-				Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos
-				instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena.
-          
-                </p>
-				
-				</div>
-				
-            </article>
-			
-              <article class="especial__columna2">
-                <img loading="lazy" src="artistas/federales.jpg" alt="" class="especial__img">
-                  <div class="informaciones">
-                <h3 class="especial__titulo">Los Federales</h3>
-				
-			      <button class="button">Norteña</button>
-				
-				   <p class="especial__txt">Con más de 18 años de carrera musical "Los Federales de Colombia" son reconocidos
-				   por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Cuncurso de Temas
-				   Inéditos en Sinaloa Radio TV, con Lupita Villa en México.
-				   
-				   Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por exitos como: Vivo como un rey, A mi pueblo querido,
-				   Un amor de calle entre otros.
-
-                </p>
-				
-				</div>
-				
-            </article>
-            
-              <article class="especial__columna3">
-                <img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="" class="especial__img">
-                  <div class="informaciones">
-                <h3 class="especial__titulo">Yo me llamo Alzate</h3>
-				
-				  <button class="button">Popular</button>
-				  
-                <p class="especial__txt">Es un gusto presentar a un artista como "Xavier El Gato blanco", artista principiante
-				en "Yo me llamo" interprentando a Alzate y catalogado como el "Mil Voces" por imitar artístas como Alzate, Yeison
-				Jiménez, Giovany Ayala, Jhon Alex Castaño, Jessi Uribe, Fernano Burbano, Jhony Rivera, Alexis Escobar entre otros.<br>
-				
-				La agrupación "Xavier El Gato Blanco" está integrada por: Voz oficial y un marco de (2) trompetas, (1) bajo, (1) piano o acordeón, (1) vihuela, (2) requintos,
-				y (1) batería, total de (8) integrantes en escena.
-            
-			 
-                </p>
-				
-				</div>
-				
-            </article>
-			
-          </section>
-   
-
-		<footer>
+	
+     
+   	 
+	 	<footer>
 		<div class="footer-container">
 			<div class="footer-main">
 				<div class="footer-columna">
 					<h3>Contacto</h3>
 					
-					<!--<form action="correo.php" method="POST"> -->
+				<!--<form action="correo.php" method="POST" id="formulario">-->
 					  
-				     <form action="" method="" id="formulario">
-				
-					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
-				    </form>
-					
-										   
-              </div>
-
-
-				<div class="footer-columna">
-					<h3>Dirección</h3>
-					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
-				</div>
-
-				<div class="footer-columna">
-					<h3>Nosotros</h3>
-					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
-					 <br>
-                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="footer-copy-redes">
-			<div class="main-copy-redes">
-				<div class="footer-copy">
-					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
-				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
-					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
-				</div>
-				<div class="footer-redes">
-					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
-					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
-					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
-				</div>
-			</div>
-		</div>
-		
-    </footer>
-	 
-	
-	 </article>
-	 
-	 
-	 <!-- <article id='CHAT' class='elemento'>
-	
-	   
-       <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
-	   
-  <script>
-
-  var config = {
-    apiKey: "AIzaSyCTfQT4E3h8ZAttTo6f_RE-ErLfpIYocA4",
-    authDomain: "chat-1654d.firebaseapp.com",
-    databaseURL: 'https://chat-1654d-default-rtdb.firebaseio.com',
-    projectId: "chat-1654d",
-    storageBucket: "chat-1654d.appspot.com",
-    messagingSenderId: "1087922024",
-	appId: "1:1087922024:web:2c72f1112c5c35959240dd"
-  };
-  firebase.initializeApp(config);
-
-    var TablaDeBaseDatos= firebase.database().ref('chat');
-    
-    TablaDeBaseDatos.limitToLast(800).on('value',function(snapshot){
-        
-         $(".chat").html(""); 
-       
-        snapshot.forEach(function(e){
-            var objeto=e.val();
-           
-             if((objeto.Mensaje!=null)&&(objeto.Nombre!=null)){
-                 
-                 $( "#plantilla" ).clone().prependTo( ".chat" );
-                 $('.chat #plantilla').show(10);
-                 $('.chat #plantilla .Nombre').html(objeto.Nombre);
-                 $('.chat #plantilla .Mensaje').html(objeto.Mensaje);
-                 $('.chat #plantilla .Tiempo').html(objeto.Fecha);
-                 $('.chat #plantilla').attr("id","");
-             }
-            
-        });
-    });
-    
-    
-    
-</script>
-	
- <section class="chat">	
-  <div class="chatbox">
-    <div class="chat_title">COMENTARIOS</div>
-
-    <div class="chat_area">
-        <ul id="chatlist" class="chat">
-          
-        </ul>
-    </div>
-
-    <div class="message_write">
-        <div class="input-group">
-            <input id="Nombre" type="text" class="form-control" placeholder="Ingresa el nombre" required="required" />
-            <br>
-            <input id="Mensaje" type="text" class="form-control" placeholder="Escriba  el mensaje..." required="required"  />
-            <span class="input-group-btn">
-                <br>
-                <button class="btn btn-warning btn-sm" id="btnEnviar">Enviar</button>
-            </span>
-        </div>
-    </div>
-</div>
-
-</section>
-
-<li style="display:none" id="plantilla" class="left clearfix">
-    <div class="chat-body clearfix">
-        <div class="header-logo">
-            <strong class="primary-font Nombre">Nombre</strong>
-            <small class="pull-right text-muted fecha-hora">
-                <span class="glyphicon glyphicon-asterisk Tiempo"></span> 
-            
-            </small>
-        </div>
-	
-        <p class="Mensaje">Mensaje de ejemplo.</p>
-    </div>
-</li>
-
-	
-      <script>
-       var input = ("Nombre:");
-         
-       $('#btnEnviar').click(function(){
-	   
-        var nombre = $("#Nombre").val().trim();  
-        var mensaje = $("#Mensaje").val().trim();
-	
-        if(nombre === "" || mensaje === "") {  
-          return;  
-        }
-	
-           var formatofecha= new Date(); 
-           var d= formatofecha.getUTCDate();
-           var m= formatofecha.getMonth()+1;
-           var y= formatofecha.getFullYear();
-           var h=formatofecha.getHours();
-           var min= formatofecha.getMinutes();
-           
-           Fecha= d+"/"+m+"/"+y+" "+h+":"+min;
-           
-           TablaDeBaseDatos.push({
-               Nombre:Nombre,
-               Nombre:$("#Nombre").val(),
-               Mensaje:$("#Mensaje").val(),
-               Fecha:Fecha
-            });
-			
-			 // Limpiar campos después de enviar
-    $("#Nombre").val("");
-    $("#Mensaje").val("");
-           
-           
-       });
-	   
-       </script>
-	   
-      <script>
-	  
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-74824848-1', 'auto');
-  ga('send', 'pageview');
-</script>
-   
-
-		 <footer>
-		<div class="footer-container">
-			<div class="footer-main">
-				<div class="footer-columna">
-					<h3>Contacto</h3>
-					
-					<form action="correo.php" method="POST">
+				  <form action="" method="" id="formulario">
+				 
+					<!-- <input type="email" name="Sender" id="Sender" placeholder="Ingresa su correo" required>
 					  
-				     <form action="" method="" id="formulario">
-				
-					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
-				    </form>
+				      <textarea type="text" name="Message" id="Message"  placeholder="Ingresa su mensaje" required></textarea>
 					
-										   
-              </div>
-
-
-				<div class="footer-columna">
-					<h3>Dirección</h3>
-					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
-				</div>
-
-				<div class="footer-columna">
-					<h3>Nosotros</h3>
-					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
-					 <br>
-                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="footer-copy-redes">
-			<div class="main-copy-redes">
-				<div class="footer-copy">
-					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> 
-				     <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> 
-					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
-				</div>
-				<div class="footer-redes">
-					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
-					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
-					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
-				</div>
-			</div>
-		</div>
-		
-    </footer>
-
-	</article> -->
-	
-	
- <article id='TURISMO' class='elemento'>
-	
-	    <section class="boixes">
-	
-	    <div class="sender" id="sender1">
-		 <li><a href="#img1"><img src="turismo/1.jpg"></a></li>
-		
-	   <div class="info">
-		 <h4>Hoyo del Aire</h4>
-			<p>Esta ubicado en la Vereda del Tigre perteneciente al Municipio de La Paz Santander. Posee unas dimensiones que impresionan a los visitantes y lugareños. Su abertura es de aproximadamente de 170 metros y con una profundidad de 180 metros, catalogandose coomo el segundo hoyo más grande del mundo.</p>
-			
-		    <p>El subsuelo esta cubierto con una vegetación particular, arbustos, platanillos, palmas entre otras plantas que le dan una belleza e impresion inimaginable. A su vez, tiene una caberna, que en lo profundo la recorre una pequeña corriente de agua. </p>
-			
-			<p>Referente a lo turistico, muchas personas de diversos lugares cada año y por epocas vacionales, visitan esta maravilla, quedando perplejos y satisfechos de conocer un encanto natural. </p>
-			
-			
-		<label><p>Ubicada en la vereda: El Tigre "La Paz Santander"</p></label><br>
-		<label class="precio"></label><label class="mini"></label>
-		
-	</div>
-	
-
-	<div class="modal" id="img1">
-	
-		<a class="cancel" href="#sender1"></a>
-
-		<div class="imagen">
-			<a href="#img2"></a>
-	        <a href="#img2"><img src="turismo/1.jpg"></a>
-			<a href="#img2"></a>
-		</div>
-	
-	</div>
-
-	<div class="modal" id="img2">
-	<a class="cancel" href="#sender1"></a>
-
-		<div class="imagen">
-			<a href="#img3"></a>
-	        <a href="#img3"><img src="turismo/2.jpg"></a>
-			<a href="#img3"></a>
-		</div>
-			
-	</div>
-
-	<div class="modal" id="img3">
-	<a class="cancel" href="#sender1"></a>
-		
-		<div class="imagen">
-			<a href="#img1"></a>
-	        <a href="#img1"><img src="turismo/3.jpg"></a>
-			<a href="#img1"></a>
-		</div>
-	
-	</div>
-	
-
-</section>
-	
-	
-	<section class="boixes">
-	
-	<div class="sender" id="sender1">
-		<li><a href="#img4"><img src="turismo/4.jpg"></a></li>
-		
-	<div class="info">
-		<h4>Laguna negra</h4>
-			<p>Un formación acuifera de gran belleza. Desde el plano de leyenda, se dice que esta laguna surge a raiz de un fuerte aguacero, que inundo ese sector, desapareciendo la choza de una india, que segun sus moradores la llamaban la india negra.</p>
-			   
-		   <p>De ahi se deriva el nombre de Laguna de la negra, posteriormente se le llama Laguna Negra, aunque sus aguas son cristalinas y su paisaje fantastico.</p>
-			
-		<label><p>Ubicada en la vereda: El Hato "La Paz Santander"</p></label><br>
-		<label class="precio"></label><label class="mini"></label>
-
-	</div>
-	
-	 <div class="modal" id="img4">
-     	<a class="cancel" href="#sender1"></a> 
-	
-		<div class="imagen">
-			<a href="#img5"></a>
-	        <a href="#img5"><img src="turismo/4.jpg"></a>
-			<a href="#img5"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img5">
-		<a class="cancel" href="#sender1"></a>
-		
-		<div class="imagen">
-			<a href="#img6"></a>
-	        <a href="#img6"><img src="turismo/5.jpg"></a>
-			<a href="#img6"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img6">
-	   <a class="cancel" href="#sender1"></a>
-	   
-		<div class="imagen">
-			<a href="#img4"></a>
-	        <a href="#img4"><img src="turismo/6.jpg"></a>
-			<a href="#img4"></a>
-		</div>
-	</div>
-	
-   
-</section>
-
-
-	<section class="boixes">
-	
-	<div class="sender" id="sender1">
-		<li><a href="#img7"><img src="turismo/7.jpg"></a></li>
-	
-	<div class="info">
-		<h4>Cueva del Molino</h4>
-			<p>Un sitio impresionante con una longitud que sobrepasa los 800 metros. Anteriormente en su entrada se habia puesto un trapiche que usaba la fuerza de caballos, para extraer la miel de la caña. A su vez, este lugar cuenta con una serie de galerias y estalamitas que adoran su interior.</p>
-			   
-		<p>No se lo pierdan, es un lugar lleno de fantasia y digno de visitar y pasar un momento agradable. No olvide tomar precauciones, llevar una linterna y otros elementos necesarios, para vivir una travesia sensacional.</p>
-			
-		<label><p>Ubicada en la vereda: Carrero "La Paz Santander"</p></label><br>
-		<label class="precio"></label><label class="mini"></label>
-
-	</div>
-	
-	 <div class="modal" id="img7">
-     	<a class="cancel" href="#sender1"></a> 
-	
-		<div class="imagen">
-			<a href="#img8"></a>
-	        <a href="#img8"><img src="turismo/7.jpg"></a>
-			<a href="#img8"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img8">
-		<a class="cancel" href="#sender1"></a>
-		
-		<div class="imagen">
-			<a href="#img9"></a>
-	        <a href="#img9"><img src="turismo/8.jpg"></a>
-			<a href="#img9"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img9">
-	   <a class="cancel" href="#sender1"></a>
-	   
-		<div class="imagen">
-			<a href="#img7"></a>
-	        <a href="#img7"><img src="turismo/9.jpg"></a>
-			<a href="#img7"></a>
-		</div>
-	</div>
-	
-   
-</section>
-	
-	
-	<section class="boixes">
-	
-	<div class="sender" id="sender3">
-		<li><a href="#img10"><img src="turismo/10.jpg"></a></li>
-		
-	<div class="info">
-		<h4>Chorro de Aviones</h4>
-			<p>Sin duda un lugar majestuoso que nos regala la quebrada la Gran Curi.
-			<p>Se encuentra en la vereda: El Tigre "La Paz Santander".</p>
-	
-		<label class="precio"></label><label class="mini"></label>
-	
-	</div>
-	
-    <div class="modal" id="img10">
-     	<a class="cancel" href="#sender1"></a> 
-	
-		<div class="imagen">
-			<a href="#img11"></a>
-	        <a href="#img11"><img src="turismo/10.jpg"></a>
-			<a href="#img11"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img11">
-		<a class="cancel" href="#sender1"></a>
-		
-		<div class="imagen">
-			<a href="#img12"></a>
-	        <a href="#img12"><img src="turismo/11.jpg"></a>
-			<a href="#img12"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img12">
-	   <a class="cancel" href="#sender1"></a>
-	   
-		<div class="imagen">
-			<a href="#img10"></a>
-	        <a href="#img10"><img src="turismo/12.jpg"></a>
-			<a href="#img10"></a>
-		</div>
-	</div>
-
-</section>
-
-	<section class="boixes">
-	
-	<div class="sender" id="sender2">
-		<li><a href="#img13"><img src="turismo/13.jpg"></a></li>
-		
-	<div class="info">
-		<h4>Balneario La Gacha</h4>
-			<p>Un bonito paraje natural donde se puede disfrutar de las aguas mansas de la Quebrada "Gran Curi", compartir con la familia y amigos. </p>
-			   
-		    <p>Cuenta con unos kioscos, zona verde. No se lo pierdan.</p>
-			
-		<label><p>Ubicada en la vereda: San Pablo "La Paz Santander"</p></label><br>
-		<label class="precio"></label><label class="mini"></label>
-
-	</div>
-	
-	 <div class="modal" id="img13">
-     	<a class="cancel" href="#sender1"></a> 
-	
-		<div class="imagen">
-			<a href="#img14"></a>
-	        <a href="#img14"><img src="turismo/13.jpg"></a>
-			<a href="#img14"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img14">
-		<a class="cancel" href="#sender1"></a>
-		
-		<div class="imagen">
-			<a href="#img15"></a>
-	        <a href="#img15"><img src="turismo/14.jpg"></a>
-			<a href="#img15"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img15">
-	    <a class="cancel" href="#sender1"></a>
-		
-		<div class="imagen">
-			<a href="#img13"></a>
-	        <a href="#img13"><img src="turismo/15.jpg"></a>
-			<a href="#img13"></a>
-		</div>
-	</div>
-	
-   
-</section>
-	
-	
-   
-	   <footer>
-	   
-	    <div class="footer-container">
-		    <div class="footer-main">
-				<div class="footer-columna">
-				   <h3>Contacto</h3>
-					
-					<!--<form action="correo.php" method="POST"> -->
 					  
-				      <form action="" method="" id="formulario">
+					   <input type="submit" value="Enviar" id="button"> -->
+					   
 					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
-				      </form>
-										   
-                </div>
+					   	
+				    </form>
+							
+				   
+        </div>
+				
+		
 
 				<div class="footer-columna">
 					<h3>Dirección</h3>
 					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				
 				</div>
 
 				<div class="footer-columna">
 					<h3>Nosotros</h3>
-					  <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
-					 <br>
+					<p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br><br>
                       Los invitamos a seguirnos a través de las redes sociales.</p>
 				</div>
 			</div>
@@ -2159,92 +1454,45 @@ servicio posible, particularmente para mantener un registro de usuarios,
 		<div class="footer-copy-redes">
 			<div class="main-copy-redes">
 				<div class="footer-copy">
-					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
-				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
-					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4>
+					 <!-- <a href="">INICIO</a></h4><br> -->
+				       <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
 				</div>
 				<div class="footer-redes">
-					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://www.facebook.com/alma.lafronterisima" target="_blank" class="fa fa-facebook"></a>
 					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
 					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
 				</div>
 			</div>
 		</div>
-			
-   </footer>
-
-  </article>
+       
 	 
-	 
-	 <div class="container-footers">
-       <div class="sticky_footer"> 
+    </footer>
 	
-	      <div class="saludo">
-
-		     <img id="tiempo">
-           
-              <div id="txtsaludo"></div>	
-        
-		  </div> 
-		  
-		    <script src="js/saludo.js"></script>
-
-          <div id="player">
-               
-         	 
-              <a id="button-share" class="icon-share2"></a>
-				     
-                  <div id="song" class="song"><span id="current-track">La Fronterísima</span></marquee></div>
-             
-				
-                <div id="animation">
-				 
-		           <img src="imagenes/logo.png"></a>
-				   
-				   <div class="panel">
-				   
-				    <div class="flip">
-	                  <h4>SONIDOS</h4>
-	                 </div>
-				  
-	                 <audio controls src="https://docs.google.com/uc?export=download&id=1bmIDFJHQ455bjR8ccC1FrJAwicP90W4h
-	                 "></audio>
-	                 <audio controls src="https://docs.google.com/uc?export=download&id=1bjoFCGIYLThHawJkWoqnF-sTdg9_2BB5
-	                 "></audio>
-				     <audio controls src="https://docs.google.com/uc?export=download&id=1bvM7zNMii1vC4EQYEOsmKYt1CnbpBaf_
-				     "></audio>
-	          
-	               </div>
-				  
-                </div> 
-				
-							
-           </div>
-          
-          </div>	
-	
-        </div>   
-	   
-	  </div> 
-
-
-       <div class="scrollup">
-			<a href="#"><i class="fa fa-chevron-up"></i></a>
-		</div>
-	 
-	 
-	 
-	
-  </section> 
-  
-
-   </main> 
-
+   </article>
+   
  
+ </section> 
+ 
+  <main>
 
-  <script src="js/ajax.js"></script>
+
+  <script type='text/javascript' src="js/repro.js"></script> 
+  <script src="js/app.js"></script>
+  <script src="js/ajax.js"></script> 
+  <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+  <script src="https://kit.fontawesome.com/35db202371.js" crossorigin="anonymous"></script>
+  <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+  <script src="js/materialize.js"></script>
+  	    <script src="js/saludo.js"></script>
+  <script src="js/init.js"></script>
+  
+  <script src="js/animado.js"></script>
+   <script src="jquery.tools.min.js"></script>
+   
+   <script src="js/ajax.js"></script>
   <script src="js/pulsar.js"></script>
-  <script src="js/menu.js"></script>
+
   <script src="js/main.js"></script>
   <script src="js/share.js"></script>
   <script src="js/temperature.js"></script>
@@ -2265,7 +1513,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
      );
      });
     </script>
- 
- </body>
 
+  </body>
+  
 </html>

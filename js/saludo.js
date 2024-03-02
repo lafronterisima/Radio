@@ -1,26 +1,28 @@
+
+
        function saludo(){
    
           fecha = new Date(); 
           hora = fecha.getHours();
 
            if(hora >= 0 && hora < 8){
-            pSaludo.textContent = "Amanecer recargado";
+            pSaludo.textContent = "Amanecer musical";
 			img.src="imagenes/dia.png";
           }
           
   
            if(hora >= 8 && hora < 12){
-            pSaludo.textContent = "Sintonía ilimitada";
+            pSaludo.textContent = "Exitos variados";
 			img.src="imagenes/microfono.png";
           }      
             
 		   if(hora >= 12 && hora < 18){
-      pSaludo.textContent = "Exitos parranderos";
+            pSaludo.textContent = "La Revancha";
 		    img.src="imagenes/tarde.png";
           }
 		  
           if(hora >= 18 && hora < 24){
-     pSaludo.textContent = "Anochecer musical";
+             pSaludo.textContent = "Recarga musical";
 		     img.src="imagenes/noche.png"; 
           }	  
        }
@@ -32,8 +34,8 @@
    
 $('document').ready(function(){
 
- $("#animation").on('click', function(){
-        
+ $("#animation").on('click', function(e){
+        e.preventDefault();
         $(".panel").slideToggle('fast');
       });
    });

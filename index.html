@@ -1,147 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!Doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
-    <meta property="og:description" content="Soy de La Paz Santander, un espacio digital para compartir aspectos de nuestro municipio" />
-    <meta name="keywords" content="La Paz Santander, turismo, La Paz, ventas, cafe, productos, hoteles, pueblo, predios, lotes, sitios turisticos, hoyo del aire, cueva del molino, emprendimientos, fincas, casas" />
-    <meta property="og:site_name" content="https://soydelapazsantander.com">
-    <meta property="og:image" content="https://www.soydelapazsantander.com/lapaz.png">
-	<title>La Paz Santander</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=arial:ital,wght@0,300;0,500;0,600;1,300&display=swap"
-        rel="stylesheet">
-     
+
+<meta charset="utf-8">
+<title>La Fronterísima </title>
+<meta name="description" content="Somos una plataforma online para compartir musica de artistas Colombianos e hispanos" />
+<meta name="keywords" content="La fronterisima, musica online, artistas de Colombia, La Paz Santander, Hoyo del Aire, artistas nuevos, canciones" />
+<meta property="og:site_name" content="https://lafronterisima.com">
+<meta property="og:image" content="https://www.lafronterisima.com/frontera.png">
+<meta name="author" content="Lafronterisima">
+<meta name="refresh" content="2"/>
+	
+	<meta name="viewport" content="width=device-width, user-scalable=no,
+	initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="theme-color" content="#20B2AA">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar" content="#3CB371" />
+	<meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+
+	<link rel="apple-touch-icon" href="pwa/icon-72x72.png" />
+    <link rel="apple-touch-icon" href="pwa/icon-96x96.png" />
+    <link rel="apple-touch-icon" href="pwa/icon-128x128.png" />
+	<link rel="apple-touch-icon" href="pwa/icon-144x144.png" />
+	<link rel="apple-touch-icon" href="pwa/icon-256x256.png" />
+	<link rel="apple-touch-icon" href="pwa/icon-512x512.png" />
+    <link rel="canonical" href="https://lafronterisima.com">
+    <link rel="stylesheet" href="css/radio.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="imagenes/frontera.png">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/fonts-icon.css">
-    <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css">
-    <link type="text/css" rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link type="text/css" rel="stylesheet" href="css/style.css">
-	<script src="js/jquery 1.9.0.min.js"></script>
-	<link rel="stylesheet" href="css/lightbox.min.css">
-	<script src="js/lightbox-plus-jquery.min.js"></script>
-    <script src="js/lightbox.min.js"></script>
-    <script src="js/galeria.js"></script>
+	<link rel="stylesheet" href="css/animate.css">
 
-	
-	<script src="https://www.youtube.com/iframe_api"></script>
-	
-	<script>
-	$(document).ready(function () {
+    <script src="js/jquery 1.9.0.min.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/prefix.min.js"></script>
+	<script src="js/image.js"></script>
+	<link rel="stylesheet" href="css/jquery.scrollflow.css">
+    <script src="js/jquery.scrollflow.min.js"></script>   
+	<link rel="stylesheet" href="owl/assets/owl.carousel.min.css">
+	<script src="js/iframe.js"></script>	
+	<script src="https://www.youtube.com/iframe_api"></script>	
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  
+  <script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+    OneSignal.init({
+      appId: "c34ccfa8-4709-4bfc-8dc3-03cfa982186c",
+      });
+    });
+  </script>
+  
+  <script>
+
+ $(document).ready(function () {
 		setUpSlider($('#slider1'));
 	})
 
 	function setUpSlider($container) {
 		var pos = 0,
-			slides = $container.find('.slide'),
+			slides = $container.find('.slides'),
 			numOfSlides = slides.length;
 
-		function nextSlide() {
+		function nextSlides() {
+			// `[]` returns a vanilla DOM object from a jQuery object/collection
 			slides[pos].video.stopVideo()
 			slides.eq(pos).animate({ left: '-100%' }, 500);
 			pos = (pos >= numOfSlides - 1 ? 0 : ++pos);
 			slides.eq(pos).css({ left: '100%' }).animate({ left: 0 }, 500);
 		}
 
-		function previousSlide() {
+		function previousSlides() {
 			slides[pos].video.stopVideo()
 			slides.eq(pos).animate({ left: '100%' }, 500);
 			pos = (pos == 0 ? numOfSlides - 1 : --pos);
 			slides.eq(pos).css({ left: '-100%' }).animate({ left: 0 }, 500);
 		}
 
-		$container.find('.left').click(previousSlide);
-		$container.find('.right').click(nextSlide);
+		$container.find('.left').click(previousSlides);
+		$container.find('.right').click(nextSlides);
 	}
 
 	function onYouTubeIframeAPIReady() {
-		$('.slide').each(function (index, slide) {
-			var iframe = $(slide).find('.video')[0]
-			slide.video = new YT.Player(iframe)
+		$('.slides').each(function (index, slides) {
+			// Get the '.video' element inside each `.slides`
+			var iframe = $(slides).find('.video')[0]
+			// Create a new YT.Player from the iFrame, and store it on the '.slides' DOM object
+			slides.video = new YT.Player(iframe)
 		})
 	}
-	</script>
+
+  </script>
+  
 	
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6116874493728615"
+	 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6116874493728615"
      crossorigin="anonymous"></script>
 	
 </head>
 
+
+
 <body>
 
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v17.0" nonce="IrKiRKVF"></script>
-
-    <div id="arrow">
-        <i class="fa fa-arrow-up"></i>
-    </div>
-	
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v12.0&appId=275754110188363&autoLogAppEvents=1" nonce="o7sE84jb"></script>
+	   
+	  
+	    <!-- Menu de Navegacion -->
+    <header id="header">
 	
     <nav class="menu">	
  
-    	<div id="tickers">
-         <div class="news">
-		 <div id="radios">
-	      <audio id="tracks">
-            <source src="">
-		  </audio>
-		   
-		  <div id="ppbutton">
-		     <div id="play-pauses" class="play"></div>
-		 </div>
-      </div>
-		 
-		 </div>
-		 
-<div class="ticker">
-  <div class="ticker_item1">La Paz una tierra de encanto.</div>
-  <div class="ticker_item">Ven y conoce, lugares enblemáticos de nuestro pueblo.</div>
-  <div class="ticker_item">Sientáte acompañado de buena música. </div>
-
-</div>
-
-</div>
-	
-</div>
-	  
+    
 	  <div class="logo-box">
 
-       <h1 class="logo">
-	   <span>
-	  
-	   </span>
-	   </h1> 
+       <h1 class="logo"><span></span></h1> 
        <span class="btn-menu"><i class="icon-menu"></i></span>
-    
+     </div>
 	 
 	   
-	  
-	  
-	 <script>
-	    
-       var track = document.getElementById('track');
-       var controlBtn = document.getElementById('play-pause');
-       function playPause() {
-         if (track.paused) {
-         track.play();
-         controlBtn.className = "pause";
-          } else { 
-         track.pause();
-      
-         controlBtn.className = "play";
-          }
-        }
+<div id="radio">
+  <audio id="track">
+    <source src="http://stream.zeno.fm/t100n9re6bruv">
+  </audio>
+  
+  <div id="ppbutton">
+    <div id="play-pause" class="play" onclick="playPause()"></div>
+  </div>
+</div>
 
-        controlBtn.addEventListener("click", playPause);
-        track.addEventListener("ended", function() {
-        controlBtn.className = "play";
-     });
-    </script>
-	
+<script>
+  var track = document.getElementById('track');
+  var controlBtn = document.getElementById('play-pause');
 
+  function playPause() {
+    if (track.paused) {
+      track.play();
+      controlBtn.className = "pause";
+    } else {
+      track.pause();
+      controlBtn.className = "play";
+    }
+  }
+</script>
 
      </div>
 	  
@@ -149,349 +153,301 @@
 	<div class="nav-menu" class="menu-fixed">
 	
      <div class="list-container">
-	
-        <ul class="lists">
+	 
+	      <div class="nav_perfil">
+          
+          <img src="imagenes/emisora.png">
+         
+                      
+	      </div>
+	 
+	 
+	 
+	  <ul class="lists">
 		
-	
-        <li><a href='#inicio' class='activo'><span class="icon-users"></span>Inicio</a></li>
-	    <li><a href="#turismo"><span class="icon-location"></span>Turismo</a></li>
-	    <!--  <li> <a href="#publico" class="submenu"><span class=""></span>Instituciones <span class="icon-circle-down"></span></a>  
+        <li><a href='#INICIO' class='activo'><span class="icon-home"></span>Inicio</a></li>
+        <!-- <li><a href='#GALERIA'><span class="icon-file-picture"></span>Galería</a></li>-->
+        <li><a href="#NOTAS"><span class="icon-newspaper"></span>Artículos</a></li>
+		
+		<li> <a href="#" class="submenu"><span class=" icon-file-text2" ></span>Catálogo <span class="icon-circle-down"></span></a>  
+		 
 		 <ul class="dropdown">
-			 <!-- <li><a href="#VIDEOS"><span class="icon-film"></span>Videos</a></li>
-		     <li><a href="#ENTREVISTA"><span class="icon-mic"></span>Alcaldia</a></li>
-			 <li><a href="#PRIVACIDAD"><span class="icon-lock"></span>Hospital</a></li>
-			 <li><a href="#CHAT"><span class="icon-bubble"></span>Cooperativa</a></li>		
+		 
+			 <li><a href="#VIDEOS"><span class="icon-film"></span>Videos</a></li>
+		     <li><a href="#ENTREVISTA"><span class="icon-mic"></span>Entrevistas</a></li>
+			 <li><a href="#PRIVACIDAD"><span class="icon-lock"></span>Privacidad</a></li>
 		 </ul>
 		 
-		 </li> -->
+		 </li> 
+				 
+		<li><a href='#ARTISTAS'><span class="icon-headphones"></span>Artistas</a></li>
+        <li><a href='#TURISMO'><span class="icon-map"></span>Turismo</a></li>
+		
+	 </ul>
 	
-		  <li> <a href="#servicios" class="submenu">Servicios <span class="icon-circle-down"></span></a>  
-		 
-		 <ul class="dropdown">
-		    <li><a href="#empresa"><span class="icon-cart"></span>Productos</a></li>
-		    <li><a href='#hoteles'><span class="icon-home"></span>Hoteles</a></li>
-		    <li><a href="#ventas"><span class="icon-folder"></span>Ventas</a></li>
-		  </ul>  
-		  </li>
-		  <li><a href="#galeria"><span class="icon-images"></span>Galeria</a></li>
-	    </ul>
-		
-		
-     </div>
+		  
+     </div> 
 	 
-	 </div>
+	 </div>  
     </nav>
+	
+	
+</header>
+ 
 
+  <main> 
+  
 	
-	</body>
-	
-	
-	  <section id="contenido">
-	  
-	    <article id="inicio" class="elemento visible">
-	
-    <header>
-        <div class="container">
-		
-            <div class="header-info-par">
-	  
-                <h1 class="typewrite" data-period="2000"
-                    data-type='["La Paz Santander","tierra amable y cordial","Los esperamos, bienvenidos."]'>
-                </h1>
-                <p>Somos un municipio en la Provincia de Veléz - Santander.</p>
-				<p>Invitad@s a conocer nuestro pueblo y sitios turísticos.</p>
-            
+  <section id="contenido">
+  
+   
+     <article id="INICIO" class="elemento visible">
+	 
+	 	  <section class="home">
+     
+	 <div class="slider">
+	 
+		<div class="slide active">
+			<div class="txt">
 				
-				<div class="fb-like" data-href="https://www.facebook.com/profile.php?id=100094430634319" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>		  
-		
+			</div>
+			
+			<img src="imagenes/1.jpg">
+			
+		 <div id="tickers">
+           <div class="news"> 
+           <div class="ticker">
+             <div class="ticker_item">Los acompañamos con los mejores temas musicales. </div>
+			 <div class="ticker_item">"Una alternativa musical sin limites" </div>
+             <div class="ticker_item">"Notas surcando fronteras" </div>
+			</div>
             </div>
-            <div class="video">
-                <video id="video" autoplay loop muted>
-                    <source src="images/travel-video.mp4" type="video/mp4" />
-                </video>
+          </div>
+			
+            <div class="container">
+                <div class="caption">	 
+                    <p><a href="#bloggers" style="color:white" class="btn">Nosotros</a></p>
+                    <p><a href="#fans" style="color:white" class="btn">Fans Page</a></p>
+                    <p><a href="#emisoras" style="color:white" class="btn">Emisoras</a></p>
+				    <p><a href="visitas.html" target="_blank"  style="color:white" class="btn">Visitas</a></p>
+                </div>
+            </div>
+			
+		</div>
+		
+	
+        <div class="slide">
+		   <img src="imagenes/2.jpg">
+		   
+              <div class="container">
+                <div class="caption">	 
+                    <p><a href="#bloggers" style="color:white" class="btn">Nosotros</a></p>
+                    <p><a href="#fans" style="color:white" class="btn">Fans Page</a></p>
+                    <p><a href="#emisoras" style="color:white" class="btn">Emisoras</a></p>
+				    <p><a href="visitas.html" target="_blank"  style="color:white" class="btn">Visitas</a></p>
+                </div>
             </div>
         </div>
-    </header>
+		
+        <div class="slide">
+		  <img src="imagenes/3.jpg">
+             <div class="container">
+                <div class="caption">	 
+                    <p><a href="#bloggers" style="color:white" class="btn">Nosotros</a></p>
+                    <p><a href="#fans" style="color:white" class="btn">Fans Page</a></p>
+                    <p><a href="#emisoras" style="color:white" class="btn">Emisoras</a></p>
+				    <p><a href="visitas.html" target="_blank"  style="color:white" class="btn">Visitas</a></p>
+                </div>
+            </div>
+        </div>
+		
+     </div>
+   
+    <!-- controls  -->
+    <div class="controls">
+        <div class="prev"><</div>
+        <div class="next">></div>
+    </div>
+
+
+  </section>
+	  
+      <section class="inicio-matrix">	
+	      
+           <div class="caja-matrix">
+            
+			<h3>LA FRONTERÍSIMA</h3>	
+		
+			<p>Somos una plataforma virtual cuyo objetivo es compartir y difundir temas musicales de artistas Hispanomericanos, para llegarles al corazón de los seguidores</p>					
+			<p>Escúchala, gózala y siéntela, deja que la música fluya sin limites.</p>
+            <p>Síguenos a través de las redes sociales.</p>
+			
+			<p> <a href="https://www.facebook.com/lafronterisima" target="_blank" style="color:white">1. Facebook</a><br><br>
+                <a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" style="color:white">2. Youtube </a><br><br>
+				<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968un" target="_blank" style="color:white">3. Instagram</a></p>
+	           <br>
+			    
+	        </div>
+			
 	
+		  <aside class="videos" >
+
+		     <div class="video-responsive">
+
+		       <div class="video-slider" id="slider1">
+		
+		<div class="slides">
+			<iframe class="video" src="https://www.youtube.com/embed/ZGNqaE10Oeg
+			?enablejsapi=1&html5=1&rel=0"></iframe>
+		</div>
+		
+		<div class="slides">
+			<iframe class="video" src="https://www.youtube.com/embed/xN683CQ8hwU
+			?enablejsapi=1&html5=1&rel=0"></iframe>
+		</div>
 	
-	<section id="bloggers">
-     <h3>MUNICIPIO</h3>
+		<div class="slides">
+			<iframe class="video" src="https://www.youtube.com/embed/O5-Pxz6GgEE?enablejsapi=1&html5=1&rel=0"></iframe>
+		</div>
+
+		<div class="slide-arrow left"></div>
+		<div class="slide-arrow right"></div>
+	   </div>
+		   
+	      </aside>
+
+     </section>	
+	 
+	 
+	  <div class="publicidades">
+        
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6116874493728615"
+     crossorigin="anonymous"></script>
+         
+     <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6116874493728615"
+     data-ad-slot="3266442575"
+     data-ad-format="auto"
+     data-full-width-responsive="false"></ins>
+    <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+	
+   </div> 
+	 
+	 
+
+  <section id="bloggers">
+     <h3>NOSOTROS</h3>
 				
 	<div class="contenido_block">
 	
 		<section class="radio">
 			 <div class="slideshow">
-              <div class="mySlides1" >
-                 <img src="images/geografia/1.jpg">
-                <!-- <div class="note">
+              
+			   <div class="mySlides1">
+                    <img src="imagenes/Programación.jpg">
+               <!-- <div class="note">
                   <p></p>
                 </div>-->
               </div>
 
-              <div class="mySlides1" >
-                     <img src="images/geografia/2.jpg">
-                <!--<div class="note">
+              <div class="mySlides1">
+                    <img src="imagenes/arlex.jpg">
+             <!-- <div class="note">
                   <p></p>
                 </div>-->
               </div>
-
-              <div class="mySlides1" >
-                  <img src="images/geografia/3.jpg" >
-                <!--<div class="note">
-                  <p></p>
-                </div>-->
-              </div>
+			
 
               <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
               <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
             </div>
 
-		    <a href="news/geografia.html" target="_blank"><h4>Geografía</h4></a>
-            <p>La Paz Santander, se encuentra en la Provincia de Velez, departamento de Santander, su clima oscila en 17º C, con un relieve montañoso, regado por quebradas, afluentes y el Rio Opón.</p>	
+		     <h4>Objetivo</h4>
+            <p class="description">Brindar una propuesta musical con la finalidad de compartir temas artísticos,  
+			fomentando la riqueza cultural y musical de Colombia e Hispanoamérica.</p>	
 
+            <div class="fb-like" class="btn1" data-href="https://www.facebook.com/Fronterisima-Online-110195480742453" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>			
+		
     </section> 
 	
 					
 		<section class="radio">
              <div class="slideshow">
-              <div class="mySlides2">
-                   <img src="images/cultura/1.jpg">
-               <!-- <div class="note">
-                  <p></p>
-                </div>-->
-              </div>
-
-              <div class="mySlides2">
-                    <img src="images/cultura/2.jpg">
+             
+			    <div class="mySlides2" >
+                 <img src="imagenes/artistas.jpg">
                 <!-- <div class="note">
                   <p></p>
-                </div-->
+                </div>-->
               </div>
 
-              <div class="mySlides2">
-                   <img src="images/cultura/3.jpg">
-               <!-- <div class="note">
+              <div class="mySlides2" >
+                     <img src="imagenes/contas.jpg">
+                <!--<div class="note">
                   <p></p>
                 </div>-->
               </div>
+
               <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
               <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
             </div>
         
-		   <a href="news/geografia.html" target="_blank"><h4>Cultura</h4></a>
-           <p>Nuestro territorio cuenta con una riqueza cultural, de gente amable y gentil.</p> 
-		    <p>Somos de espiritu entusiasta, con una religiosidad arraigada, de valores nobles y sinceros.</p>
-	   
-       
-
-	   </section>
+		     <h4>Info</h4>
+            
+			<p class="description">"La vanguardia de la comunicación e información se enfocan en las plataformas digitales". Escucha temas musicales de artistas del mundo hispano.</p> 
+	
+		    <!-- <h4><input type ='button' value = 'Encuesta' onclick="window.open('mensual/encuesta.html');"/></h4> -->					               
+	         <a class="btn1" href="encuesta.php" target="_blank">Votación</a>	
+			 
+	  </section>
 					
         <section class="radio">
 
               <div class="slideshow">
-              <div class="mySlides3">
-                    <img src="images/economia/1.jpg">
+              
+			   <div class="mySlides3">
+                   <img src="imagenes/difusion.jpg">
                <!-- <div class="note">
                   <p></p>
                 </div>-->
               </div>
 
               <div class="mySlides3">
-                    <img src="images/economia/2.jpg">
-             <!-- <div class="note">
+                    <img src="imagenes/noticias.jpg">
+                <!-- <div class="note">
                   <p></p>
-                </div>-->
+                </div-->
               </div>
-
-              <div class="mySlides3">
-                     <img src="images/economia/3.jpg">
-                 <!-- <div class="note">
-                  <p></p>
-                </div>-->
-              </div>
+            
               <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
               <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
             </div>
        
-		  <a href="news/geografia.html" target="_blank"><h4>Economía</h4></a>
-          <p>El sector económico se fundamenta en la agricultura, caña de azucar, la ganadería, cacao entre otros.</p>
-		   <p>Los pisos térmicos que van desde temperaturas cálidas a templadas, hace que haya variedad de productos.</p>
-	
+		  <h4>Misión</h4>
+          <p class="description">Compartir temas musicales en la plataforma virtual, para vivir una experiencia con excelente repertorio musical. "Notas surcando fronteras".</p>
+		
+         <a class="btn1" href="mensual/musicales.html" target="_blank">Canciones</a>	
+ 	 
+	   
 	  </section>
 	 
 	 </div>
 	 			
  </section>
  
-	<section class="boxes-portfolios" id="fans">	
+
+<section class="boxes-podcast" id="podcast">	
 	
-        <div class="caja-portfolios">
-         
-           <div class="fb_background">		   
+        <div class="caja-portfa">
+           <h3>SOUNDS</h3>
+
+           <div class="fb_back">		   
   		
-          	<div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100094430634319" data-tabs="timeline" data-width="300" data-height="380" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/profile.php?id=100094430634319" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/profile.php?id=100094430634319">Fans Page</a></blockquote></div>
-		   
-		   </div>
-		 </div>
-		
-
-		  <div class="caja-portfolios">
-         
-		    <div class="fb_background">	
-			
-	    <div class="video-slider" id="slider1">
-		
-		<div class="slide">
-			<iframe class="video" src="https://www.youtube.com/embed/XLetEdAbXPE?ecver=2&enablejsapi=1"></iframe>
-		</div>
-	
-		<div class="slide">
-			<iframe class="video" src="https://www.youtube.com/embed/XLetEdAbXPE?enablejsapi=1&html5=1&rel=0"></iframe>
-		</div>
-	
-		
-		<div class="slide-arrow left"></div>
-		<div class="slide-arrow right"></div>
-	   </div>
-	
-	   </div>
-		  
-      </div>
-	  
-
-     </section>	
-	
-	
-		 
-   <section class="carousel">
-
-    <h3>ACTIVIDADES</h3>
-
-    <div class="owl-carousels_1 owl-theme">
-     
-     <div class="items">
-    
-	  <div class="productos_1 prod-first">  
-        <img src="images/actividades/1.jpg"> 
-        <div class="mask">  
-         <h2>Homenaje Religioso</h2>   
-         <p>Fiesta Mariana del Carmen</p>
-		 
-         <div class="date-card">
-           <div class="day">08</div>
-          <div>
-         <div class="month">Julio</div>
-          <div class="year">2023</div>
-          </div>
-         </div>
-				   
-        <!-- <a class="info"><audio controls src="https://docs.google.com/uc?export=download&id="></a> -->
-		   
-         </div>  
-       </div>
-	   
-     </div>
-	   
-	   
-	<div class="items">
-    
-	  <div class="productos_1 prod-first">  
-         <img src="images/actividades/2.jpg"> 
-        <div class="mask">  
-         <h2>Día de la Independencia</h2>  
-          <p>Desfile de los estudiantes el 20 de Julio</p>
-		 
-		  <div class="date-card">
-           <div class="day">20</div>
-          <div>
-         <div class="month">Julio</div>
-          <div class="year">2023</div>
-          </div>
-         </div>
-		 
-         </div>  
-       </div>
-	   
-     </div>
-	 
-	 
-     
-      <div class="items">
-    
-	  <div class="productos_1 prod-first">  
-         <img src="images/actividades/3.jpg"> 
-        <div class="mask">  
-         <h2>Paisaje</h2>  
-        <p>Cuida el medio ambiente: la flora y fauna</p>
-	   
-	     <div class="date-card">
-           <div class="day"></div>
-          <div>
-         <div class="month">Deber día a día</div>
-          <div class="year">2023</div>
-          </div>
-         </div>
-		
-       </div>  
-       </div>
-	   
-      </div>
-    
-    </div>
-   
-</div> 
-
-
-
-  <script src="owl/owl.carousel.min.js"></script>
-
-  <script>
-    $('.owl-carousels_1').owlCarousel({
-      margin: 15,
-       loop: true,
-       autoplay:false,
-      nav: true,
-      navText: [""],
-      responsive: {
-        0: {
-          items: 1
-        },
-        580: {
-          items: 2
-        },
-        1000: {
-          items: 3
-        }
-      }
-    });
-  </script>
-  
-  
-  </section>
-	
-	
-	 <section class="containers scrollflow -slide-top">
-      <div class="header-video">
-        <video src="videos/demovideo.mp4" muted autoplay loop></video>
-      </div>
-      <div class="header-overlay"></div>
-      <div class="header-containex">
-        <h1>La Fronterísima</h1>
-        <p>Notas musicales, surcando fronteras</p>
-        <a class="btn" href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" class="btn">Síguenos</a>
-      </div>
-    </section>
-	
-	
-	
-	   <section class="flexbox-videos" >
-	
-	   <div class="videos">
-	     <h3>MUSICAL'S</h3>
-		  <div class="postcast">
-
-         <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/125486431/favorites" width="100%" height="auto" scrolling="yes" frameborder="no"></iframe>
-
+            <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/125486431/favorites" width="100%" height="auto" scrolling="yes" frameborder="no"></iframe>
+            
           <script type="text/javascript">
             (function(){
              var widgetIframe = document.getElementById('sc-widget'),
@@ -515,114 +471,1414 @@
 
       }());
      </script>
-
-   </div>
-		
-		</div>
-			
-		
-		<div class="videos">
-		   <h3 >PROMO</h3>
-		   <div class="youtube-player">
-		 
-			  <iframe id="sc-widget" src="https://youtube.com/embed/j9Sp9UDIiv4?html5=1&enablejsapi=1"></iframe>
 		   
 		   </div>
+		 </div>
+		
+
+		  <div class="caja-portfa">
+           <h3>ACTUALIDAD</h3>	
+  		
+		    <div class="fb_back">	
+		
+               <iframe id="sc-widget" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" 
+            src="https://es.euronews.com/embed/timeline
+             "></script>
+             
+             
+               </iframe>
+                
+                
+             </div><!--maps-->
+	        
+		  </div>
 		  
-	    </div>
-
-     </section>
+		 </div>
+		  
+     </section>	
+	 
+	 <section class="containers">
+      <div class="header-video">
+        <video src="" muted autoplay loop></video>
+      </div>
+      <div class="header-overlay"></div>
+      <div class="header-containex">
+        <h1>La Fronterísima</h1>
+        <p>Notas surcando fronteras</p>
+        <a class="btn" href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" class="btn">Síguenos</a>
+      </div>
+    </section>
+	 
+   <section class="boxes-portfolio" id="fans">	
 	
-	
-    <section id="blog">
-        <div class="container">
-            <h3>NOTAS</h3>
-            <div class="blog-par">
-                <div class="blog-content">
-                    <!-- one div for image and one for info -->
-                    <div class="blog-img-par">
-                        <img src="images/news/song1.jpg" alt="" class="img-responsive">
+        <div class="caja-portfolio">
+           <h3>FAN PAGE</h3>
 
-                    </div>
-                    <div class="blog-info-par">
-                       	<div class="datetime">
-						       <span>18/07/2023 10:00 am</span>
-                            </div>
-                        <a href="news/news1.html" target="_blank"><h4>La música</h4></a>
-                        <p>La música es una de las expresiones más fascinantes del ser humano ya que logra transmitir de manera directa diferentes sensaciones que otras formas de arte quizás no pueden, puede decirse que es una extensión del interior que hace vibrar el alma y a su vez se encuentran muchos sentimientos dependiendo el estado anímico de quien la escucha.</p>
-                    </div>
-                </div>
-                <div class="blog-content">
-                    <!-- one div for image and one for info -->
-                    <div class="blog-img-par">
-                        <img src="images/news/museo1.jpg" alt="" class="img-responsive">
+           <div class="fb_background">		   
+  		
+          <div class="fb-page" data-href="https://www.facebook.com/lafronterisima" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/lafronterisima" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lafronterisima">La Fronterísima</a></blockquote></div>
+		   
+		   </div>
+		 </div>
+		
 
-                    </div>
-                    <div class="blog-info-par">
-                         	<div class="datetime">
-						       <span>15/07/2023 11:30 am</span>
-                            </div>
-                          <a href="news/news2.html" target="_blank"><h4>Cultura y arte</h4></a>
-                        <p>La humanidad siempre ha querido impregnar su legado a través de la música, la escritura y la cultura. Por ello, la cultura de los pueblos se manifiesta de muchas maneras enriqueciendo las expresiones culturales de la humanidad.</p>
-                    </div>
-                </div>
-				
+		  <div class="caja-portfolio">
+           <h3>TIEMPO</h3>	
+  		
+		    <div class="fb_background">	
+			
+			 <div class="maps">
+            
+      <div class="wrapper">
+		
+       <div class="header_s"><i class="icon-arrow-left2"></i>Clima</div>
+        <section class="input-part">
+        <p class="info-txt"></p>
+        <div class="content">
+          <input
+            type="text"
+            spellcheck="false"
+            placeholder="Ingresa la ciudad"
+            required
+          />
+          <div class="separator"></div>
+          <button>Mi sitio</button>
+        </div>
+      </section>
+	  
+      <section class="weather-part">
+        <img src="" alt="Weather Icon" />
+        <div class="temp">
+          <span class="numb">_</span>
+          <span class="deg">°</span>C
+        </div>
+        <div class="weather">_ _</div>
+        <div class="location">
+          <i class="icon-map"></i>
+          <span>_, _</span>
+        </div>
+        <div class="bottom-details">
+          <div class="column feels">
+            <i class="icon-meter"></i>
+            <div class="details">
+              <div class="temp">
+                <span class="numb-2">_</span>
+                <span class="deg">°</span>C
+              </div>
+              <p>Temperatura</p>
             </div>
-           
+          </div>
+          <div class="column humidity">
+            <i class="icon-droplet"></i>
+            <div class="details">
+              <span>_</span>
+              <p>Humedad</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+   <script src="js/tempo.js"></script>
+	
+      </div><!--maps-->
+	        
+		  </div>
+		  
+		 </div>
+		  
+     </section>	
+	 
+
+    <section class="carousels-radio" id="emisoras">
+
+       <h2>EMISORAS <span class="icon-arrow-right"></span></h2>
+
+        <div class="owl-carousels">
+    
+       <div class="items">
+              <img src="emisora/altovoltaje.png" />
+               
+			  <div class="card-body">
+                <div class="card-title">Altovoltaje Radio</div>
+				 <div class="sub-title">Caldas</div>
+               
+			   <p class="card-description">
+               Programación con una variedad musical, cultural, deporte y noticias. Somos uno de los medios más importantes del Eje Cafetero en las plataformas de Radios Digitales. </p>
+              
+				<a class="btns">
+	   <audio controls> <source src="https://manager7.streamradio.fr:3045/stream?x=1700082229257" /></audio>
+	   </a> 
+				
+				
+               </div>
+        </div>
+    
+
+   	   <div class="items">
+           <img src="emisora/tropical.png" />
+            
+            <div class="card-body">
+                  <div class="card-title">El Palacio Tropoical</div>
+				  <div class="sub-title">Colombia</div>
+				  
+                <p class="card-description">
+                    Plataforma online que emite desde La Guajira, para difundir la música
+		            tropical y caribeña cuyo fin es conservar su raices, a traves de diversos géneros musicales.
+                </p>
+				
+              		<a class="btns">
+	                 <audio controls> <source src="http://stream.zeno.fm/qmen7kmxdf9uv" /></audio>
+	                </a> 
+	   
+            </div>
+        </div>
+	 
+     
+	  <div class="items">
+               <img src="emisora/la voz.png" />
+         
+            <div class="card-body">
+                 <div class="card-title">La Voz del Rey</div>
+				  <div class="sub-title">Planeta Rica</div>
+                <p class="card-description">
+                   Usar los medios digitales y radiales para difundir el evangelio; edificar y   consolar a los creyentes hispanos.
+		           Director: Seir Diaz.
+			       Solicita su exito preferido: +57 3112687477
+                </p>
+               
+			    <a class="btns">
+	                 <audio controls> <source src="http://stream.zeno.fm/qv0h7n21urhvv"" /></audio>
+	                </a> 
+					
+            </div>
         </div>
 		
-    </section>
+		    <div class="items">
+                <img src="emisora/scom.png" />
+         
+            <div class="card-body">
+                  <div class="card-title">Radio Scom</div>
+				  <div class="sub-title">Cali</div>
+                <p class="card-description">
+                   Fomentar y difundir una cultura musical con excelente programación las 24 horas, que permitan estar a la vanguardia de las nuevas tendencias tecnológicas en comunicación.
+                </p>
+                
+				  <a class="btns">
+	                 <audio controls><source src="https://tustreamingradios2.com/8046/stream"/></audio>
+	                </a> 
+					
+            </div>
+        </div>
+		
+		  <div class="items">
+                <img src="emisora/empresa.png" />
+         
+            <div class="card-body">
+                  <div class="card-title">Musica Sin Fronteras</div>
+				  <div class="sub-title">Bogotá</div>
+                <p class="card-description">
+                   Promover en la plataforma exitos de artistas nacionales e internacionales. Por lo tanto, trasmite y produce una programación variada, para ofrecer musica a otro nivel. "Sin Fronteras".
+                </p>
+               
+			     <a class="btns">
+	                 <audio controls> <source src="http://stream.zeno.fm/672xk039ptzuv" /></audio>
+	                </a> 
+					
+            </div>
+        </div>
+		
+		 <div class="items">
+              <img src="emisora/palacio.png" />
+         
+            <div class="card-body">
+                  <div class="card-title">Palacio Vallenato</div>
+				  <div class="sub-title">Riohacha</div>
+                <p class="card-description">
+                  Gran propuesta musical vallenata desde el año 2012, para la difusión del folclor
+		          en su máxima expresión. Director: Lucas Palacio.
+			      Solicita su exito preferido: +57 3023062929.
+                </p>
+                
+				  <a class="btns">
+	                 <audio controls><source src="https://play8.tikast.com/proxy/lucas?mp=/stream"/></audio>
+	                </a> 
+					
+            </div>
+        </div>
+    
+    </div>
+    
+    
+  </section>
+
+
+  <script src="owl/owl.carousel.min.js"></script>
+
+  <script>
+    $('.owl-carousels').owlCarousel({
+      margin: 15,
+       loop: true,
+       autoplay:true,
+      nav: false,
+      navText: [""],
+      responsive: {
+        0: {
+          items: 1
+        },
+        580: {
+          items: 2
+        },
+        1000: {
+          items: 3
+        }
+      }
+    });
+  </script>
+  
+  
  
-	
-   <footer>
+		<footer>
 		<div class="footer-container">
 			<div class="footer-main">
 				<div class="footer-columna">
 					<h3>Contacto</h3>
-				   <form action="" method="" id="formulario">
-					  <input type="email" name="email" id="email" placeholder="Ingresa su correo" required>
-				      <textarea type="text" name="mensajes" id="mensajes" placeholder="Ingresa su mensaje" required></textarea>
-					  <input type="submit" value="Enviar" id="submit">
 					
+				<!--<form action="correo.php" method="POST" id="formulario">-->
+					  
+				  <form action="" method="" id="formulario">
+				 
+					<!-- <input type="email" name="Sender" id="Sender" placeholder="Ingresa su correo" required>
+					  
+				      <textarea type="text" name="Message" id="Message"  placeholder="Ingresa su mensaje" required></textarea>
+					
+					  
+					   <input type="submit" value="Enviar" id="button"> -->
+					   
+					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+					   	
 				    </form>
+							
 				   
-				</div>
+        </div>
+				
+		
 
 				<div class="footer-columna">
 					<h3>Dirección</h3>
-				<span class="fa fa-map-marker"><p> La Paz - Santander</p></span><br>	
-			    <span class="fa fa-map-marke"><p> Colombia</p></span><br>	
+					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				
 				</div>
 
 				<div class="footer-columna">
-					<h3>Mapa</h3>
-				<div class="map-responsive">
-  
-             <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                src="https://maps.google.com/maps?width=100%25&height=600&hl=es&q=La%20Paz%20Santander+()&t=&z=14&ie=UTF8&iwloc=B&output=embed">
-             </iframe>
-  
-             </div>
-
+					<h3>Nosotros</h3>
+					<p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br><br>
+                      Los invitamos a seguirnos a través de las redes sociales.</p>
 				</div>
 			</div>
 		</div>
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
+				       <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/alma.lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
+				</div>
+			</div>
+		</div>
+       
+   
+    </footer>
+      
+
+ </article>
+
+ 
+	  
+<article id='NOTAS' class='elemento'>
+   
+   
+   <div class="notas_page">
+  
+	<div id="publicaciones" class="containst">
+		
+		<div class="advert-container">
+		
+			<div class="container-fluids">
+				<div class="imagen">
+					<a>
+						<img class="img-responsive" src="imagenes/frontera.png">
+						<p>La Fronterísima</p>
+					</a>
+				</div>
+			</div>
+			
+			
+		<div class="container-fluids">
+		
+		  <div id="Adds">
+            
+                <img id="imgAdd" src="img/adds/0.jpg" alt="Add">
+            </a>
+          </div>
+		
+		</div>
+		
+		
+	  <script>
+            var addToShow = 0;
+            var interval;
+            $(document).ready(function(){
+				interval = setInterval(showAdds, 5000);    
+            });
+            function showAdds() {
+				if (addToShow == 2) {
+					addToShow = 0;
+				} else {
+					addToShow ++;
+				}
+				$("#imgAdd").attr("src", "img/adds/" + addToShow + ".jpg");   
+            };
+        </script>
+		
+			
+	<div class="right"> 
+
+     <h2>Articulos</h2>
+
+    <ul>
+	  <li><a href="#" id="boton1">1. Universo musical</a></li>
+	  <li><a href="#" id="boton2">2. Un futuro sostenible</a></li>
+	  <li><a href="#" id="boton3">3. Cuidado de Mascotas</a></li>
+	  <li><a href="#" id="boton4">4. Fortalecer lasos sociales</a></li>
+	  <li><a href="#" id="boton5">5. Actividades tiempo libre</a></li>
+	  <li><a href="#" id="boton6">6. El poder del deporte</a></li>
+	  <li><a href="#" id="boton7">7. Salud tesoro a cuidar</a></li>
+	  <li><a href="#" id="boton8">8. Tecnología y su impacto</a></li>
+	  <li><a href="#" id="boton9">9. Uso excesivo del movil</a></li>
+	  <li><a href="#" id="boton10">10. Tips para ser más felices</a></li>
+	  
+    </ul>
+
+      </div>
+					
+	</div>
+	
+
+		<div class="main-contain">
+		
+			<div id="notas_titular" class="container-fluid">
+			
+				<section class="contec">
+				     
+					   <div id="contex">
+					 
+					<h2>El lenguaje musical</h2>
+					<div class="datetime">
+						<span class="glyphicon glyphicon-calendar"> </span><span>10/25/2023 8:00 am</span>
+					</div>
+					<div class="informacion">
+						<p>La música, una de las formas de expresión más antiguas y universales, ha acompañado a la humanidad a lo largo de su historia. Desde las tribus prehistóricas que creaban ritmos con 
+						instrumentos primitivos hasta las enormes producciones musicales contemporáneas, la música ha sido un vínculo que trasciende barreras culturales, lingüísticas y geográficas.
+						A lo largo de este artículo, exploraremos el poder universal de la música y cómo afecta a nuestras emociones, nuestras vidas y nuestro mundo.</p><br>
+
+					</div> 
+					
+					<div class="imagen">
+						<img class="img-responsive center-block" src="images/musica.jpg" alt="">
+					     <h5>Imagen tomada de: pixabay.com</h5>
+					</div>
+					
+                     <div class="informacion">
+					 
+					  <p>Un lenguaje universal</p> <br>
+						   
+					  <p>La música es un lenguaje que no necesita traducción. No importa de dónde provenga ni el idioma en el que se cante; la belleza de una melodía o la emoción de una canción pueden ser comprendidas y sentidas por personas de todo el mundo.
+					  La música es un puente entre culturas, conectando a las personas de maneras que las palabras a menudo no pueden.
+					  Un solo acorde de guitarra, una nota de piano o una voz poderosa pueden transmitir emociones y significados que resuenan profundamente en el corazón humano.</p>
+
+					</div><br>
+					
+					
+					 <div class="informacion">
+					 
+					  <p>La música como terapia emocional</p> <br>
+					  
+						<p>La música tiene un impacto directo en nuestras emociones. Puede alegrarnos, hacernos bailar de alegría o traernos paz en momentos de tristeza. Los sonidos y ritmos influyen en nuestra química cerebral,
+						liberando hormonas que afectan nuestro estado de ánimo. La música ha sido utilizada en terapias para tratar afecciones de salud mental, como la depresión y la ansiedad.
+						Además, la música puede servir como una vía para que las personas expresen sus emociones y encuentren consuelo en momentos difíciles.<p>
+					  
+					 </div>
+					
+					
+			<div class="blue"> 
+			   <ul>
+	           <a href="#" id="pulsar1" >Nota 1</a>
+	           <a href="#" id="pulsar2" >Nota 2</a>
+	           <a href="#" id="pulsar3" >Nota 3</a>
+	           <a href="#" id="pulsar4" >Nota 4</a>
+			   <a href="#" id="pulsar5" >Nota 5</a>
+			   <br>
+               <a href="#" id="pulsar6">Nota 6</a>
+	           <a href="#" id="pulsar7">Nota 7</a>
+	           <a href="#" id="pulsar8">Nota 8</a>
+	           <a href="#" id="pulsar9">Nota 9</a>
+	           <a href="#" id="pulsar10">Nota 10</a>
+			   </ul>
+           </div>
+			
+				 
+           </section>
+		   
+		   
+		       </div>	
+	          </div>
+             </div>
+		   </div>
+	     </div>	
+
+
+	<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+					<!--<form action="correo.php" method="POST"> -->
+					  
+				     <form action="" method="" id="formulario">
+				
+					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+				    </form>
+					
+										   
+              </div>
+
+
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br>
+                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
+				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
+					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+	 
+ </article>
+ 
+ 
+ 
+  <article id='VIDEOS' class='elemento'>
+	
+	   <section class="artistas">
+	
+	
+		<div class="artistas-container">
+			<section class="artistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/02GlczrkIBk"></iframe>
+				   
+				    
+				</div>
+				<section class="artistas-text">
+				 
+				  <h3>Elfre Delgado</h3>
+					<h2>Vallenato</h2>
+					
+					  <p>Cantante del género vallenato, para gozar con !Sabrosura!</p>
+				</section>
+			</section>
+			
+			<section class="artistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/W_qrpb-u18w"></iframe>
+				    
+				</div>
+				<section class="artistas-text">
+				    <h3>Luis Alexis</h3>
+					<h2>Vallenato</h2>
+					<p>Artista Ecuatoriano del género Vallenato para el mundo. ¡Ay Ombe!</p>
+				</section>
+			</section>
+			
+			<section class="artistas-item">
+					<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/ubHvNue4Ma4"></iframe>
+				   
+				</div>
+				<section class="artistas-text">
+				   <h3>Rodolfo Chavijo</h3>
+					<h2>Popular</h2>
+					<p>Excelente intérprete dedicado al género norteño y popular.</p>
+				</section>
+			</section>
+		</div>
+		
+		
+		<div class="artistas-container">
+			<section class="artistas-item">
+					<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/rYyUEtOWIX4"></iframe>
+				   
+				</div>
+				<section class="artistas-text">
+				   <h3>Enrique Chávez</h3>
+					<h2>Variado</h2>
+					  <p>Talentoso artista y compositor Mexicano, destacándose en el género ranchero.</p>
+				</section>
+			</section>
+			
+			<section class="artistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/2vrBpjQjAbk"></iframe>
+				   
+				</div>
+				<section class="artistas-text">
+			       <h3>Urbano</h3>
+					<h2>Grupo Clybyer</h2>
+					<p>Un grupo de música urbana, cuyas raíces son de Putumayo.</p>
+				</section>
+			</section>
+			<section class="artistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/AT7HHYvbtq4"></iframe>
+				     
+				</div>
+				<section class="artistas-text">
+				   <h3>José Escarpeta</h3>
+					<h2>Popular</h2>
+					<p>Artista consagrado junto a su agrupación de música popular.</p>
+				</section>
+			</section>
+		</div>
+			
+	</section>
+   
+
+		<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+					<!--<form action="correo.php" method="POST"> -->
+					  
+				     <form action="" method="" id="formulario">
+				
+					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+				    </form>
+					
+										   
+              </div>
+
+
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br>
+                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
+				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
+					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
+				</div>
+			</div>
+		</div>
+		
     </footer>
 
-	</article>
+	</article> 
+ 
+
+ <article id='ENTREVISTA' class='elemento'>
 	
-	
-	
-	  <article id="turismo" class="elemento">
-	
-	
-	<section class="boixes">
-	
-	<div class="sender" id="sender1">
-		<li><a href="#img1"><img src="images/turismo/1.jpg"></a></li>
+	  <section class="entrevistas">
+	  	
+		<div class="entrevistas-container">
+			
+			<section class="entrevistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/58jN_PvL8EQ?html5=1&enablejsapi=1"></iframe>
+				    
+				</div>
+				<section class="entrevistas-text">
+				   <h3>Tucanes de Tijuana</h3>
+					<h2>Norteña</h2>
+					  <p>Es un honor presentar la entrevista realizada por "Dary el As de México" a Mario Quintero cantante de "Los Tucanes de Tijuana"</p>
+				</section>
+			</section>
+			
+			<section class="entrevistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/lkFln0-IEq8?html5=1&enablejsapi=1"></iframe>
+				   
+				</div>
+				<section class="entrevistas-text">
+				   <h3>Perla Quintanilla</h3>
+					<h2>Norteña</h2>
+					  <p>Entrevista realizada por "Dary el As de México" a la gran cantante "Perla Quintanilla"</p>
+				</section>
+			</section>
+			
+			<section class="entrevistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/npOWcDazxVI?html5=1&enablejsapi=1"></iframe>
+				   
+				</div>
+				<section class="entrevistas-text">
+				   <h3>León del Oriente</h3>
+					<h2>Popular</h2>
+					  <p>Entrevista "En Volando a México, por un sueño" al artista Marco Antonio Arias "El León del Oriente" </p>
+				</section>
+			</section>
+			
+			
+		</div>
 		
-	  <div class="info">
-		<h4>Hoyo del Aire</h4>
+		
+		
+		<div class="entrevistas-container">
+			
+			<section class="entrevistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/58jN_PvL8EQ?html5=1&enablejsapi=1"></iframe>
+				    
+				</div>
+				<section class="entrevistas-text">
+				   <h3>Tucanes de Tijuana</h3>
+					<h2>Norteña</h2>
+					  <p>Es un honor presentar la entrevista realizada por "Dary el As de México" a Mario Quintero cantante de "Los Tucanes de Tijuana"</p>
+				</section>
+			</section>
+			
+			<section class="entrevistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/lkFln0-IEq8?html5=1&enablejsapi=1"></iframe>
+				   
+				</div>
+				<section class="entrevistas-text">
+				   <h3>Perla Quintanilla</h3>
+					<h2>Norteña</h2>
+					  <p>Entrevista realizada por "Dary el As de México" a la gran cantante "Perla Quintanilla"</p>
+				</section>
+			</section>
+			
+			<section class="entrevistas-item">
+				<div class="embed-res">
+				   <iframe class="embed-responsive-item" src="https://youtube.com/embed/npOWcDazxVI?html5=1&enablejsapi=1"></iframe>
+				   
+				</div>
+				<section class="entrevistas-text">
+				   <h3>León del Oriente</h3>
+					<h2>Popular</h2>
+					  <p>Entrevista "En Volando a México, por un sueño" al artista Marco Antonio Arias "El León del Oriente" </p>
+				</section>
+			</section>
+			
+			
+		</div>
+			
+	</section>
+	
+   
+	<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+					<!--<form action="correo.php" method="POST"> -->
+					  
+				     <form action="" method="" id="formulario">
+				
+					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+				    </form>
+					
+										   
+              </div>
+
+
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br>
+                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
+				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
+					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+
+  </article>
+  
+  
+  
+   <article id='PRIVACIDAD' class='elemento'>
+	
+	 	  <section class="privacy">
+	
+		   <div class="privacy-container">
+			
+			
+		  <section class="privacy-text">
+		
+				
+   <h2><strong>POLÍTICA DE PRIVACIDAD</strong></h2>
+   
+<p>La presente política de privacidad establece los términos en que La Fronterisima 
+usa y protege la información que es proporcionada por sus usuarios al momento de 
+utilizar su sitio web. Esta compañía está comprometida con la seguridad de los datos
+ de sus usuarios. Cuando le pedimos llenar los campos de información personal
+ con la cual usted pueda ser identificado, lo hacemos asegurando que sólo
+ se empleará de acuerdo con los términos de este documento.<br>
+ 
+ Sin embargo esta Política de Privacidad puede cambiar con el tiempo o 
+ ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente 
+ esta página para asegurarse que está de acuerdo con dichos cambios.</p>
+ 
+ <h2><strong>Información que es recogida</strong></h2>
+ 
+ <p>Nuestro sitio web podrá recoger información personal por ejemplo: Nombre,&nbsp;
+ información de contacto como&nbsp; su dirección de correo electrónica. </p>
+
+<h2><strong>Uso de la información recogida</strong></h2>
+
+<p>Nuestro sitio web emplea la información con el fin de proporcionar el mejor 
+servicio posible, particularmente para mantener un registro de usuarios,
+ de pedidos en caso que aplique y mejorar nuestros servicios.
+ 
+ &nbsp;Es posible que sean enviados correos electrónicos periódicamente 
+ a través de nuestro sitio con para contactar un artísta u otra 
+ información publicitaria que consideremos relevante para usted o que pueda
+ brindarle algún beneficio, estos correos electrónicos serán enviados a la
+ dirección que usted proporcione y podrán ser cancelados en cualquier momento.</p>
+ 
+ <p>La Fronterisima está altamente comprometido para cumplir con el compromiso
+ de mantener su información segura. Usamos los sistemas más avanzados y 
+ los actualizamos constantemente, para asegurarnos que no exista ningún 
+ acceso no autorizado.</p>
+ 
+ <h2><strong>Cookies</strong></h2>
+ 
+ <p>Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar 
+ permiso para almacenarse en su ordenador, al aceptar dicho fichero se crea y la 
+ cookie sirve entonces para tener información respecto al tráfico web y también 
+ facilita las futuras visitas a una web recurrente. 
+ 
+ Otra función que tienen las cookies es que con ellas las web pueden reconocerte individualmente
+ y por tanto brindarte el mejor servicio personalizado de su web.</p>
+ 
+ <p>Nuestro sitio web emplea las cookies para poder identificar las páginas
+ que son visitadas y su frecuencia. Esta información es empleada únicamente para
+ análisis estadístico y después la información se elimina de forma permanente.
+ Usted puede eliminar las cookies en cualquier momento desde su ordenador. 
+ 
+ Sin embargo las cookies ayudan a proporcionar un mejor servicio de los sitios web,
+ estás no dan acceso a información de su ordenador ni de usted, 
+ a menos de que usted así lo quiera y la proporcione directamente.
+
+ Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de
+ navegadores aceptan cookies automáticamente pues sirve para tener un mejor
+ servicio web. 
+ 
+ También usted puede cambiar la configuración de su ordenador
+ para declinar las cookies.
+
+ Si se declinan es posible que no pueda utilizar algunos de nuestros servicios.</p>
+ 
+ <h2><strong>Enlaces a Terceros</strong></h2>
+ 
+ <p>Este sitio web pudiera contener enlaces a otros sitios que
+ pudieran ser de su interés. Una vez que usted de clic en estos enlaces 
+ y abandone nuestra página, ya no tenemos control sobre al sitio al que
+ es redirigido y por lo tanto no somos responsables de los 
+ ni de la protección de sus datos en esos otros sitios terceros. 
+ 
+ Dichos sitios están sujetos a sus propias políticas de privacidad
+ por lo cual es recomendable que los consulte para confirmar que 
+ usted está de acuerdo con estas.</p>
+ 
+ <h2><strong>Control de su información personal</strong></h2>
+ 
+ <p>La Fronterisima se reserva el derecho de cambiar los términos de la presente 
+ política de privacidad en cualquier momento.</p>
+
+
+
+	 </section>
+				
+		
+   </div>
+			
+
+	     </section>
+	
+   
+	<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+					<!--<form action="correo.php" method="POST"> -->
+					  
+				     <form action="" method="" id="formulario">
+				
+					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+				    </form>
+					
+										   
+              </div>
+
+
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br>
+                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
+				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
+					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+
+  </article>
+  
+
+  
+   <article id='ARTISTAS' class='elemento'>	
+      	
+	 <div id="especiales">
+	 
+        <section class="especial scrollflow -slide-top">   
+	   <h3 class="programas__titulo">ARTISTAS REVELACIÓN</h3>
+        <div class="contenedor">  
+            <article class="especial__columna1">
+          <img loading="lazy" src="artistas/Georgy.jpg" alt="" class="especial__img">
+                <div class="informaciones">
+                <h3 class="especial__titulo">Georgy Cañas</h3>
+				
+				  <button class="button">Popular</button>	
+					
+				
+                <p class="especial__txt">Cantante e interprete polifacetico de los diferentes generos musicales, oriundo del
+          			municipio de Chinchina - Caldas y radicado en Pereira, con una gran trayectoria en el plano musical.<br>
+				    Luego de haber integrado diferentes agrupaciones y orquestas a nivel nacional e internacional, decide
+					lanzar su carrera musical como solista con el genero popular, los invito a seguir una nueva propuesta.
+                 </p>
+	 				 
+			</div>
+				
+				
+            </article>
+              <article class="especial__columna2">
+                 <img loading="lazy" src="artistas/Cly&beyr.jpg" alt="" class="especial__img">
+                  <div class="informaciones">
+                <h3 class="especial__titulo">Cly&Beyr</h3>
+				
+				  <button class="button">Urbano</button>
+				  
+                <p class="especial__txt">Es una agrupacion de género urbano, conformado por jóvenes Leguizameños dispuestos a dar todo por su talento,con su gran talento musical han viajado a diferentes de Colombia y Ecuador. Ha participado en eventos como ferias,
+				 carnavales, festivales y encuentros culturales, a estado lanzando diferentes sencillos: 
+				 "Leguízamo" un tema músical homenaje a una tierra de culturas en el sur del país.
+              
+                </p>
+                
+				</div>
+				
+            </article>
+            
+              <article class="especial__columna3">
+                 <img loading="lazy" src="artistas/Pentagrama Mix.jpg" alt="" class="especial__img">
+                 <div class="informaciones">
+                 <h3 class="especial__titulo">Pentagrama Mix</h3>
+				 
+				   <button class="button">Tropical</button>
+				   
+                 <p class="especial__txt">Agrupación de género Tropical, constituida por jóvenes Leguizameños dispuestos a dar todo por su talento, reconocida a nivel
+                 Departamental e Internacional, con su gran talento musical a recorrido diferentes partes de Colombia y Ecuador. Ha participado en eventos como 
+				 ferias, carnavales, festivales y encuentros culturales. En su carreta musical ha lanzando diferentes sencillos entre ellos uno de los más vistos es 
+				 "LEGUIZAMO" este hace homenaje a una tierra de culturas en el sur del pais.
+                 
+				 </p>
+                      
+		     </div>
+				  
+            </article>
+            </div>
+        </section>
+		</div>
+		
+		
+		 <section class="especial scrollflow -slide-top">   
+	       <h3 class="programas__titulo">ARTÍSTAS VARIADOS</h3>
+        <div class="contenedor">  
+            <article class="especial__columna1">
+          <img loading="lazy" src="artistas/latin show.jpg" alt="" class="especial__img">
+                <div class="informaciones">
+                <h3 class="especial__titulo">Pedro Vidal-Latín Show</h3>
+				
+				  <button class="button">Tropical</button>	
+						
+                <p class="especial__txt"> Presentación Musical: Reinado Nacional De la Belleza AFRO, Carnaval de pasto, Festival Vallenato,
+				Feria de las Flores, Feria de Cali, La feria de Manizales, entre otros.
+                A nivel internacional, el artista show Central del festival más importante del mundo de los Colombianos,
+				Festival que se da en la ciudad de New york "El Festival de Flushing" festivales en Washington DC. Miami Fl., 
+				artista invitado en mis mundos internacionales y en el reinado de belleza de Bolivia.
+				Diferentes festivales en Ecuador y Centroamérica.
+		
+                </p>
+				 
+				</div>
+				
+            </article>
+			
+              <article class="especial__columna2">
+                <img loading="lazy" src="artistas/fantasticos vallenato.jpg" alt="" class="especial__img">
+                 <div class="informaciones">
+                <h3 class="especial__titulo">Huberth Montero</h3>
+				
+				  <button class="button">Vallenato</button>
+          	  
+                <p class="especial__txt">Es un orgullo presentar a Huberth Montero y Los Fantásticos del Vallenato (Género Vallenato)
+                 Agrupación con más de 26 años de vida artística y con éxitos nacionales e internacionales como Te Extraño, 
+				 Dime Soledad, Porque Te Vas Y Solamente Tu entre otros.
+
+                 PUESTA EN TARIMA
+                 Voz Líder, Acordeón, dos (2) Coros, Caja, Guacharaca, Congas, Timbal, Bajo, Guitarra, Piano, para un total 
+				 de once (11) integrantes en escena.
+                 La presentación de "Huberth Montero y los Fantásticos del Vallenato”.
+
+                </p>
+				  
+				  </div>
+				  
+            </article>
+            
+              <article class="especial__columna3">
+               <img loading="lazy" src="artistas/genesis orquesta.jpg" alt="" class="especial__img">
+                  <div class="informaciones">
+                <h3 class="especial__titulo">Génesis Internacional</h3>
+				
+				  <button class="button">Tropical</button>
+				  
+                <p class="especial__txt">Es una agrupacion creada en el 2010 en la ciudad de San Juan de Pasto, impulsada con
+				el propósito de exaltar el talento artístico femenino complementado con el empuje, ahínco y musicalidad masculinos. 
+				Su propuesta musical es variada e influenciada por el género tropical fiestero y Tecnocumbiero por excelencia, el son sureño
+  				y ritmos propios de la región nariñense y más adelante profundizará e incursionará en géneros musicales variados y caribeños
+                de la costa colombiana, el merengue, y la salsa.
+    
+                </p>   
+				
+				</div>
+				
+               </article>
+			   
+            </div>
+        </section>
+		
+		
+		<section class="especial scrollflow -slide-top">   
+	       <h3 class="programas__titulo">ARTISTAS POPULARES </h3>
+        <div class="contenedor">  
+            <article class="especial__columna1">
+          <img loading="lazy" src="artistas/indomables.jpg" alt="" class="especial__img">
+                <div class="informaciones">
+                <h3 class="especial__titulo">Las Indomables</h3>
+				
+				  <button class="button">Tecno-Carrilera</button>
+				  
+                <p class="especial__txt">Tenemos el gusto de presentarles a "Las Indomables" (Género Tecno-Carrilera) con el mejor repertorio de éxitos 
+				del género, han alternado con varios artístas de cartelera en ferias y fiestas. Con su primer éxito y mp3 sonando en 
+				varios Departamentos de Colombia con su tema Popurrí de las Indomables.
+				
+				Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos
+				instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena.
+          
+                </p>
+				
+				</div>
+				
+            </article>
+			
+              <article class="especial__columna2">
+                <img loading="lazy" src="artistas/federales.jpg" alt="" class="especial__img">
+                  <div class="informaciones">
+                <h3 class="especial__titulo">Los Federales</h3>
+				
+			      <button class="button">Norteña</button>
+				
+				   <p class="especial__txt">Con más de 18 años de carrera musical "Los Federales de Colombia" son reconocidos
+				   por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Cuncurso de Temas
+				   Inéditos en Sinaloa Radio TV, con Lupita Villa en México.
+				   
+				   Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por exitos como: Vivo como un rey, A mi pueblo querido,
+				   Un amor de calle entre otros.
+
+                </p>
+				
+				</div>
+				
+            </article>
+            
+              <article class="especial__columna3">
+                <img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="" class="especial__img">
+                  <div class="informaciones">
+                <h3 class="especial__titulo">Yo me llamo Alzate</h3>
+				
+				  <button class="button">Popular</button>
+				  
+                <p class="especial__txt">Es un gusto presentar a un artista como "Xavier El Gato blanco", artista principiante
+				en "Yo me llamo" interprentando a Alzate y catalogado como el "Mil Voces" por imitar artístas como Alzate, Yeison
+				Jiménez, Giovany Ayala, Jhon Alex Castaño, Jessi Uribe, Fernano Burbano, Jhony Rivera, Alexis Escobar entre otros.<br>
+				
+				La agrupación "Xavier El Gato Blanco" está integrada por: Voz oficial y un marco de (2) trompetas, (1) bajo, (1) piano o acordeón, (1) vihuela, (2) requintos,
+				y (1) batería, total de (8) integrantes en escena.
+            
+			 
+                </p>
+				
+				</div>
+				
+            </article>
+			
+          </section>
+   
+
+		<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+					<!--<form action="correo.php" method="POST"> -->
+					  
+				     <form action="" method="" id="formulario">
+				
+					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+				    </form>
+					
+										   
+              </div>
+
+
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br>
+                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
+				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
+					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+	 
+	
+	 </article>
+	 
+	 
+	 <!-- <article id='CHAT' class='elemento'>
+	
+	   
+       <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+	   
+  <script>
+
+  var config = {
+    apiKey: "AIzaSyCTfQT4E3h8ZAttTo6f_RE-ErLfpIYocA4",
+    authDomain: "chat-1654d.firebaseapp.com",
+    databaseURL: 'https://chat-1654d-default-rtdb.firebaseio.com',
+    projectId: "chat-1654d",
+    storageBucket: "chat-1654d.appspot.com",
+    messagingSenderId: "1087922024",
+	appId: "1:1087922024:web:2c72f1112c5c35959240dd"
+  };
+  firebase.initializeApp(config);
+
+    var TablaDeBaseDatos= firebase.database().ref('chat');
+    
+    TablaDeBaseDatos.limitToLast(800).on('value',function(snapshot){
+        
+         $(".chat").html(""); 
+       
+        snapshot.forEach(function(e){
+            var objeto=e.val();
+           
+             if((objeto.Mensaje!=null)&&(objeto.Nombre!=null)){
+                 
+                 $( "#plantilla" ).clone().prependTo( ".chat" );
+                 $('.chat #plantilla').show(10);
+                 $('.chat #plantilla .Nombre').html(objeto.Nombre);
+                 $('.chat #plantilla .Mensaje').html(objeto.Mensaje);
+                 $('.chat #plantilla .Tiempo').html(objeto.Fecha);
+                 $('.chat #plantilla').attr("id","");
+             }
+            
+        });
+    });
+    
+    
+    
+</script>
+	
+ <section class="chat">	
+  <div class="chatbox">
+    <div class="chat_title">COMENTARIOS</div>
+
+    <div class="chat_area">
+        <ul id="chatlist" class="chat">
+          
+        </ul>
+    </div>
+
+    <div class="message_write">
+        <div class="input-group">
+            <input id="Nombre" type="text" class="form-control" placeholder="Ingresa el nombre" required="required" />
+            <br>
+            <input id="Mensaje" type="text" class="form-control" placeholder="Escriba  el mensaje..." required="required"  />
+            <span class="input-group-btn">
+                <br>
+                <button class="btn btn-warning btn-sm" id="btnEnviar">Enviar</button>
+            </span>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<li style="display:none" id="plantilla" class="left clearfix">
+    <div class="chat-body clearfix">
+        <div class="header-logo">
+            <strong class="primary-font Nombre">Nombre</strong>
+            <small class="pull-right text-muted fecha-hora">
+                <span class="glyphicon glyphicon-asterisk Tiempo"></span> 
+            
+            </small>
+        </div>
+	
+        <p class="Mensaje">Mensaje de ejemplo.</p>
+    </div>
+</li>
+
+	
+      <script>
+       var input = ("Nombre:");
+         
+       $('#btnEnviar').click(function(){
+	   
+        var nombre = $("#Nombre").val().trim();  
+        var mensaje = $("#Mensaje").val().trim();
+	
+        if(nombre === "" || mensaje === "") {  
+          return;  
+        }
+	
+           var formatofecha= new Date(); 
+           var d= formatofecha.getUTCDate();
+           var m= formatofecha.getMonth()+1;
+           var y= formatofecha.getFullYear();
+           var h=formatofecha.getHours();
+           var min= formatofecha.getMinutes();
+           
+           Fecha= d+"/"+m+"/"+y+" "+h+":"+min;
+           
+           TablaDeBaseDatos.push({
+               Nombre:Nombre,
+               Nombre:$("#Nombre").val(),
+               Mensaje:$("#Mensaje").val(),
+               Fecha:Fecha
+            });
+			
+			 // Limpiar campos después de enviar
+    $("#Nombre").val("");
+    $("#Mensaje").val("");
+           
+           
+       });
+	   
+       </script>
+	   
+      <script>
+	  
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-74824848-1', 'auto');
+  ga('send', 'pageview');
+</script>
+   
+
+		 <footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+					<form action="correo.php" method="POST">
+					  
+				     <form action="" method="" id="formulario">
+				
+					  <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+				    </form>
+					
+										   
+              </div>
+
+
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					 <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br>
+                      Los invitamos a seguirnos a tráves de las redes sociales.</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> 
+				     <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> 
+					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+
+	</article> -->
+	
+	
+ <article id='TURISMO' class='elemento'>
+	
+	    <section class="boixes">
+	
+	    <div class="sender" id="sender1">
+		 <li><a href="#img1"><img src="turismo/1.jpg"></a></li>
+		
+	   <div class="info">
+		 <h4>Hoyo del Aire</h4>
 			<p>Esta ubicado en la Vereda del Tigre perteneciente al Municipio de La Paz Santander. Posee unas dimensiones que impresionan a los visitantes y lugareños. Su abertura es de aproximadamente de 170 metros y con una profundidad de 180 metros, catalogandose coomo el segundo hoyo más grande del mundo.</p>
 			
 		    <p>El subsuelo esta cubierto con una vegetación particular, arbustos, platanillos, palmas entre otras plantas que le dan una belleza e impresion inimaginable. A su vez, tiene una caberna, que en lo profundo la recorre una pequeña corriente de agua. </p>
@@ -630,7 +1886,7 @@
 			<p>Referente a lo turistico, muchas personas de diversos lugares cada año y por epocas vacionales, visitan esta maravilla, quedando perplejos y satisfechos de conocer un encanto natural. </p>
 			
 			
-		<label><p>Ubicada en la vereda: El Tigre</p></label><br>
+		<label><p>Ubicada en la vereda: El Tigre "La Paz Santander"</p></label><br>
 		<label class="precio"></label><label class="mini"></label>
 		
 	</div>
@@ -642,7 +1898,7 @@
 
 		<div class="imagen">
 			<a href="#img2"></a>
-	        <a href="#img2"><img src="images/turismo/1.jpg"></a>
+	        <a href="#img2"><img src="turismo/1.jpg"></a>
 			<a href="#img2"></a>
 		</div>
 	
@@ -653,7 +1909,7 @@
 
 		<div class="imagen">
 			<a href="#img3"></a>
-	        <a href="#img3"><img src="images/turismo/2.jpg"></a>
+	        <a href="#img3"><img src="turismo/2.jpg"></a>
 			<a href="#img3"></a>
 		</div>
 			
@@ -664,7 +1920,7 @@
 		
 		<div class="imagen">
 			<a href="#img1"></a>
-	        <a href="#img1"><img src="images/turismo/3.jpg"></a>
+	        <a href="#img1"><img src="turismo/3.jpg"></a>
 			<a href="#img1"></a>
 		</div>
 	
@@ -677,15 +1933,15 @@
 	<section class="boixes">
 	
 	<div class="sender" id="sender1">
-		<li><a href="#img4"><img src="images/turismo/4.jpg"></a></li>
+		<li><a href="#img4"><img src="turismo/4.jpg"></a></li>
 		
 	<div class="info">
 		<h4>Laguna negra</h4>
 			<p>Un formación acuifera de gran belleza. Desde el plano de leyenda, se dice que esta laguna surge a raiz de un fuerte aguacero, que inundo ese sector, desapareciendo la choza de una india, que segun sus moradores la llamaban la india negra.</p>
 			   
-		<p>De ahi se deriva el nombre de Laguna de la negra, posteriormente se le llama Laguna Negra, aunque sus aguas son cristalinas y su paisaje fantastico.</p>
+		   <p>De ahi se deriva el nombre de Laguna de la negra, posteriormente se le llama Laguna Negra, aunque sus aguas son cristalinas y su paisaje fantastico.</p>
 			
-		<label><p>Ubicada en la vereda: El Hato</p></label><br>
+		<label><p>Ubicada en la vereda: El Hato "La Paz Santander"</p></label><br>
 		<label class="precio"></label><label class="mini"></label>
 
 	</div>
@@ -695,7 +1951,7 @@
 	
 		<div class="imagen">
 			<a href="#img5"></a>
-	        <a href="#img5"><img src="images/turismo/4.jpg"></a>
+	        <a href="#img5"><img src="turismo/4.jpg"></a>
 			<a href="#img5"></a>
 		</div>
 	</div>
@@ -705,7 +1961,7 @@
 		
 		<div class="imagen">
 			<a href="#img6"></a>
-	        <a href="#img6"><img src="images/turismo/5.jpg"></a>
+	        <a href="#img6"><img src="turismo/5.jpg"></a>
 			<a href="#img6"></a>
 		</div>
 	</div>
@@ -715,7 +1971,7 @@
 	   
 		<div class="imagen">
 			<a href="#img4"></a>
-	        <a href="#img4"><img src="images/turismo/6.jpg"></a>
+	        <a href="#img4"><img src="turismo/6.jpg"></a>
 			<a href="#img4"></a>
 		</div>
 	</div>
@@ -727,7 +1983,7 @@
 	<section class="boixes">
 	
 	<div class="sender" id="sender1">
-		<li><a href="#img7"><img src="images/turismo/7.jpg"></a></li>
+		<li><a href="#img7"><img src="turismo/7.jpg"></a></li>
 	
 	<div class="info">
 		<h4>Cueva del Molino</h4>
@@ -735,7 +1991,7 @@
 			   
 		<p>No se lo pierdan, es un lugar lleno de fantasia y digno de visitar y pasar un momento agradable. No olvide tomar precauciones, llevar una linterna y otros elementos necesarios, para vivir una travesia sensacional.</p>
 			
-		<label><p>Ubicada en la vereda: Carrero</p></label><br>
+		<label><p>Ubicada en la vereda: Carrero "La Paz Santander"</p></label><br>
 		<label class="precio"></label><label class="mini"></label>
 
 	</div>
@@ -745,7 +2001,7 @@
 	
 		<div class="imagen">
 			<a href="#img8"></a>
-	        <a href="#img8"><img src="images/turismo/7.jpg"></a>
+	        <a href="#img8"><img src="turismo/7.jpg"></a>
 			<a href="#img8"></a>
 		</div>
 	</div>
@@ -755,7 +2011,7 @@
 		
 		<div class="imagen">
 			<a href="#img9"></a>
-	        <a href="#img9"><img src="images/turismo/8.jpg"></a>
+	        <a href="#img9"><img src="turismo/8.jpg"></a>
 			<a href="#img9"></a>
 		</div>
 	</div>
@@ -765,7 +2021,7 @@
 	   
 		<div class="imagen">
 			<a href="#img7"></a>
-	        <a href="#img7"><img src="images/turismo/9.jpg"></a>
+	        <a href="#img7"><img src="turismo/9.jpg"></a>
 			<a href="#img7"></a>
 		</div>
 	</div>
@@ -777,12 +2033,12 @@
 	<section class="boixes">
 	
 	<div class="sender" id="sender3">
-		<li><a href="#img10"><img src="images/turismo/10.jpg"></a></li>
+		<li><a href="#img10"><img src="turismo/10.jpg"></a></li>
 		
 	<div class="info">
 		<h4>Chorro de Aviones</h4>
 			<p>Sin duda un lugar majestuoso que nos regala la quebrada la Gran Curi.
-			<p>Se encuentra en la vereda: El Tigre.</p>
+			<p>Se encuentra en la vereda: El Tigre "La Paz Santander".</p>
 	
 		<label class="precio"></label><label class="mini"></label>
 	
@@ -793,7 +2049,7 @@
 	
 		<div class="imagen">
 			<a href="#img11"></a>
-	        <a href="#img11"><img src="images/turismo/10.jpg"></a>
+	        <a href="#img11"><img src="turismo/10.jpg"></a>
 			<a href="#img11"></a>
 		</div>
 	</div>
@@ -803,7 +2059,7 @@
 		
 		<div class="imagen">
 			<a href="#img12"></a>
-	        <a href="#img12"><img src="images/turismo/11.jpg"></a>
+	        <a href="#img12"><img src="turismo/11.jpg"></a>
 			<a href="#img12"></a>
 		</div>
 	</div>
@@ -813,7 +2069,7 @@
 	   
 		<div class="imagen">
 			<a href="#img10"></a>
-	        <a href="#img10"><img src="images/turismo/12.jpg"></a>
+	        <a href="#img10"><img src="turismo/12.jpg"></a>
 			<a href="#img10"></a>
 		</div>
 	</div>
@@ -823,7 +2079,7 @@
 	<section class="boixes">
 	
 	<div class="sender" id="sender2">
-		<li><a href="#img13"><img src="images/turismo/13.jpg"></a></li>
+		<li><a href="#img13"><img src="turismo/13.jpg"></a></li>
 		
 	<div class="info">
 		<h4>Balneario La Gacha</h4>
@@ -831,7 +2087,7 @@
 			   
 		    <p>Cuenta con unos kioscos, zona verde. No se lo pierdan.</p>
 			
-		<label><p>Ubicada en la vereda: San Pablo</p></label><br>
+		<label><p>Ubicada en la vereda: San Pablo "La Paz Santander"</p></label><br>
 		<label class="precio"></label><label class="mini"></label>
 
 	</div>
@@ -841,7 +2097,7 @@
 	
 		<div class="imagen">
 			<a href="#img14"></a>
-	        <a href="#img14"><img src="images/turismo/13.jpg"></a>
+	        <a href="#img14"><img src="turismo/13.jpg"></a>
 			<a href="#img14"></a>
 		</div>
 	</div>
@@ -851,7 +2107,7 @@
 		
 		<div class="imagen">
 			<a href="#img15"></a>
-	        <a href="#img15"><img src="images/turismo/14.jpg"></a>
+	        <a href="#img15"><img src="turismo/14.jpg"></a>
 			<a href="#img15"></a>
 		</div>
 	</div>
@@ -861,733 +2117,155 @@
 		
 		<div class="imagen">
 			<a href="#img13"></a>
-	        <a href="#img13"><img src="images/turismo/15.jpg"></a>
+	        <a href="#img13"><img src="turismo/15.jpg"></a>
 			<a href="#img13"></a>
 		</div>
 	</div>
 	
    
 </section>
-
- <!--	<section class="boixes">
-	
-	<div class="sender" id="sender2">
-		<li><a href="#img16"><img src="images/turismo/16.jpg"></a></li>
-		
-	<div class="info">
-		<h4>Piscina La Paz</h4>
-			<p>Sin duda un espacio acogedor y agradable. Cuenta con 2 piscinas climatizadas. Venta de refrigerios.</p>
-			   			
-		<label><p>Ubicada en el Casco Urbano</p></label><br>
-		<label class="precio"></label><label class="mini"></label>
-
-	</div>
-	
-	 <div class="modal" id="img16">
-     	<a class="cancel" href="#sender1"></a> 
-	
-		<div class="imagen">
-			<a href="#img17"></a>
-	        <a href="#img17"><img src="images/turismo/16.jpg"></a>
-			<a href="#img17"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img17">
-		
-		<div class="imagen">
-			<a href="#img16"></a>
-	        <a href="#img16"><img src="images/turismo/17.jpg"></a>
-			<a href="#img16"></a>
-		</div>
-	</div>
-	
-</section>
-
-<section class="boixes">
-	
-	<div class="sender" id="sender2">
-		<li><a href="#img18"><img src="images/turismo/18.jpg"></a></li>
-		
-	<div class="info">
-		<h4>Cueva del Indio</h4>
-			<p>Una imponente y majestuosa cueva, para disfrutar una aventura sin precedentes.</p>
-			   			
-		<label><p>Ubicada en la vereda: Casas Blancas</p></label><br>
-		<label class="precio"></label><label class="mini"></label>
-
-	</div>
-	
-	 <div class="modal" id="img18">
-     	<a class="cancel" href="#sender1"></a> 
-	
-		<div class="imagen">
-			<a href="#img19"></a>
-	        <a href="#img19"><img src="images/turismo/18.jpg"></a>
-			<a href="#img19"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img19">
-		
-		<div class="imagen">
-			<a href="#img18"></a>
-	        <a href="#img18"><img src="images/turismo/19.jpg"></a>
-			<a href="#img18"></a>
-		</div>
-	</div>
-	
-</section>
-
-
-	<section class="boixes">
-	
-	<div class="sender" id="sender3">
-		<li><a href="#img10"><img src="images/turismo/10.jpg"></a></li>
-		
-	<div class="info">
-		<h4>Bocas del Opón</h4>
-			<p>Esta tierra esta regada por rios en la parte baja del municipio, su temperatura cálida da paso a disfrutar de este majestuoso balneario natural, donde convergen las aguas de los rios Quirata y El Opón.
-			<p>Se encuentra en limites de los municipios de Santa Helena del Opón, Landazuri y la Paz Santander.</p>
-			
-		<label><p>Ubicada en la vereda: Trochas</p></label><br>
-		<label class="precio"></label><label class="mini"></label>
-	
-	</div>
-	
-    <div class="modal" id="img10">
-     	<a class="cancel" href="#sender1"></a> 
-	
-		<div class="imagen">
-			<a href="#img11"></a>
-	        <a href="#img11"><img src="images/turismo/10.jpg"></a>
-			<a href="#img11"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img11">
-		
-		<div class="imagen">
-			<a href="#img12"></a>
-	        <a href="#img12"><img src="images/turismo/11.jpg"></a>
-			<a href="#img12"></a>
-		</div>
-	</div>
-
-	<div class="modal" id="img12">
-	
-		<div class="imagen">
-			<a href="#img10"></a>
-	        <a href="#img10"><img src="images/turismo/12.jpg"></a>
-			<a href="#img10"></a>
-		</div>
-	</div>
-
-</section> -->
-
-	
-   <footer>
-		<div class="footer-container">
-			<div class="footer-main">
-				<div class="footer-columna">
-					<h3>Contacto</h3>
-				    <form action="" id="formulario">
-					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>fronterisima12@gmail.com</p></a></span><br>
-					    <span class="fa fa-facebook"> <a href="https://www.facebook.com/Soydelapazsantander" target="_blank" style="color:white"><p>Soydelapazsantander</p></a></span><br>
-					  </form> 
-				   
-				</div>
-
-				<div class="footer-columna">
-					<h3>Dirección</h3>
-				<span class="fa fa-map-marker"><p> La Paz Santander </p></span><br>	
-			    <span class="fa fa-map-marke"><p> Colombia</p></span><br>
-				</div>
-
-				<div class="footer-columna">
-					<h3>Mapa</h3>
-				<div class="map-responsive">
-  
-              <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                src="https://maps.google.com/maps?width=100%25&height=600&hl=es&q=La%20Paz%20Santander+()&t=&z=14&ie=UTF8&iwloc=B&output=embed">
-              </iframe>
-  
-             </div>
-
-				</div>
-			</div>
-		</div>
-
-    </footer>
-
-	</article>
 	
 	
-  <article id="empresa" id="publico"  class="elemento">
-	
-  <section class="card_conteners">
-     
-   <div class="booxes">
-   <div class="boster">
-      <li><a href="#imgs1"><img src="images/empresa/1.jpg"></a></li> 
-   </div>
-  <div class="details"><h1><em>Artesanias I-laye</em></h1>
-   <p>Productos elaborados con elementos naturales: Canastos, floreros, pocillos de gadua grabados.</p>
-   <p>Contacto: 3132427914</p>
-  </div>
-  
-  	<div class="modals" id="imgs1">
-		<a class="cancels" href="#sender1"></a>
-		<div class="image">
-			<a href="#imgs2"></a>
-	        <a href="#imgs2"><img src="images/empresa/1.jpg"></a>  
-			<a href="#imgs2"></a>
-		</div>
-		
-	</div>
-
-	<div class="modals" id="imgs2">
-		<a class="cancels" href="#sender1"></a>
-		<div class="image">
-			<a href="#imgs3"></a>
-	        <a href="#imgs3"><img src="images/empresa/2.jpg"></a>
-			<a href="#imgs3"></a>
-		</div>
-		
-	</div>
-	
-	<div class="modals" id="imgs3">
-		<a class="cancels" href="#sender1"></a>
-		<div class="image">
-			<a href="#imgs1"></a>
-	        <a href="#imgs1"><img src="images/empresa/3.jpg"></a>
-			<a href="#imgs1"></a>
-		</div>
-		
-	</div>
-	
-</div>
-
-     <div class="booxes">
-   <div class="boster">
-      <li><a href="#imgs4"><img src="images/empresa/4.jpg"></a></li> 
-   </div>
-  <div class="details"><h1><em>Café Paceño</em></h1>
-   <p>Un producto de calidad, con un sabor original. Se ofrece chocolate en pastillas y cafe. Pida el tuyo</p>
-   <p>Celular: +57 3134267246</p>
-  </div>
-  
-  <div class="modals" id="imgs4">
-		<a class="cancels" href="#sender1"></a>
-		<div class="image">
-			<a href="#imgs5"></a>
-	        <a href="#imgs5"><img src="images/empresa/4.jpg"></a>  
-			<a href="#imgs5"></a>
-		</div>
-		
-	</div>
-
-	<div class="modals" id="imgs5">
-		<a class="cancels" href="#sender1"></a>
-		<div class="image">
-			<a href="#imgs6"></a>
-	        <a href="#imgs6"><img src="images/empresa/5.jpg"></a>
-			<a href="#imgs6"></a>
-		</div>
-		
-	</div>
-
-	<div class="modals" id="imgs6">
-		<a class="cancels" href="#sender1"></a>
-		<div class="image">
-			<a href="#imgs4"></a>
-	        <a href="#imgs4"><img src="images/empresa/6.jpg"></a>
-			<a href="#imgs4"></a>
-		</div>
-	
-	</div>
-	
-</div>
-
-     <div class="booxes">
-   <div class="boster">
-      <a href="#imgs7"><img src="images/empresa/7.jpg"></a>
-   </div>
-  <div class="details"><h1><em>Lorem Ipsum</em></h1>
-  <h2></h2>
-   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, ea. Mollitia maiores voluptatum
-   <p>Contacto:</p>
-   <P><a href="" target="_blank"></a></p>
-
-  </div>
-  
- 	  <div class="modals" id="imgs7">
-		<a class="cancels" href="#sender1"></a>
-		<div class="image">
-			<a href="#imgs8"></a>
-	        <a href="#imgs8"><img src="images/empresa/8.jpg"></a>  
-			<a href="#imgs8"></a>
-		</div>
-		
-	</div>
-
-	<div class="modals" id="imgs8">
-		<a class="cancels" href="#sender1"></a>
-		<div class="image">
-			<a href="#imgs7"></a>
-	        <a href="#imgs7"><img src="images/empresa/9.jpg"></a>
-			<a href="#imgs7"></a>
-		</div>
-		
-	</div>
-
-	
-</div>
-
-</section>
-
-
-   <footer>
-		<div class="footer-container">
-			<div class="footer-main">
-				<div class="footer-columna">
-					<h3>Contacto</h3>
-				      <form action="" id="formulario">
-					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>fronterisima12@gmail.com</p></a></span><br>
-					    <span class="fa fa-facebook"> <a href="https://www.facebook.com/Soydelapazsantander" target="_blank" style="color:white"><p>Soydelapazsantander</p></a></span><br>
-					  </form> 
-				   
-				</div>
-
-				<div class="footer-columna">
-					<h3>Dirección</h3>
-					<span class="fa fa-map-marker"><p> La Paz Santander </p></span><br>	
-                    <span class="fa fa-map-marke"><p> Colombia</p></span><br>					
-				</div>
-
-				<div class="footer-columna">
-					<h3>Mapa</h3>
-				<div class="map-responsive">
-  
-             <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                src="https://maps.google.com/maps?width=100%25&height=600&hl=es&q=La%20Paz%20Santander+()&t=&z=14&ie=UTF8&iwloc=B&output=embed">
-             </iframe>
-  
-             </div>
-
-				</div>
-			</div>
-		</div>
-
+   
+	   <footer>
 	   
-    </footer>
-
-	</article>
-	
-	
-	
-	<article id="hoteles" class="elemento">
-	
-	  <section class="contenedor">
-	   <div class="box">
-		<div class="imagen"> <img class="imag" src="images/hoteles/1.jpg">
-		</div>
-		<div class="descripcion">
-			<div class="paquete"><h3>Hotel</h3></div>
-			<div class="precio"> Precio por persona</h2>
-			<h2>$0</h2>
-			  <h4>Calle X#XX-X</h4>
-			 <p>Celular: 3214457XXX</p>
-			</div>
-		</div>
-		
-	</div>
-
-
-      <div class="box">   
-		<div class="imagen"> <img class="imag" src="images/hoteles/2.jpg">
-		</div>
-		<div class="descripcion">
-			<div class="paquete"><h3>Hotel</h3></div>
-			<div class="precio"> Precio por persona</h2><h2>$0</h2>
-			  <h4>Calle X#XX-X</h4>
-			 <p>Celular: 3214457XXX</p>
-			</div>
-		</div>
-	
-	</div>
-	
-	  <div class="box">   
-		<div class="imagen"> <img class="imag" src="images/hoteles/3.jpg">
-		</div>
-		<div class="descripcion">
-			<div class="paquete"><h3>Hotel</h3></div>
-			<div class="precio"> Precio por persona</h2>
-			<h2>$0</h2>
-			 <h4>Calle X#XX-X</h4>
-			 <p>Celular: 3214457XXX</p>
-			</div>
-		</div>
-		
-		
-		  <!-- <div class="advants">
-            <div>
-              <span>Bedrooms</span>
-              <div><i class="fas fa-th-large"></i><span>3</span></div>
-            </div>
-            <div>
-              <span>Bathrooms</span>
-              <div><i class="fas fa-shower"></i><span>3</span></div>
-            </div>
-            <div>
-              <span>Area</span>
-              <div>
-                <i class="fas fa-vector-square"></i
-                ><span>4300<span>Sq Ft</span></span>
-              </div>
-            </div>
-          </div>
-	
-	     </div>  -->
-	
-  </section>
-	
-	
- 
-    <!-- Footer -->
-   <footer>
-		<div class="footer-container">
-			<div class="footer-main">
+	    <div class="footer-container">
+		    <div class="footer-main">
 				<div class="footer-columna">
-					<h3>Contacto</h3>
-				      <form action="" id="formulario">
-					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>fronterisima12@gmail.com</p></a></span><br>
-					    <span class="fa fa-facebook"> <a href="https://www.facebook.com/Soydelapazsantander" target="_blank" style="color:white"><p>Soydelapazsantander</p></a></span><br>
-					  </form> 
-				   
-				</div>
+				   <h3>Contacto</h3>
+					
+					<!--<form action="correo.php" method="POST"> -->
+					  
+				      <form action="" method="" id="formulario">
+					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+				      </form>
+										   
+                </div>
 
 				<div class="footer-columna">
 					<h3>Dirección</h3>
-					<span class="fa fa-map-marker"><p> La Paz Santander </p></span><br>		
-				    <span class="fa fa-map-marke"><p> Colombia</p></span><br>
+					<span class="fa fa-map-marker"><p>Colombia</p></span><br>
 				</div>
 
 				<div class="footer-columna">
-					<h3>Mapa</h3>
-				<div class="map-responsive">
-  
-             <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                src="https://maps.google.com/maps?width=100%25&height=600&hl=es&q=Barrio%20SanJose%20buenavista+()&t=&z=14&ie=UTF8&iwloc=B&output=embed">
-             </iframe>
-  
-             </div>
-
+					<h3>Nosotros</h3>
+					  <p>Nuestro objetivo es compartir temas musicales de artistas de diferentes géneros musicales de Colombia e Hispanoamérica.
+					 <br>
+                      Los invitamos a seguirnos a través de las redes sociales.</p>
 				</div>
 			</div>
 		</div>
-     
-    </footer>
 
-	</article>
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="icon-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4><br>  <!-- <a href="">INICIO</a></h4><br> -->
+				     <!-- <h4> <span class=""> <a class="copy">&copy; La Fronterísima</a></span></h4> -->
+					  <h4> <span class="icon-podcast"> <a class="copy">Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/lafronterisima" target="_blank" class="fa fa-facebook"></a>
+					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" class="fa fa-youtube-play"></a>
+				</div>
+			</div>
+		</div>
+			
+   </footer>
+
+  </article>
+	 
+	 
+	 <div class="container-footers">
+       <div class="sticky_footer"> 
 	
-	
-	
-	<article id="ventas" id="servicios"  class="elemento">
-	
-	  <section class="box_contains">
-	  
-        <div class="boxs">
-        <div class="tops">
-            <li><a href="#imgx1"> <img src="images/ventas/1.jpg"></a></li>
-        </div>
-		
-        <div class="bottom">
-          <h3>Grabadora 8 Gigas</h3>
-          <p>Digital Voice Recorder es una mini grabadora de audio profesional, almacenamiento de 8 gigas - para canciones y otros formatos. </p>
-		  <p>Contacto: fronterisima 12@gmail.com</p>
+	      <div class="saludo">
+
+		     <img id="tiempo">
+           
+              <div id="txtsaludo"></div>	
         
-          <div class="price">
-            <span>Valor</span>
-            <span>$100,000</span>
-          </div>
-        </div>
-		
-		
-		<div class="modal_s" id="imgx1">
-		  <a class="cancel_s" href="#sender1"></a>
-
-		<div class="imagex">
-			<a href="#imgx2"></a>
-	        <a href="#imgx2"><img src="images/ventas/2.jpg"></a>
-			<a href="#imgx2"></a>
-		</div>
-	
-	</div>
-
-
-	<div class="modal_s" id="imgx2">
-	   <a class="cancel_s" href="#sender1"></a>
-		
-		<div class="imagex">
-			<a href="#imgx1"></a>
-	        <a href="#imgx1"><img src="images/ventas/3.jpg"></a>
-			<a href="#imgx1"></a>
-		</div>
-	
-	</div>
-	
-    </div>
-	  
-	  
-	   <div class="boxs">
-        <div class="tops">
-            <li><a href="#imgx3"><img src="images/ventas/4.jpg"></a></li>
-        </div>
-		
-        <div class="bottom">
-          <h3>Ventas</h3>
-          <p>
-             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, ea. Mollitia maiores voluptatum
-          </p>
-        
-          <div class="price">
-            <span>Valor</span>
-            <span>$ 0</span>
-          </div>
-        </div>
-		
-		
-		<div class="modal_s" id="imgx3">
-	     <a class="cancel_s" href="#sender1"></a>
-		
-		  <div class="imagex">
-			<a href="#imgx5"></a>
-	        <a href="#imgx5"><img src="images/ventas/4.jpg"></a>
-			<a href="#imgx5"></a>
-		  </div>
-	
-    	</div>
-
-	<div class="modal_s" id="imgx4">
-	    <a class="cancel_s" href="#sender1"></a>
-		
-		<div class="imagex">
-			<a href="#imgx4"></a>
-	        <a href="#imgx4"><img src="images/ventas/5.jpg"></a>
-			<a href="#imgx4"></a>
-		</div>
-	
-	</div>
-	
-	<div class="modal_s" id="imgx5">
-	     <a class="cancel_s" href="#sender1"></a>
-		
-		<div class="imagex">
-			<a href="#imgx3"></a>
-	        <a href="#imgx3"><img src="images/ventas/6.jpg"></a>
-			<a href="#imgx3"></a>
-		</div>
-	
-	</div>
-	
-    </div>
-	  
-	  
-          <div class="boxs">
-        <div class="tops">
-            <li><a href="#imgx6"> <img src="images/ventas/7.jpg"></a></li>
-        </div>
-		
-        <div class="bottom">
-          <h3>Ventas 3</h3>
-          <p>
-           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, ea. Mollitia maiores voluptatum
-          </p>
-        
-          <div class="price">
-            <span>Valor</span>
-            <span>$ 0</span>
-          </div>
+		  </div> 
 		  
-        </div>
-		
-		
-		<div class="modal_s" id="imgx6">
-		  <a class="cancel_s" href="#sender1"></a>
-		
-		  <div class="imagex">
-			<a href="#imgx7"></a>
-	        <a href="#imgx7"><img src="images/ventas/6.jpg"></a>
-			<a href="#imgx7"></a>
-		  </div>
-	
-    	</div>
+		    <script src="js/saludo.js"></script>
 
-	<div class="modal_s" id="imgx7">
-	     <a class="cancel_s" href="#sender1"></a>
-		
-		<div class="imagex">
-			<a href="#imgx8"></a>
-	        <a href="#imgx8"><img src="images/ventas/7.jpg"></a>
-			<a href="#imgx8"></a>
-		</div>
+          <div id="player">
+               
+         	 
+              <a id="button-share" class="icon-share2"></a>
+				     
+                  <div id="song" class="song"><span id="current-track">La Fronterísima</span></marquee></div>
+             
+				
+                <div id="animation">
+				 
+		           <img src="imagenes/logo.png"></a>
+				   
+				   <div class="panel">
+				   
+				    <div class="flip">
+	                  <h4>SONIDOS</h4>
+	                 </div>
+				  
+	                 <audio controls src="https://docs.google.com/uc?export=download&id=1bmIDFJHQ455bjR8ccC1FrJAwicP90W4h
+	                 "></audio>
+	                 <audio controls src="https://docs.google.com/uc?export=download&id=1bjoFCGIYLThHawJkWoqnF-sTdg9_2BB5
+	                 "></audio>
+				     <audio controls src="https://docs.google.com/uc?export=download&id=1bvM7zNMii1vC4EQYEOsmKYt1CnbpBaf_
+				     "></audio>
+	          
+	               </div>
+				  
+                </div> 
+				
+							
+           </div>
+          
+          </div>	
 	
-	 </div>
+        </div>   
+	   
+	  </div> 
+
+
+       <div class="scrollup">
+			<a href="#"><i class="fa fa-chevron-up"></i></a>
+		</div>
 	 
-	 <div class="modal_s" id="imgx8">
-	      <a class="cancel_s" href="#sender1"></a>
-		
-		<div class="imagex">
-			<a href="#imgx6"></a>
-	        <a href="#imgx6"><img src="images/ventas/8.jpg"></a>
-			<a href="#imgx6"></a>
-		</div>
-	
-	 </div>
 	 
-    </div>
-	  
-      
-    </section>
+	 
 	
-
-	
-   <footer>
-		<div class="footer-container">
-			<div class="footer-main">
-				<div class="footer-columna">
-					<h3>Contacto</h3>
-				     <form action="" id="formulario">
-					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>fronterisima12@gmail.com</p></a></span><br>
-					    <span class="fa fa-facebook"> <a href="https://www.facebook.com/Soydelapazsantander" target="_blank" style="color:white"><p>Soydelapazsantander</p></a></span><br>
-					  </form> 
-				</div>
-
-				<div class="footer-columna">
-					<h3>Dirección</h3>
-					<span class="fa fa-map-marker"><p> La Paz Santander </p></span><br>	
-                    <span class="fa fa-map-marke"><p> Colombia</p></span><br>					
-				</div>
-
-				<div class="footer-columna">
-					<h3>Mapa</h3>
-				<div class="map-responsive">
+  </section> 
   
-              <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                src="https://maps.google.com/maps?width=100%25&height=600&hl=es&q=La%20Paz%20Santander+()&t=&z=14&ie=UTF8&iwloc=B&output=embed">
-              </iframe>
-  
-             </div>
 
-				</div>
-			</div>
-		</div>
+   </main> 
 
-    </footer>
-
-	</article>
-	
-	
-	  <article id="galeria" class="elemento">
-	
-      <section id="wrap_galery">
-    
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/1.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/galeria/1.jpg"  title="Locución"></a>
-    </section>
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/2.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/galeria/2.jpg" alt="#" title="Atardecer"/></a>
-    </section>
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/3.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/galeria/3.jpg" alt="#" title="Paisaje"/></a>
-    </section>
-   
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/4.jpg" data-lightbox="example-set" data-title="Actividades"><img class="example-image" src="images/galeria/4.jpg" alt="#" title=""/></a>
-    </section>
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/5.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/galeria/5.jpg" alt="#" title=""/></a>
-    </section>
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/6.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/galeria/6.jpg" alt="#" title=""/></a>
-    </section>
-   
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/7.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/galeria/7.jpg" title=""/></a>
-    </section>
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/8.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/galeria/8.jpg" alt="#" title="Dj Music"/></a>
-    </section>
-    <section class="imagen-web">
-       <a class="example-image-link" id="lightbox-img" href="images/galeria/9.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/galeria/9.jpg" title="Cultura"/></a>
-    </section>
-	
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/10.jpg" data-lightbox="example-set" data-title="Cultura"><img class="example-image" src="images/galeria/10.jpg" title=""/></a>
-    </section>
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/11.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/galeria/11.jpg" alt="#" title=""/></a>
-    </section>
-    <section class="imagen-web">
-      <a class="example-image-link" id="lightbox-img" href="images/galeria/12.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/galeria/12.jpg" alt="#" title=""/></a>
-    </section>
  
 
-  </section>
-		
-		
-    <!-- Footer -->
-   <footer>
-		<div class="footer-container">
-			<div class="footer-main">
-				<div class="footer-columna">
-					<h3>Contacto</h3>
-				     <form action="" id="formulario">
-					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>fronterisima12@gmail.com</p></a></span><br>
-					    <span class="fa fa-facebook"> <a href="https://www.facebook.com/Soydelapazsantander" target="_blank" style="color:white"><p>Soydelapazsantander</p></a></span><br>
-					  </form> 
-				   
-				</div>
+  <script src="js/ajax.js"></script>
+  <script src="js/pulsar.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/share.js"></script>
+  <script src="js/temperature.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/prueba.js"></script>	
+    <script src="js/speak.js"></script>	
+  <script src="js/form_send.js"></script>
 
-				<div class="footer-columna">
-					<h3>Dirección</h3>
-					<span class="fa fa-map-marker"><p> La Paz Santander </p></span><br>	
-                    <span class="fa fa-map-marke"><p> Colombia</p></span><br>					
-				</div>
-
-				<div class="footer-columna">
-					<h3>Mapa</h3>
-				<div class="map-responsive">
-  
-             <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                src="https://maps.google.com/maps?width=100%25&height=600&hl=es&q=La%20Paz%20Santander+()&t=&z=14&ie=UTF8&iwloc=B&output=embed">
-             </iframe>
-  
-             </div>
-
-				</div>
-			</div>
-		</div>
-
-		
-    </footer>
-
-	</article>
-	
-
-	</section>
-	
-	
-	
-	<script src="js/sliders.js"></script>	
-	<script src="js/menu.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/extrenaljq.js"></script>
-    <script src="js/ideal-image-slider.js"></script>
-	<script src="js/form_send.js"></script>
-	
-	
-</body>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <script src="regist_serviceWorker.js"></script> 
+   
+   <script>
+      $(function(){
+       setTimeout(
+        ()=>{
+            $(".cargando").hide(); 
+         } , 10
+     );
+     });
+    </script>
+ 
+ </body>
 
 </html>

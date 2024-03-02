@@ -1,0 +1,177 @@
+            
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no,
+	initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	 <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/fonts-icon.css">
+	<link rel="stylesheet" href="css/radio.css">
+	<script src="js/jquery 1.9.0.min.js"></script>
+
+</head>
+
+
+<body id="myPage">
+		   
+	
+    <section class="chat">
+
+      <div class="chatbox">
+  
+
+		<div class="chat_titulo">
+		
+	      <div id="user-container">
+           <div hidden id="user-pic"></div>
+            <div hidden id="user-name"></div>
+         
+		   <button hidden id="sign-out"> Salir</button>
+            <button id="sign-in">
+            <i class="fa fa-google"></i> Ingresar con Google
+           </button>
+          </div>
+	    </div>
+ 
+
+        <div class="chat_area">
+           <ul class="chat">
+             <div class="supporting-text">
+                <div id="messages">
+                  <span id="mensage-filler"></span>
+                </div>
+		  
+	         </div>              
+           </ul>
+        </div>
+				
+				
+                
+        <div class="message_write">
+                   
+		  <form id="mensage-form" >
+      
+		   <input type="text" id="mensage" class="form-control"  placeholder="Escriba su mensaje...">
+          <br>
+
+			<button id="submit" type="submit">
+              Enviar
+            </button>
+			
+	     </form>
+	  
+	  
+	     <form id="image-form" >
+            <input id="subirFoto" type="file" class="form-control"  accept="image/*,capture=camera">
+            <button id="submitImage">
+              <i class="fa fa-camera"></i>
+            </button>
+         </form>
+		  
+       </div>
+	 
+	 
+  <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+
+ <script>
+  // Initialize Firebase
+  var config = {
+  apiKey: "AIzaSyC_vh9wKAf_kBQmlw1RWGq7lcPu7_L4ohA",
+  authDomain: "chat-app-da539.firebaseapp.com",
+  databaseURL: "https://chat-app-da539-default-rtdb.firebaseio.com",
+  projectId: "chat-app-da539",
+  storageBucket: "chat-app-da539.appspot.com",
+  messagingSenderId: "265888765978",
+  appId: "1:265888765978:web:29af5860fed28d60c059a3"
+  };
+  firebase.initializeApp(config);
+  
+  </script>
+  
+     <script src="js/firechat.js"></script>
+	 
+	 
+    </section>
+	
+       
+     </div>
+	
+	
+	 <footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+					<!--<form action="correo.php" method="POST"> -->
+					 <form action="" method="" id="formulario">
+					   <span class="fa fa-phone"> <a href="tel:+57 3117033110" style="color:white"> <p>+57-3147085246</p></a></span><br>
+					   <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>fronterisima12@gmail.com</p></a></span> 	
+				     </form>
+										   
+                </div>
+
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fa fa-map-marker"><p>Pereira-Colombia</p></span><br>
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					<p>Nuestro objetivo es compartir y difundir temas musicales de artístas con gran talento de Colombia e Hispanoamérica.
+					 <br>
+                      Los invitamos a seguirnos a través de las redes sociales.</p>
+				</div>
+			</div>
+		</div>
+
+   </footer>
+   
+    <div class="container-footers">
+       <div class="sticky_footer"> 
+	
+	      <div class="saludo">
+
+		     <img id="tiempo">
+           
+              <div id="txtsaludo"></div>	
+        
+		  </div> 
+
+          <div id="player">
+               
+         	 
+              <a id="button-share" class="icon-share2"></a>
+				     
+                  <div id="song" class="song"><span id="current-track">La Fronterísima</span></marquee></div>
+                
+                  <div id="animation">
+				 
+		           <img src="imagenes/logo.png"></a>
+				   
+				   <div class="panel">
+				   
+				    <div class="flip">
+	                  <h4>Saludos</h4>
+	                 </div>
+				  
+	                  <audio controls src="https://docs.google.com/uc?export=download&id=1c2Pn__1YFj6LLLhGyVfTgsOZ6UtGf-t1"></audio>
+	                  <audio controls src="https://docs.google.com/uc?export=download&id=1xpinzd5ljYEnCyilGbiYnD8hrUaLG-Fi"></audio>
+				      <audio controls src="https://docs.google.com/uc?export=download&id=16n6gugpc20hHlRFmm-Yrs_ertBkFEs_S"></audio>
+					 
+	               </div>
+				  
+                </div> 
+                
+			</div> 
+           </div>
+          </div>	
+        </div>
+
+
+		<script src="js/saludo.js"></script>
+		
+		
+</body>
+</html>				

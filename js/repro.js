@@ -22,3 +22,15 @@ controlBtn.addEventListener("click", playPause);
 track.addEventListener("ended", function() {
   controlBtn.className = "play";
 });
+
+
+    $(document).ready(function( $ ) {
+	       $('audio').on("play", function (me) {
+		    $('audio').each(function (i,e) {
+		    	if (e !== me.currentTarget) {
+				this.pause(); 
+                this.currentTime = 0;
+			}
+		  });
+	   });
+      })

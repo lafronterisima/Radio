@@ -9,13 +9,13 @@
                 // If playing then pause the
                 // music and change the image
                 mysound.play();
-                 play.src = "images/pausa.png";
+                 play.src = "imagenes/pausa.png";
              }
               else {
  
                 // If playing then pause the
                 // music and change the image
                 mysound.pause();
-                 play.src = "images/play.png";      
+                 play.src = "imagenes/play.png";      
               }
         }

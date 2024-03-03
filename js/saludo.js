@@ -6,23 +6,23 @@
           hora = fecha.getHours();
 
            if(hora >= 0 && hora < 8){
-            pSaludo.textContent = "Amanecer musical";
+            pSaludo.textContent = "";
 			img.src="imagenes/dia.png";
           }
           
   
            if(hora >= 8 && hora < 12){
-            pSaludo.textContent = "Exitos variados";
+            pSaludo.textContent = "";
 			img.src="imagenes/microfono.png";
           }      
             
 		   if(hora >= 12 && hora < 18){
-            pSaludo.textContent = "La Revancha";
+            pSaludo.textContent = "";
 		    img.src="imagenes/tarde.png";
           }
 		  
           if(hora >= 18 && hora < 24){
-             pSaludo.textContent = "Recarga musical";
+             pSaludo.textContent = "";
 		     img.src="imagenes/noche.png"; 
           }	  
        }
@@ -31,14 +31,6 @@
    var pSaludo = document.getElementById("txtsaludo");
    setInterval(saludo,1000);
    
-   
-$('document').ready(function(){
-
- $("#animation").on('click', function(e){
-        e.preventDefault();
-        $(".panel").slideToggle('fast');
-      });
-   });
 
   
   

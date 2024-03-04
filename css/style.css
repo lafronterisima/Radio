@@ -203,7 +203,7 @@ main {
   }
     
    .dropdown ul li{
-	  width:200px;
+	  width:100%;
       display:block;     
 
     }
@@ -1213,7 +1213,7 @@ color:white;
 			width:100%;
 			height:auto;
 			padding-top:5px;
-			background-color:mintcream;
+			background: #303952;
 			display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -1229,16 +1229,9 @@ color:white;
 		  margin-bottom:2px; 
 		}
 		
-		.caja-matrix h2{
-		text-align:center;
-		color:white;
-		padding-top:10px;
-		font-size:14px;
-		}
-		
 		.caja-matrix h3{
 		text-align:center;
-		color:black;
+		color:white;
 		padding-top:10px;
 		font-size:20px;
 		}
@@ -1246,7 +1239,7 @@ color:white;
 		.caja-matrix p{
 		  width:90%;
 		  text-align:center;
-		  color:black;
+		  color:white;
 		  text-align:justify;
 		  padding-top:25px;
 		   margin:0 auto;
@@ -1370,16 +1363,9 @@ color:white;
 	
 		}
 		
-		.caja-matrix h2{
-		text-align:center;
-		color:black;
-		padding-top:10px;
-		font-size:14px;
-		}
-		
 		.caja-matrix h3{
 		text-align:center;
-		color:black;
+		color:;
 		padding-top:10px;
 		font-size:23px;
 		}
@@ -1387,7 +1373,7 @@ color:white;
 		 .inicio-matrix .caja-matrix p{
 		  width:90%;
 		  text-align:center;
-		  color:black;
+		  color:;
 		  text-align:justify;
 		  padding-top:25px;
 		  margin:0 auto;

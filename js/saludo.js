@@ -7,18 +7,18 @@
 
            if(hora >= 0 && hora < 8){
             pSaludo.textContent = "";
-			img.src="imagenes/dia.png";
+			img.src="imagenes/dia.gif";
           }
           
   
            if(hora >= 8 && hora < 12){
             pSaludo.textContent = "";
-			img.src="imagenes/microfono.png";
+			img.src="imagenes/tiempo.png";
           }      
             
 		   if(hora >= 12 && hora < 18){
             pSaludo.textContent = "";
-		    img.src="imagenes/tarde.png";
+		    img.src="imagenes/tarde.gif";
           }
 		  
           if(hora >= 18 && hora < 24){

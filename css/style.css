@@ -582,12 +582,13 @@ color:lime;
 
 .contain_radio .live-messages{
   position: absolute; 
+
   right: 5%;
 }
 
-.live-messages label{
-color:white;
-
+.live-icon img{
+  width:50px;
+  height:50px; 
 }
 
 .trasmisor{
@@ -2951,7 +2952,7 @@ color:white;
 
 .embed-res{
    width:97%;
-   padding-bottom:30px;
+   padding-bottom:0px;
   }
 .embed-res iframe{
    width:97%;
@@ -3033,7 +3034,7 @@ color:white;
 }
 .embed-res{
    width:98%;
-   padding-bottom:30px;
+   padding-bottom:0px;
   }
 .embed-res iframe{
    width:98%;
@@ -3127,7 +3128,7 @@ color:white;
 }
 .embed-res{
    width:98%;
-   padding-bottom:30px;
+   padding-bottom:0px;
   }
 .embed-res iframe{
    width:98%;
@@ -4190,6 +4191,7 @@ footer {
 	text-align: justify;
 	text-align:center;
 	margin:0 auto;
+	flex-direction:column;
 }
 .footer-main .footer-columna:nth-child(2) {
 	padding: 0 20px;
@@ -4245,17 +4247,18 @@ footer {
 	text-align:center;
 }
 .footer-main .footer-columna p {
-		width:95%;
+    width:95%;
 	text-align: justify;
 	text-align:center;
 	font-size:16px;
 	}
 .footer-main .footer-columna span p {
 	display: inline-block;
-	margin-left: 5px;
+	text-align:center;
 	margin-top:10px;
 	margin-bottom: 15px;
 	font-family: Raleway;
+	
 }
 .footer-copy a{
     width:100%;

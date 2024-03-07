@@ -1,5 +1,4 @@
 
-
        function saludo(){
    
           fecha = new Date(); 
@@ -7,7 +6,7 @@
 
            if(hora >= 0 && hora < 8){
             pSaludo.textContent = "";
-			img.src="imagenes/dia.gif";
+			img.src="imagenes/dia.png";
           }
           
   
@@ -18,7 +17,7 @@
             
 		   if(hora >= 12 && hora < 18){
             pSaludo.textContent = "";
-		    img.src="imagenes/tarde.gif";
+		    img.src="imagenes/tarde.png";
           }
 		  
           if(hora >= 18 && hora < 24){
@@ -29,7 +28,7 @@
 
    var img = document.getElementById("tiempo");
    var pSaludo = document.getElementById("txtsaludo");
-   setInterval(saludo,1000);
+   setInterval(saludo,100);
    
 
   

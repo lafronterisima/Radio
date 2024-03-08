@@ -285,9 +285,23 @@
 	     data-elapsedtime="false"
 	     data-nowplaying="true"
 	     data-showplayer="false">
+	 
          </span>
 	       
       </div>
+	  
+	  <div id="metadatos"></div>
+	 
+       <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        data-src.addEventListener('loadedmetadata', function() {
+          
+            var songName = data-src.getAttribute('title');
+            var nombreCancionElement = document.getElementClass('metadatos');
+            nombreCancionElement.textContent = songName;
+          });
+        });
+       </script>
       
          
     <div class="player-container">
@@ -308,7 +322,7 @@
 	  
     <div class="live-messages">
         <i class="material-icons-outlined"></i>
-        <label class="live-icon"><span class="material-icons-outlined"><img src="imagenes/microfono.png">·</span></label>
+        <label class="live-icon"><span class="material-icons-outlined"><img src="imagenes/microfono.png"></span></label>
       </div>   
 	  
 	           
@@ -418,7 +432,7 @@
   <script>
     $('.owl-carousel').owlCarousel({
       margin: 15,
-       loop: true,
+       loop: false,
        autoplay: true,
       nav: false,
       navText: [""],

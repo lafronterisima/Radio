@@ -541,13 +541,14 @@ article .elemento {
 	z-index:3;
 	}
     
- .banners{
+ .metadatos{
    align-items: center;
    justify-content: center;
    position:absolute;
    bottom:90px;
    width: 100%;
    height:80px;
+   background-color:red;
  }
  
  
@@ -570,19 +571,16 @@ article .elemento {
 }
 
 .live-message label{
-color:lime;
+color:;
 }
 
-.contain_radio .live-message,.fa-circle{
-  text-shadow:2px 2px 1px rgb(248, 24, 110);
-  color: red;
+.contain_radio .live-message{
   font-size: 1rem;
   animation: animate .s;
 }
 
 .contain_radio .live-messages{
   position: absolute; 
-
   right: 5%;
 }
 

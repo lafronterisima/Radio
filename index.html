@@ -285,23 +285,19 @@
 	     data-elapsedtime="false"
 	     data-nowplaying="true"
 	     data-showplayer="false">
-	 
+		 <div id="metadatos"></div>
          </span>
 	       
       </div>
 	  
-	  <div id="metadatos"></div>
-	 
-       <script>
-        document.addEventListener("DOMContentLoaded", function() {
-        data-src.addEventListener('loadedmetadata', function() {
-          
-            var songName = data-src.getAttribute('title');
-            var nombreCancionElement = document.getElementClass('metadatos');
-            nombreCancionElement.textContent = songName;
-          });
-        });
-       </script>
+   <script>
+    var apiUrl = "https://api.zenoradio.com/v1/stations/t100n9re6bruv/metadata";
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      var songMetadata = data.metadata;
+      var metadatosElemento = document
+   </script>
       
          
     <div class="player-container">
@@ -341,7 +337,7 @@
       
       
        <div class="content">
-          <div class="title">Altovoltaje</div>
+          <div class="title">Altovoltaje Radio</div>
           <div class="sub-title">Caldas</div>
           <p> Programación con una variedad musical, cultural, deporte y noticias. Emitiendo desde el eje cafetero.</p>
          
@@ -440,32 +436,27 @@
         0: {
           items: 1
         },
-      
-      
       }
     });
   </script>
-  
-	 
-	          
-     </div>
-				  
- 
-			
-	<script>
-			  
- $('document').ready(function(){
- $(".live-icon").on('click', function(){
- $(".trasmisor").show('fast');
-  });
-	  
-  $('.radio').click(function () {
-  $(".trasmisor").hide();	   
-  });	     
- });
+  	          
+ </div>
+				  		
+   <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.live-icon').forEach(function(icon) {
+      icon.addEventListener('click', function() {
+      document.querySelector('.trasmisor').style.display = 'block';
+        });
+      });
 
-			
-			</script>
+      document.querySelectorAll('.radio').forEach(function(radio) {
+      radio.addEventListener('click', function() {
+      document.querySelector('.trasmisor').style.display = 'none';
+         });
+       });
+     });
+   </script>
 	  
       
       <div class="control-container">

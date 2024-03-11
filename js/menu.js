@@ -1,5 +1,3 @@
-
-
 $('document').ready(function($){
   	$('.sidenav').sidenav();
 	
@@ -43,17 +41,52 @@ $(document).ready(function () {
    
 
 
+       
 $(document).ready(function () {
-      $('ul li').on('click', function() {
-       $(".sidenav").css("display", "none");
-      
-    
-       $(".sidenav-trigger").click(function () {
-        $("#nav-mobile").css("display", "");
-         $('.sidenav-overlay').click();
-      });
+    // Función para cerrar el sidenav
+    function cerrarSidenav() {
+        $(".sidenav").hide();
+    }
+
+    // Evento de clic en los elementos 'ul'
+    $('ul li').on('click', function() {
+        $("#nav-mobile").show(); // Mostrar el sidenav al hacer clic en un elemento 'ul'
+        $('.sidenav-overlay').click(); // Cerrar overlay si está abierto
     });
-  });
+
+    // Evento de clic en el gatillo del sidenav
+    $(".sidenav-trigger").click(function () {
+        $("#nav-mobile").show();
+        $('.sidenav-overlay').click();
+    });
+
+    // Evento de deslizamiento lateral para abrir el sidenav nuevamente
+    var initialX = null;
+    $(document).on('touchstart', function(e) {
+        initialX = e.touches[0].clientX;
+    });
+
+    $(document).on('touchmove', function(e) {
+        if (initialX === null) {
+            return;
+        }
+
+        var currentX = e.touches[0].clientX;
+        var diffX = initialX - currentX;
+
+        // Abre el sidenav si el deslizamiento es desde el borde izquierdo de la pantalla
+        if (diffX > 50) { // Puedes ajustar este valor según la sensibilidad deseada
+            $("#nav-mobile").show();
+            initialX = null;
+        }
+    });
+});
+
+
+
+
+
+
   
   
    $(document).ready(function(){

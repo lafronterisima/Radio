@@ -44,6 +44,7 @@
   <script src="js/jquery 1.9.0.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/audio.js"></script>
+<script src="js/news.js"></script>
   <script src="js/iframe.js"></script>	
 
   <script src="https://www.youtube.com/iframe_api"></script>	
@@ -285,20 +286,12 @@
 	     data-elapsedtime="false"
 	     data-nowplaying="true"
 	     data-showplayer="false">
-		 <div id="metadatos"></div>
+	   <div id="metadatas"></div>
          </span>
 	       
       </div>
 	  
-   <script>
-    var apiUrl = "https://api.zenoradio.com/v1/stations/t100n9re6bruv/metadata";
-    fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      var songMetadata = data.metadata;
-      var metadatosElemento = document
-   </script>
-      
+  
          
     <div class="player-container">
     
@@ -489,10 +482,10 @@
 	      
            <div class="caja-matrix">
             
-			<h3>LA FRONTERÍSIMA</h3>	
+        <h3>LA FRONTERÍSIMA</h3>	
 		
-			<p>Somos una plataforma virtual cuyo objetivo es compartir y difundir temas musicales de artistas Hispanoamericanos, para llegarles al corazón de los seguidores</p>					
-			<p>Escúchala, gózala y siéntela, deja que la música fluya sin limites.</p>
+<p>Una plataforma digital con el objetivo de compartir temas musicales de artistas Hispanoamericanos y del mundo, para llegarles al corazón de los seguidores.</p>					
+<p>Escúchala, gózala y siéntela, deja que la música fluya sin limites.</p>
             <p>Síguenos a través de las redes sociales.</p>
 			
 			<p> <a href="https://www.facebook.com/lafronterisima" target="_blank" style="color:white">1. Facebook</a><br><br>
@@ -1643,6 +1636,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
   <script src="https://kit.fontawesome.com/35db202371.js" crossorigin="anonymous"></script>
   <script src="js/materialize.js"></script>
   <script src="js/saludo.js"></script>
+ 
   <script src="js/animado.js"></script>
   <script src="js/pulsar.js"></script>
   <script src="js/share.js"></script>

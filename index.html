@@ -44,7 +44,6 @@
   <script src="js/jquery 1.9.0.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/audio.js"></script>
-<script src="js/news.js"></script>
   <script src="js/iframe.js"></script>	
 
   <script src="https://www.youtube.com/iframe_api"></script>	
@@ -286,12 +285,37 @@
 	     data-elapsedtime="false"
 	     data-nowplaying="true"
 	     data-showplayer="false">
-	   <div class="metadata"></div>
          </span>
+         
+         
+         
+<!-- Agrega un div para mostrar el nombre de la canción -->
+<div id="nombre-cancion"></div>
+
+<!-- Agrega el script de JavaScript -->
+<script>
+    // Esperar a que el DOM esté completamente cargado
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtener el nombre de la canción del reproductor
+        var metadata = document.querySelector('.orbPtt');
+        var songName = metadata.textContent.trim(); // Obtener el contenido de texto y quitar espacios en blanco al principio y al final
+
+        // Mostrar el nombre de la canción en el elemento HTML
+        var nombreCancionElement = document.getElementById('nombre-cancion');
+        nombreCancionElement.textContent = songName;
+    });
+</script>
+
+
+
+
+
+
+         
+         
 	       
       </div>
-	  
-  
+      
          
     <div class="player-container">
     
@@ -330,7 +354,7 @@
       
       
        <div class="content">
-          <div class="title">Altovoltaje Radio</div>
+          <div class="title">Altovoltaje</div>
           <div class="sub-title">Caldas</div>
           <p> Programación con una variedad musical, cultural, deporte y noticias. Emitiendo desde el eje cafetero.</p>
          
@@ -429,27 +453,32 @@
         0: {
           items: 1
         },
+      
+      
       }
     });
   </script>
-  	          
- </div>
-				  		
-   <script>
-      document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.live-icon').forEach(function(icon) {
-      icon.addEventListener('click', function() {
-      document.querySelector('.trasmisor').style.display = 'block';
-        });
-      });
+  
+	 
+	          
+     </div>
+				  
+ 
+			
+	<script>
+			  
+ $('document').ready(function(){
+ $(".live-icon").on('click', function(){
+ $(".trasmisor").show('fast');
+  });
+	  
+  $('.radio').click(function () {
+  $(".trasmisor").hide();	   
+  });	     
+ });
 
-      document.querySelectorAll('.radio').forEach(function(radio) {
-      radio.addEventListener('click', function() {
-      document.querySelector('.trasmisor').style.display = 'none';
-         });
-       });
-     });
-   </script>
+			
+			</script>
 	  
       
       <div class="control-container">
@@ -482,10 +511,10 @@
 	      
            <div class="caja-matrix">
             
-        <h3>LA FRONTERÍSIMA</h3>	
+			<h3>LA FRONTERÍSIMA</h3>	
 		
-<p>Una plataforma digital con el objetivo de compartir temas musicales de artistas Hispanoamericanos y del mundo, para llegarles al corazón de los seguidores.</p>					
-<p>Escúchala, gózala y siéntela, deja que la música fluya sin limites.</p>
+			<p>Somos una plataforma virtual cuyo objetivo es compartir y difundir temas musicales de artistas Hispanoamericanos, para llegarles al corazón de los seguidores</p>					
+			<p>Escúchala, gózala y siéntela, deja que la música fluya sin limites.</p>
             <p>Síguenos a través de las redes sociales.</p>
 			
 			<p> <a href="https://www.facebook.com/lafronterisima" target="_blank" style="color:white">1. Facebook</a><br><br>
@@ -1635,8 +1664,6 @@ servicio posible, particularmente para mantener un registro de usuarios,
   <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
   <script src="https://kit.fontawesome.com/35db202371.js" crossorigin="anonymous"></script>
   <script src="js/materialize.js"></script>
-  <script src="js/saludo.js"></script>
- <script src="live.php"</script>
   <script src="js/animado.js"></script>
   <script src="js/pulsar.js"></script>
   <script src="js/share.js"></script>

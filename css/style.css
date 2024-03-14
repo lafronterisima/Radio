@@ -541,15 +541,14 @@ article .elemento {
 	z-index:3;
 	}
     
- .contain_radio .metadata{
+ .contain_radio #metadatos{
    margin:0 auto;
    position:absolute;
    text-align:center;
    bottom:90px;
-   width: 50%;
+   width: 20%;
    height:50px;
    color:black;
-   background-color: ;
  }
  
  
@@ -1326,7 +1325,7 @@ color:;
 	text-align: center;
 	padding-top:px;
 	margin:0 auto;
-	margin-bottom:10px;	
+	margin-bottom:px;	
 }
 .adsbygoogle{
 	display: flex;
@@ -1336,11 +1335,10 @@ color:;
 	flex-wrap: wrap;
 	background-color:;
 	padding-top:px;
-    margin-bottom:15px;
+    margin-bottom:px;
 	margin: 0 auto; 
 }
-	
-	
+
  @media(max-width: 860px){
     .inicio-matrix{
       width:100%;
@@ -1349,9 +1347,7 @@ color:;
 	  display: flex;
       flex-wrap: wrap;
 	  flex-direction:column;
-	  margin-bottom:5px;
-	  
-	  padding-bottom:10px;
+	  margin-bottom:5px
 	}
 		
 	.caja-matrix{
@@ -1602,12 +1598,12 @@ color:;
     text-align: center; 
 	justify-content: center;
 	flex-wrap: wrap;
-	margin-top:10px;
+	margin-top:px;
 }
 #bloggers .contenido_block{
 	width:100%;
 	height:auto;
-	margin-bottom:10px;
+	margin-bottom:px;
     align-items:flex-start;
 	flex-direction:column;
 }
@@ -1758,7 +1754,7 @@ color:;
 	justify-content: center;
 	flex-wrap: wrap;
 	background:url(../imagenes/recargado.jpg);
-    padding-bottom:30px;
+    padding-bottom:0px;
 	margin-bottom:10px;
 	margin: 0 auto;
     }
@@ -1769,6 +1765,7 @@ color:;
 	  width:100%; 
 	  height:350px;
 	  margin:0 auto;
+	  top:0;
     }
  
     .prev,
@@ -1897,11 +1894,11 @@ color:;
 	  width:100%;
 	  height:auto;
 	  display: flex;
+	  top:0px;
       justify-content: center;
       flex-wrap: wrap;
 	  align-items:flex-start;
 	  flex-direction:column;
-	  margin-bottom:5px;
 	 }
 	 
     .caja-portfa{
@@ -2158,13 +2155,11 @@ color:;
 	  width:100%;
 	  height:auto;
 	  display: flex;
-	  
 	  top:0px;
       justify-content: center;
       flex-wrap: wrap;
 	  align-items:flex-start;
 	  flex-direction:column;
-	  margin-bottom:5px;
 	 }
 	 
     .caja-portfolio{
@@ -2208,13 +2203,11 @@ color:;
 	  width:100%;
 	  height:auto;
 	  display: flex;
-	  
 	  margin-top:5px;
       justify-content: center;
       flex-wrap: wrap;
 	  align-items:flex-start;
 	  flex-direction:column;
-	  margin-bottom:5px;
 	 }
 	 
     .caja-portfolio{
@@ -2265,13 +2258,11 @@ color:;
 	  width:100%;
 	  height:auto;
 	  display: flex;
-	  
 	  margin-top:5px;
       justify-content: center;
       flex-wrap: wrap;
 	  align-items:flex-start;
 	  flex-direction:column;
-	  margin-bottom:5px;
 	 }
 	 
     .caja-portfolio{
@@ -2325,13 +2316,11 @@ color:;
 	  width:100%;
 	  height:auto;
 	  display: flex;
-	  
 	  margin-top:5px;
       justify-content: center;
       flex-wrap: wrap;
 	  align-items:flex-start;
 	  flex-direction:column;
-	  margin-bottom:5px;
 	 }
 	 
     .caja-portfolio{
@@ -4257,7 +4246,7 @@ footer {
 	margin-top:10px;
 	margin-bottom: 15px;
 	font-family: Raleway;
-	
+	color:white;
 }
 .footer-copy a{
     width:100%;
@@ -4304,7 +4293,7 @@ footer {
 	line-height: 40px;
 	border-radius:50%;
 	background: #fff;
-	color: #000;
+	color:black;
 	text-align: center;
 	margin-bottom:15px;
 }
@@ -4446,6 +4435,7 @@ footer {
 	 flex-direction:column;
 	display: flex;
 	margin:0 auto;
+	color:white;
 	margin-bottom: 15px;
 	font-family: Raleway;
 	text-align:center;
@@ -4491,10 +4481,10 @@ footer {
 	line-height: 40px;
 	border-radius:50%;
 	background: #fff;
-	color: #000;
+	color:black;
 	text-align: center;
 	margin-bottom:15px;
-}
+  }
 }  
 
 

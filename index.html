@@ -285,31 +285,19 @@
 	     data-elapsedtime="false"
 	     data-nowplaying="true"
 	     data-showplayer="false">
+		 <div id="metadatos"></div>
          </span>
-         
-         
-         
-<!-- Agrega un div para mostrar el nombre de la canción -->
-<div id="nombre-cancion"></div>
-
-<!-- Agrega el script de JavaScript -->
-<script>
-    // Esperar a que el DOM esté completamente cargado
-    document.addEventListener("DOMContentLoaded", function() {
-        // Obtener el nombre de la canción del reproductor
-        var metadata = document.querySelector('.orbPtt');
-        var songName = metadata.textContent.trim(); // Obtener el contenido de texto y quitar espacios en blanco al principio y al final
-
-        // Mostrar el nombre de la canción en el elemento HTML
-        var nombreCancionElement = document.getElementById('nombre-cancion');
-        nombreCancionElement.textContent = songName;
-    });
-</script>
-
-    
-         
 	       
       </div>
+	  
+   <script>
+    var apiUrl = "https://api.zenoradio.com/v1/stations/t100n9re6bruv/metadata";
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      var songMetadata = data.metadata;
+      var metadatosElemento = document
+   </script>
       
          
     <div class="player-container">
@@ -349,7 +337,7 @@
       
       
        <div class="content">
-          <div class="title">Altovoltaje</div>
+          <div class="title">Altovoltaje Radio</div>
           <div class="sub-title">Caldas</div>
           <p> Programación con una variedad musical, cultural, deporte y noticias. Emitiendo desde el eje cafetero.</p>
          
@@ -432,9 +420,6 @@
     
   </div>
 
-
-
- 
   <script src="owl/owl.carousel.min.js"></script>
 
   <script>
@@ -448,32 +433,27 @@
         0: {
           items: 1
         },
-      
-      
       }
     });
   </script>
-  
-	 
-	          
-     </div>
-				  
- 
-			
-	<script>
-			  
- $('document').ready(function(){
- $(".live-icon").on('click', function(){
- $(".trasmisor").show('fast');
-  });
-	  
-  $('.radio').click(function () {
-  $(".trasmisor").hide();	   
-  });	     
- });
+  	          
+ </div>
+				  		
+   <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.live-icon').forEach(function(icon) {
+      icon.addEventListener('click', function() {
+      document.querySelector('.trasmisor').style.display = 'block';
+        });
+      });
 
-			
-			</script>
+      document.querySelectorAll('.radio').forEach(function(radio) {
+      radio.addEventListener('click', function() {
+      document.querySelector('.trasmisor').style.display = 'none';
+         });
+       });
+     });
+   </script>
 	  
       
       <div class="control-container">
@@ -508,7 +488,7 @@
             
 			<h3>LA FRONTERÍSIMA</h3>	
 		
-			<p>Una plataforma digital con el objetivo es compartir temas musicales de artistas Hispanoamericanos y del mundo. Alternativa musical, para llegarle al corazón de los seguidores</p>					
+			<p>Una plataforma digital con el objetivo de compartir temas musicales de artistas Hispanoamericanos y del mundo. Una alternativa musical, para llegarle al corazón de los seguidores</p>					
 			<p>Escúchala, gózala y siéntela, deja que la música fluya sin limites.</p>
             <p>Síguenos a través de las redes sociales.</p>
 			
@@ -731,7 +711,7 @@
 
            <div class="fb_background">		   
   		
-          <div class="fb-page" data-href="https://www.facebook.com/lafronterisima" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/lafronterisima" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lafronterisima">La Fronterísima</a></blockquote></div>
+          <div class="fb-page" data-href="https://www.facebook.com/lafronterisima" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/lafronterisima" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lafronterisima">La Fronterísima</a></blockquotes></div>
 		   
 		   </div>
 		 </div>
@@ -1654,9 +1634,9 @@ servicio posible, particularmente para mantener un registro de usuarios,
   </main>
 
 
-  <script type='text/javascript' src="js/repro.js"></script> 
+  <script src="js/repro.js"></script> 
   <script src="js/ajax.js"></script> 
-  <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+  <script src="js/jquery.jplayer.min.js"></script>
   <script src="https://kit.fontawesome.com/35db202371.js" crossorigin="anonymous"></script>
   <script src="js/materialize.js"></script>
   <script src="js/animado.js"></script>

@@ -766,7 +766,7 @@ color:;
 @media (min-width:320px)and (max-width:570px){
  .trasmisor, .carousel-wrapper{
 	width:100%;
-	height:330px;
+	height:340px;
 	position: fixed;
      }
  }

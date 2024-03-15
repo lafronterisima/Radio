@@ -1,66 +1,75 @@
-$('document').ready(function($){
-  	$('.sidenav').sidenav();
-	
-  var bloque = $('.elemento'),
-      enlaces = $('.teal, .sidenav').find('a');
-	  
-	  enlaces.click(function(e){
-      e.preventDefault();
-    
-    var hash = $(this).attr('href');
-    
-    bloque
-      .filter(hash)
-      .addClass('visible')
-      .siblings()
-      .removeClass('visible');
-      
-    enlaces
-      .removeClass('activo');
-    
-    $(this)
-      .addClass('activo'); 
-  });
   
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize sidenav
+  var sidenavElems = document.querySelectorAll('.sidenav');
+  M.Sidenav.init(sidenavElems);
+
+  var bloque = document.querySelector('.elemento');
+  var enlaces = document.querySelectorAll('.teal a, .sidenav a');
+
+  enlaces.forEach(function(enlace) {
+    enlace.addEventListener('click', function(e) {
+      var target = this.getAttribute('target');
+      if (target === '_blank') return; // Let browser handle new tab/window
+      e.preventDefault();
+      var hash = this.getAttribute('href');
+      var targetBlock = document.querySelector(hash);
+
+      // Remove 'visible' class from all blocks
+      document.querySelectorAll('.elemento').forEach(function(elem) {
+        elem.classList.remove('visible');
+      });
+
+      // Add 'visible' class to target block
+      if (targetBlock) {
+        targetBlock.classList.add('visible');
+      }
+
+      // Remove 'activo' class from all links
+      enlaces.forEach(function(link) {
+        link.classList.remove('activo');
+      });
+
+      // Add 'activo' class to clicked link
+      this.classList.add('activo');
+
+      // Redirect to target if specified
+      if (target && target !== '_self') {
+        window.open(hash, target);
+      }
+    });
+  });
 });
 
 
 
 $(document).ready(function () {
  $(".sub_item").click(function (e) {
-		    e.stopPropagation(); 
-			  }); 
+       e.stopPropagation(); 
+   }); 
 			
-			 $('.sub_item').click(function () {
-  
-              $(this).next("").slideToggle(".drop");
-		   
-       });
-	 });
+ $('.sub_item').click(function () {
+     $(this).next("").slideToggle(".drop");	   
+           });
+      });
 		 	 
-   
-
-
-       
+  
 $(document).ready(function () {
-    // Función para cerrar el sidenav
     function cerrarSidenav() {
         $(".sidenav").hide();
     }
 
-    // Evento de clic en los elementos 'ul'
     $('ul li').on('click', function() {
-        $("#nav-mobile").show(); // Mostrar el sidenav al hacer clic en un elemento 'ul'
-        $('.sidenav-overlay').click(); // Cerrar overlay si está abierto
+        $("#nav-mobile").show(); 
+        $('.sidenav-overlay').click(); 
     });
 
-    // Evento de clic en el gatillo del sidenav
     $(".sidenav-trigger").click(function () {
         $("#nav-mobile").show();
         $('.sidenav-overlay').click();
     });
 
-    // Evento de deslizamiento lateral para abrir el sidenav nuevamente
     var initialX = null;
     $(document).on('touchstart', function(e) {
         initialX = e.touches[0].clientX;
@@ -73,9 +82,7 @@ $(document).ready(function () {
 
         var currentX = e.touches[0].clientX;
         var diffX = initialX - currentX;
-
-        // Abre el sidenav si el deslizamiento es desde el borde izquierdo de la pantalla
-        if (diffX > 50) { // Puedes ajustar este valor según la sensibilidad deseada
+        if (diffX > 50) { 
             $("#nav-mobile").show();
             initialX = null;
         }
@@ -83,12 +90,6 @@ $(document).ready(function () {
 });
 
 
-
-
-
-
-  
-  
    $(document).ready(function(){
        $(".submenu").click(function(){
          $(".submenu .dropdown").slideToggle();

@@ -1,47 +1,30 @@
-  
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize sidenav
-  var sidenavElems = document.querySelectorAll('.sidenav');
-  M.Sidenav.init(sidenavElems);
+$('document').ready(function(){
+  	$('.sidenav').sidenav();
+	
+  var bloque = $('.elemento'),
 
-  var bloque = document.querySelector('.elemento');
-  var enlaces = document.querySelectorAll('.teal a, .sidenav a');
-
-  enlaces.forEach(function(enlace) {
-    enlace.addEventListener('click', function(e) {
-      var target = this.getAttribute('target');
-      if (target === '_blank') return; // Let browser handle new tab/window
+      enlaces = $('.teal, .sidenav').find('a');
+	  
+      enlaces.click(function(e){
       e.preventDefault();
-      var hash = this.getAttribute('href');
-      var targetBlock = document.querySelector(hash);
-
-      // Remove 'visible' class from all blocks
-      document.querySelectorAll('.elemento').forEach(function(elem) {
-        elem.classList.remove('visible');
-      });
-
-      // Add 'visible' class to target block
-      if (targetBlock) {
-        targetBlock.classList.add('visible');
-      }
-
-      // Remove 'activo' class from all links
-      enlaces.forEach(function(link) {
-        link.classList.remove('activo');
-      });
-
-      // Add 'activo' class to clicked link
-      this.classList.add('activo');
-
-      // Redirect to target if specified
-      if (target && target !== '_self') {
-        window.open(hash, target);
-      }
-    });
+    
+    var hash = $(this).attr('href');
+    
+    bloque
+      .filter(hash)
+      .addClass('visible')
+      .siblings()
+      .removeClass('visible');
+      
+    enlaces
+      .removeClass('activo');
+    
+    $(this)
+      .addClass('activo'); 
   });
+  
 });
-
 
 
 $(document).ready(function () {

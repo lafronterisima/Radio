@@ -109,14 +109,14 @@ main {
 .nav_perfil {
     width:100%;
 	margin: 0 auto;	
-    height:;								
+    height:150px;								
 	padding-top:5px;	 
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	display:inline-block;
     flex-direction: column; 
-    background-color:;
+   background-color:DarkSlateGray;
   }
   
   .nav_logo {	
@@ -190,50 +190,14 @@ main {
   flex-direction:column;
 }
 
-#nav-mobile .submenu  {
-    position: absolute;
-    flex-direction:column; 
-	padding-top:5px;
-	height:auto;
-	margin:0 auto;
-	display: none;
-	top: 100%;
-	z-index:2;
-	display: none;
-  }
-    
-   .dropdown ul li{
-	  width:100%;
-      display:block;     
-
-    }
-
-  
-  .drop{
-    display: none;
-    padding: 10px;
-	color:black;
-}
-
-.sub_item .drop li a {
-    display: block;
-	height:auto;
-	
-}
-
-.sub_item .drop li a{
-    list-style: none;
-	height:auto;
-	color:black;
-	
-}
-
-.sub-menu li {
-    list-style:none;
-}
+  #nav-mobile{
+     display:none;
+   }
   
   @media (min-width:320px)and (max-width:479px){
 	
+	
+   
  .sidenav{
      width:87%;
 	 height:100vh;
@@ -246,23 +210,26 @@ main {
 
    .sidenav li a{
 	    width:100%;
-		height:auto;
+		height:100%;
 	    color:white;
+		margin-top:5px;
 	    background-color:;
   }
   
-  
- .navigation {
-  position: fixed;
-  top:0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction:column;
-}
 
+.navigation li{
+   position: relative;
+   width:100%;
+   height:auto;
+   padding:5px;
+   top:30px;
+   vertical-align:middle;
+   -webkit-transition: all 0.3s;
+   -o-transition: all 0.3s;
+   transition: all 0.3s;
+   text-align:center;
+  }
+  
  span{
    color:orange;
  }
@@ -307,24 +274,26 @@ main {
      z-index:999;
 }
 
-   .sidenav li a{
+  .sidenav li a{
 	    width:100%;
-		height:auto;
+		height:100%;
 	    color:white;
+		top:5px;
 	    background-color:;
   }
   
-  
- .navigation {
-  position: fixed;
-  top:0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction:column;
-}
+.navigation li{
+   position: relative;
+   width:100%;
+   height:auto;
+   padding:10px;
+   top:0px;
+   vertical-align:middle;
+   -webkit-transition: all 0.3s;
+   -o-transition: all 0.3s;
+   transition: all 0.3s;
+   text-align:center;
+  }
 
  span{
    color:orange;
@@ -372,22 +341,24 @@ main {
 
    .sidenav li a{
 	    width:100%;
-		height:auto;
+		height:100%;
 	    color:white;
+		top:5px;
 	    background-color:;
   }
   
-  
- .navigation {
-  position: fixed;
-  top:0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction:column;
-}
+.navigation li{
+   position: relative;
+   width:100%;
+   height:auto;
+   padding:10px;
+   top:30px;
+   vertical-align:middle;
+   -webkit-transition: all 0.3s;
+   -o-transition: all 0.3s;
+   transition: all 0.3s;
+   text-align:center;
+  }
 
  span{
    color:orange;
@@ -419,6 +390,7 @@ main {
 	background-color:DarkSlateGray;
   }
 }
+ 
  
  
 #contenido {

@@ -91,7 +91,7 @@ main {
 
  @media (min-width:993px){	
 
-  #nav-mobile{
+  .sidenav-trigger, #nav-mobile{
      display:none;
    }
    
@@ -116,7 +116,7 @@ main {
 	flex-wrap: wrap;
 	display:inline-block;
     flex-direction: column; 
-   background-color:DarkSlateGray;
+   background-color:teal;
   }
   
   .nav_logo {	
@@ -148,7 +148,7 @@ main {
     flex-wrap: wrap;
     display: flex;
     flex-direction: column; 
-	color:#004d40; 
+	color:white; 
 	font-size:18px;
 	margin:0 auto;
   }
@@ -163,7 +163,7 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	background-color:DarkSlateGray;
+	background-color:teal; 
 	border-radius-top:1px solid red;
   }
   
@@ -190,9 +190,7 @@ main {
   flex-direction:column;
 }
 
-  #nav-mobile{
-     display:none;
-   }
+
   
   @media (min-width:320px)and (max-width:479px){
 	
@@ -257,7 +255,7 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	background-color:DarkSlateGray;
+	background-color:#004d40; ;
   }
 }
 
@@ -279,7 +277,7 @@ main {
 		height:100%;
 	    color:white;
 		top:5px;
-	    background-color:;
+	
   }
   
 .navigation li{
@@ -322,7 +320,7 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	background-color:DarkSlateGray;
+	background-color:#004d40; ;
   }
 }
 
@@ -387,7 +385,7 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	background-color:DarkSlateGray;
+	background-color:#004d40; ;
   }
 }
  

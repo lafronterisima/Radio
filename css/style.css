@@ -116,7 +116,7 @@ main {
 	flex-wrap: wrap;
 	display:inline-block;
     flex-direction: column; 
-   background-color:teal;
+     background:#00695c;
   }
   
   .nav_logo {	
@@ -163,7 +163,7 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	background-color:teal; 
+	background:#00695c;
 	border-radius-top:1px solid red;
   }
   
@@ -255,7 +255,7 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	background-color:#004d40; ;
+	background:#00695c;
   }
 }
 
@@ -263,7 +263,7 @@ main {
 @media (min-width:480px)and (max-width:690px){
 	
 .sidenav{
-     width:87%;
+     width:80%;
 	 height:100vh;
      justify-content: center;
      align-items: center;
@@ -320,7 +320,7 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	background-color:#004d40; ;
+	background:#00695c;
   }
 }
 
@@ -328,7 +328,7 @@ main {
 @media (min-width:691px)and (max-width:992px){
 	
  .sidenav{
-     width:87%;
+     width:70%;
 	 height:100vh;
      justify-content: center;
      align-items: center;
@@ -385,7 +385,7 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	background-color:#004d40; ;
+	background:#00695c;
   }
 }
  
@@ -442,7 +442,7 @@ article .elemento {
    bottom: 0; 
    left: 0; 
    width: 100%; 
-   height: 100%;
+   height: 100vh;
    background-color:WhiteSmoke;
 }
 
@@ -4221,6 +4221,11 @@ footer {
     color:white;
 	font-size:18px;
 	}
+	
+.footer-main .footer-columna span{
+	color:white;
+}
+
 .footer-copy h4{
     text-decoration:arial;
     color:white;
@@ -4303,6 +4308,16 @@ footer {
 	margin: auto;
 	display: flex;
    }
+   
+   .footer-main .footer-columna span{
+	color:white;
+}
+
+  .footer-copy h4{
+    text-decoration:arial;
+    color:white;
+	font-size:12px;
+	}
 	
 	.footer-main .footer-columna span p {
 	width:95%;
@@ -4397,6 +4412,7 @@ footer {
 	align-items: center;
 	}
 	
+	
 	.footer-main .footer-columna span p {
 	width:95%;
 	 flex-direction:column;
@@ -4407,6 +4423,16 @@ footer {
 	font-family: Raleway;
 	text-align:center;
    }
+   
+   .footer-main .footer-columna span{
+	color:white;
+}
+
+  .footer-copy h4{
+    text-decoration:arial;
+    color:white;
+	font-size:12px;
+	}
    
    .footer-copy-redes {
 	width: 100%;

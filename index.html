@@ -7,7 +7,7 @@
 <meta name="description" content="Somos una plataforma online para compartir musica de artistas Colombianos e hispanos" />
 <meta name="keywords" content="La fronterisima, musica online, artistas de Colombia, La Paz Santander, Hoyo del Aire, artistas nuevos, canciones" />
 <meta property="og:site_name" content="https://lafronterisima.com">
-<meta property="og:image" content="https://www.lafronterisima.com/frontera.png">
+<meta property="og:image" content="https://lafronterisima.com/frontera.png">
 <meta name="author" content="Lafronterisima">
 <meta name="refresh" content="2"/>
  
@@ -28,7 +28,7 @@
 	<link rel="apple-touch-icon" href="pwa/icon-144x144.png" />
 	<link rel="apple-touch-icon" href="pwa/icon-256x256.png" />
 	<link rel="apple-touch-icon" href="pwa/icon-512x512.png" />
-    <link rel="canonical" href="https://www.lafronterisima.com">
+    <link rel="canonical" href="https://lafronterisima.com">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="imagenes/frontera.png">
     <link rel="stylesheet" href="css/font-awesome.css">
@@ -38,7 +38,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <meta property="og:site_name" content="https://www.lafronterisima.com">
+  <meta property="og:site_name" content="https://lafronterisima.com">
   <meta property="og:image" content="https://lafronterisima.com/frontera.png">
   <link rel="shortcut icon" href="image/frontera.png" type="image/x-icon"> 
   <script src="js/jquery 1.9.0.min.js"></script>
@@ -50,7 +50,6 @@
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
   <link rel="stylesheet" href="owl/assets/owl.carousel.min.css">
   
-
   
   <div class="navbar-fixed">  
     
@@ -62,7 +61,7 @@
       </div>
 	  
 	  
-	  <a class="share_btn">
+	     <a class="share_btn">
       <i class="material-icons-outlined">share</i></a> 
 
     <div class="modal_wraper" data-action="modal_close"> 
@@ -117,31 +116,39 @@
    </div>
   </div>
 
-<script>
+  <script>
  
-   let share_btns = document.querySelectorAll('.share_btn'),
-   modal_wraper = document.querySelector('.modal_wraper');
-   share_btns.forEach(share_btn => {
-   share_btn.addEventListener('click', ()=>{
-   modal_wraper.classList.add('active');
-   });
+let share_btns = document.getElementsByClassName('share_btn');
+let modal_wraper = document.querySelector('.modal_wraper');
+
+Array.from(share_btns).forEach(share_btn => {
+  share_btn.addEventListener('click', () => {
+    modal_wraper.classList.add('active');
   });
-  
-  addEventListener('click', (e)=>{
-  if(e.target.dataset.action == 'modal_close'){
-  modal_wraper.classList.remove('active');
+});
+
+document.addEventListener('click', (e) => {
+  if (e.target.dataset.action == 'modal_close') {
+    modal_wraper.classList.remove('active');
   }
-  });
-  let copy_url_btn = document.querySelector('.copy_url_btn');
-  if(copy_url_btn)
-  {
+
+  if (e.target.tagName === 'A' && !e.target.classList.contains('share_btn')) {
+    // Navigate to the link
+    window.location.href = e.target.href;
+  }
+});
+
+let copy_url_btn = document.querySelector('.copy_url_btn');
+if (copy_url_btn) {
   copy_url_btn.addEventListener('click', copyURL);
-  }
-  function copyURL(){
-  let copyInput = document.getElementById('shareable_url');
+}
+
+function copyURL() {
+  let copyInput = document.getElementById('shareable_url');
   copyInput.select();
   document.execCommand("copy");
-  }
+}
+
 
 </script>
       
@@ -169,10 +176,9 @@
    </div>
 	  
 
-  <ul id="nav-mobile" class="sidenav">
+   <ul id="nav-mobile" class="sidenav"> 
     <div class="sidenav-trigger" data-target="mobile-menu"></div>
     
-	
     <div class="nav_perfil">
         <div class="nav_logo">
             <img src="image/frontera.png" style="height:100px;">
@@ -181,25 +187,28 @@
     
     <div class="navigation">
         <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> RADIO</a></li>
-        <li><a href="#INICIO"><span class="material-icons-outlined">home</span> INICIO</a></li>
-       
-        <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Videos</a></li>
+        <li>
+		<li><a href="#INICIO"><span class="material-icons-outlined">home</span> INICIO</a></li>   
            
-        <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
-        <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
-		
-	
-            
-    </div>
-	
-	  <div class="enlaces">
+		   <li><a class="sub_item"><span class="material-icons-outlined">map</span> Catálogo <span class="icon-circle-down"></span>
+           
+		   <ul class="dropdown">
+                <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Videos</a></li>
+                <li><a href="#PRIVACIDAD"><span class="material-icons-outlined">lock</span> Seguridad</a></li>
+            </ul>
+			
+           </li> 
+         
+        <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>   
+        <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>     
+
+        <div class="enlaces">
             <h2><a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w"><span class="material-icons-outlined">speaker</span> Colombia</a></h2>
         </div> 
-	
+    </div>
 </ul>
  
- 
- 
+
  <script>
     window.OneSignal = window.OneSignal || [];
     OneSignal.push(function() {
@@ -278,7 +287,7 @@
         <img src="image/frontera.png" alt="logo">
 		
          <span class="radioplayer"
-	     data-src="http://stream.zeno.fm/t100n9re6bruv"
+	     data-src="https://stream.zeno.fm/6q6gx5fcn48uv"
 	     data-playbutton="false"
 	     data-volumeslider="false"
 	     data-elapsedtime="false"
@@ -338,7 +347,7 @@
        <div class="content">
           <div class="title">Altovoltaje Radio</div>
           <div class="sub-title">Caldas</div>
-          <p> Programación con una variedad musical, cultural, deporte y noticias. Emitiendo desde el eje cafetero, para Colombia y el mundo.</p>
+          <p> Programación con una variedad musical, cultural, deporte y noticias. Emitiendo desde el eje cafetero para el mundo.</p>
          
 		  <a class="btns">
           <audio controls> <source src="https://manager7.streamradio.fr:3045/stream?x=1700082229257" /></audio>
@@ -524,9 +533,10 @@
 	   </div>
 		   
 	      </aside>
-		  
-     </section>
 
+     </section>	
+	 
+	 
 	  <section id="bloggers">
      <h3>NOSOTROS</h3>
 				

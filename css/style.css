@@ -107,6 +107,7 @@ main {
  }
  
  
+ 
 .nav_perfil {
     width:100%;
 	margin: 0 auto;	
@@ -127,7 +128,7 @@ main {
 	text-align:center;
 	top:20px;
 	margin:0 auto;
-	}
+  }
   
   .enlaces a{
 	width:100%;
@@ -4222,6 +4223,7 @@ footer {
 	
 .footer-main .footer-columna span{
 	color:white;
+
 }
 
 .footer-copy h4{
@@ -4248,12 +4250,16 @@ footer {
 	color: #fff;
 	margin-bottom:5px;
 }
+.main-copy-redes .footer-copy span{
+	color:white;
+}
 .main-copy-redes .footer-redes {
 	width: 30%;
 	display: flex;
     padding: 15px 0;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	
 }
 .main-copy-redes .footer-redes a {
 	display: inline-block;
@@ -4535,5 +4541,28 @@ footer {
     display: inline-block;
     margin-right:15px;
 	margin-left:0:
+}
+
+
+.mapas{
+	margin: 0;
+	padding: 0;
+	width:100%;
+	height:auto;
+    background-color:snow;
+    vertical-align: middle;
+	text-align:center;
+}
+
+.visitas{
+    width:90%;
+	height:80vh;
+	 padding-top:0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;  
+	background-color:snow;
+    flex-direction: column;
 }
 

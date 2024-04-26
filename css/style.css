@@ -96,8 +96,8 @@ main {
      display:none;
    }
    
-     .dropdown ul li{
-	  width:200px;
+    .nav-wrappers ul li{
+	  width:128px;
       display:block;
     }
  
@@ -586,6 +586,10 @@ color:;
 	padding-top:px;
 	margin: 0 auto;
 	font-size:20px;;
+}
+
+.radio span{
+	color:white;
 }
 
 /*Section Emisoras*/

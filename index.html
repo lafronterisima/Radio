@@ -142,6 +142,14 @@
   copyInput.select();
   document.execCommand("copy");
   }
+  
+  document.querySelectorAll('.shared').forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar la acción por defecto del enlace
+            var url = this.getAttribute('href');
+            window.open(url, '_blank'); // Abrir enlace en una nueva pestaña
+        });
+    });
 
 </script>
       
@@ -187,9 +195,7 @@
            
         <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
         <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
-		
-	
-            
+		            
     </div>
 	
 	  <div class="enlaces">
@@ -253,6 +259,29 @@
 	
 	 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6116874493728615"
      crossorigin="anonymous"></script>
+	 
+	 
+	 	<script>
+	 
+	document.addEventListener("DOMContentLoaded", function() {
+    var iframes = document.querySelectorAll('iframe');
+    iframes.forEach(function(iframe) {
+        iframe.addEventListener('load', function() {
+          var currentIframe = this;
+          iframes.forEach(function(otherIframe) {
+            if (otherIframe !== currentIframe) {
+                 pauseVideo(otherIframe);
+              }
+            });
+        });
+    });
+	
+    function pauseVideo(iframe) {
+        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+       }
+    });
+	 
+	</script>
    
 </head>
 
@@ -321,7 +350,7 @@
 		</label>
       </div>   
 	  
-	           
+	<div class="page-content">   
 	 <div class="trasmisor">
 				   
 	  <div class="radio" data-action="modal_aut">
@@ -435,8 +464,10 @@
         },
       }
     });
-  </script>
+   </script>
   	          
+  </div>
+ 
  </div>
 				  		
    <script>
@@ -453,6 +484,8 @@
          });
        });
      });
+	 
+     
 	  
    </script>
 	  
@@ -931,7 +964,7 @@
 				</section>
 			</section>
 		</div>
-			
+					
 	</section>
    
 

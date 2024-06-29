@@ -522,7 +522,7 @@ article .elemento {
  
  
  .player-container{
-  background:#00695c;
+background:teal;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -4570,3 +4570,66 @@ footer {
     flex-direction: column;
 }
 
+
+/* Estilos para el menú de escritorio */
+#nav-mobile ul.right {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    list-style-type: none; /* Quita los puntos de lista */
+    padding: 0;
+}
+
+
+
+ul.right li a {
+    display: flex;
+    align-items: center; /* Centra el texto verticalmente con el ícono */
+    text-decoration: none;
+    color: white; /* Color de texto */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Estilos para el menú móvil */
+ul#nav-mobile {
+    list-style-type: none; /* Quita los puntos de lista */
+    padding: 0;
+}
+
+ul#nav-mobile .navigation {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+}
+
+
+
+ul#nav-mobile .navigation li a {
+    text-decoration: none;
+    color:white; /* Color de texto */
+    font-size: 16px; /* Tamaño de fuente */
+
+	text-align:center;
+    align-items: center; /* Centra el texto verticalmente con el ícono */
+}
+
+ul#nav-mobile .enlaces {
+    text-align: center; /* Centra el contenido de los enlaces */
+    margin-top: 20px; /* Espaciado superior */
+	color:white;
+}
+
+ul#nav-mobile .enlaces a {
+    text-decoration: none;
+    color: white; /* Color de texto */
+    font-size: 16px; /* Tamaño de fuente */
+    display: flex;
+    align-items: center; /* Centra el texto verticalmente con el ícono */
+}
+
+/* Estilos comunes para íconos Material Icons */
+.material-icons-outlined {
+    font-family: 'Material Icons Outlined'; /* Fuente de íconos */
+    font-size: 24px; /* Tamaño de íconos */
+    margin-right: 5px; /* Espaciado a la derecha */
+}

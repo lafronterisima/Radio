@@ -93,9 +93,7 @@
    <a href="https://instagram.com/share?url=https://lafronterisima.com%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tt"> 
      <i class="material-icons-outlined"> photo_camera</i>
    </a>
-
    
- 
   </div> 
  
   <div class="copy_wraper"> 
@@ -130,6 +128,7 @@
   modal_wraper.classList.remove('active');
   }
   });
+  
   let copy_url_btn = document.querySelector('.copy_url_btn');
   if(copy_url_btn)
   {
@@ -301,28 +300,89 @@
     <div class="contain_radio">
       
       
-      <div class="logo">
-        <img src="image/frontera.png" alt="logo">
-		
-         <span class="radioplayer"
-	     data-src="https://stream.zeno.fm/t100n9re6bruv"
-	     data-playbutton="false"
-	     data-volumeslider="false"
-	     data-elapsedtime="false"
-	     data-nowplaying="true"
-	     data-showplayer="false">
-		 <div id="metadatos"></div>
-         </span>
-	       
-      </div>
+        <div class="player">
+        <div class="container">
+            <div class="web-player">
+                <div class="cover-album">
+                    <div id="currentCoverArt"></div>
+                    <div class="watermark"></div>
+                </div>
+                <div class="info-current-song">
+                    <h2 id="currentSong" class="current-song"></h2>
+                    <h3 id="currentArtist" class="current-artist"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
 	  
+	  
+	      
    <script>
-    var apiUrl = "https://api.zenoradio.com/v1/stations/t100n9re6bruv/metadata";
-    fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      var songMetadata = data.metadata;
-      var metadatosElemento = document
+   
+   const RADIO_NAME = 'La Fronterisima';
+const API_SERVICE = 'DEEZER';
+const URL_STREAMING = 'https://stream.zeno.fm/t100n9re6bruv';
+const API_URL = 'https://twj.es/radio_info/?radio_url=' + URL_STREAMING;
+const API_KEY = "18fe07917957c289983464588aabddfb";
+
+window.addEventListener('load', () => { 
+    getStreamingData();
+
+    const streamingInterval = setInterval(getStreamingData, 10000);
+});
+
+async function getStreamingData() {
+    try {
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+            throw new Error(`Error en la solicitud API: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+
+        if (data.length === 0) {
+            console.log('%cdebug', 'font-size:12px'); 
+        } else {
+            updateMetadata(data.currentSong, data.currentArtist);
+            updateAlbumCover(data.currentSong, data.currentArtist);
+        }
+    } catch (error) {
+        console.error("Error al obtener datos de streaming:", error); 
+    }
+}
+
+function updateMetadata(song, artist) {
+    document.title = `${song} - ${artist} | ${RADIO_NAME}`;
+    document.getElementById('currentSong').textContent = song;
+    document.getElementById('currentArtist').textContent = artist;
+}
+
+async function updateAlbumCover(song, artist) {
+    const coverArt = document.getElementById('currentCoverArt');
+    const defaultCoverArt = 'imagenes/logo.png';
+    let urlCoverArt = defaultCoverArt;
+
+    try {
+        const response = await fetch(`https://api.streamafrica.net/new.search?query=${artist} ${song}&service=${API_SERVICE.toLowerCase()}`);
+
+        if (!response.ok) {
+            throw new Error(`Error en la solicitud API: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+
+        if (data && data.results && data.results.artwork) {
+            urlCoverArt = data.results.artwork;
+        } else {
+            console.warn("Respuesta de API válida pero sin datos de artwork:", data);
+        }
+    } catch (error) {
+        console.error("Error al buscar datos de la API:", error);
+    }
+
+    coverArt.style.backgroundImage = `url(${urlCoverArt})`;
+}
    </script>
       
          
@@ -344,40 +404,36 @@
 	  
     <div class="live-messages">
         <i class="material-icons-outlined"></i>
-        <label class="live-icon"><span class="material-icons-outlined"><img src="imagenes/microfono.png"></span>
-		</label>
-      </div>   
+		
+        <label class="live-icon">
+		<span class="material-icons-outlined"><img src="imagenes/microfono.png"></span></label>
+		
+    </div>   
 	  
-	<div class="page-content">   
-	 <div class="trasmisor">
-				   
-	  <div class="radio" data-action="modal_aut">
-	   <p>Emisoras <span class="material-icons-outlined"> mic </span></p>
-	  </div>
-			
-	
-     <div class="carousel-wrapper"> 
 
-      <div class="owl-carousel owl-theme">
-        <div class="item">
-           <img src="emisora/altovoltaje.png" />
-      
-      
-       <div class="content">
-          <div class="title">Altovoltaje Radio</div>
-          <div class="sub-title">Caldas</div>
-          <p> Programación con una variedad musical, cultural, deporte y noticias. Emitiendo desde el eje cafetero, para Colombia y el mundo.</p>
-         
-		  <a class="btns">
-          <audio controls> <source src="https://manager7.streamradio.fr:3045/stream?x=1700082229257" /></audio>
-	      </a> 
-		  
+  <div class="modal_wrapers" data-action="modals_close">
+     <div class="trasmisor">
+       <div class="radio" data-action="modal_aut">
+         <p>Emisoras <span class="material-icons-outlined"> mic </span></p>
+       </div>
+
+      <div class="carousel-wrapper">
+        <div class="owl-carousel owl-theme">
+          <div class="item">
+            <img src="emisora/altovoltaje.png" />
+             <div class="content">
+              <div class="title">Altovoltaje Radio</div>
+              <div class="sub-title">Caldas</div>
+              <p>Programación con una variedad musical, cultural, deporte y noticias. Emitiendo desde el eje cafetero, para Colombia y el mundo.</p>
+              <a class="btns">
+              <audio controls>
+                <source src="https://manager7.streamradio.fr:3045/stream?x=1700082229257" />
+              </audio>
+            </a>
+          </div>
         </div>
-    
-     </div>
-     
-     
-      <div class="item">
+		
+		  <div class="item">
         <img src="emisora/la voz.png" />
       
        <div class="content">
@@ -442,50 +498,11 @@
         </div>
     
      </div>
-       
+		
+      </div>
     </div>
-    
   </div>
-
-  <script src="owl/owl.carousel.min.js"></script>
-
-  <script>
-    $('.owl-carousel').owlCarousel({
-      margin: 15,
-       loop: true,
-       autoplay: true,
-      nav: false,
-      navText: [""],
-      responsive: {
-        0: {
-          items: 1
-        },
-      }
-    });
-   </script>
-  	          
-  </div>
- 
- </div>
-				  		
-   <script>
-      document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.live-icon').forEach(function(icon) {
-      icon.addEventListener('click', function() {
-      document.querySelector('.trasmisor').style.display = 'block';
-        });
-      });
-
-      document.querySelectorAll('.radio').forEach(function(radio) {
-      radio.addEventListener('click', function() {
-      document.querySelector('.trasmisor').style.display = 'none';
-         });
-       });
-     });
-	 
-     
-	  
-   </script>
+</div>
 	  
       
       <div class="control-container">
@@ -504,6 +521,48 @@
     
     
     </div>
+	
+	<script src="owl/owl.carousel.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.owl-carousel').owlCarousel({
+      margin: 15,
+      loop: true,
+      autoplay: true,
+      nav: false,
+      responsive: {
+        0: {
+          items: 1
+        }
+      }
+    });
+
+  
+    document.querySelectorAll('.live-icon').forEach(function(icon) {
+      icon.addEventListener('click', function() {
+        document.querySelector('.trasmisor').style.display = 'block';
+      });
+    });
+
+    document.querySelectorAll('.radio').forEach(function(radio) {
+      radio.addEventListener('click', function() {
+        document.querySelector('.trasmisor').style.display = 'none';
+      });
+    });
+
+    document.addEventListener('click', function(event) {
+      var modal = document.querySelector('.trasmisor');
+      var isClickInsideModal = modal.contains(event.target);
+      var isClickOnLiveIcon = event.target.closest('.live-icon');
+      
+      if (!isClickInsideModal && !isClickOnLiveIcon) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+  
+</script>
    
   
     </section>  

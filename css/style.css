@@ -264,7 +264,7 @@ main {
 @media (min-width:480px)and (max-width:690px){
 	
 .sidenav{
-     width:80%;
+     width:87%;
 	 height:100vh;
      justify-content: center;
      align-items: center;
@@ -273,27 +273,28 @@ main {
      z-index:999;
 }
 
-  .sidenav li a{
+   .sidenav li a{
 	    width:100%;
 		height:100%;
 	    color:white;
-		top:5px;
-	
+		margin-top:5px;
+	    background-color:;
   }
   
+
 .navigation li{
    position: relative;
    width:100%;
    height:auto;
-   padding:10px;
-   top:0px;
+   padding:5px;
+   top:30px;
    vertical-align:middle;
    -webkit-transition: all 0.3s;
    -o-transition: all 0.3s;
    transition: all 0.3s;
    text-align:center;
   }
-
+  
  span{
    color:orange;
  }
@@ -324,11 +325,10 @@ main {
   }
 }
 
-
 @media (min-width:691px)and (max-width:992px){
 	
  .sidenav{
-     width:70%;
+     width:53%;
 	 height:100vh;
      justify-content: center;
      align-items: center;
@@ -458,7 +458,7 @@ article .elemento {
 	  background-repeat:repeat; 
 }
 
-.contain_radio .logo{
+.contain_radio .player{
     padding-top:0px;
     display: flex;
 	 height:100vh;
@@ -468,7 +468,7 @@ article .elemento {
     flex-direction: column;
 }
 
-.contain_radio .logo img{
+.contain_radio .player img{
     padding-top:4px;
     width: 150px;
     height: 150px;
@@ -477,16 +477,49 @@ article .elemento {
 	margin:0 auto; 
 }
 
-.contain_radio strong{
-        width:98%;
-		display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-		margin:0 auto;
-        color:black;
-        font-size:23px;
-	}
+ .web-player {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+			flex-direction:column;
+        }
+        .cover-album {
+            width: 200px;
+            height: 200px; 
+            position: relative;
+        }
+        .cover-album #currentCoverArt {
+            width: 100%;
+            height: 100%;
+            background-image:url(../imagenes/logo.png);
+            background-size: cover;
+            background-position: center;
+        }
+        .watermark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+         
+        }
+        .info-current-song {
+      
+			display:flex;
+			flex-direction:column;
+        }
+       #currentSong {
+        font-size: 1em;
+		color:teal;
+       }
+
+       #currentArtist {
+        font-size: 0.9em;
+		color:teal;
+       }
     
+	
+	
 .radioplayer{
 	display: flex;
 	width:98%;
@@ -4633,3 +4666,7 @@ ul#nav-mobile .enlaces a {
     font-size: 24px; /* Tamaño de íconos */
     margin-right: 5px; /* Espaciado a la derecha */
 }
+
+
+
+

@@ -445,20 +445,7 @@ article .elemento {
    background-color:WhiteSmoke;
 }
 
-.contain_radio .title{
-    width:100%;
-	height:100%;
-	display:flex;
-    margin-top:3px;
-	align-items:center;
-	display: flex;
-    justify-content: center;
-	margin:0 auto; 
-	  background-image:url(../galeria/jpg);
-	  background-repeat:repeat; 
-}
-
-.contain_radio .player{
+.contain_radio .logo{
     padding-top:0px;
     display: flex;
 	 height:100vh;
@@ -468,7 +455,7 @@ article .elemento {
     flex-direction: column;
 }
 
-.contain_radio .player img{
+.contain_radio .logo img{
     padding-top:4px;
     width: 150px;
     height: 150px;
@@ -504,7 +491,7 @@ article .elemento {
          
         }
         .info-current-song {
-      
+            margin-left: 20px;
 			display:flex;
 			flex-direction:column;
         }

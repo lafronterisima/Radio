@@ -298,91 +298,69 @@
   <section class="streaming">
    
     <div class="contain_radio">
-      
-      
-        <div class="player">
-        <div class="container">
-            <div class="web-player">
-                <div class="cover-album">
-                    <div id="currentCoverArt"></div>
-                    <div class="watermark"></div>
-                </div>
-                <div class="info-current-song">
-                    <h2 id="currentSong" class="current-song"></h2>
-                    <h3 id="currentArtist" class="current-artist"></h3>
-                </div>
-            </div>
-        </div>
-    </div>
+	
+         <div class="logo">
+        <img src="image/frontera.png" alt="logo">
+		
+         <span class="radioplayer"
+	     data-src="http://stream.zeno.fm/t100n9re6bruv"
+	     data-playbutton="false"
+	     data-volumeslider="false"
+	     data-elapsedtime="false"
+	     data-nowplaying="false"
+	     data-showplayer="false">
+         </span>
+	       
+      </div>
 	  
 	  
 	      
    <script>
    
-   const RADIO_NAME = 'La Fronterisima';
+const RADIO_NAME = 'La Fronterisima';
 const API_SERVICE = 'DEEZER';
 const URL_STREAMING = 'https://stream.zeno.fm/t100n9re6bruv';
-const API_URL = 'https://twj.es/radio_info/?radio_url=' + URL_STREAMING;
+const API_URL = 'https://twj.es/radio_info/?radio_url=' + encodeURIComponent(URL_STREAMING);
 const API_KEY = "18fe07917957c289983464588aabddfb";
 
-window.addEventListener('load', () => { 
+window.addEventListener('load', () => {
     getStreamingData();
-
-    const streamingInterval = setInterval(getStreamingData, 10000);
 });
 
-async function getStreamingData() {
-    try {
-        const response = await fetch(API_URL);
-
-        if (!response.ok) {
-            throw new Error(`Error en la solicitud API: ${response.status} ${response.statusText}`);
+function getStreamingData() {
+    // Your code to fetch streaming data
+    fetch(API_URL, {
+        headers: {
+            'Authorization': `Bearer ${API_KEY}`
         }
-
-        const data = await response.json();
-
-        if (data.length === 0) {
-            console.log('%cdebug', 'font-size:12px'); 
-        } else {
-            updateMetadata(data.currentSong, data.currentArtist);
-            updateAlbumCover(data.currentSong, data.currentArtist);
-        }
-    } catch (error) {
-        console.error("Error al obtener datos de streaming:", error); 
-    }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the data from the API response
+        console.log(data);
+        // Example: Update UI with data
+        updateUI(data);
+    })
+    .catch(error => {
+        console.error('Error fetching streaming data:', error);
+        // Handle error
+    });
 }
 
-function updateMetadata(song, artist) {
-    document.title = `${song} - ${artist} | ${RADIO_NAME}`;
-    document.getElementById('currentSong').textContent = song;
-    document.getElementById('currentArtist').textContent = artist;
+function updateUI(data) {
+    // Example: Update UI with the received data
+    // You can manipulate DOM elements here based on the data received
+    // For example:
+    const radioNameElement = document.getElementById('radio-name');
+    radioNameElement.textContent = RADIO_NAME;
+
+    const streamUrlElement = document.getElementById('stream-url');
+    streamUrlElement.href = URL_STREAMING;
+
+    const trackInfoElement = document.getElementById('track-info');
+    trackInfoElement.textContent = data.track_name; // Assuming API returns track name
 }
 
-async function updateAlbumCover(song, artist) {
-    const coverArt = document.getElementById('currentCoverArt');
-    const defaultCoverArt = 'imagenes/logo.png';
-    let urlCoverArt = defaultCoverArt;
-
-    try {
-        const response = await fetch(`https://api.streamafrica.net/new.search?query=${artist} ${song}&service=${API_SERVICE.toLowerCase()}`);
-
-        if (!response.ok) {
-            throw new Error(`Error en la solicitud API: ${response.status} ${response.statusText}`);
-        }
-
-        const data = await response.json();
-
-        if (data && data.results && data.results.artwork) {
-            urlCoverArt = data.results.artwork;
-        } else {
-            console.warn("Respuesta de API válida pero sin datos de artwork:", data);
-        }
-    } catch (error) {
-        console.error("Error al buscar datos de la API:", error);
-    }
-
-    coverArt.style.backgroundImage = `url(${urlCoverArt})`;
-}
    </script>
       
          

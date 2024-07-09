@@ -312,57 +312,7 @@
 	       
       </div>
 	  
-	  
-	      
-   <script>
-   
-const RADIO_NAME = 'La Fronterisima';
-const API_SERVICE = 'DEEZER';
-const URL_STREAMING = 'https://stream.zeno.fm/t100n9re6bruv';
-const API_URL = 'https://twj.es/radio_info/?radio_url=' + encodeURIComponent(URL_STREAMING);
-const API_KEY = "18fe07917957c289983464588aabddfb";
-
-window.addEventListener('load', () => {
-    getStreamingData();
-});
-
-function getStreamingData() {
-    // Your code to fetch streaming data
-    fetch(API_URL, {
-        headers: {
-            'Authorization': `Bearer ${API_KEY}`
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Handle the data from the API response
-        console.log(data);
-        // Example: Update UI with data
-        updateUI(data);
-    })
-    .catch(error => {
-        console.error('Error fetching streaming data:', error);
-        // Handle error
-    });
-}
-
-function updateUI(data) {
-    // Example: Update UI with the received data
-    // You can manipulate DOM elements here based on the data received
-    // For example:
-    const radioNameElement = document.getElementById('radio-name');
-    radioNameElement.textContent = RADIO_NAME;
-
-    const streamUrlElement = document.getElementById('stream-url');
-    streamUrlElement.href = URL_STREAMING;
-
-    const trackInfoElement = document.getElementById('track-info');
-    trackInfoElement.textContent = data.track_name; // Assuming API returns track name
-}
-
-   </script>
-      
-         
+	   
     <div class="player-container">
     
       <div class="live-message" >
@@ -577,16 +527,16 @@ function updateUI(data) {
 		
 		<div class="slides">
 			<iframe class="video" src="https://www.youtube.com/embed/ZGNqaE10Oeg
-			?enablejsapi=1&html5=1&rel=0"></iframe>
+			?enablejsapi=1&html5=1"></iframe>
 		</div>
 		
 		<div class="slides">
 			<iframe class="video" src="https://www.youtube.com/embed/xN683CQ8hwU
-			?enablejsapi=1&html5=1&rel=0"></iframe>
+			?enablejsapi=1&html5=1"></iframe>
 		</div>
 	
 		<div class="slides">
-			<iframe class="video" src="https://www.youtube.com/embed/O5-Pxz6GgEE?enablejsapi=1&html5=1&rel=0"></iframe>
+			<iframe class="video" src="https://www.youtube.com/embed/O5-Pxz6GgEE?enablejsapi=1&html5=1"></iframe>
 		</div>
 
 		<div class="slide-arrow left"></div>

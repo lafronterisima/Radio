@@ -213,42 +213,46 @@
   
   <script>
   
-    $(document).ready(function () {
-		setUpSlider($('#slider1'));
-	})
+ $(document).ready(function () {
+    setUpSlider($('#slider1'));
+});
 
-	function setUpSlider($container) {
-		var pos = 0,
-			slides = $container.find('.slides'),
-			numOfSlides = slides.length;
+// Slider setup function
+function setUpSlider($container) {
+    var pos = 0,
+        slides = $container.find('.slides'),
+        numOfSlides = slides.length;
 
-		function nextSlides() {
-			// `[]` returns a vanilla DOM object from a jQuery object/collection
-			slides[pos].video.stopVideo()
-			slides.eq(pos).animate({ left: '-100%' }, 500);
-			pos = (pos >= numOfSlides - 1 ? 0 : ++pos);
-			slides.eq(pos).css({ left: '100%' }).animate({ left: 0 }, 500);
-		}
+    function nextSlides() {
+        // Ensure video stops before sliding out
+        if (slides[pos].video) slides[pos].video.stopVideo();
+        slides.eq(pos).animate({ left: '-100%' }, 500);
+        pos = (pos >= numOfSlides - 1 ? 0 : ++pos);
+        slides.eq(pos).css({ left: '100%' }).animate({ left: 0 }, 500);
+    }
 
-		function previousSlides() {
-			slides[pos].video.stopVideo()
-			slides.eq(pos).animate({ left: '100%' }, 500);
-			pos = (pos == 0 ? numOfSlides - 1 : --pos);
-			slides.eq(pos).css({ left: '-100%' }).animate({ left: 0 }, 500);
-		}
+    function previousSlides() {
+        // Ensure video stops before sliding out
+        if (slides[pos].video) slides[pos].video.stopVideo();
+        slides.eq(pos).animate({ left: '100%' }, 500);
+        pos = (pos === 0 ? numOfSlides - 1 : --pos);
+        slides.eq(pos).css({ left: '-100%' }).animate({ left: 0 }, 500);
+    }
 
-		$container.find('.left').click(previousSlides);
-		$container.find('.right').click(nextSlides);
-	}
+    // Bind click events to navigation buttons
+    $container.find('.left').click(previousSlides);
+    $container.find('.right').click(nextSlides);
+}
 
-	function onYouTubeIframeAPIReady() {
-		$('.slides').each(function (index, slides) {
-			// Get the '.video' element inside each `.slides`
-			var iframe = $(slides).find('.video')[0]
-			// Create a new YT.Player from the iFrame, and store it on the '.slides' DOM object
-			slides.video = new YT.Player(iframe)
-		})
-	}
+// YouTube API ready function to initialize players
+function onYouTubeIframeAPIReady() {
+    $('.slides').each(function (index, slides) {
+        // Get the '.video' element inside each `.slides`
+        var iframe = $(slides).find('.video')[0];
+        // Create a new YT.Player from the iFrame, and store it on the '.slides' DOM object
+        slides.video = new YT.Player(iframe);
+    });
+}
 
   </script>
   
@@ -256,29 +260,7 @@
 	 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6116874493728615"
      crossorigin="anonymous"></script>
 	 
-	 
-	 	<script>
-	 
-	document.addEventListener("DOMContentLoaded", function() {
-    var iframes = document.querySelectorAll('iframe');
-    iframes.forEach(function(iframe) {
-        iframe.addEventListener('load', function() {
-          var currentIframe = this;
-          iframes.forEach(function(otherIframe) {
-            if (otherIframe !== currentIframe) {
-                 pauseVideo(otherIframe);
-              }
-            });
-        });
-    });
-	
-    function pauseVideo(iframe) {
-        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-       }
-    });
-	 
-	</script>
-   
+
 </head>
 
 <body>
@@ -526,12 +508,12 @@
 		       <div class="video-slider" id="slider1">
 		
 		<div class="slides">
-			<iframe class="video" src="https://www.youtube.com/embed/ZGNqaE10Oeg
+			<iframe class="video" src="https://www.youtube.com/embed/xN683CQ8hwU
 			?enablejsapi=1&html5=1"></iframe>
 		</div>
 		
 		<div class="slides">
-			<iframe class="video" src="https://www.youtube.com/embed/xN683CQ8hwU
+           <iframe class="video" src="https://www.youtube.com/embed/ZGNqaE10Oeg
 			?enablejsapi=1&html5=1"></iframe>
 		</div>
 	
@@ -542,10 +524,14 @@
 		<div class="slide-arrow left"></div>
 		<div class="slide-arrow right"></div>
 	   </div>
-		   
-	      </aside>
+	   
+	 </aside>
+	 
+	
 		  
      </section>
+	 
+	 
 
 	  <section id="bloggers">
      <h3>NOSOTROS</h3>
@@ -942,7 +928,8 @@
 </section>
 
 
-<script>
+
+ <script>
     var tag = document.createElement("script");
     tag.src = "//www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName("script")[0];
@@ -978,7 +965,7 @@
     );
   });
 }
-</script>
+</script> 
 
 					
 

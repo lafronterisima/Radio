@@ -1,8 +1,8 @@
 
 <?php
-	$servidor = "localhost:3306";
-	$usuario = "root";
-	$senha = "";
+	$servidor = "localhost";
+	$usuario = "LA138US00002";
+	$senha = "Lafronterisima12*";
 	$dbname = "artist";
 	
 	//Criar a conexao

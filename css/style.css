@@ -1246,7 +1246,7 @@ color:;
   aside .video-responsive{
     position:relative;
     width: 100%;
-    height: 100%;
+    height: 98%;
     background: transparent;
 }
   .video-slider {
@@ -1329,6 +1329,14 @@ color:;
 	margin: 0 auto; 
 }
 
+.vote-count span{
+   color:white;
+}
+
+.vote-button{
+	color:white;
+}
+
  @media(max-width: 860px){
     .inicio-matrix{
       width:100%;
@@ -1383,7 +1391,7 @@ color:;
     position: absolute;
     top:0;
     width: 100%;
-    height: 95%;
+    height:98%;
    }
    
    .publicidades{

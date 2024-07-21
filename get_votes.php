@@ -1,7 +1,7 @@
 
 <?php
-	$host = "cl2024010810001.dnssw.net";
-	$usuario = "LA138US00002";
+	$host = "MariaDB";
+	$usuario = " LA138US00002@localhost";
 	$senha = "Lafronterisima12*";
 	$dbname = "artist";
 	

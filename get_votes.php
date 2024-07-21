@@ -1,6 +1,6 @@
 
 <?php
-	$servidor = "cl2024010810001";
+	$servidor = "81.25.112.63";
 	$usuario = "LA138US00002";
 	$senha = "Lafronterisima12*";
 	$dbname = "artist";

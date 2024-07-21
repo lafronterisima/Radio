@@ -1,16 +1,15 @@
 
 <?php
-	$servidor = "Manuales-server2";
-	$puerto= "3306"
+	$servidor = "127.0.0.1:3306";
 	$usuario = "LA138US00002";
 	$senha = "Lafronterisima12*";
 	$dbname = "artist";
 	
 	//Criar a conexao
-	$conn = mysqli_connect($servidor, $puerto, $usuario, $senha, $dbname);
+	$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 	
 	//Criar a conexao
-	$conn = mysqli_connect($servidor, $puerto, $usuario, $senha, $dbname);
+	$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 	
 	
 // Verificamos la conexión

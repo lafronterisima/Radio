@@ -1,6 +1,6 @@
 
 <?php
-	$host = "81.25.112.63";
+	$host = "cl2024010810001.dnssw.net";
 	$usuario = "LA138US00002";
 	$senha = "Lafronterisima12*";
 	$dbname = "artist";

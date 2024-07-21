@@ -1,6 +1,6 @@
 
 <?php
-	$servidor = "localhost";
+	$servidor = "Manuales-server2";
 	$puerto= "3306"
 	$usuario = "LA138US00002";
 	$senha = "Lafronterisima12*";

@@ -1,12 +1,12 @@
 
 <?php
-	$servidor = "81.25.112.63";
+	$host = "81.25.112.63";
 	$usuario = "LA138US00002";
 	$senha = "Lafronterisima12*";
 	$dbname = "artist";
 	
 	//Criar a conexao
-	$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+	$conn = mysqli_connect($host, $usuario, $senha, $dbname);
 	
 
 // Verificamos la conexión

@@ -1,6 +1,6 @@
 
 <?php
-	$servidor = "Localhost :3306";
+	$servidor = "81.25.112.63";
 	$usuario = "LA138US00003";
 	$senha = "Radio12om*";
 	$dbname = "artist";

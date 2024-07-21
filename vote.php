@@ -1,12 +1,12 @@
 
 <?php
-	$host = "MariaDB";
-	$usuario = " LA138US00002@localhost";
-	$senha = "Lafronterisima12*";
+	$servidor = "Localhost:3306";
+	$usuario = "LA138US00003";
+	$senha = "Radio12om*";
 	$dbname = "artist";
 	
 	//Criar a conexao
-	$conn = mysqli_connect($host, $usuario, $senha, $dbname);
+	$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 	
 
 // Verificamos la conexión

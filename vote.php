@@ -1,13 +1,13 @@
 
 <?php
-	$servidor = "81.25.112.63";
-	$puerto = "3306";
-	$usuario = "LA138US00003";
-	$senha = "Radio12om*";
-	$dbname = "artist";
-	
-	//Criar a conexao
-	$conn = mysqli_connect($servidor, $puerto, $usuario, $senha, $dbname);
+$servidor = "81.25.112.63";  // Server IP or hostname
+$puerto = 3306;              // MySQL port number (assuming default 3306)
+$usuario = "LA138US00003";   // MySQL username
+$senha = "Radio12om*";       // MySQL password
+$dbname = "artist";          // Database name
+
+// Criar a conexão
+$conn = mysqli_connect($servidor, $usuario, $senha, $dbname, $puerto);
 	
 
 // Verificamos la conexión

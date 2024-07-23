@@ -1,12 +1,12 @@
 <?php
-$servidor = "81.25.112.63";  // Server IP or hostname
-$puerto = 3306;              // MySQL port number (assuming default 3306)
+$servidor = "localhost";     // Servidor local
+$socket = "/run/mysqld/mysqld.sock";  // Ruta al socket UNIX de MariaDB
 $usuario = "LA138US00003";   // MySQL username
 $senha = "Radio12om*";       // MySQL password
 $dbname = "artist";          // Database name
 
 // Criar a conexão
-$conn = mysqli_connect($servidor, $usuario, $senha, $dbname, $puerto);
+$conn = mysqli_connect($servidor, $usuario, $senha, $dbname, null, $socket);
 
 // Verificamos la conexión
 if (!$conn) {

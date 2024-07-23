@@ -1,21 +1,16 @@
-
 <?php
-	$servidor = "81.25.112.63";
-	$usuario = "3306";
-	$usuario = "LA138US00003";
-	$senha = "Radio12om*";
-	$dbname = "artist";
-	
-	//Criar a conexao
-	$conn = mysqli_connect($servidor, $puerto, $usuario, $senha, $dbname);
-	
-	//Criar a conexao
-	$conn = mysqli_connect($servidor, $puerto, $usuario, $senha, $dbname);
-	
-	
+$servidor = "81.25.112.63";  // Server IP or hostname
+$puerto = 3306;              // MySQL port number (assuming default 3306)
+$usuario = "LA138US00003";   // MySQL username
+$senha = "Radio12om*";       // MySQL password
+$dbname = "artist";          // Database name
+
+// Criar a conexão
+$conn = mysqli_connect($servidor, $usuario, $senha, $dbname, $puerto);
+
 // Verificamos la conexión
-if ($conn->connect_error) {
-    die(json_encode(["success" => false, "message" => "Error de conexión: " . $conn->connect_error]));
+if (!$conn) {
+    die(json_encode(["success" => false, "message" => "Error de conexión: " . mysqli_connect_error()]));
 }
 
 // Obtenemos los votos de los artistas

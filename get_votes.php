@@ -1,16 +1,13 @@
 
 <?php
-	$servidor = "localhost:3306"; 
+	$servidor = "81.25.112.63"; 
 	$usuario = "LA138US00003";   
 	$senha = "Radio12om*";
 	$dbname = "artist";   
+    $porta = 3306;     
 
-	
-	//Criar a conexao
-	$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
-	
-	//Criar a conexao
-	$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+// Crear la conexión a la base de datos especificando el puerto
+$conn = mysqli_connect($servidor, $usuario, $senha, $dbname, $porta);
 	
 	
 // Verificamos la conexión

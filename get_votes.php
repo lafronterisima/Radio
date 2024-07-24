@@ -1,16 +1,21 @@
+
 <?php
-$servidor = "localhost";     // Servidor local
-$socket = "/run/mysqld/mysqld.sock";  // Ruta al socket UNIX de MariaDB
-$usuario = "LA138US00003";   // MySQL username
-$senha = "Radio12om*";       // MySQL password
-$dbname = "artist";          // Database name
+	$servidor = "localhost:3306"; 
+	$usuario = "LA138US00003";   
+	$senha = "Radio12om*";
+	$dbname = "artist";   
 
-// Criar a conexão
-$conn = mysqli_connect($servidor, $usuario, $senha, $dbname, null, $socket);
-
+	
+	//Criar a conexao
+	$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+	
+	//Criar a conexao
+	$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+	
+	
 // Verificamos la conexión
-if (!$conn) {
-    die(json_encode(["success" => false, "message" => "Error de conexión: " . mysqli_connect_error()]));
+if ($conn->connect_error) {
+    die(json_encode(["success" => false, "message" => "Error de conexión: " . $conn->connect_error]));
 }
 
 // Obtenemos los votos de los artistas

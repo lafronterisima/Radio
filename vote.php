@@ -7,7 +7,7 @@
 	$porta = 3306; // Puerto por defecto de MySQL
 
 // Crear la conexión especificando el puerto
-$conn = mysqli_connect($servidor, $usuario, $senha, $dbname, $porta);
+$conn = mysqli_connect($servidor, $usuario, $senha, $porta, $dbname);
 	
 
 // Verificamos la conexión

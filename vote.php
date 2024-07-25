@@ -4,10 +4,9 @@
 	$usuario = "LA138US00003";
 	$senha = "Radio12om*";
 	$dbname = "artist";
-                                    
 
-// Crear la conexión especificando el puerto
-$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+  // Criar a conexão com a porta especificada
+  $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 	
 
 // Verificamos la conexión

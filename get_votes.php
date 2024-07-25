@@ -4,9 +4,10 @@
 	$usuario = "LA138US00003";   
 	$senha = "Radio12om*";
 	$dbname = "artist";   
-	$porta = 3306; // Puerto por defecto de MySQL
+
+	
 	//Criar a conexao
-	$conn = mysqli_connect($servidor, $usuario, $senha, $porta, $dbname);
+	$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 	
 	
 // Verificamos la conexión

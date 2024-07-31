@@ -284,7 +284,7 @@ function onYouTubeIframeAPIReady() {
         <img src="image/frontera.png" alt="logo">
 		
          <span class="radioplayer"
-	     data-src="http://stream.zeno.fm/t100n9re6bruv"
+	     data-src="https://stream.zeno.fm/t100n9re6bruv"
 	     data-playbutton="false"
 	     data-volumeslider="false"
 	     data-elapsedtime="false"
@@ -297,19 +297,17 @@ function onYouTubeIframeAPIReady() {
 	   
     <div class="player-container">
     
-      <div class="live-message" >
-    
-	      <div class="saludo">
+    <div class="live-message">
+     <div class="saludo">
+      <img id="tiempo" src="" alt="">
+      <div id="txtsaludo"></div>  
+     </div> 
+	 
+	 
+    </div>
 
-		     <img id="tiempo"> 
-           
-              <div id="txtsaludo"> </div>	
-        
-		  </div> 
-		  
-		
-      </div>
-	  
+  
+
 	  
     <div class="live-messages">
         <i class="material-icons-outlined"></i>
@@ -322,22 +320,29 @@ function onYouTubeIframeAPIReady() {
 
   <div class="modal_wrapers" data-action="modals_close">
      <div class="trasmisor">
-       <div class="radio" data-action="modal_aut">
-         <p>Emisoras <span class="material-icons-outlined"> mic </span></p>
-       </div>
+      
+	   
+	 <div class="radio" data-action="modal_aut">
+    <p>Emisoras</p>
+    <a href="https://wa.me/573170340249?text=Hola%20me%20interesa%20tu%20servicio!" 
+       class="whatsapp-button" 
+       target="_blank" 
+       aria-label="Contact us on WhatsApp">
+        <img src="imagenes/whatsapp.png">
+    </a>
+</div>
 
       <div class="carousel-wrapper">
         <div class="owl-carousel owl-theme">
           <div class="item">
-            <img src="emisora/altovoltaje.png" />
+            <img src="emisora/cristiana.png" />
              <div class="content">
-              <div class="title">Altovoltaje Radio</div>
-              <div class="sub-title">Caldas</div>
-              <p>Programación con una variedad musical, cultural, deporte y noticias. Emitiendo desde el eje cafetero, para Colombia y el mundo.</p>
+              <div class="title">Radio Celestial</div>
+              <div class="sub-title">Pereira</div>
+              <p>Una radio de esperanza 
+		       a traves de reflexiones y melodias. "El Devocional"  a las  6:50 am. Héctor Alarcón.</p>
               <a class="btns">
-              <audio controls>
-                <source src="https://manager7.streamradio.fr:3045/stream?x=1700082229257" />
-              </audio>
+              <audio controls><source src="https://stream2.305stream.com/proxy/client059?mp=/stream"/></audio>
             </a>
           </div>
         </div>
@@ -354,9 +359,25 @@ function onYouTubeIframeAPIReady() {
 	        <audio controls><source src="https://stream.zeno.fm/qv0h7n21urhvv"/></audio>
 	      </a> 
 		  
-        </div>
+         </div>
     
-     </div>
+       </div>
+	   
+	    <div class="item">
+        <img src="emisora/buenavista.png" />
+      
+       <div class="content">
+          <div class="title">Buenavista Stereo</div>
+          <div class="sub-title">Córdoba</div>
+          <p>Estación radial con programas variada y musical. Responsabilidad para construir una radio al servicio de la comunidad.</p>
+          
+		   <a class="btns">
+	        <audio controls><source src="https://stream.zeno.fm/rxajjjkmmvtuv"/></audio>
+	      </a> 
+		  
+         </div>
+    
+       </div>
 	 
 	       <div class="item">
              <img src="emisora/scom.png" />
@@ -367,7 +388,7 @@ function onYouTubeIframeAPIReady() {
           <p>Transmisión las 24 horas, que permitan estar a la vanguardia de las nuevas tendencias tecnológicas en comunicación</p>
           
 		   <a class="btns">
-	          <audio controls><source src="https://tustreamingradios2.com/8046/stream"/></audio>
+	          <audio controls><source src="https://emisorasdigitales2.com:7002/stream"/></audio>
 	      </a> 
 		  
         </div>
@@ -401,7 +422,7 @@ function onYouTubeIframeAPIReady() {
 		      en su máxima expresión.</p>
           
 		   <a class="btns">
-	        <audio controls><source src="https://play8.tikast.com/proxy/lucas?mp=/stream"/></audio>
+	        <audio controls><source src="https://play8.tikast.com/proxy/lucas?mp=/stream"/></audio> 
 	      </a> 
 		  
         </div>
@@ -1401,288 +1422,242 @@ servicio posible, particularmente para mantener un registro de usuarios,
    
     <article id="ARTISTAS" class="elemento">
 	  
-	
-     <section id="especiales">
-	 
-        <section class="especial scrollflow -slide-top">   
-	   <h3 class="programas__titulo">ARTISTAS REVELACIÓN</h3>
-        <div class="contenedor">  
-            <article class="especial__columna1">
-          <img loading="lazy" src="artistas/Georgy.jpg" alt="" class="especial__img">
-                <div class="informaciones">
-                <h3 class="especial__titulo">Georgy Cañas</h3>
-				
-				  <button class="button">Popular</button>	
-					
-				
-                <p class="especial__txt">Cantante e interprete polifacetico de los diferentes generos musicales, oriundo del
+       <section class="contenedor">
+        <div class="card">
+            <div class="card-header">
+                  <img loading="lazy" src="artistas/Georgy.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Georgy Cañas</h2>
+                <p class="card-description">
+                    Cantante e interprete polifacetico de los diferentes generos musicales, oriundo del
           			municipio de Chinchina - Caldas y radicado en Pereira, con una gran trayectoria en el plano musical.<br>
 				    Luego de haber integrado diferentes agrupaciones y orquestas a nivel nacional e internacional, decide
 					lanzar su carrera musical como solista con el genero popular, los invito a seguir una nueva propuesta.
-                 </p>
-				 
-		   <form id="vote-form">
-            <ul id="artists-list">
-              <li id="artist-1">
-                <span class="vote-count" id="vote-1">0 votos</span>
-                <button type="button" class="vote-button" data-artist="1">Votar</button>
-              </li>
-		     </ul>
-            </form>
-	 				 
-			</div>
-				
-           </article>
-			
-              <article class="especial__columna2">
-                 <img loading="lazy" src="artistas/Cly&beyr.jpg" alt="" class="especial__img">
-                  <div class="informaciones">
-                <h3 class="especial__titulo">Cly&Beyr</h3>
-				
-				  <button class="button">Urbano</button>
-				  
-                <p class="especial__txt">Es una agrupacion de género urbano, conformado por jóvenes Leguizameños dispuestos a dar todo por su talento,con su gran talento musical han viajado a diferentes de Colombia y Ecuador. Ha participado en eventos como ferias,
-				 carnavales, festivales y encuentros culturales, a estado lanzando diferentes sencillos: 
-				 "Leguízamo" un tema músical homenaje a una tierra de culturas en el sur del país.
-              
                 </p>
 				
-		    <form id="vote-form">
-            <ul id="artists-list">
-              <li id="artist-2">
-                <span class="vote-count" id="vote-2">0 votos</span>
-                <button type="button" class="vote-button" data-artist="2">Votar</button>
+			 <form id="vote-form">
+              <ul id="artists-list">
+              <li id="artist-1">
+              
+                <button type="button" class="vote-button" data-artist="1"><span class="vote-count" id="vote-1"> 0 votos</span></button>
               </li>
 		     </ul>
             </form>
-                
-				</div>
+              
+            </div>
+        </div>
+       
+        
+        <div class="card">
+            <div class="card-header">
+                  <img loading="lazy" src="artistas/Cly&beyr.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Cly&beyr</h2>
+                <p class="card-description">
+                   Es una agrupacion de género urbano, conformado por jóvenes Leguizameños dispuestos a dar todo por su talento,con su gran talento musical han viajado a diferentes de Colombia y Ecuador. Ha participado en eventos como ferias,
+				  carnavales, festivales y encuentros culturales, a estado lanzando diferentes sencillos: 
+				 "Leguízamo" un tema músical homenaje a una tierra de culturas en el sur del país.
+				</p>
 				
-            </article>
+                <form id="vote-form">
+               <ul id="artists-list">
+              <li id="artist-2">
+             
+                <button type="button" class="vote-button" data-artist="2"><span class="vote-count" id="vote-2">0 votos</span></button>
+              </li>
+		     </ul>
+            </form>
+			
+            </div>
+        </div>
             
-              <article class="especial__columna3">
-                 <img loading="lazy" src="artistas/Pentagrama Mix.jpg" alt="" class="especial__img">
-                 <div class="informaciones">
-                 <h3 class="especial__titulo">Pentagrama Mix</h3>
-				 
-				   <button class="button">Tropical</button>
-				   
-                 <p class="especial__txt">Agrupación de género Tropical, constituida por jóvenes Leguizameños dispuestos a dar todo por su talento, reconocida a nivel
+        <div class="card">
+            <div class="card-header">
+              <img loading="lazy" src="artistas/Pentagrama Mix.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Pentagrama Mix</h2>
+                <p class="card-description">
+                  Agrupación de género Tropical, constituida por jóvenes Leguizameños dispuestos a dar todo por su talento, reconocida a nivel
                  Departamental e Internacional, con su gran talento musical a recorrido diferentes partes de Colombia y Ecuador. Ha participado en eventos como 
-				 ferias, carnavales, festivales y encuentros culturales. "LEGUIZAMO" hace homenaje a una tierra de culturas en el sur del pais.
-                 
-				 </p>
-				 
-		   <form id="vote-form">
+				 ferias, festivales y encuentros culturales. "LEGUIZAMO" hace homenaje a una tierra de culturas en el sur del pais.
+				
+				</p>
+				
+                 <form id="vote-form">
               <ul id="artists-list">
               <li id="artist-3">
-                <span class="vote-count" id="vote-3">0 votos</span>
-                <button type="button" class="vote-button" data-artist="3">Votar</button>
+              
+                <button type="button" class="vote-button" data-artist="3"><span class="vote-count" id="vote-3"> 0 votos</span></button>
               </li>
 		     </ul>
            </form>
-                      
-		     </div>
-				  
-            </article>
+		   
             </div>
-        </section>
-	
-		
-		   <section id="especiales">
-	 
-        <section class="especial scrollflow -slide-top">   
-	   <h3 class="programas__titulo">ARTISTAS POPULARES</h3>
-        <div class="contenedor">  
-             <article class="especial__columna1">
-          <img loading="lazy" src="artistas/indomables.jpg" alt="" class="especial__img">
-                <div class="informaciones">
-                <h3 class="especial__titulo">Las Indomables</h3>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                 <img loading="lazy" src="artistas/indomables.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Las Indomables</h2>
+                <p class="card-description">
+                  Tenemos el gusto de presentarles a "Las Indomables" (Género Tecno-Carrilera) con el mejor repertorio de éxitos 
+				  del género, han alternado con varios artístas de cartelera en ferias y fiestas.
+				  Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos
+				  instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena. 
+			    </p>
 				
-				  <button class="button">Carrilera</button>
-				  
-                <p class="especial__txt">Tenemos el gusto de presentarles a "Las Indomables" (Género Tecno-Carrilera) con el mejor repertorio de éxitos 
-				del género, han alternado con varios artístas de cartelera en ferias y fiestas.
-				
-				Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos
-				instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena.
-          
-                </p>
-				
-		      <form id="vote-form">
-                <ul id="artists-list">
-                <li id="artist-4">
-                 <span class="vote-count" id="vote-4">0 votos</span>
-                 <button type="button" class="vote-button" data-artist="4">Votar</button>
+                <form id="vote-form">
+                 <ul id="artists-list">
+                 <li id="artist-4">
+               
+                 <button type="button" class="vote-button" data-artist="4"><span class="vote-count" id="vote-4"> 0 votos</span></button>
                 </li>
 		        </ul>
                </form>
-				
-				</div>
-				
-            </article>
-			
-              <article class="especial__columna2">
-                <img loading="lazy" src="artistas/federales.jpg" alt="" class="especial__img">
-                  <div class="informaciones">
-                <h3 class="especial__titulo">Los Federales</h3>
-				
-			      <button class="button">Norteña</button> 
-				
-				   <p class="especial__txt">Con más de 18 años de carrera musical "Los Federales de Colombia" son reconocidos
-				   por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Cuncurso de Temas
-				   Inéditos en Sinaloa Radio TV, con Lupita Villa en México.
-				   
-				   Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por exitos como: Vivo como un rey, A mi pueblo querido etc.
+			   
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <img loading="lazy" src="artistas/federales.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Los Federales</h2>
+                <p class="card-description">
+                 Con más de 18 años de carrera musical "Los Federales de Colombia" son reconocidos
+				 por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Cuncurso de Temas
+				 Inéditos en Sinaloa Radio TV, con Lupita Villa en México.
+				 Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por exitos como: Vivo como un rey, A mi pueblo querido etc.
 
-                </p>
-				
-			  
+				</p>
+               
 			   <form id="vote-form">
                  <ul id="artists-list">
                   <li id="artist-5">
-                  <span class="vote-count" id="vote-5">0 votos</span>
-                  <button type="button" class="vote-button" data-artist="5">Votar</button>
+                 
+                  <button type="button" class="vote-button" data-artist="5"><span class="vote-count" id="vote-5"> 0 votos</span></button>
                   </li>
 		         </ul>
                </form>
-				
-				</div>
-				
-            </article>
-            
-              <article class="especial__columna3">
-                <img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="" class="especial__img">
-                  <div class="informaciones">
-                <h3 class="especial__titulo">Yo me llamo Alzate</h3>
-				
-				  <button class="button">Popular</button>
-				  
-                <p class="especial__txt">"Xavier El Gato blanco", participo
+			   
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                 <img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Yo me llamo Alzate</h2>
+                <p class="card-description">
+                 Un gran artista multifacético "Xavier El Gato blanco", participo
 				en "Yo me llamo" interprentando a Alzate y catalogado como el "Mil Voces" por imitar artístas como Alzate, Yeison
 				Jiménez,Alexis Escobar entre otros.<br>
 				
 				La agrupación está integrada por: Voz oficial y un marco de (2) trompetas, (1) bajo, (1) piano o acordeón, (1) vihuela, (2) requintos,
-				y (1) batería, total de (8) integrantes en escena.
-            
-			    <form id="vote-form">
+				y (1) batería, total de (8) integrantes en escena.      
+			    </p>
+				
+                 <form id="vote-form">
                  <ul id="artists-list">
                   <li id="artist-6">
-                  <span class="vote-count" id="vote-6">0 votos</span>
-                  <button type="button" class="vote-button" data-artist="6">Votar</button>
+                 
+                  <button type="button" class="vote-button" data-artist="6"><span class="vote-count" id="vote-6"> 0 votos</span></button>
                   </li>
 		         </ul>
                </form>
-			 
-                </p>
-				
-				</div>
-				
-            </article>
-			
+			   
             </div>
-        </section>
+        </div>
 		
-		
-		<section class="especial scrollflow -slide-top">   
-	       <h3 class="programas__titulo">ARTÍSTAS VARIADOS</h3>
-        <div class="contenedor"> 
-
-     		
-            <article class="especial__columna1">
-          <img loading="lazy" src="artistas/latin show.jpg" alt="" class="especial__img">
-                <div class="informaciones">
-                <h3 class="especial__titulo">Pedro Vidal-Latín Show</h3>
-				
-				  <button class="button">Tropical</button>	
-						
-                <p class="especial__txt"> Presentación Musical: Reinado Nacional De la Belleza AFRO, Carnaval de pasto, Festival Vallenato,
+		 <div class="card">
+            <div class="card-header">
+                 <img loading="lazy" src="artistas/latin show.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Pedro Vidal</h2>
+                <p class="card-description">
+                 Presentación Musical: Reinado Nacional De la Belleza AFRO, Carnaval de pasto, Festival Vallenato,
 				Feria de las Flores, Feria de Cali, La feria de Manizales, entre otros.
                 A nivel internacional, el artista show Central del festival más importante del mundo de los Colombianos,
 				Festival que se da en la ciudad de New york "El Festival de Flushing" festivales en Washington DC. Miami Fl., 
 				artista invitado en mis mundos internacionales y en el reinado de belleza de Bolivia.
-				Diferentes festivales en Ecuador y Centroamérica.
-				
+				Diferentes festivales en Ecuador y Centroamérica.   
 			    </p>
-				 
-	       <form id="vote-form">
-            <ul id="artists-list">
-              <li id="artist-7">
-                <span class="vote-count" id="vote-7">0 votos</span>
-                <button type="button" class="vote-button" data-artist="7">Votar</button>
+              
+			      <form id="vote-form">
+                   <ul id="artists-list">
+                   <li id="artist-7">
+                
+                <button type="button" class="vote-button" data-artist="7"><span class="vote-count" id="vote-7"> 0 votos</span></button>
               </li>
 		     </ul>
            </form>
-	
-	       </div>
-				
-          </article>
-			
-              <article class="especial__columna2">
-                <img loading="lazy" src="artistas/fantasticos vallenato.jpg" alt="" class="especial__img">
-                 <div class="informaciones">
-                <h3 class="especial__titulo">Huberth Montero</h3>
-				
-				  <button class="button">Vallenato</button>
-          	  
-                <p class="especial__txt">Es un orgullo presentar a Huberth Montero y Los Fantásticos del Vallenato (Género Vallenato)
+		   
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+               <img loading="lazy" src="artistas/fantasticos vallenato.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Fantásticos del Vallenato</h2>
+                <p class="card-description">
+                 Es un orgullo presentar a Huberth Montero y Los Fantásticos del Vallenato (Género Vallenato)
                  Agrupación con más de 26 años de vida artística y con éxitos nacionales e internacionales como Te Extraño, 
 				 Dime Soledad, Porque Te Vas Y Solamente Tu entre otros.
-
-                 PUESTA EN TARIMA
                  Voz Líder, Acordeón, dos (2) Coros, Caja, Guacharaca, Congas, Timbal, Bajo, Guitarra, Piano, para un total 
 				 de once (11) integrantes en escena.
                  La presentación de "Huberth Montero y los Fantásticos del Vallenato”.
-
-                </p>
+				</p>
 				
-			  <form id="vote-form">
-                <ul id="artists-list">
-                <li id="artist-8">
-                <span class="vote-count" id="vote-8">0 votos</span>
-                <button type="button" class="vote-button" data-artist="8">Votar</button>
+                <form id="vote-form">
+                  <ul id="artists-list">
+                 <li id="artist-8">
+              
+                <button type="button" class="vote-button" data-artist="8"><span class="vote-count" id="vote-8"> 0 votos</span></button>
                 </li>
 		        </ul>
               </form>
-				  
-			 </div>
-				  
-            </article>
-            
-              <article class="especial__columna3">
-               <img loading="lazy" src="artistas/genesis orquesta.jpg" alt="" class="especial__img">
-                  <div class="informaciones">
-                <h3 class="especial__titulo">Génesis Internacional</h3>
-				
-				  <button class="button">Tropical</button>
-				  
-                <p class="especial__txt">Es una agrupacion creada en el 2010 en la ciudad de San Juan de Pasto, impulsada con
-				el propósito de exaltar el talento artístico femenino complementado con el empuje, ahínco y musicalidad masculinos. 
-				Su propuesta musical es variada e influenciada por el género tropical fiestero y Tecnocumbiero por excelencia, el son sureño
-  				y ritmos propios de la región nariñense y más adelante profundizará e incursionará en géneros musicales variados y caribeños
-                de la costa colombiana, el merengue, y la salsa.
-    
-                </p> 
-
-               <form id="vote-form">
-                <ul id="artists-list">
-                <li id="artist-9">
-                <span class="vote-count" id="vote-9">0 votos</span>
-                <button type="button" class="vote-button" data-artist="9">Votar</button>
-                </li>
-		        </ul>
-               </form>				
-				
-				</div>
-				
-               </article>
-			   
+			  
             </div>
-			
-		   <script src="js/vote.js"></script>
-			   
-        </section>
-	
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+               <img loading="lazy" src="artistas/genesis orquesta.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Génesis Internacionals</h2>
+                <p class="card-description">
+                 Es una agrupacion creada en el 2010 en la ciudad de San Juan de Pasto, impulsada con
+				 el propósito de exaltar el talento artístico femenino complementado con el empuje, ahínco y musicalidad masculinos. 
+				 Su propuesta musical es variada e influenciada por el género tropical fiestero y Tecnocumbiero por excelencia, el son sureño
+  				 y ritmos propios de la región nariñense y más adelante profundizará e incursionará en géneros musicales variados y caribeños
+                 de la costa colombiana, el merengue, y la salsa.
+				</p>
+				
+                <form id="vote-form">
+                  <ul id="artists-list">
+                 <li id="artist-9">
+               
+                <button type="button" class="vote-button" data-artist="9"><span class="vote-count" id="vote-9"> 0 votos</span></button>
+                 </li>
+		        </ul>
+               </form>	
+				
+            </div>
+        </div>
+		
+		 <script src="js/vote.js"></script>
+		
    </section>
    
    	 

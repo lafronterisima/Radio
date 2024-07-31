@@ -593,23 +593,40 @@ color:;
 	width: 100%;
 	height:40px;
 	cursor: pointer;
+    align-items: center;
 	user-select: none;
 	padding: 4px 0;
 	background-color:teal;
 	text-aling: center;
 	color: #fff;
-}
+	position: relative; 
+	padding-right: 50px;
+  }
 
 .radio p{
 	text-align: center;
 	color:white;
 	padding-top:px;
 	margin: 0 auto;
-	font-size:20px;;
+	font-size:20px;
 }
 
 .radio span{
 	color:white;
+}
+
+.whatsapp-button {
+   position: absolute;
+   top:-5px;
+    right: 0;
+    z-index: 10;
+	text-align:center;
+
+}
+
+.whatsapp-button img {
+  width: 50px; 
+  height:50px; 
 }
 
 /*Section Emisoras*/
@@ -3823,330 +3840,126 @@ section .informes h2{
   }
 }
 
-/*Section artistas*/
-/*Section artistas*/
-#especiales {
-	width:100%;
-	height:auto
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	padding-top:2px;
-	margin-bottom:2px;
+/*artistas*/
+
+h1 {
+    color: var(--secondary);
+    text-align: center;
+    text-transform: uppercase;
 }
-.especial{  
-    width:100%;
-	height:auto;
-    background:mintcream;
-    text-align: center; 
-	padding-top:15px;
-	margin: 0 auto;
-	margin-bottom:2px;	
-}
-.especial .contenedor{
-	 padding-top:15px;
-     display:flex;
-     flex-wrap: wrap;
-     justify-content: center;
-	 height:auto;
-}
-.especial .programas__titulo{
-	width:100%;
-	height:auto;
-    font-size:20px;
-    padding-top:25px; 
-	padding-bottom:20px;
-	color:black; 
-	margin:0 auto;
-}
-.especial__img{
-   width:100%;
-   height:250px;   
-}
-.informaciones{
-    margin-top:-6px;
-    background:tomato;
-    color: #000;
-    height:450px;
-    padding-bottom:15px;		
-}
-.informaciones a{
-    margin-top:15px;
-    color:white; 
-	margin:0 auto;
-}
-.especial__titulo{
-    font-size: 25px;
-    padding: 5px;	
-}
-.informaciones .especial__titulo{
-	width:auto;
-	height:auto;
-    font-size:16px;
-    padding-top:10px;
-	margin-bottom:15px;
-	color:teal;
-	background-color:Gainsboro;
-}
- .especial__txt p{
-    margin-bottom: 25px;
-    text-align: justify;
-	color:black;
-	margin: 0 auto;
-	width:90%;
-	height:30px;
-}
-.button:hover {
-          box-shadow: 0 0px 15px 3px rgba(98, 199, 231, 0.9);  
-}
-.especial__columna1,.especial__columna2,.especial__columna3{
- margin: 15px;  
- display:block;
- flex-wrap: wrap;
- justify-content: center; 
- width:30%;
- height:auto;
- margin-bottom:15px;
+.contenedor {
+    width: 98%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 10px; 
 }
 
-button{
-    width:100px;
-	height:30px;
-	cursor: pointer;
-	background-color: #337AB7;
-	color: #fff;
-    text-align:center;
-    margin-top:15px;
-    margin-bottom:20px;	
-}
-/* Responsive a 1280px*/
-		  
-@media(max-width:1280px){
-	
-
-especial{  
-    width:100%;
-	height:auto;
-    background:;
-    text-align: center; 
-	padding-top:60px;
-	margin: 0 auto;
-	margin-bottom:20px;
-}
-	.especial .programas__titulo{
-	width:100%;
-	height:auto;
-    font-size:20px;
-    padding-top:20px; 
-	padding-bottom:4px;
-	color:white; 
-	margin:0 auto;
-}
-	 
-     .especial__columna1,.especial__columna2,.especial__columna3{
-       margin: 15px;  
-       display:block;
-        flex-wrap: wrap;
-        justify-content: center; 
-		width:30%;
-		height:auto;
-}
-    .especial .especial__titulo{
-    width:auto;
-	height:auto;
-    font-size:16px;
-    padding-top:15px; 
-	color:teal;
-	background-color:Gainsboro; 
-	margin:0 auto;
-    }
-	
-	
-	.especial .especial__txt{
-		width:90%;
-		height:auto;
-		padding-top:25px;
-		margin:0 auto;
-		font-size:12px;
-		color:white;
-	}
-	
-	.informaciones{
-    margin-top:-6px;
-    background:tomato;
-    color: #000;
-     height:420px;
-    padding-bottom:15px;	
-}
-	
-	.especial img{ 
-		width:100%; 
-	}	
-	
-button{
-    width:100px;
-	height:30px;
-	cursor: pointer;
-	background-color: #337AB7;
-	color: #fff;
-    text-align:center;
-    margin-top:15px;
-    margin-bottom:10px;	
-  }
-}
-/* Responsive 1024px a 1279px*/
-		  
-@media screen and (min-width:961px) and (max-width:1279px){
-
-.especial{  
-    width:100%;
-	height:auto;
-    background:;
-    text-align: center; 
-	padding-top:20px;
-	margin: 0 auto;
-	margin-bottom:10px;
-}
-	.especial .programas__titulo{
-	width:100%;
-	height:auto;
-    font-size:20px;
-    padding-top:25px; 
-	padding-bottom:4px;
-	color:black; 
-	margin:0 auto;
-}
-	 
-     .especial__columna1,.especial__columna2,.especial__columna3{
-       margin: 15px;  
-       display:block;
-        flex-wrap: wrap;
-        justify-content: center; 
-		width:30%;
-		height:auto;
-}
-    .especial .especial__titulo{
-    width:auto;
-	height:auto;
-    font-size:16px;
-    padding-top:15px; 
-	color:teal;
-	background-color:Gainsboro; 
-	margin:0 auto;
-    }
-	
-	
-	.especial .especial__txt{
-		width:90%;
-		height:auto;
-		padding-top:25px;
-		margin:0 auto;
-		font-size:12px;
-		color:white;
-	}
-	
-	.informaciones{
-    margin-top:-6px;
-    background:tomato;
-    color: #000;
-     height:420px;
-    padding-bottom:15px;	
-}
-	
-	.especial img{ 
-		width:100%; 
-	}	
-	
-button{
-    width:100px;
-	height:30px;
-	cursor: pointer;
-	background-color: #337AB7;
-	color: #fff;
-    text-align:center;
-    margin-top:15px;
-    margin-bottom:10px;	
-}
+.card {
+    flex: 1 1 calc(33.333% - 20px); 
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
-
- 
-@media (min-width:320px)and (max-width:960px){
-	 
-.especial .programas__titulo{
-	width:100%;
-    font-size:20px;
-    padding-top:25px; 
-	padding-bottom:2px;
-	color:black; 
- }
- 
-article .especial__columna1, .especial__columna2, .especial__columna3{
-    width: 97%;
-	height:auto;
-	display:flex;
+.card-header {
+    height: 250px;
+    width: 100%;
+    display: flex;
     justify-content: center;
-    flex-direction:column;
-	align-items:flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-body {
+    padding: 20px 15px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.card-title {
+    text-align: center;
+    margin: 0 0 10px 0; 
+}
+
+.card-description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-grow: 1; 
+}
+
+.vote-count {
+    font-size: 14px;
+    color: black;
+}
+
+.vote-button {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: black; 
+    text-align: center;
+    margin: 10px auto; 
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s; 
+    width: fit-content;
+}
+
+.vote-button:hover,
+.vote-button:focus {
+    background-color: #f0f0f0; 
+    color: var(--secondary); 
+}
+
+@media (min-width:320px)and (max-width:860px){
+    .contenedor{
+    width: 100%;
+	display:block;
+	margin: 0 auto;
+	flex-direction: column;
+    }
+    .card{
+        display: flex;
+        flex-direction: column;
+    }
+    .card-body{
+        display: flex;
+        flex-direction: column;
     }
 	
- .especial .especial__titulo{
-    width:auto;
-    font-size:16px;
-    padding-top:15px; 
-	color:teal;
-	background-color:Gainsboro; 
-	margin:0 auto;
+	.card-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+	
+	.card-description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+	flex-grow:1;
+}
+	
+	.vote-button span {
+      font-size: 14px;
+      padding: 8px 12px; 
+	  color:black;
     }
-	
-  article .especial__columna1 .especial__txt p{
-        font-size:16px;
-		height:auto;
-		width:80%;
-		 display:flex;
-        flex-wrap: wrap;
-		margin-right:40px;
-    }
-	
-	 .especial .especial__txt{
-		width:90%;
-		height:auto;
-		padding-top:25px;
-		margin:0 auto;
-		font-size:12px;
-		color:white;
-	}
-	
-   .programas__titulo h3{
-	   margin-top:50px;
-	   color:lime;
-   }
-   
-  .especial__img{
-   width:100%;
-   height:280px;   
-  }
-  
-  
-  .informaciones{
-    margin-top:-6px;
-     background:tomato;
-    color: #000;
-    height:auto;
-    padding-bottom:15px;	
-  } 
-  
-  button{
-    width:100px;
-	height:30px;
-	cursor: pointer;
-	background-color: #337AB7;
-	color: #fff;
-    text-align:center;
-    margin-top:15px;
-    margin-bottom:10px;	
-  }
 }
 
 
@@ -4661,7 +4474,5 @@ ul#nav-mobile .enlaces a {
     font-size: 24px; /* Tamaño de íconos */
     margin-right: 5px; /* Espaciado a la derecha */
 }
-
-
 
 

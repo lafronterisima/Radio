@@ -1,0 +1,55 @@
+
+
+ 
+// Espera a que se cargue el DOM
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtén referencias a todos los iframes de los videos
+    var iframes = document.querySelectorAll('iframe');
+
+    // Agrega un listener para el evento 'load' en cada iframe
+    iframes.forEach(function(iframe) {
+        iframe.addEventListener('load', function() {
+            // Detén todos los videos excepto el actual
+            var currentIframe = this;
+            iframes.forEach(function(otherIframe) {
+                if (otherIframe !== currentIframe) {
+                    pauseVideo(otherIframe);
+                }
+            });
+        });
+    });
+
+    // Función para pausar un video dentro de un iframe
+    function pauseVideo(iframe) {
+        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    }
+});
+
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Mostrar el .trasmisor al hacer clic en un icono de transmisión (ejemplo hipotético)
+    document.querySelectorAll('.live-icon').forEach(function(icon) {
+        icon.addEventListener('click', function() {
+            document.querySelector('.trasmisor').style.display = 'block';
+        });
+    });
+
+    // Ocultar el .trasmisor al hacer clic en cualquier elemento con la clase .radio
+    document.querySelectorAll('.radio').forEach(function(radio) {
+        radio.addEventListener('click', function() {
+            document.querySelector('.trasmisor').style.display = 'none';
+        });
+    });
+});
+
+ // Cerrar el .trasmisor al hacer clic fuera de su área
+ document.addEventListener('click', function(event) {
+    var transmisor = document.querySelector('.trasmisor');
+    var pageContent = document.querySelector('.page-content');
+
+   
+});
+
+	  

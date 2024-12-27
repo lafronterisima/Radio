@@ -1,9 +1,10 @@
 Options -Indexes
 
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} lafronterisima\.com$ [NC]
-RewriteRule ^(.*)$ https://lafronterisima\.com/$1 [L,R=301]
+RewriteCond %{ENV:HTTPS} on [NC]
+RewriteCond %{HTTP_HOST} lafronterisima\.com$ [OR]
+RewriteCond %{HTTP_HOST} www\.lafronterisima\.com$
+RewriteRule ^(.*)$ https://lafronterisima\.com/$1 [R=301,L,NE]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f

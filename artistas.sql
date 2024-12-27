@@ -1,14 +1,15 @@
 
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 24-02-2022 a las 21:51:08
--- Versión del servidor: 5.7.20-log
--- Versión de PHP: 5.5.38
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 08-09-2023 a las 04:17:05
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,51 +22,9 @@ SET time_zone = "+00:00";
 -- Base de datos: `artistas`
 --
 
--- --------------------------------------------------------
+CREATE TABLE artistas (
+    id_voto INT AUTO_INCREMENT PRIMARY KEY,
+    artistas VARCHAR(255) NOT NULL,
+    votos INT DEFAULT 0
+);
 
---
--- Estructura de tabla para la tabla `artistas`
---
-
-CREATE TABLE `artistas` (
-  `id` int(10) NOT NULL,
-  `nameArtista` varchar(250) DEFAULT NULL,
-  `url_foto` text NOT NULL,
-  `megusta` int(11) DEFAULT NULL,
-  `nomegusta` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `artistas`
---
-
-INSERT INTO `artistas` (`id`, `nameArtista`, `url_foto`, `megusta`, `nomegusta`) VALUES
-(1, 'Popular', '1.jpg', 2, 0),
-(2, 'Vallenato', '2.jpg', 1, 0),
-(3, 'Salsa', '3.jpg', 1, 1),
-(4, 'Norteño', '4.jpg', 2, 0);
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `artistas`
---
-ALTER TABLE `artistas`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `artistas`
---
-ALTER TABLE `artistas`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "381348536581",
+    "project_id": "la-fronterisima-5d307",
+    "storage_bucket": "la-fronterisima-5d307.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381348536581:android:7d8d2d3d8974d4ed1d576c",
+        "android_client_info": {
+          "package_name": "com.android.radio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381348536581-i3d8t98usuj67nrekm6414p6spgomfgt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwVobwHrJrZBjfs1Tke_6Xst_MiJPf9jI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381348536581-i3d8t98usuj67nrekm6414p6spgomfgt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,7 +5,7 @@ const wrapper = document.querySelector(".wrapper"),
   locationBtn = inputPart.querySelector("button"),
   weatherPart = wrapper.querySelector(".weather-part"),
   wIcon = weatherPart.querySelector("img"),
-  arrowBack = wrapper.querySelector("header_s i");
+  arrowBack = wrapper.querySelector("header i");
 
 let api;
 
@@ -93,4 +93,5 @@ function weatherDetails(info) {
 arrowBack.addEventListener("click", () => {
   wrapper.classList.remove("active");
 });
+
 

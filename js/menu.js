@@ -1,44 +1,32 @@
 
-$('document').ready(function(){
-  	$('.sidenav').sidenav();
-	
-  var bloque = $('.elemento'),
+$(document).ready(function() {
+    $('.sidenav').sidenav();
 
-      enlaces = $('.teal, .sidenav').find('a');
-	  
-      enlaces.click(function(e){
-      e.preventDefault();
-    
-    var hash = $(this).attr('href');
-    
-    bloque
-      .filter(hash)
-      .addClass('visible')
-      .siblings()
-      .removeClass('visible');
-      
-    enlaces
-      .removeClass('activo');
-    
-    $(this)
-      .addClass('activo'); 
-  });
-  
-});
+    var bloque = $('.elemento'),
+        enlaces = $('.menu, .sidenav').find('a');
 
+    enlaces.click(function(e){
+        e.preventDefault();
+        var hash = $(this).attr('href');
+        bloque.filter(hash).addClass('visible').siblings().removeClass('visible');
+        enlaces.removeClass('activo');
+        $(this).addClass('activo');
+    });
 
-$(document).ready(function () {
- $(".sub_item").click(function (e) {
-       e.stopPropagation(); 
-   }); 
-			
- $('.sub_item').click(function () {
-     $(this).next("").slideToggle(".drop");	   
-           });
-      });
-		 	 
-  
-$(document).ready(function () {
+    $(".submenu").click(function(){
+        $(".submenu .dropdown").slideToggle();
+        $("ul ul").css("display", "none");
+    });
+
+    $('ul li').click(function () {
+        $(this).siblings().find('ul').slideUp();
+        $(this).find('ul').slideToggle();
+    });
+
+    $("a").click(function(){
+        $('html,body').scrollTop(0);
+    });
+
     function cerrarSidenav() {
         $(".sidenav").hide();
     }
@@ -71,24 +59,3 @@ $(document).ready(function () {
         }
     });
 });
-
-
-   $(document).ready(function(){
-       $(".submenu").click(function(){
-         $(".submenu .dropdown").slideToggle();
-         $("ul ul").css("display", "none");
-        });
-
-        $('ul li').click(function () {
-           $(this).siblings().find('ul').slideUp();
-           $(this).find('ul').slideToggle();
-        }); 
-   });
-
-
-$(document).ready(function(){
-    $("a").click(function(){
-        ($('html,body').scrollTop(0));
-    });
-});
- 

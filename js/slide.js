@@ -1,28 +1,30 @@
-      //this is script for slider
-      var slideIndex = [1,1,1,1,1];
-      var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4"];
-      showSlides(1,2,3,4,5);
-     
+// Variables para gestionar los índices de las diapositivas de cada slider
+let slideIndices = [1, 1, 1,1]; // Cada slider empieza con el índice 1
 
-      function plusSlides(n, no) {
-        showSlides((slideIndex[no] += n), no);
-      }
+// Función para mostrar diapositivas
+function showSlides(n, no) {
+    let i;
+    const slides = document.getElementsByClassName(`mySlides${no + 1}`);
+    if (n > slides.length) { slideIndices[no] = 1; }
+    if (n < 1) { slideIndices[no] = slides.length; }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slides[slideIndices[no] - 1].style.display = "block";  
+}
 
-      function showSlides(n, no) {
-        var i;
-        var x = document.getElementsByClassName(slideId[no]);
-        if (n > x.length) {
-          slideIndex[no] = 1;
-        }
-        if (n < 1) {
-          slideIndex[no] = x.length;
-        }
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-        }
-        x[slideIndex[no] - 1].style.display = "block";
-      }
-  
+// Función para avanzar o retroceder diapositivas
+function plusSlides(n, no) {
+    showSlides(slideIndices[no] += n, no);
+}
 
+// Inicialización de los sliders
+function initializeSliders() {
+    let i;
+    for (i = 0; i < slideIndices.length; i++) {
+        showSlides(slideIndices[i], i);
+    }
+}
 
-
+// Inicializa los sliders cuando el contenido del DOM se ha cargado
+document.addEventListener("DOMContentLoaded", initializeSliders);

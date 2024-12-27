@@ -1,8 +1,14 @@
+
+
+function updateBackground() {
  
-function saludo(){
-    var fecha = new Date(); 
-    var hora = fecha.getHours();
-    
+    let fecha = new Date(); 
+    let hora = fecha.getHours();
+
+ 
+    let img = document.getElementById("tiempo");
+
+  
     if (hora >= 0 && hora < 8) {
         img.src = "imagenes/dia.png";
     } else if (hora >= 8 && hora < 12) {
@@ -11,8 +17,13 @@ function saludo(){
         img.src = "imagenes/tarde.png";
     } else if (hora >= 18 && hora < 24) {
         img.src = "imagenes/noche.png";
-    }  
+    }
 }
 
-var img = document.getElementById("tiempo");
-setInterval(saludo);
+window.onload = function() {
+    updateBackground(); 
+};
+   
+
+  
+  

@@ -8,9 +8,9 @@ shareButton.addEventListener("click", (event) => {
     navigator
       .share({
       
-        title: "Descarga la aplicación en este línk",
-        message: "lafronterisima.online"
-        url: 'https://www.amazon.com/dp/B0BD2J85V4/ref=apps_sf_sta'
+        title: "Comparte la página web",
+        message: "La Fronterisima"
+        url: 'https://lafronterisima.com'
       }) 
   } 
 });
@@ -23,8 +23,8 @@ shareButton.addEventListener("click", (event) => {
     if(navigator.share) {
       try {
         const shareData = {
-          title: "Descarga la aplicación de la radio",
-          url: 'https://www.amazon.com/dp/B0BD2J85V4/ref=apps_sf_sta'
+          title: "Comparte la página web",
+          url: 'https://lafronterisima.com'
         }
         await navigator.share(shareData);
         console.log('Share successfull');

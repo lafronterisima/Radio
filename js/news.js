@@ -1,24 +1,20 @@
-$(document).ready(function(){
 
-	window.onresize = function() {
-    	$(window).scroll(function(){
-    		if ($(window).width() < 768) {
-    			if ($(window).scrollTop() == 0){
-					$(".advert-container").show();
-				} else  {
-					$(".advert-container").hide();
-				}
-    		} else {
-    			$(".advert-container").show();
-    		}			
-		});	
-	}
+$(document).ready(function() {
+  
+    function handleScroll() {
+        if ($(window).width() < 960) {
+            if ($(window).scrollTop() === 0) {
+                $(".advert-container").show(); 
+            } else {
+                $(".advert-container").hide(); 
+            }
+        } else {
+            $(".advert-container").show(); 
+        }
+    }
 
+    $(window).on("scroll", handleScroll);
+    $(window).on("resize", handleScroll);
+
+    handleScroll();
 });
-
-
-function preloadImgs(image, url) {
-  fetch(url).then(request => request.blob()).then(() => {
-    image.src = url;
-  });
-}

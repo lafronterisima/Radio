@@ -1,51 +1,52 @@
+
 $(document).ready(function(){
     
-    $("#boton1").click(function(){
+    $("#pulsar1").click(function(){
         $("#contex").load("sub/news1.html");
       
     });
     
-    $("#boton2").click(function(){
+    $("#pulsar2").click(function(){
         $("#contex").load("sub/news2.html");
        
     });
     
-    $("#boton3").click(function(){
+    $("#pulsar3").click(function(){
         $("#contex").load("sub/news3.html");
        
     });
     
-    $("#boton4").click(function(){
+    $("#pulsar4").click(function(){
         $("#contex").load("sub/news4.html");
        
     });
     
-     $("#boton5").click(function(){
+     $("#pulsar5").click(function(){
         $("#contex").load("sub/news5.html");
        
     });
     
-     $("#boton6").click(function(){
+     $("#pulsar6").click(function(){
         $("#contex").load("sub/news6.html");
        
     });
     
-     $("#boton7").click(function(){
+     $("#pulsar7").click(function(){
         $("#contex").load("sub/news7.html");
       
     });
     
-     $("#boton8").click(function(){
+     $("#pulsar8").click(function(){
         $("#contex").load("sub/news8.html");
       
     });
     
-     $("#boton9").click(function(){
+     $("#pulsar9").click(function(){
         $("#contex").load("sub/news9.html");
         
     });
     
-     $("#boton10").click(function(){
+     $("#pulsar10").click(function(){
         $("#contex").load("sub/news10.html");
         
     });
@@ -57,7 +58,7 @@ $(document).ready(function(){
 	window.onresize = function() {
     	$(window).scroll(function(){
     		if ($(window).width() <= 960) {
-    			if ($(window).scrollTop() == 350){
+    			if ($(window).scrollTop() == 0){
 					$(".container-fluids").show();
 				} else  {
 					$(".container-fluids").hide();

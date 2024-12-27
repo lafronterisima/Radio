@@ -71,25 +71,15 @@ $(document).ready(function(){
 		});	
 	}
 
-  });
-   
 });
-
-
-
+  
+    	
  
+       $(".right a").click(function(){
+       $("html, .main-contain").animate({scrollTop:20}, "fast");
+          return false;
+       });
+  
      
-   
-      
-         
-       
-
-
-
-
- 
-
- 
-    
-   
+});
 

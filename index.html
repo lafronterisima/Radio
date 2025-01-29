@@ -158,8 +158,8 @@
    <ul class="right hide-on-med-and-down" >
      <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
      <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>  
-	
-	<li> <a class="submenu"><span class="material-icons-outlined"> map</span> Catálogo <span class="icon-circle-down"></span></a>  
+	 <li><a href="#NOTAS"><span class="material-icons-outlined"> newspaper</span> Noticias</a></li> 
+	 <li> <a class="submenu"><span class="material-icons-outlined"> map</span> Catálogo <span class="icon-circle-down"></span></a>  
 		 
 		 <ul class="dropdown">
 		 
@@ -168,8 +168,7 @@
 		 </ul>
 		 
 		 </li> 
-		
-        <li><a href="#NOTAS"><span class="material-icons-outlined"> newspaper</span> Noticias</a></li>   
+		  
         <li><a href="#ARTISTAS"><span class="material-icons-outlined"> headphones</span> Artistas</a>
 		</li>           
    </ul>
@@ -192,10 +191,8 @@
     <div class="navigation">
         <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
         <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>
-       
-        <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Videos</a></li>
-           
         <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
+        <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Videos</a></li>
         <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
 		            
     </div>
@@ -306,15 +303,140 @@ function onYouTubeIframeAPIReady() {
     
      <div class="live-message">
       <div class="saludo">
-        <a href="https://www.amazon.com.au/La-Fronterisima/dp/B0BD2J85V4/ref=mp_s_a_1_39?dib=eyJ2IjoiMSJ9.RnHevljMY4oEeSbKa6KmBMmArpYBSlX1AwlDTzLpl9DPfTgj8naCwfPxDTrZG0LApssH9jdf7NsyWDBE16" target="_blank">
-      
-	      <img id="tiempo" src="imagenes/microfonox.png"> 
-           
-        </a>
-      </div>
+	  
+	
+	
+  <!-- Imagen que abre el modal al hacer clic -->
+  <div class="modal_box" id="modal_box"> 
+  <div class="modal_containers">
+    <div class="header_box">
+      <h3>CHAT</h3>
+      <button class="close" id="cerrar_modal">
+        <i class="material-icons-outlined">close</i>
+      </button>
     </div>
 
-  
+    <div id="chat-box"></div>
+
+    <!-- Formulario para enviar un mensaje -->
+    <form id="form_comentario" onsubmit="enviarMensaje(event)">
+      <input type="text" id="usuario" name="usuario" placeholder="Tu nombre" required>
+      <textarea id="comentario" name="comentario" placeholder="Escribe tu comentario..." required></textarea>
+      <button class="chats" type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<!-- Imagen para abrir el modal -->
+<img id="tiempo" src="imagenes/chat.png" style="cursor: pointer;">
+
+			
+   </div>
+	  
+    </div>
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+  // Abrir el modal de chat al hacer clic en la imagen
+  document.querySelectorAll('#tiempo').forEach(function(icon) {
+    icon.addEventListener('click', function() {
+      document.querySelector('#modal_box').classList.add('active'); // Mostrar el modal
+    });
+  });
+
+  // Cerrar el modal cuando se hace clic en el botón de cerrar
+  document.querySelectorAll('#cerrar_modal').forEach(function(button) {
+    button.addEventListener('click', function() {
+      document.querySelector('#modal_box').classList.remove('active'); // Ocultar el modal
+    });
+  });
+
+  // Cerrar el modal al hacer clic fuera del contenedor del modal
+  document.addEventListener('click', function(event) {
+    var modal = document.querySelector('#modal_box');
+    var modalContent = document.querySelector('.modal_containers');
+    var isClickInsideModal = modalContent.contains(event.target);
+    var isClickOnLiveIcon = event.target.closest('#tiempo');
+
+    // Cierra el modal si el clic es fuera del modal y fuera del ícono
+    if (!isClickInsideModal && !isClickOnLiveIcon) {
+      modal.classList.remove('active');
+    }
+  });
+
+  // Función para enviar el mensaje
+  async function enviarMensaje(event) {
+    event.preventDefault(); // Evita el envío del formulario
+
+    const usuario = document.getElementById('usuario').value.trim();
+    const comentario = document.getElementById('comentario').value.trim();
+
+    if (usuario === '' || comentario === '') return; // Verifica que ambos campos no estén vacíos
+
+    try {
+      const response = await fetch('send_message.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+          usuario: usuario,
+          comentario: comentario
+        })
+      });
+
+      if (response.ok) {
+        // Agregar el nuevo comentario al DOM
+        const comentariosDiv = document.getElementById('chat-box');
+        const comentarioElement = document.createElement('div');
+        comentarioElement.classList.add('comentario');
+
+        const fecha = new Date().toLocaleTimeString();
+
+        comentarioElement.innerHTML = `
+          <strong>${usuario}</strong>
+          <small>${fecha}</small>
+          <p>${comentario}</p>
+        `;
+        
+        comentariosDiv.insertBefore(comentarioElement, comentariosDiv.firstChild);
+
+        // Limpiar el campo de comentario después de enviarlo
+        document.getElementById('comentario').value = '';
+      } else {
+        console.error('Error al enviar el mensaje:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+    }
+  }
+
+  // Función para obtener los mensajes
+  async function fetchMessages() {
+    try {
+      const response = await fetch('chat.php');
+      if (response.ok) {
+        const chatBox = document.getElementById('chat-box');
+        chatBox.innerHTML = await response.text();
+        chatBox.scrollTop = chatBox.scrollHeight; // Desplaza hacia abajo el chat
+      } else {
+        console.error('Error al recuperar los mensajes:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+    }
+  }
+
+  // Actualiza los mensajes cada 5 segundos para evitar sobrecargar el servidor
+  setInterval(fetchMessages, 5000);
+
+  // Agregar evento al formulario de mensajes para enviar
+  const form = document.getElementById('form_comentario');
+  if (form) {
+    form.addEventListener('submit', enviarMensaje);
+  }
+});
+</script>
 
 	  
     <div class="live-messages">
@@ -489,62 +611,108 @@ function onYouTubeIframeAPIReady() {
 	  
 	 <article id="INICIO" class="elemento">
 	 
-     <section class="home" aria-label="Slider de imágenes">
-       <div class="slider" id="slider">
+     <section class="home">
+    <div class="slider" id="slider">
+        <!-- Diapositiva 1 -->
         <div class="slide active">
-            <img loading="lazy" src="imagenes/1.jpg" alt="Descripción de la imagen 1">
+            <img loading="lazy" src="imagenes/1.jpg">
             <div class="caption">
-                <p>Música variada</p>
+                <h1 class="typewrite" data-period="2000" data-type='["Somos una plataforma", "con variedad musical", "Sintonizanos, para complacerte"]'></h1>
+                <p></p>
+                <div class="fb-like" data-href="https://www.facebook.com/lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
             </div>
         </div>
+        <!-- Diapositiva 2 -->
         <div class="slide">
-            <img loading="lazy" src="imagenes/2.jpg" alt="Descripción de la imagen 2">
+            <img loading="lazy" src="imagenes/2.jpg">
             <div class="caption">
-                <p>Actualidad</p>
+                <h1 class="typewrite" data-period="2000" data-type='["Una propuesta", "con actualidad", "y mucho más"]'></h1>
+                <p></p>
+                <div class="fb-like" data-href="https://www.facebook.com/lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
             </div>
         </div>
+        <!-- Diapositiva 3 -->
         <div class="slide">
-            <img loading="lazy" src="imagenes/3.jpg" alt="Descripción de la imagen 3">
+            <img loading="lazy" src="imagenes/3.jpg" >
             <div class="caption">
-                <p>Compañía</p>
+                <h1 class="typewrite" data-period="2000" data-type='["La Fronterísima", "notas surcando", "fronteras"]'></h1>
+                <p></p>
+                <div class="fb-like" data-href="https://www.facebook.com/lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
             </div>
         </div>
     </div>
-
-   </section>
-
+</section>
+   
+  
 <script>
 
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const totalSlides = slides.length;
-const slider = document.getElementById('slider');
+document.addEventListener("DOMContentLoaded", function() {
+    let slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const slider = document.getElementById('slider');
 
-function showSlide(index) {
-    currentSlide = (index + totalSlides) % totalSlides; 
-    const offset = -currentSlide * 100; 
-    slider.style.transform = `translateX(${offset}%)`;
-}
-
-let startX;
-
-slider.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX; 
-});
-
-slider.addEventListener('touchmove', (e) => {
-    const moveX = e.touches[0].clientX;
-    const difference = startX - moveX;
-
-    if (difference > 50) { 
-        showSlide(currentSlide + 1);
-    } else if (difference < -50) { 
-        showSlide(currentSlide - 1);
+    // Función para cambiar de diapositiva automáticamente
+    function changeSlide() {
+        slides[currentIndex].classList.remove('active'); // Eliminar la clase 'active' de la diapositiva actual
+        currentIndex = (currentIndex + 1) % totalSlides; // Incrementar el índice de la diapositiva
+        slides[currentIndex].classList.add('active'); // Agregar la clase 'active' a la siguiente diapositiva
+        showSlide(currentIndex); // Mostrar la diapositiva
     }
+
+    // Función para mover el slider usando translateX
+    function showSlide(index) {
+        const offset = -index * 100; // Desplazamiento basado en el índice
+        slider.style.transform = `translateX(${offset}%)`; // Aplicar el desplazamiento
+    }
+
+    // Implementar deslizamiento táctil
+    let startX;
+    slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX; // Captura la posición inicial del toque
+    });
+
+    slider.addEventListener('touchmove', (e) => {
+        const moveX = e.touches[0].clientX; // Captura la nueva posición del toque
+        const difference = startX - moveX; // Calcula la diferencia
+
+        if (difference > 50) { // Si el desplazamiento es mayor que 50px
+            changeSlide(); // Cambiar a la siguiente diapositiva
+        } else if (difference < -50) { // Si el desplazamiento es menor que -50px
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Retroceder una diapositiva
+            showSlide(currentIndex);
+        }
+    });
+
+    // Animación "typewriter"
+    let elements = document.querySelectorAll('.typewrite');
+    elements.forEach((el) => {
+        let toType = JSON.parse(el.getAttribute('data-type'));
+        let period = el.getAttribute('data-period') || 2000;
+        let currentIndex = 0;
+        let currentText = '';
+
+        function typeText() {
+            currentText = toType[currentIndex];
+            let i = 0;
+            let typingInterval = setInterval(() => {
+                el.textContent += currentText.charAt(i);
+                i++;
+                if (i === currentText.length) {
+                    clearInterval(typingInterval);
+                    setTimeout(() => {
+                        currentIndex = (currentIndex + 1) % toType.length;
+                        el.textContent = '';
+                        typeText();
+                    }, period);
+                }
+            }, 100); // Escribir cada letra con intervalo de 100 ms
+        }
+
+        typeText();
+    });
 });
-
 </script>
-
 	  
 		<section class="inicio-matrix">	
 	      
@@ -559,7 +727,7 @@ slider.addEventListener('touchmove', (e) => {
 			<p> <a href="https://www.facebook.com/lafronterisima" target="_blank" style="color:white">1. Facebook</a><br><br>
                 <a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" style="color:white">2. Youtube </a><br><br>
 				<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968un" target="_blank" style="color:white">3. Instagram</a></br></br>
-				<a href="visitas.html" target="_blank" style="color:white">4. Visitas</a></p>
+			
 	           <br>
 			    
 	        </div>
@@ -628,8 +796,8 @@ slider.addEventListener('touchmove', (e) => {
             <p class="description">Brindar una propuesta musical con la finalidad de compartir temas artísticos,  
 			fomentando la riqueza cultural y musical de Colombia e Hispanoamérica.</p>	
 
-            <div class="fb-like" data-href="https://www.facebook.com/Fronterisima-Online-110195480742453" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>			
-		
+            <!-- <div class="fb-like" data-href="https://www.facebook.com/Fronterisima-Online-110195480742453" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div> -->		
+			 <a class="btn1" href="visitas.html" target="_blank">Programas</a>	
     </section> 
 	
 					
@@ -787,105 +955,46 @@ slider.addEventListener('touchmove', (e) => {
 		
 
 		  <div class="caja-portfolio">
-           <h3>CHAT'S</h3>	
+           <h3>NOVEDAD</h3>	
   		
 		    <div class="fb_background">	
-			
-			
-            
-     <section class="chat">
- 
-        <div id="chat-box"></div>
-		
-    <form id="form_comentario" onsubmit="enviarMensaje(event)">
-        <input type="text" id="usuario" name="usuario" placeholder="Tu nombre" required>
-        <textarea id="comentario" name="comentario" placeholder="Escribe tu comentario..." required></textarea>
-        <button class="chats" type="submit">Enviar</button>
-    </form>
+			  
+			   <div class="fb-page" id="slider-container">
+                 <img id="slidex" src="imagenes/1.jpg" width="100%" height="400">
+               </div>
+			   
+   <script> 
+     const images = [
+      "imagenes/1.jpg",
+      "imagenes/2.jpg",
+      "imagenes/3.jpg"
+    ];
 
+    let currentImageIndex = 0;
 
+    // Función para cambiar las imágenes
+    function slideit() {
+      // Cambiar la imagen
+      document.getElementById("slidex").src = images[currentImageIndex];
 
-    <script>
-
-async function enviarMensaje(event) {
-    event.preventDefault(); // Evita el envío del formulario
-
-    const usuario = document.getElementById('usuario').value.trim();
-    const comentario = document.getElementById('comentario').value.trim();
-
-    if (usuario === '' || comentario === '') return; // Verifica que ambos campos no estén vacíos
-
-    try {
-        const response = await fetch('send_message.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: new URLSearchParams({
-                usuario: usuario,
-                comentario: comentario
-            })
-        });
-
-        if (response.ok) {
-            // Agregar el nuevo comentario al DOM
-            const comentariosDiv = document.getElementById('chat-box');
-            const comentarioElement = document.createElement('div');
-            comentarioElement.classList.add('comentario');
-
-            const fecha = new Date().toLocaleTimeString(); 
-
-            comentarioElement.innerHTML = `
-                <strong>${usuario}</strong>
-                <small>${fecha}</small>
-                <p>${comentario}</p>
-            `;
-			
-			
-            comentariosDiv.insertBefore(comentarioElement, comentariosDiv.firstChild);
-
-            document.getElementById('comentario').value = ''; // Limpia el campo de comentario
-        } else {
-            console.error('Error al enviar el mensaje:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Error en la solicitud:', error);
+      // Actualizar el índice de la imagen para la próxima
+      currentImageIndex = (currentImageIndex + 1) % images.length;
     }
-}
 
-async function fetchMessages() {
-    try {
-        const response = await fetch('chat.php');
-        if (response.ok) {
-            const chatBox = document.getElementById('chat-box');
-            chatBox.innerHTML = await response.text();
-            chatBox.scrollTop = chatBox.scrollHeight; // Desplaza hacia abajo el chat
-        } else {
-            console.error('Error al recuperar los mensajes:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Error en la solicitud:', error);
-    }
-}
+    // Cambiar la imagen cada 2.5 segundos
+    setInterval(slideit, 2500);
 
-// Actualiza los mensajes cada 5 segundos para evitar sobrecargar el servidor
-setInterval(fetchMessages, 5000);
+  </script>
 
-
-    </script>
+			
+            </div>
+		  
+		 </div>
 	
   	
      </section>
 
 	
-	        
-		  </div>
-		  
-		 </div>
-		  
-     </section>	
-	 
-	 
 	 	<footer>
 		<div class="footer-container">
 			<div class="footer-main">
@@ -917,7 +1026,7 @@ setInterval(fetchMessages, 5000);
 
 				<div class="footer-columna">
 					<h3>Dirección</h3>
-					<span class="fas fa-map-marker"> <a href="https://lafronterisima.com" target="_blank" style="color:white"><p>Colombia</p></a></span> 	
+					<span class="fas fa-map-marker"> <a href="https://lafronterisima.com" target="_blank" style="color:white"><p>Colombia</p></a></span><br> 
 					<span class="fa fa-phone"> <a href="tel:+57 3170340249" style="color:white"> <p>+573170340249</p></a></span><br>   
 				</div>
 

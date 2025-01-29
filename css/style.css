@@ -29,7 +29,7 @@ main {
 }
 
   .menu{
-    background:teal;  
+    background:#2a5d84;  
  } 
  
  .logo {
@@ -87,7 +87,7 @@ main {
 /*submenu*/
 
 .nav-wrappers ul ul{
-    background:teal;  
+    background:#2a5d80;  
     position: absolute;
     flex-direction:column; 
 	width:128px;
@@ -177,7 +177,7 @@ ul#nav-mobile .enlaces a {
 	flex-wrap: wrap;
 	display:inline-block;
     flex-direction: column; 
-    background:teal;
+    background:#2a5d84;
   }
   
   .nav_logo {	
@@ -201,7 +201,7 @@ ul#nav-mobile .enlaces a {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background:teal;
+    background:#2a5d84;
 }
 
 .enlaces h2, .enlaces a, .enlace p {
@@ -241,7 +241,7 @@ ul#nav-mobile .enlaces a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background:#004447;  
+    background:#2a5d75;  
     z-index: 999;
 }
 
@@ -365,7 +365,7 @@ article .elemento {
    height: 100vh;
    overflow: hidden;
    background-color:;
-   background:url(../imagenes/fondox.jpg);
+   background:url(../imagenes/.jpg);
 }
 
 .contain_radio .logo{
@@ -423,7 +423,7 @@ article .elemento {
 }
 
  .player-container{
-  background:teal;  
+  background:#2a5d84;  
   position:absolute;
   bottom: 0;
   width: 100%;  
@@ -481,7 +481,7 @@ color:;
     align-items: center;
 	user-select: none;
 	padding: 4px 0;
-    background:#04635e;  
+    background:#2a5d84;  
 	text-aling: center;
 	color: #fff;
 	position: relative; 
@@ -1120,6 +1120,7 @@ color:;
 
 /*Section inicio */
 
+
 .home {
     width: 100%;
     height:90vh;
@@ -1138,7 +1139,11 @@ color:;
     min-width: 100%; 
 	height:100%;
     position: relative;
+	display: flex;
+    justify-content: center;  
+    align-items: center;   
 }
+
 
 .slide img {
     width: 100%; 
@@ -1148,14 +1153,39 @@ color:;
 
 .caption {
     position: absolute;
-    bottom: 40px;
-    left: 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 10px;
-	margin-bottom:10px;
-    border-radius: 5px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+   	width:50%;
+    z-index: 1;
 }
 
+.typewrite {
+
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(30) 1s forwards;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
 @media (min-width:320px) and (max-width:860px){
 	.home {
     width: 100%;
@@ -1170,15 +1200,26 @@ color:;
     height:95vh;
     transition: transform 0.5s ease; 
   }
-  .caption {
+.caption {
     position: absolute;
-    bottom:20px;
-    left: 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 10px;
-	margin-bottom:10px;
-    border-radius: 5px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+   	width:98%;
+    z-index: 1;
 }
+
+.typewrite {
+
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(30) 1s forwards;
+   }
 } 
 
 .inicio-matrix{
@@ -2076,8 +2117,8 @@ aside .video-responsive iframe {
 		
 		.fb_background{
 			width:98%; 
-            height:400px; 
-            overflow-y:;
+            height:390px; 
+            overflow-y:scroll;
             background-color:white;  
            -webkit-border-radius: 1px; 
            -moz-border-radius: 1px; 
@@ -2090,13 +2131,16 @@ aside .video-responsive iframe {
 		.fb-page{
 			width:98%;
 			height:390px;
-			overflow-y:scroll;
+			overflow-y:;
 			background-color:white;
 		    padding-top:10px;
 			text-align:center;
 			margin:0 auto;
 		}	
- 
+       .fb-page img{
+			width:98%;
+			height:370px;
+		}	
 
 @media (min-width:961px)and (max-width:1280px){
  .boxes-portfolio{
@@ -2131,7 +2175,7 @@ aside .video-responsive iframe {
 		.fb_background{
 			width:98%;
 			height:390px;
-			overflow-y:;
+			overflow-y:scroll;
 			background-color:white;
 		    padding-top:5px;
 			text-align:center;
@@ -2179,7 +2223,7 @@ aside .video-responsive iframe {
 	.fb_background{
 			width:98%;
 			height:395px;
-			overflow-y:;
+			overflow-y:scroll;
 			background-color:white;
 		    padding-top:5px;
 			text-align:center;
@@ -2189,7 +2233,7 @@ aside .video-responsive iframe {
     .fb-page{
 			width:98%;
 			height:380px;
-			overflow-y:scroll;
+			overflow-y:;
 			background-color:white;
 		    margin-top:10px;
 			margin: 0 auto;
@@ -2198,7 +2242,7 @@ aside .video-responsive iframe {
    }
    
 @media (min-width:480px)and (max-width:690px){
-    .boxes-portfolio{
+   .boxes-portfolio{
 	  width:100%;
 	  height:auto;
 	  display: flex;
@@ -2210,23 +2254,24 @@ aside .video-responsive iframe {
 	 }
 	 
     .caja-portfolio{
-		  width:100%;
+		  width:98%;
 		  height:auto;
 		  padding-top:20px;
+		  margin: 0 auto;
 		  margin-bottom:15px;
 		}	
     .caja-portfolio h3{
 		text-align:center;
 		color:white;
 		font-size:25px;
-		padding-top:px;
-		padding-bottom:15px;
+        margin-top:0px;
+		padding-bottom:10px;
 		}
 		
-		.fb_background{
-			width:98%;
-			height:380px;
-			overflow-y:;
+	.fb_background{
+			width:100%;
+			height:390px;
+			overflow-y:scroll;
 			background-color:white;
 		    padding-top:5px;
 			text-align:center;
@@ -2234,23 +2279,28 @@ aside .video-responsive iframe {
 		}
 		
     .fb-page{
-			width:95%;
-			height:370px;
-			overflow-y:scroll;
+			width:100%;
+			height:380px;
+			overflow-y:;
 			background-color:white;
 		    margin-top:10px;
 			margin: 0 auto;
 			text-align:center;
 		}
- 	 .maps{
+	  .fb-page img{
+	      width:98%;
+		  height:370px;
+		}	
+		
+    .maps{
     width:98%;
-    height:370px;
+    height:380px;
 	margin:0 auto;
 	color:white;
 	padding-top:10px;
 	margin-bottom:px;
     background-color:;
-     }  	
+     }  
    }	
 @media (min-width:346px)and (max-width:479px){
     .boxes-portfolio{
@@ -2292,12 +2342,16 @@ aside .video-responsive iframe {
     .fb-page{
 			width:100%;
 			height:380px;
-			overflow-y:scroll;
+			overflow-y:;
 			background-color:white;
 		    margin-top:10px;
 			margin: 0 auto;
 			text-align:center;
 		}
+	  .fb-page img{
+	      width:98%;
+		  height:370px;
+		}	
 		
     .maps{
     width:98%;
@@ -2351,13 +2405,16 @@ aside .video-responsive iframe {
     .fb-page{
 			width:100%;
 			height:380px;
-			overflow-y:scroll;
+			overflow-y:;
 			background-color:white;
 		    margin-top:10px;
 			margin: 0 auto;
 			text-align:center;
 		}
- 		
+ 	 .fb-page img{
+		   width:98%;
+		   height:370px;
+		}	
    .maps{
     width:98%;
     height:380px;
@@ -4173,8 +4230,6 @@ footer {
 }  
 
 
-
-
 .fb_background .chat {
     width:100%;
 	height:380px;
@@ -4186,106 +4241,189 @@ footer {
 }
 
 
+/* Estilos generales del modal */
+.modal_box {
+  display: none;
+  position: fixed;
+  width: 100%;
+  bottom: 0; /* Posiciona el modal en la parte inferior */
+  left:0;
+  height: 400px; /* Altura fija del modal */ 
+  align-items: center;
+  justify-content: flex-start; /* Alinea el contenido hacia arriba */
+  z-index: 9999; /* Asegura que el modal esté por encima de otros elementos */
+}
+
+.modal_box.active {
+  display: flex; /* Muestra el modal cuando tiene la clase 'active' */
+}
+
+/* Contenedor interno del modal */
+.modal_containers {
+  max-width:500px;
+  width:100%;
+  height:400px;
+  left:0 auto;
+  bottom: 0;
+  background-color: white; /* Fondo blanco */
+  box-shadow: 0 1px 6px #0001, 0 2px 10px #0000; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+   z-index: 9999;
+}
+.modal_box .close i{
+  color:white;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Estilos del header */
+.header_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px; /* Espaciado alrededor del contenido */
+  border-bottom: 1px solid #ccc; /* Línea divisoria en la parte inferior */
+  background:#2a5d84;
+}
+
+.header_box h3 {
+  margin: 0 auto; /* Elimina márgenes del título */
+  font-size: 18px;
+ text-align:center;
+ font-weight: bold;
+  color: white; /* Color oscuro para el texto */
+}
+
+.header_box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333; /* Color del ícono */
+}
+
+.header_box button i {
+  font-size: 20px; /* Asegura que el icono sea suficientemente grande */
+}
+
+/* Caja de chat */
 #chat-box {
-	width:98%;
-    height:170px; 
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #f9f9f9;
-	margin-bottom:15px;
+  width: 80%;
+  height: 170px;
+  overflow-y: auto;
+  display: flex;
+  border: 1px solid #ccc;
+  padding-top: 10px; 
+  padding-bottom: 10px; 
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  margin: 0 auto;
 }
 
-   .messages-container {
-        width:98%; 
-        margin: 0 auto;
-        padding: 10px; 
-        background-color: #f9f9f9; 
-	   flex-direction:column;
-    }
-
-    .message {
-        margin-bottom: 10px; 
-        padding: 10px;
-        border: 1px solid #ccc; 
-        border-radius: 3px; 
-        background-color: #fff; 
-		flex-direction:column;
-    }
-
-#usuario {
-    width: 100%;
-    border-radius: 4px;
-    padding: 12px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    height: 36px;
-    margin-bottom: 15px;
-    font-size: 14px; 
+.messages-container {
+  width: 98%;
+  margin: 0 auto;
+  padding-top: 10px;
+  background-color: #f9f9f9;
+  flex-direction: column;
 }
 
-strong {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-textarea {
-    width: 100%;
-    height:50px;
-    border: 1px solid #ddd;
-    padding: 12px;
-	 margin-bottom: 15px;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px; 
-    resize: vertical; 
-}
-
- .chats{
-	width: 100px;
-    height:35px;
-    display: block;
-    padding-top: 12px 24px;
-    border: none;
-    border-radius: 4px;
-    background-color: #2083f3;
-    color:black;
-    font-size: 16px;
-    cursor: pointer;
-	margin:0 auto;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for button effect */
-}
-
-button:hover {
-    background-color: #137aea;
-    transform: translateY(-2px); /* Slight lift on hover */
-}
-
-button:active {
-    background-color: #0d6efd;
-    transform: translateY(0); /* No lift when button is pressed */
-}
-
-/* Responsive Design */
-
-
-
-
-@media (min-width:320px)and (max-width:1280px){
- padding: 10px;
-    }
-
-  #comentario{
-    width: 100%;
-    height:60px;
-    }
-
-    .chats {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size:12px;
+  background-color: #fff;
+  flex-direction: column;
+  color:black;
 }
 
 
+/* Estilos de los campos del formulario */
+#usuario,
+#comentario {
+  width: 80%;
+  border-radius: 4px;
+  margin-top: 5px; /* Agregar margen superior */
+  margin-bottom: 5px; /* Agregar margen inferior */
+  border: 1px solid #000;
+  box-sizing: border-box;
+  padding-bottom:5px; /* Agregar padding en la parte inferior */
+  font-size: 14px;
+}
 
+#comentario {
+  height: 80px;
+  resize: vertical;
+}
+
+.chats {
+  width: 20%;
+  height: 30px;
+  display: block;
+  border: none;
+  padding-bottom:5px;
+  border-radius: 4px;
+  background-color: #2083f3;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.chats:hover {
+  background-color: #137aea;
+  transform: translateY(-2px);
+}
+
+.chats:active {
+  background-color: #0d6efd;
+  transform: translateY(0);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+
+#chat-box {
+  width: 90%;
+}
+	/* Estilos generales del modal */
+.modal_box {
+  width: 100%; /* Ocupa el 90% del ancho */
+}
+
+.modal_box.active {
+  display: flex; /* Muestra el modal cuando tiene la clase 'active' */
+}
+
+/* Contenedor interno del modal */
+.modal_containers {
+  width: 100%; /* Utiliza el 100% del ancho disponible */
+  flex-direction: column; /* Alinea los elementos de manera vertical */
+}
+  /* Para pantallas más pequeñas */
+  #usuario,
+  #comentario {
+    width: 80%; /* Más ancho en pantallas pequeñas */
+  }
+
+  .chats {
+    width: 20%; /* Aumenta el tamaño del botón de enviar */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Para pantallas muy pequeñas (móviles) */
+  #usuario,
+  #comentario {
+    width: 90%; /* Usa casi todo el ancho */
+  }
+
+  .chats {
+    width: 20%; /* Usa más espacio para el botón */
+  }
+}

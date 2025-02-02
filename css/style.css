@@ -423,7 +423,7 @@ article .elemento {
 }
 
  .player-container{
-  background:#0c3f43;    
+  background:#0c3f43;  
   position:absolute;
   bottom: 0;
   width: 100%;  
@@ -3851,7 +3851,7 @@ footer {
 .footer-container {
 	width:100%;
 	height:100%;
-	background: #272727;
+	background: #0b1121;  
 	color: #fff;
 }
 .footer-main {
@@ -3900,10 +3900,6 @@ footer {
             text-decoration: none;
             color: #000;
         }
-
-      
-
-    
 
 /*.footer-main .footer-columna input[type="name"] {
 	border: none;
@@ -3974,7 +3970,7 @@ footer {
 	width: 100%;
 	display:inline-block;
 	padding-bottom:0px;
-	background: #272727;
+	background: #0b1121;  
 	border-top: 3px solid #fff;
 }
 .main-copy-redes {
@@ -4084,7 +4080,7 @@ footer {
 @media(max-width: 690px){
 .footer-container {
 	width: 100%;
-	background: #272727;
+	background:;
 	color: #fff;
 }
 .footer-main {
@@ -4190,7 +4186,7 @@ footer {
 	flex-direction:column; 
 	display:flex;
 	padding-bottom:0px;
-	background: #272727;
+	background:;
 	border-top: 3px solid #fff;
 }
 .main-copy-redes {

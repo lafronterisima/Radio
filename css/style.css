@@ -29,7 +29,7 @@ main {
 }
 
   .menu{
-    background:#2a5d84;  
+    background:#0c3f43;  
  } 
  
  .logo {
@@ -87,7 +87,7 @@ main {
 /*submenu*/
 
 .nav-wrappers ul ul{
-    background:#2a5d80;  
+    background:#0c3f43;  
     position: absolute;
     flex-direction:column; 
 	width:128px;
@@ -177,7 +177,7 @@ ul#nav-mobile .enlaces a {
 	flex-wrap: wrap;
 	display:inline-block;
     flex-direction: column; 
-    background:#2a5d84;
+    background:#0c3f43;  
   }
   
   .nav_logo {	
@@ -201,7 +201,7 @@ ul#nav-mobile .enlaces a {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background:#2a5d84;
+    background:#0c3f43;  
 }
 
 .enlaces h2, .enlaces a, .enlace p {
@@ -241,7 +241,7 @@ ul#nav-mobile .enlaces a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background:#2a5d75;  
+    background:#0c3f48;     
     z-index: 999;
 }
 
@@ -423,7 +423,7 @@ article .elemento {
 }
 
  .player-container{
-  background:#2a5d84;  
+  background:#0c3f43;    
   position:absolute;
   bottom: 0;
   width: 100%;  

@@ -1,0 +1,12 @@
+# Exported from Render on 2025-02-04T13:59:39Z
+services:
+- type: web
+  name: Radio
+  runtime: static
+  repo: https://github.com/lafronterisima/Radio
+  envVars:
+  - key: Lafronterisima
+    sync: false
+  staticPublishPath: construir
+  rootDir: lafronterisima
+version: "1"

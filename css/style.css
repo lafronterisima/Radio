@@ -481,7 +481,7 @@ color:;
     align-items: center;
 	user-select: none;
 	padding: 4px 0;
-    background:#2a5d84;  
+     background:#0c3f43; 
 	text-aling: center;
 	color: #fff;
 	position: relative; 
@@ -4281,7 +4281,7 @@ footer {
   align-items: center;
   padding: 10px 15px; /* Espaciado alrededor del contenido */
   border-bottom: 1px solid #ccc; /* Línea divisoria en la parte inferior */
-  background:#2a5d84;
+  background:#0c3f43; 
 }
 
 .header_box h3 {

@@ -48,7 +48,8 @@
   
   <link rel="stylesheet" href="owl/assets/owl.carousel.min.css">
  
-  
+    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
   
   <div class="navbar-fixed"> 
@@ -159,7 +160,7 @@
      <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
      <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>  
 	 <li><a href="#NOTAS"><span class="material-icons-outlined"> newspaper</span> Noticias</a></li> 
-	 <li> <a class="submenu"><span class="material-icons-outlined"> map</span> Catálogo <span class= "icon-circle-down"></span></a>  
+	 <li> <a class="submenu"><span class="material-icons-outlined"> map </span> Catálogo <span class="icon-circle-down"></span></a>  
 		 
 		 <ul class="dropdown">
 		 
@@ -733,36 +734,31 @@ document.addEventListener("DOMContentLoaded", function() {
 	        </div>
 			
 	
-		   <aside class="videos" >
+		   <aside class="video-responsive" >
 
-		     <div class="video-responsive">
+		     <video id="video" width="100%" height="98%" controls>
+               <source src="https://stream.gia.tv/giatvplayout7/giatv-209411/playlist.m3u8" type="application/x-mpegURL">
+             </video>
 
-		       <div class="video-slider" id="slider1">
-		
-		<div class="slides">
-			<iframe class="video" id="video-iframe-1" src="https://www.youtube.com/embed/PvGZebtV6Ew
-			?enablejsapi=1&html5=1"></iframe>
-		</div>
-		
-		<div class="slides">
-           <iframe class="video" id="video-iframe-2" src="https://www.youtube.com/embed/xN683CQ8hwU
-			?enablejsapi=1&html5=1"></iframe>
-		</div>
-	
-		<div class="slides">
-			<iframe class="video" id="video-iframe-3" src="https://www.youtube.com/embed/ZGNqaE10Oeg?enablejsapi=1&html5=1"></iframe>
-		</div>
+           <script>
+             if (Hls.isSupported()) {
+              var video = document.getElementById('video');
+              var hls = new Hls();
 
-		<div class="slide-arrow left"></div>
-		<div class="slide-arrow right"></div>
-	   </div>
+             hls.loadSource('https://stream.gia.tv/giatvplayout7/giatv-209411/playlist.m3u8');
+             hls.attachMedia(video);
+
+             hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                video.play();
+             });
+             } else {
+             console.log("El navegador no soporta HLS.js. Usa un navegador compatible.");
+            }
+          </script> 
 	   
-	 </aside>
-	 
-	
-		  
+	   </aside>
+	   
      </section>
-	 
 	 
 
    <section id="bloggers">
@@ -955,11 +951,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		
 
 		  <div class="caja-portfolio">
-           <h3>NOVEDAD</h3>	
+           <h3>PROMO</h3>	
   		
 		    <div class="fb_background">	
 			  
-			   <div class="fb-page" id="slider-container">
+			<!--   <div class="fb-page" id="slider-container">
                  <img id="slidex" src="imagenes/1.jpg" width="100%" height="400">
                </div>
 			   
@@ -984,12 +980,32 @@ document.addEventListener("DOMContentLoaded", function() {
     // Cambiar la imagen cada 2.5 segundos
     setInterval(slideit, 2500);
 
-  </script>
+  </script>  -->
+  
+	 <div class="video-slider" id="slider1">
+		
+		<div class="slides">
+			<iframe class="video" id="video-iframe-1" src="https://www.youtube.com/embed/PvGZebtV6Ew
+			?enablejsapi=1&html5=1"></iframe>
+		</div>
+		
+		<div class="slides">
+           <iframe class="video" id="video-iframe-2" src="https://www.youtube.com/embed/xN683CQ8hwU
+			?enablejsapi=1&html5=1"></iframe>
+		</div>
+	
+		<div class="slides">
+			<iframe class="video" id="video-iframe-3" src="https://www.youtube.com/embed/ZGNqaE10Oeg?enablejsapi=1&html5=1"></iframe>
+		</div>
 
-			
-            </div>
+		<div class="slide-arrow left"></div>
+		<div class="slide-arrow right"></div>
+	   </div>
+	   
+	
+     </div>
 		  
-		 </div>
+    </div>
 	
   	
      </section>
@@ -1049,7 +1065,8 @@ document.addEventListener("DOMContentLoaded", function() {
 				<div class="footer-redes">
 					<a href="https://www.facebook.com/lafronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
 					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank"><i class="fab fa-instagram"></i></a>
-				   <a href="https://youtube.com/@lafronterisima2435" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://youtube.com/@lafronterisima2435" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"> <i class="fab fa-google-play"></i></a>
 				</div>
 			</div>
 		</div>
@@ -1231,6 +1248,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					<a href="https://www.facebook.com/lafronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
 					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank"><i class="fab fa-instagram"></i></a>
 				   <a href="https://youtube.com/@lafronterisima2435" target="_blank"> <i class="fab fa-youtube"></i></a>
+				   <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"> <i class="fab fa-google-play"></i></a>
 				</div>
 			</div>
 		</div>
@@ -1395,7 +1413,8 @@ servicio posible, particularmente para mantener un registro de usuarios,
 				<div class="footer-redes">
 					<a href="https://www.facebook.com/lafronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
 					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank"><i class="fab fa-instagram"></i></a>
-				   <a href="https://youtube.com/@lafronterisima2435" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://youtube.com/@lafronterisima2435" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"> <i class="fab fa-google-play"></i></a>
 				</div>
 			</div>
 		</div>
@@ -1682,7 +1701,8 @@ servicio posible, particularmente para mantener un registro de usuarios,
 				<div class="footer-redes">
 					<a href="https://www.facebook.com/lafronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
 					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank"><i class="fab fa-instagram"></i></a>
-				   <a href="https://youtube.com/@lafronterisima2435" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://youtube.com/@lafronterisima2435" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"> <i class="fab fa-google-play"></i></a>
 				</div>
 			</div>
 		</div>
@@ -2102,7 +2122,8 @@ servicio posible, particularmente para mantener un registro de usuarios,
 				<div class="footer-redes">
 					<a href="https://www.facebook.com/lafronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
 					<a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968u" target="_blank"><i class="fab fa-instagram"></i></a>
-				   <a href="https://youtube.com/@lafronterisima2435" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://youtube.com/@lafronterisima2435" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"> <i class="fab fa-google-play"></i></a>
 				</div>
 			</div>
 		</div>

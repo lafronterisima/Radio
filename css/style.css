@@ -4309,7 +4309,7 @@ footer {
 #chat-box {
   width: 80%;
   
-  overflow-y: none;
+  overflow-y:hidden;
   display: flex;
   border: 1px solid #ccc;
   padding-top: 0px; 

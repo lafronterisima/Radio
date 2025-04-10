@@ -4305,7 +4305,7 @@ footer {
   font-size: 20px; /* Asegura que el icono sea suficientemente grande */
 }
 
-/* Caja de chat */
+/* Caja de chat 
 #chat-box {
   width: 80%;
   
@@ -4317,7 +4317,7 @@ footer {
   background-color: #f9f9f9;
   margin-bottom: 0px;
   margin: 0 auto;
-}
+}  */
 
 .messages-container {
   width: 98%;

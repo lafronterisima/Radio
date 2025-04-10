@@ -311,7 +311,7 @@ function onYouTubeIframeAPIReady() {
   <div class="modal_box" id="modal_box"> 
   <div class="modal_containers">
     <div class="header_box">
-      <h3>CHAT</h3>
+      <h3>NEWS</h3>
       <button class="close" id="cerrar_modal">
         <i class="material-icons-outlined">close</i>
       </button>
@@ -319,12 +319,17 @@ function onYouTubeIframeAPIReady() {
 
     <div id="chat-box"></div>
 
-    <!-- Formulario para enviar un mensaje -->
+    <!-- 
     <form id="form_comentario" onsubmit="enviarMensaje(event)">
       <input type="text" id="usuario" name="usuario" placeholder="Tu nombre" required>
       <textarea id="comentario" name="comentario" placeholder="Escribe tu comentario..." required></textarea>
       <button class="chats" type="submit">Enviar</button>
-    </form>
+    </form> 
+	-->
+	
+	 <iframe id="sc-widget" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" 
+      src="https://es.euronews.com/embed/timeline"></script></iframe>
+	
   </div>
 </div>
 
@@ -336,11 +341,11 @@ function onYouTubeIframeAPIReady() {
 	  
     </div>
 
-<script>
- document.addEventListener('DOMContentLoaded', function() {
-  // Abrir el modal de chat al hacer clic en la imagen
-  document.querySelectorAll('#tiempo').forEach(function(icon) {
-    icon.addEventListener('click', function() {
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Abrir el modal de chat al hacer clic en la imagen
+    document.querySelectorAll('#tiempo').forEach(function(icon) {
+     icon.addEventListener('click', function() {
       document.querySelector('#modal_box').classList.add('active'); // Mostrar el modal
     });
   });
@@ -363,16 +368,16 @@ function onYouTubeIframeAPIReady() {
     if (!isClickInsideModal && !isClickOnLiveIcon) {
       modal.classList.remove('active');
     }
-  });
+  });  
 
   // Función para enviar el mensaje
-  async function enviarMensaje(event) {
-    event.preventDefault(); // Evita el envío del formulario
+   async function enviarMensaje(event) {
+    event.preventDefault(); 
 
     const usuario = document.getElementById('usuario').value.trim();
     const comentario = document.getElementById('comentario').value.trim();
 
-    if (usuario === '' || comentario === '') return; // Verifica que ambos campos no estén vacíos
+    if (usuario === '' || comentario === '') return; 
 
     try {
       const response = await fetch('send_message.php', {
@@ -435,9 +440,9 @@ function onYouTubeIframeAPIReady() {
   const form = document.getElementById('form_comentario');
   if (form) {
     form.addEventListener('submit', enviarMensaje);
-  }
-});
-</script>
+    }
+  });
+ </script> 
 
 	  
     <div class="live-messages">
@@ -905,14 +910,38 @@ document.addEventListener("DOMContentLoaded", function() {
 		  <div class="caja-portfa">
            <h3>ACTUALIDAD</h3>	
   		
-		    <div class="fb_back">	
+		    <div class="fb_back" id="slider-container">	
+			
+
+                 <img id="slidex" src="imagenes/1.jpg" width="100%" height="390px">
+               </div>
+			   
+   <script> 
+     const images = [
+      "imagenes/1.jpg",
+      "imagenes/2.jpg",
+      "imagenes/3.jpg"
+    ];
+
+    let currentImageIndex = 0;
+
+    // Función para cambiar las imágenes
+    function slideit() {
+      // Cambiar la imagen
+      document.getElementById("slidex").src = images[currentImageIndex];
+
+      // Actualizar el índice de la imagen para la próxima
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
+
+    // Cambiar la imagen cada 2.5 segundos
+    setInterval(slideit, 2500);
+
+  </script>  
 		
-               <iframe id="sc-widget" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" 
+              <!-- <iframe id="sc-widget" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" 
             src="https://es.euronews.com/embed/timeline
-             "></script>
-             
-             
-               </iframe>
+             "></iframe> -->
                 
                 
              </div>

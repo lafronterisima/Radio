@@ -4354,7 +4354,7 @@ footer {
 
 #comentario {
   height: 80px;
-  resize: vertical;
+  resize: vertical; background-color:red;
 }
 
 .chats {

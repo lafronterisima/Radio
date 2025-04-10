@@ -463,6 +463,12 @@ color:;
     height:60px; 
 }
 
+.saludo img {
+    width:40px; 
+    height:40px; 
+}
+
+
 .trasmisor{
 	width:320px;
 	height:350px;

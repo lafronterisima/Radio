@@ -334,7 +334,7 @@ function onYouTubeIframeAPIReady() {
 </div>
 
 <!-- Imagen para abrir el modal -->
-<img id="tiempo" src="imagenes/chat.png" style="cursor: pointer;">
+<img id="tiempo" src="imagenes/news.png" style="cursor: pointer;">
 
 			
    </div>
@@ -370,77 +370,75 @@ function onYouTubeIframeAPIReady() {
     }
   });  
 
-  // Función para enviar el mensaje
-   async function enviarMensaje(event) {
-    event.preventDefault(); 
+ 
+ //async function enviarMensaje(event){
+   // event.preventDefault(); 
 
-    const usuario = document.getElementById('usuario').value.trim();
-    const comentario = document.getElementById('comentario').value.trim();
+  //  const usuario = document.getElementById('usuario').value.trim();
+   // const comentario = document.getElementById('comentario').value.trim();
 
-    if (usuario === '' || comentario === '') return; 
+  //  if (usuario === '' || comentario === '') return; 
 
-    try {
-      const response = await fetch('send_message.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({
-          usuario: usuario,
-          comentario: comentario
-        })
-      });
+   // try {
+   //  const response = await fetch('send_message.php', {
+     //   method: 'POST',
+     //   headers: {
+     //     'Content-Type': 'application/x-www-form-urlencoded'
+     //   },
+      //  body: new URLSearchParams({
+       //   usuario: usuario,
+       //   comentario: comentario
+    //    })
+    //  });
 
-      if (response.ok) {
-        // Agregar el nuevo comentario al DOM
-        const comentariosDiv = document.getElementById('chat-box');
-        const comentarioElement = document.createElement('div');
-        comentarioElement.classList.add('comentario');
+    //  if (response.ok) {
+       
+      //  const comentariosDiv = document.getElementById('chat-box');
+      //  const comentarioElement = document.createElement('div');
+       // comentarioElement.classList.add('comentario');
 
-        const fecha = new Date().toLocaleTimeString();
+       // const fecha = new Date().toLocaleTimeString();
 
-        comentarioElement.innerHTML = `
-          <strong>${usuario}</strong>
-          <small>${fecha}</small>
-          <p>${comentario}</p>
-        `;
+     //   comentarioElement.innerHTML = `
+        //  <strong>${usuario}</strong>
+        //  <small>${fecha}</small>
+        //  <p>${comentario}</p>
+      //  `;
         
-        comentariosDiv.insertBefore(comentarioElement, comentariosDiv.firstChild);
+      //  comentariosDiv.insertBefore(comentarioElement, comentariosDiv.firstChild);
 
-        // Limpiar el campo de comentario después de enviarlo
-        document.getElementById('comentario').value = '';
-      } else {
-        console.error('Error al enviar el mensaje:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error en la solicitud:', error);
-    }
-  }
+      //  document.getElementById('comentario').value = '';
+  //    } else {
+     //   console.error('Error al enviar el mensaje:', response.statusText);
+   //   }
+  //  } catch (error) {
+  //    console.error('Error en la solicitud:', error);
+  //  }
+ // }
 
-  // Función para obtener los mensajes
-  async function fetchMessages() {
-    try {
-      const response = await fetch('chat.php');
-      if (response.ok) {
-        const chatBox = document.getElementById('chat-box');
-        chatBox.innerHTML = await response.text();
-        chatBox.scrollTop = chatBox.scrollHeight; // Desplaza hacia abajo el chat
-      } else {
-        console.error('Error al recuperar los mensajes:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error en la solicitud:', error);
-    }
-  }
+ 
+ //  async function fetchMessages() {
+  //  try {
+   //   const response = await fetch('chat.php');
+    //  if (response.ok) {
+    //    const chatBox = document.getElementById('chat-box');
+     //   chatBox.innerHTML = await response.text();
+     //   chatBox.scrollTop = chatBox.scrollHeight; 
+   //   } else {
+      //  console.error('Error al recuperar los mensajes:', response.statusText);
+   //   }
+  //  } catch (error) {
+   //   console.error('Error en la solicitud:', error);
+  //  }
+//  }
 
-  // Actualiza los mensajes cada 5 segundos para evitar sobrecargar el servidor
-  setInterval(fetchMessages, 5000);
+ // setInterval(fetchMessages, 5000);
 
-  // Agregar evento al formulario de mensajes para enviar
-  const form = document.getElementById('form_comentario');
-  if (form) {
-    form.addEventListener('submit', enviarMensaje);
-    }
+//  const form = document.getElementById('form_comentario');
+ // if (form) {
+  //  form.addEventListener('submit', enviarMensaje);
+  //  }
+	
   });
  </script> 
 

@@ -675,11 +675,11 @@ color:;
   background-color: gainsboro;
 }
 #playPauseBtn {
-    background-image: url('../imagenes/play.png');
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/play--v1.png');
 }
 
 #playPauseBtn.paused {
-    background-image: url('../imagenes/pausa.png');
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/pause--v1.png');
 }
 
 @media (min-width:320px)and (max-width:570px){

@@ -641,6 +641,12 @@ color:;
   }
 }
 
+.submenu {
+  display: flex;
+  align-items: center;
+  gap:4px;
+}
+
 .contain_radio .control-container{
   width: max-content;
   height:80px;
@@ -760,23 +766,39 @@ color:;
 
 .modal_wraper .modal_container .boxes .social_media {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap:20px;
+  align-items: center;     /* centra horizontalmente */
+  justify-content: center; /* centra verticalmente si el modal tiene altura */
+  gap: 1rem;               /* separación entre secciones */
+  text-align: center;
 }
-.modal_wraper .modal_container .boxes .social_media > a {
+
+/* Centra todos los íconos de redes */
+.modal_wraper .modal_container .boxes .social_media {
+  display: flex;
+  justify-content: center; /* centra los íconos horizontalmente */
+  align-items: center;
+  gap: 10px;               /* espacio entre los íconos */
+   justify-content: flex-end; /* los empuja hacia la derecha */
+}
+
+.modal_wraper .modal_container .boxes .social_media a{
   text-decoration: none;
-  margin: 0 auto;
+  margin:0 auto;
   width: 40px;
   height: 40px;
   padding-top:8px;
   background-color: gray;
-  font-size: 1.3rem;
+  font-size: 1rem;
   display: flex;
   place-content: center;
   border-radius: 50%;
   color: #fff;
   box-shadow: 0 2px 10px #0003;
+}
+
+.modal_wraper .modal_container .boxes .social_media a:hover {
+  transform: scale(1.1);
+  background-color: #666;
 }
 
 .fb {

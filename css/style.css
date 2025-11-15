@@ -641,12 +641,6 @@ color:;
   }
 }
 
-.submenu {
-  display: flex;
-  align-items: center;
-  gap:4px;
-}
-
 .contain_radio .control-container{
   width: max-content;
   height:80px;
@@ -665,20 +659,19 @@ color:;
 
 
 #player-container #playPauseBtn {
-  cursor: pointer;
-  height:40px;
+   cursor: pointer;
+  height: 40px;
   width: 40px;
-  border-radius:50%;
-  padding-top:25px;
+  border-radius: 50%;
   margin: 0 auto;
   z-index: 2;
-  background-repeat: no-repeat!important;
-  background-position: center;
-  background-size: 16px;
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:20px;
+
   background-color: gainsboro;
+
+  /* Icono */
+  background-repeat: no-repeat !important;
+  background-position: center;
+  background-size: 20px;
 }
 #playPauseBtn {
     background-image: url('https://img.icons8.com/ios-filled/50/000000/play--v1.png');
@@ -766,39 +759,23 @@ color:;
 
 .modal_wraper .modal_container .boxes .social_media {
   display: flex;
-  align-items: center;     /* centra horizontalmente */
-  justify-content: center; /* centra verticalmente si el modal tiene altura */
-  gap: 1rem;               /* separación entre secciones */
-  text-align: center;
-}
-
-/* Centra todos los íconos de redes */
-.modal_wraper .modal_container .boxes .social_media {
-  display: flex;
-  justify-content: center; /* centra los íconos horizontalmente */
   align-items: center;
-  gap: 10px;               /* espacio entre los íconos */
-   justify-content: flex-end; /* los empuja hacia la derecha */
+  justify-content: center;
+  gap:20px;
 }
-
-.modal_wraper .modal_container .boxes .social_media a{
+.modal_wraper .modal_container .boxes .social_media > a {
   text-decoration: none;
-  margin:0 auto;
+  margin: 0 auto;
   width: 40px;
   height: 40px;
   padding-top:8px;
   background-color: gray;
-  font-size: 1rem;
+  font-size: 1.3rem;
   display: flex;
   place-content: center;
   border-radius: 50%;
   color: #fff;
   box-shadow: 0 2px 10px #0003;
-}
-
-.modal_wraper .modal_container .boxes .social_media a:hover {
-  transform: scale(1.1);
-  background-color: #666;
 }
 
 .fb {

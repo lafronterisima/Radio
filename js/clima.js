@@ -1,40 +1,44 @@
 
-const apiKey = '185dbcc57e27f9315a49d3f1c762ebd7';
+const apiKeyClima = "185dbcc57e27f9315a49d3f1c762ebd7";
 
-function obtenerClima(lat, lon) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=es`; // Añadido lang=es
+// Función para mostrar el clima
+function obtenerClima(lat, lon, ciudad, pais) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKeyClima}&units=metric&lang=es`;
 
     fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud');
-            }
-            return response.json();
-        })
+        .then(r => r.json())
         .then(data => {
-            document.getElementById('locationName').textContent = data.name + ', ' + data.sys.country; 
-            document.getElementById('texto-clima').textContent = data.weather[0].description;
-            document.getElementById('texto-temp').textContent = `Temperatura: ${data.main.temp} °C`;
-            document.getElementById('humidity').textContent = `Humedad: ${data.main.humidity}%`;
-            document.getElementById('windSpeed').textContent = `Viento: ${data.wind.speed} m/s`;
+            const ciudadFinal = ciudad || data.name;
+            const paisFinal = pais || data.sys.country;
+
+            document.getElementById("locationName").textContent = `${ciudadFinal}, ${paisFinal}`;
+            document.getElementById("texto-clima").textContent = data.weather[0].description;
+            document.getElementById("texto-temp").textContent = `Temperatura: ${data.main.temp} °C`;
+            document.getElementById("humidity").textContent = `Humedad: ${data.main.humidity}%`;
+            document.getElementById("windSpeed").textContent = `Viento: ${data.wind.speed} m/s`;
         })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        .catch(err => console.error("Error clima:", err));
 }
 
-function obtenerUbicacion() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            obtenerClima(lat, lon);
-        }, () => {
-            alert('No se pudo obtener la ubicación.');
-        });
-    } else {
-        alert('La geolocalización no está soportada en este navegador.');
-    }
+// Obtener ubicación por IP sin pedir GPS
+function obtenerUbicacionIP() {
+    fetch("https://ipwho.is/")
+        .then(r => r.json())
+        .then(data => {
+            if (!data.success) {
+                console.error("No se pudo obtener la ubicación por IP");
+                return;
+            }
+
+            const lat = data.latitude;
+            const lon = data.longitude;
+            const ciudad = data.city;
+            const pais = data.country;
+
+            obtenerClima(lat, lon, ciudad, pais);
+        })
+        .catch(err => console.error("Error IP:", err));
 }
 
-obtenerUbicacion();
+// Ejecutar automáticamente
+obtenerUbicacionIP();

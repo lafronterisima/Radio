@@ -2,14 +2,13 @@
 const apiKeyClima = "185dbcc57e27f9315a49d3f1c762ebd7";
 
 // Función para mostrar el clima
-function obtenerClima(lat, lon, ciudad, pais) {
+function obtenerClima(lat, lon, ciudad) {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKeyClima}&units=metric&lang=es`;
 
     fetch(url)
         .then(r => r.json())
         .then(data => {
             const ciudadFinal = ciudad || data.name;
-            const paisFinal = pais || data.sys.country;
 
             document.getElementById("locationName").textContent = `${ciudadFinal}`;
             document.getElementById("texto-clima").textContent = data.weather[0].description;
@@ -33,12 +32,12 @@ function obtenerUbicacionIP() {
             const lat = data.latitude;
             const lon = data.longitude;
             const ciudad = data.city;
-            const pais = data.country;
-
-            obtenerClima(lat, lon, ciudad, pais);
+           
+            obtenerClima(lat, lon, ciudad);
         })
         .catch(err => console.error("Error IP:", err));
 }
 
 // Ejecutar automáticamente
+
 obtenerUbicacionIP();

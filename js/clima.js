@@ -11,7 +11,7 @@ function obtenerClima(lat, lon, ciudad, pais) {
             const ciudadFinal = ciudad || data.name;
             const paisFinal = pais || data.sys.country;
 
-            document.getElementById("locationName").textContent = `${ciudadFinal}, ${paisFinal}`;
+            document.getElementById("locationName").textContent = `${ciudadFinal}`;
             document.getElementById("texto-clima").textContent = data.weather[0].description;
             document.getElementById("texto-temp").textContent = `Temperatura: ${data.main.temp} °C`;
             document.getElementById("humidity").textContent = `Humedad: ${data.main.humidity}%`;

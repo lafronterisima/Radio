@@ -20,14 +20,27 @@ body {
 }
 
 #RADIO {
-  overflow: hidden !important;
+  overflow: auto;          /* permite el scroll */
+  scrollbar-width: none;   /* Firefox */
+  -ms-overflow-style: none;/* IE / Edge antiguo */
+}
+
+#RADIO::-webkit-scrollbar {
+  display: none;           /* Chrome, Safari, Edge */
 }
 
 main {
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
-  overflow: auto;
+  overflow: auto;          /* scroll activo */
+  scrollbar-width: none;   /* Firefox */
+  -ms-overflow-style: none;/* IE / Edge antiguo */
+}
+
+/* Chrome, Safari, Edge */
+main::-webkit-scrollbar {
+  display: none;
 }
 
   .menu{
@@ -4105,21 +4118,22 @@ footer {
     color: black;
     text-decoration: none;
 	
-}
-
+ }
 }
  
  
 
 @media(max-width: 690px){
+	
 .footer-container {
 	width: 100%;
+	height:100%;
 	background:;
 	color: #fff;
+	padding-bottom:15px;
 }
 .footer-main {
 	width: 98%;
-	max-width: 1000px;
 	margin: auto;
 	display: flex;
 	flex-wrap: wrap;
@@ -4219,23 +4233,23 @@ footer {
 	display:flex;
 	flex-direction:column; 
 	display:flex;
-	padding-bottom:0px;
+	margin-bottom:15px;
 	background:;
 	border-top: 3px solid #fff;
 }
 .main-copy-redes {
 	width:100%; 
-	height:250px; 
+	height:auto; 
 	flex-direction:column;
 	padding: 5px 0;
-	margin: auto;
+	margin-bottom:15px;
 	display: flex;
 }
 .main-copy-redes .footer-copy {
 	width: 100%;
 	height:auto;
 	color: #fff;
-	margin-bottom:5px;
+	margin-bottom:15px;
 	text-align:center;
 }
 
@@ -4243,6 +4257,7 @@ footer {
 		width: 80%;
 		text-align:center;
 		margin:0 auto;
+		margin-bottom:15px;
 	}
 
 .main-copy-redes .footer-redes a {

@@ -63,7 +63,7 @@
       </div>
 	 
 	 <a href="https://google.com" class="logo" target="_blank">
-       <img src="imagenes/microfonox.png" alt="Microphone logo">
+       <img id="tiempo" src="imagenes/news.png" style="cursor: pointer;">
      </a>
 	 
 	  <a class="share_btn">
@@ -334,7 +334,9 @@ function onYouTubeIframeAPIReady() {
 </div>
 
 <!-- Imagen para abrir el modal -->
-<img id="tiempo" src="imagenes/news.png" style="cursor: pointer;">
+
+
+<img id="weather-img" src="imagenes/microfonox.png" />
 
 			
    </div>
@@ -344,7 +346,7 @@ function onYouTubeIframeAPIReady() {
    <script>
     document.addEventListener('DOMContentLoaded', function() {
     // Abrir el modal de chat al hacer clic en la imagen
-    document.querySelectorAll('#tiempo').forEach(function(icon) {
+    document.querySelectorAll('#weather-img').forEach(function(icon) {
      icon.addEventListener('click', function() {
       document.querySelector('#modal_box').classList.add('active'); // Mostrar el modal
     });
@@ -362,7 +364,7 @@ function onYouTubeIframeAPIReady() {
     var modal = document.querySelector('#modal_box');
     var modalContent = document.querySelector('.modal_containers');
     var isClickInsideModal = modalContent.contains(event.target);
-    var isClickOnLiveIcon = event.target.closest('#tiempo');
+    var isClickOnLiveIcon = event.target.closest('#weather-img');
 
     // Cierra el modal si el clic es fuera del modal y fuera del ícono
     if (!isClickInsideModal && !isClickOnLiveIcon) {
@@ -548,8 +550,7 @@ function onYouTubeIframeAPIReady() {
       
       <div class="control-container">
        
-        <audio id="track" class="radioSource" src="https://az.azurafree.eu/listen/la_fronterisima/radio.mp3"></audio>  
-        <!-- https://stream.zeno.fm/t100n9re6bruv -->    
+        <audio id="track" class="radioSource" src="https://az.azurafree.eu/listen/la_fronterisima/radio.mp3"></audio>    
 
 			 
 		 <div id="player-container">

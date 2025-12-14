@@ -1,47 +1,50 @@
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-
-}
-progress {
-  display: inline-block;
-  vertical-align: baseline;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* BODY */
 body {
   font-family: 'Raleway', sans-serif;
-  margin: 0;
   width: 100%;
   overflow-x: hidden;
-  overflow-y: hidden;
-  box-sizing: border-box;
-}
+  overflow-y: auto;
 
-#RADIO {
-  overflow: auto;          /* permite el scroll */
-  scrollbar-width: none;   /* Firefox */
-  -ms-overflow-style: none;/* IE / Edge antiguo */
-}
-
-#RADIO::-webkit-scrollbar {
-  display: none;           /* Chrome, Safari, Edge */
-}
-
-main {
-  width: 100%;
-  height: 100vh;
-  box-sizing: border-box;
-  overflow: auto;          /* scroll activo */
-  scrollbar-width: none;   /* Firefox */
-  -ms-overflow-style: none;/* IE / Edge antiguo */
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE / Edge viejo */
 }
 
 /* Chrome, Safari, Edge */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* CONTENEDOR RADIO */
+#RADIO {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#RADIO::-webkit-scrollbar {
+  display: none;
+}
+
+/* MAIN */
+main {
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 main::-webkit-scrollbar {
   display: none;
 }
+
 
   .menu{
     background:#0c3f43;  
@@ -75,28 +78,29 @@ main::-webkit-scrollbar {
 	z-index:999;
 }
 
-.nav-wrappers menu ul li{
-	display: inline-block;
-	margin:0;
-	padding:0;
-	-webkit-transition: all ease 0.8s;
-	-moz-transition: all ease 0.8s;
-	transition: all ease 0.8s; 
+.nav-wrappers ul li {
+    position: relative;
 }
 
-.nav-wrappers menu ul li a {
-	padding: 5px ;
-	font-size:21px;
-	display: inline-block;
-	color:#303030;
-	line-height: 1.1em;
-	box-shadow: inset 0 0 0 0 #FFF;
-	-webkit-transition: all ease 0.8s;
-	-moz-transition: all ease 0.8s;
-	transition: all ease 0.8s;
-	position:relative;
-	text-decoration: none;
-	text-transform: lowercase; 
+.nav-wrappers ul ul {
+    background: #0c3f43;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    padding-top: 5px;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.nav-wrappers ul li:hover > ul {
+    display: flex;
+}
+
+.nav-wrappers ul ul li {
+    width: 100%;
+    display: block;
 }
 
 /*submenu*/
@@ -112,9 +116,12 @@ main::-webkit-scrollbar {
 	display: none;
 	top: 100%;
 	z-index:1;
-	display: none;
   }
     
+  .nav-wrappers ul li {
+    position: relative;
+}
+
     .menu .dropdown ul li{
 	  width:200px;
       display:block;
@@ -413,6 +420,19 @@ article .elemento {
     margin: 0 auto; 
 }
 
+#tiempo{
+    width:40px;
+    height:40px;
+	top:5px;
+    object-fit: contain;
+}
+
+#weather-img {
+    width:40px;
+    height:40px;
+    object-fit: contain;
+}
+
  #locationName{
     font-size:14px; 
     font-weight: bold;
@@ -685,20 +705,22 @@ color:;
   border-radius: 50%;
   margin: 0 auto;
   z-index: 2;
-
   background-color: gainsboro;
 
   /* Icon settings */
   background-repeat: no-repeat !important;
   background-position: center;
-  background-size: 20px; /* You listed 16px and 20px — keeping the larger */
-}
-#playPauseBtn {
-    background-image: url('https://img.icons8.com/ios-filled/50/000000/play--v1.png');
+  background-size: 20px;
 }
 
+/* Estado Play por defecto */
+#playPauseBtn {
+  background-image: url('https://img.icons8.com/ios-filled/50/000000/play--v1.png');
+}
+
+/* Estado Pausa */
 #playPauseBtn.paused {
-    background-image: url('https://img.icons8.com/ios-filled/50/000000/pause--v1.png');
+  background-image: url('https://img.icons8.com/ios-filled/50/000000/pause--v1.png');
 }
 
 @media (min-width:320px)and (max-width:570px){
@@ -3993,9 +4015,11 @@ footer {
 }
 
 .main-copy-redes{
-    width:100%;
-    height:160px;
-	}
+	width:70%; 
+	padding: 5px 0;
+	margin: auto;
+	display: flex;
+ }
 	
 .footer-copy a{
     width:100%;
@@ -4054,7 +4078,6 @@ footer {
 	background: #fff;
 	color:black;
 	text-align: center;
-	margin-bottom:15px;
 }
 
 .main-copy-redes .footer-redes i{
@@ -4068,7 +4091,6 @@ footer {
 footer {
     width: 100%;
     font-family: Raleway;
-    margin-bottom:15px;
     padding-top: 5px;
 }
 
@@ -4130,7 +4152,6 @@ footer {
 	height:100%;
 	background:;
 	color: #fff;
-	padding-bottom:15px;
 }
 .footer-main {
 	width: 98%;
@@ -4233,7 +4254,6 @@ footer {
 	display:flex;
 	flex-direction:column; 
 	display:flex;
-	margin-bottom:15px;
 	background:;
 	border-top: 3px solid #fff;
 }
@@ -4249,7 +4269,7 @@ footer {
 	width: 100%;
 	height:auto;
 	color: #fff;
-	margin-bottom:15px;
+	
 	text-align:center;
 }
 

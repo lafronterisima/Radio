@@ -1,7 +1,6 @@
-
 const apiKeyClima = "185dbcc57e27f9315a49d3f1c762ebd7";
 
-// Función para mostrar el clima
+// Función para mostrar el clima y cambiar la imagen
 function obtenerClima(lat, lon, ciudad) {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKeyClima}&units=metric&lang=es`;
 
@@ -15,6 +14,22 @@ function obtenerClima(lat, lon, ciudad) {
             document.getElementById("texto-temp").textContent = `Temperatura: ${data.main.temp} °C`;
             document.getElementById("humidity").textContent = `Humedad: ${data.main.humidity}%`;
             document.getElementById("windSpeed").textContent = `Viento: ${data.wind.speed} m/s`;
+
+            // Cambiar imagen según el clima
+            const weather = data.weather[0].main.toLowerCase();
+            const weatherImg = document.getElementById("weather-img");
+
+            if (weather.includes("clear")) {
+                weatherImg.src = "https://img.icons8.com/color/96/000000/sun.png";
+            } else if (weather.includes("clouds")) {
+                weatherImg.src = "https://img.icons8.com/color/96/000000/cloud.png";
+            } else if (weather.includes("rain") || weather.includes("drizzle")) {
+                weatherImg.src = "https://img.icons8.com/color/96/000000/rain.png";
+            } else if (weather.includes("snow")) {
+                weatherImg.src = "https://img.icons8.com/color/96/000000/snow.png";
+            } else {
+                weatherImg.src = "https://img.icons8.com/color/96/000000/weather.png"; // Imagen por defecto
+            }
         })
         .catch(err => console.error("Error clima:", err));
 }
@@ -39,5 +54,4 @@ function obtenerUbicacionIP() {
 }
 
 // Ejecutar automáticamente
-
 obtenerUbicacionIP();

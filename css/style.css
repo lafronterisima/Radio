@@ -22,7 +22,7 @@ body::-webkit-scrollbar {
 
 /* CONTENEDOR RADIO */
 #RADIO {
-  overflow-y: auto;
+  overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -333,23 +333,34 @@ span {
 }
  
 #contenido {
-  width: 100%;
-  overflow: hidden;
-  margin-top: 0;
-  border-top: 2px solid #c1c1c1;
-  box-sizing: border-box;
+  width:100%;
+  height:;
+  overflow: hidden; 
+  display:hidden;
+  margin-top:0px;
+  border-top: solid 2px #c1c1c1;
+  -webkit-box-sizing:content-box;
+  box-sizing:content-box;
+ 
 }
 
 .elemento {
-  display: none; /* oculto por defecto */
-  box-sizing: border-box;
+  height:100%;
+  display: none;
+  margin-bottom:;
+  -webkit-box-sizing:content-box;
+  box-sizing:content-box; 
 }
 
 article .elemento {
-  width: 100%;
-  margin: 2px auto;
-  overflow: auto;
-  box-sizing: border-box;
+  width:100%;
+  height:;
+  display:hidden;
+  margin-top:2px;
+  margin:0 auto;
+
+  -webkit-box-sizing:content-box;
+  box-sizing:content-box;
 }
 
 .elemento article p {

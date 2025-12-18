@@ -1,49 +1,36 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	padding:0;
+	margin:0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;  
 }
+progress {
+  display: inline-block;
+  vertical-align: baseline;
 
-/* BODY */
+}
 body {
   font-family: 'Raleway', sans-serif;
-  width: 100%;
+   -webkit-overflow-scrolling: none;
+   overflow-y:;
   overflow-x: hidden;
-  overflow-y: auto;
-
-  scrollbar-width: none;       /* Firefox */
-  -ms-overflow-style: none;    /* IE / Edge viejo */
+  -webkit-box-sizing:content-box;
+  box-sizing:content-box;
+  width:100%; 
 }
-
-/* Chrome, Safari, Edge */
-body::-webkit-scrollbar {
-  display: none;
-}
-
-/* CONTENEDOR RADIO */
-#RADIO {
-  overflow-y: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-#RADIO::-webkit-scrollbar {
-  display: none;
-}
-
-/* MAIN */
 main {
-  width: 100%;
-  min-height: 100vh;
-  overflow-y: auto;
-
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  width:100%;
+  height:100vh;
+  -webkit-box-sizing:content-box;
+  box-sizing:content-box;
+  overflow:scrolling; 
+  
 }
 
-main::-webkit-scrollbar {
-  display: none;
-}
+  .menu{
+    background:#0c3f43;  
+ } 
 
 
   .menu{

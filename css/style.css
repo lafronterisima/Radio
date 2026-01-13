@@ -686,33 +686,30 @@ color:;
 
 
 #player-container #playPauseBtn {
-  cursor: pointer;
-  height: 40px;
   width: 40px;
+  height: 40px;
+  cursor: pointer;
   border-radius: 50%;
-  margin: 0 auto;
-  z-index: 2;
   background-color: gainsboro;
-
-  /* Icon settings */
-  background-repeat: no-repeat !important;
-  background-position: center;
-  background-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Estado Play por defecto */
+#player-container #playPauseBtn svg {
+  width: 28px;
+  height: 28px;
+  fill: #000;
+}
+
+
 #playPauseBtn {
   width: 40px;
   height: 40px;
   cursor: pointer;
 }
 
-/* SVG base */
-#playPauseBtn .icon {
-  width: 100%;
-  height: 100%;
-  fill: #000;
-}
+
 
 /* Estado PLAY */
 #playPauseBtn.play .pause-icon {

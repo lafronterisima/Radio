@@ -12,6 +12,9 @@
 <meta name="author" content="La Fronterisima - plataforma musical" />
  <!-- <meta name="refresh" content=""/> -->
  
+  <link rel="preload" as="image" href="https://img.icons8.com/ios-filled/50/000000/play--v1.png">
+  <link rel="preload" as="image" href="https://img.icons8.com/ios-filled/50/000000/pause--v1.png">
+ 
   <link rel="stylesheet" href="css/outlined.css">
   
   <meta name="viewport" content="width=device-width, user-scalable=no,
@@ -554,9 +557,19 @@ function onYouTubeIframeAPIReady() {
 
 			 
 		 <div id="player-container">
-          <div id="playPauseBtn" class="play">
-		  </div>
-        </div>
+  <div id="playPauseBtn" class="play" aria-label="Play / Pause" role="button">
+    <!-- PLAY -->
+    <svg class="icon play-icon" viewBox="0 0 24 24">
+      <polygon points="6,4 20,12 6,20"/>
+    </svg>
+
+    <!-- PAUSE -->
+    <svg class="icon pause-icon" viewBox="0 0 24 24">
+      <rect x="6" y="4" width="4" height="16"/>
+      <rect x="14" y="4" width="4" height="16"/>
+    </svg>
+  </div>
+</div>
 		
 	  </div>
 	                      

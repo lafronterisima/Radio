@@ -570,6 +570,28 @@ function onYouTubeIframeAPIReady() {
     </svg>
    </div>
   </div>
+  
+  <script>
+const audio = document.getElementById("track");
+
+if (annyang) {
+    const comandos = {
+        'reproducir': () => {
+            audio.play().catch(() => {
+                
+                console.warn("⚠");
+            });
+        },
+        'pausar': () => {
+            audio.pause();
+        }
+    };
+
+    annyang.addCommands(comandos);
+    annyang.setLanguage('es-MX');
+    annyang.start({ autoRestart: true, continuous: true });
+}
+</script>
 		
 	  </div>
 	                      

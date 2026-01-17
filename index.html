@@ -578,19 +578,21 @@ if (annyang) {
     const comandos = {
         'reproducir': () => {
             audio.play().catch(() => {
-                
-                console.warn("⚠");
+                console.warn("⚠ Necesitas tocar la página al menos una vez para desbloquear audio");
             });
         },
-        'pausar': () => {
-            audio.pause();
-        }
+        'pausar': () => audio.pause()
     };
 
     annyang.addCommands(comandos);
     annyang.setLanguage('es-MX');
     annyang.start({ autoRestart: true, continuous: true });
 }
+
+// Botón invisible para desbloquear audio
+document.body.addEventListener('click', () => {
+    audio.play().then(() => audio.pause());
+}, { once: true });
 </script>
 		
 	  </div>

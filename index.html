@@ -593,7 +593,7 @@ function onYouTubeIframeAPIReady() {
             'radio': () => ejecutarEnlace("#RADIO"),
             'inicio': () => ejecutarEnlace("#INICIO"),
             'noticias': () => ejecutarEnlace("#NOTAS"),
-            'videos': () => { window.location.hash = "#VIDEOS"; },
+                'catálogo': () => ejecutarEnlace("#VIDEOS"), // Cambiado para usar la función
             'artistas': () => ejecutarEnlace("#ARTISTAS")
         };
 

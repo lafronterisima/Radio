@@ -54,6 +54,7 @@
  
     <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
 
 
@@ -574,27 +575,45 @@ function onYouTubeIframeAPIReady() {
   </div>
   
   <script>
-const audio = document.getElementById("track");
+  
+   const audio = document.getElementById("track");
 
-if (annyang) {
-    const comandos = {
-        'reproducir': () => {
-            audio.play().catch(() => {
-                console.warn("⚠ Necesitas tocar la página al menos una vez para desbloquear audio");
-            });
-        },
-        'pausar': () => audio.pause()
-    };
+     document.body.addEventListener('click', () => {
+   
+    audio.play().then(() => audio.pause()); 
 
-    annyang.addCommands(comandos);
-    annyang.setLanguage('es-MX');
-    annyang.start({ autoRestart: true, continuous: true });
-}
+    if (annyang) {
+        const comandos = {
+            // --- Comandos de Audio ---
+            'reproducir': () => audio.play(),
+            'pausar': () => audio.pause(),
 
-// Botón invisible para desbloquear audio
-document.body.addEventListener('click', () => {
-    audio.play().then(() => audio.pause());
+            // --- Comandos de Navegación ---
+            // Buscan el enlace que tenga el href correspondiente y le hacen clic
+            'radio': () => ejecutarEnlace("#RADIO"),
+            'inicio': () => ejecutarEnlace("#INICIO"),
+            'noticias': () => ejecutarEnlace("#NOTAS"),
+            'videos': () => { window.location.hash = "#VIDEOS"; },
+            'artistas': () => ejecutarEnlace("#ARTISTAS")
+        };
+
+        // Función auxiliar para hacer clic en el menú automáticamente
+        function ejecutarEnlace(hash) {
+            const enlace = document.querySelector(`a[href="${hash}"]`);
+            if (enlace) {
+                console.log("Navegando a: " + hash);
+                enlace.click(); // Esto dispara el href y cualquier evento asociado
+            } else {
+                console.warn("No se encontró el enlace con href: " + hash);
+            }
+        }
+
+        annyang.addCommands(comandos);
+        annyang.setLanguage('es-ES');
+        annyang.start({ autoRestart: true, continuous: true });
+    }
 }, { once: true });
+
 </script>
 		
 	  </div>

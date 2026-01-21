@@ -43,17 +43,21 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================
        CLICK PLAY / PAUSE
        ========================= */
-    playPauseBtn.addEventListener('click', () => {
-        if (track.paused) {
-            track.play();
-        } else {
-            track.pause();
-        }
+  playPauseBtn.addEventListener('click', () => {
 
-        pauseAllYouTubeVideos();
-        pauseVideo();
-        updateButton();
-    });
+    if (track.paused) {
+        track.play().catch(err => {
+            console.log('Error al reproducir:', err);
+        });
+    } else {
+        track.pause();
+    }
+
+    pauseAllYouTubeVideos();
+    pauseVideo();
+    updateButton();
+});
+
 
     /* =========================
        OTROS AUDIOS

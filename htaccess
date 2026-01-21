@@ -12,4 +12,3 @@ RewriteRule ^(.*)$ $1.html?p=$1 [L]
 
 DirectoryIndex "index.html"
 
-

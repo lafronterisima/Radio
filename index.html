@@ -604,91 +604,47 @@ function onYouTubeIframeAPIReady() {
    </div>
   </div>
   
-<script>
-document.addEventListener('DOMContentLoaded', () => {
+  <script>
+  
+   const audio = document.getElementById("track");
 
-    const track = document.getElementById("track"); // audio principal
-    const audioPlayers = Array.from(document.querySelectorAll('audio')); // todos los audios
-    const playPauseBtn = document.getElementById('playPauseBtn'); // botón SVG
-    let isPlaying = false;
+     document.body.addEventListener('click', () => {
+   
+    audio.play().then(() => audio.pause()); 
 
-    // Función para pausar todos los audios
-    function pauseAllAudios() {
-        audioPlayers.forEach(a => {
-            if (!a.paused) {
-                a.pause();
-            }
-        });
-        isPlaying = false;
-        updateButton();
-    }
-
-    // Función para reproducir un audio y pausar los demás
-    function playAudio(audio) {
-        pauseAllAudios();
-        audio.play().catch(err => console.log('Error al reproducir:', err));
-        isPlaying = true;
-        updateButton();
-    }
-
-    // Actualiza la clase del botón según el estado
-    function updateButton() {
-        if (isPlaying) {
-            playPauseBtn.classList.add('pause');
-            playPauseBtn.classList.remove('play');
-        } else {
-            playPauseBtn.classList.add('play');
-            playPauseBtn.classList.remove('pause');
-        }
-    }
-
-    // ========================
-    // CLICK BOTÓN PLAY/PAUSE
-    // ========================
-    playPauseBtn.addEventListener('click', () => {
-        if (track.paused) {
-            playAudio(track); // reproduce y pausa otros audios
-        } else {
-            pauseAllAudios(); // pausa todo
-        }
-    });
-
-    // ========================
-    // COMANDOS DE VOZ
-    // ========================
     if (annyang) {
         const comandos = {
-            'reproducir': () => playAudio(track),
-            'pausar': () => pauseAllAudios(),
+            // --- Comandos de Audio ---
+            'reproducir': () => audio.play(),
+            'pausar': () => audio.pause(),
+
+            // --- Comandos de Navegación ---
+            // Buscan el enlace que tenga el href correspondiente y le hacen clic
             'radio': () => ejecutarEnlace("#RADIO"),
             'inicio': () => ejecutarEnlace("#INICIO"),
             'noticias': () => ejecutarEnlace("#NOTAS"),
-            'catálogo': () => ejecutarEnlace("#VIDEOS"),
+                'catálogo': () => ejecutarEnlace("#VIDEOS"), // Cambiado para usar la función
             'artistas': () => ejecutarEnlace("#ARTISTAS")
         };
 
+        // Función auxiliar para hacer clic en el menú automáticamente
         function ejecutarEnlace(hash) {
             const enlace = document.querySelector(`a[href="${hash}"]`);
-            if (enlace) enlace.click();
+            if (enlace) {
+                console.log("Navegando a: " + hash);
+                enlace.click(); // Esto dispara el href y cualquier evento asociado
+            } else {
+                console.warn("No se encontró el enlace con href: " + hash);
+            }
         }
 
         annyang.addCommands(comandos);
         annyang.setLanguage('es-ES');
         annyang.start({ autoRestart: true, continuous: true });
     }
+}, { once: true });
 
-    // ========================
-    // TOUCH / CLICK INICIAL MÓVIL
-    // ========================
-    document.body.addEventListener('click', () => {
-        track.play().then(() => track.pause()); // prepara el audio en móviles
-    }, { once: true });
-
-    // Estado inicial del botón
-    updateButton();
-});
 </script>
-
 
 
 		

@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     fetchVotes();  // Llama a la función para obtener los votos iniciales
 

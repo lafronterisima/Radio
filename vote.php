@@ -1,9 +1,9 @@
 
 <?php
-	$servidor = "localhost";
-	$usuario = "LA138US00003";
-	$senha = "Radio12om*";
-	$dbname = "artist";
+	$servidor = "sql301.infinityfree.com";
+	$usuario = "if0_41398557";
+	$senha = "1y87eY4e7sR1nTu";
+	$dbname = "if0_41398557_artist";
 
   // Criar a conexão com a porta especificada
   $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);

@@ -1,72 +1,91 @@
-document.addEventListener('DOMContentLoaded', () => {
-    fetchVotes();  // Llama a la función para obtener los votos iniciales
 
-    // Verifica si el usuario ya votó
-    if (localStorage.getItem('hasVoted')) {
-        disableForm();  // Desactiva el formulario si ya ha votado
-    }
+const api="https://script.google.com/macros/s/AKfycbwj3aBcHzOnOK3iAg_oSfRpq2qELyZg4CUeYMfK74vZrdxLjA7CcPy3NTBN6g8U-yh6Ow/exec";
 
-    // Configura los botones de votar
-    document.querySelectorAll('.vote-button').forEach(button => {
-        button.addEventListener('click', () => {
-            const artistId = button.getAttribute('data-artist');
-            voteForArtist(artistId);  // Vota para el artista seleccionado
-        });
-    });
+/* CARGAR VOTOS */
+
+function cargarArtistas(){
+
+fetch(api)
+.then(res=>res.json())
+.then(data=>{
+
+data.forEach(a=>{
+
+let contador = document.getElementById("vote-"+a.id);
+
+if(contador){
+contador.innerText = a.votes + " votos";
+}
+
 });
 
-// Función para votar por un artista
-function voteForArtist(artistId) {
-    // Prepara los datos del formulario
-    const formData = new FormData();
-    formData.append('artist', artistId);
+});
 
-    fetch('vote.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert(data.message);  // Muestra mensaje de éxito
-            localStorage.setItem('hasVoted', 'true');  // Marca que el usuario ya votó
-            disableForm();  // Desactiva el formulario
-            fetchVotes();  // Actualiza los votos después de votar
-        } else {
-            alert(data.message);  // Muestra mensaje de error
-        }
-    })
-    .catch(error => {
-        console.error('Error de red:', error);
-        alert('Error al conectar con el servidor.');
-    });
 }
 
-// Función para obtener los votos de cada artista
-function fetchVotes() {
-    fetch('get_votes.php')
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Actualiza los votos en el HTML
-                data.votes.forEach(vote => {
-                    const voteElement = document.getElementById(`vote-${vote.artist_id}`);
-                    if (voteElement) {
-                        voteElement.textContent = `${vote.votes} votos`;
-                    }
-                });
-            } else {
-                console.error('Error al obtener los votos:', data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Error de red:', error);
-        });
+/* EVENTO BOTONES */
+
+document.querySelectorAll(".vote-button").forEach(btn=>{
+
+btn.addEventListener("click",function(){
+
+let id=this.dataset.artist;
+
+votar(id);
+
+});
+
+});
+
+
+/* VOTAR */
+
+function votar(id){
+
+if(localStorage.getItem("vote")){
+alert("Ya votaste");
+return;
 }
 
-// Función para desactivar el formulario después de votar
-function disableForm() {
-    document.querySelectorAll('.vote-button').forEach(button => {
-        button.disabled = true;  // Desactiva el botón de votar
-    });
+fetch("https://api.ipify.org?format=json")
+.then(res=>res.json())
+.then(ip=>{
+
+fetch(api,{
+method:"POST",
+headers:{
+"Content-Type":"application/x-www-form-urlencoded"
+},
+body:"id="+id+"&ip="+ip.ip
+})
+.then(res=>res.text())
+.then(data=>{
+
+if(data=="already voted"){
+
+alert("Ya votaste");
+
+}else{
+
+localStorage.setItem("vote","true");
+
+alert("Voto registrado");
+
+cargarArtistas();
+
 }
+
+});
+
+});
+
+}
+
+/* cargar votos al abrir */
+
+cargarArtistas();
+
+/* actualizar cada 10 segundos */
+
+setInterval(cargarArtistas,10000);
+

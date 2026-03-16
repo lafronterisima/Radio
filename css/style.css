@@ -1287,7 +1287,7 @@ color:;
 			width:100%;
 			height:auto;
 			padding-top:5px;
-			background-color:#295074;
+			background: #0C1A1A;
 			display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -2156,10 +2156,7 @@ aside .video-responsive iframe {
             flex-wrap: wrap;
 			display:flex;
 			margin:0 auto; 
-			 background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../imagenes/1.jpg);
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      background-size: cover;    
+			background-color:DarkSeaGreen;
 		}
 		
 		.caja-portfolio{
@@ -3074,7 +3071,7 @@ aside .video-responsive iframe {
 		margin-top:10px;
 		padding-top:10px;
 		padding-bottom:10px;
-		margin-left:5px; 
+		margin-left:px; 
 	}
     .advert-container p{
         padding-top:70px;
@@ -3084,31 +3081,31 @@ aside .video-responsive iframe {
 		font-size:18px;
     }
 	
-    .advert-container .imagen img{
-        width:90%;
-        height:120px;
-		padding-top: 10px;
-    }
+    .advert-container .imagen img {
+    width: 93%;
+    height: 200px;
+    padding-top: 10px;
+    margin: 0 auto;
+    display: block; /* Asegura el centrado */
+}
     .advert-container .imagen p{
         display:;
 		color:white
     }
 	
-	#Adds{
-	width:95%;
-	height:auto;
-	height:200px;
-	padding-top:10px;
-	margin-top:10px;
-	margin:0 auto;		
+#Adds {
+    width: 92%;
+    height: 200px;
+    margin: 10px auto 0 auto;
+    overflow: hidden; /* Evita que la imagen se salga */
 }
-#imgAdd{
-	width:96%;
-	height:200px;
-	display:flex;
-	padding-top:10px;
-	padding-bottom:10px;
-	margin:0 auto;
+
+#imgAdd {
+    width: 95%;
+    height: 200px;
+    object-fit: cover; /* Evita que la imagen se deforme si no tiene el tamaño exacto */
+    display: block;
+    margin: 0 auto;
 }
 
  .main-contain{
@@ -3906,7 +3903,6 @@ aside .video-responsive iframe {
  
 
 /* Pie de pagina con iconos*/	
-/* Pie de pagina con iconos*/	
   
 footer {
 	width:100%;
@@ -4015,6 +4011,14 @@ footer {
 	font-family: Raleway;
 	color:white;
 }
+
+.main-copy-redes{
+	width:70%; 
+	padding: 5px 0;
+	margin: auto;
+	display: flex;
+ }
+	
 .footer-copy a{
     width:100%;
     text-decoration: none;
@@ -4054,17 +4058,14 @@ footer {
 .main-copy-redes .footer-copy span{
 	color:white;
 }
-
-
 .main-copy-redes .footer-redes {
-	width: 40%;
+	width: 30%;
 	display: flex;
     padding: 15px 0;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	gap:10px;
+	
 }
-
 .main-copy-redes .footer-redes a{
 	display: inline-block;
 	text-decoration: none;
@@ -4075,7 +4076,6 @@ footer {
 	background: #fff;
 	color:black;
 	text-align: center;
-	margin-bottom:15px;
 }
 
 .main-copy-redes .footer-redes i{
@@ -4084,69 +4084,66 @@ footer {
 
 
 
-@media screen and(max-width: 1023px) {
- footer {
-	width:100%;
-	font-family: Raleway;
-	margin-bottom:0px;
-	
-	padding-top:5px;
-}
-	.footer-main .footer-columna {
-		width: 100%;
-		text-align: center;
-		margin: 10px 0;
-	}
-	.footer-main .footer-columna h3 {
-		padding-bottom:30px;
-		padding-top:0px;
-		font-size:35px;
-	}
-	.footer-main .footer-columna p {
-	font-size: 14px;
-	width:70%;
-	padding-top:5px;
-	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-	text-align:justify;
-	justify-content: space-between;
-	-ms-align-items: center;
-	align-items: center;
-	}
-	
-	.main-copy-redes {
-	width:70%; 
-	height:auto;
-	padding: 5px 0;
-	margin: auto;
-	display: flex;
-   }
-   
-   .footer-main .footer-columna span{
-	color:white;
+@media screen and (max-width: 1023px) {
+
+footer {
+    width: 100%;
+    font-family: Raleway;
+    padding-top: 5px;
 }
 
-  .footer-copy h4{
-    text-decoration:arial;
-    color:white;
-	font-size:12px;
-	}
+.footer-main .footer-columna {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.footer-main .footer-columna h3 {
+    padding-bottom: 30px;
+    font-size: 35px;
+}
+
+.footer-main .footer-columna p {
+    font-size: 14px;
+    width:90%;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+/* Contenedor redes */
+.main-copy-redes {
+    width:90%;
+    display: flex;
+    justify-content: center; 
+}
+
+/* Redes en línea */
+.main-copy-redes .footer-redes {
+	width:40%;
+    display: flex;
+    justify-content: center;
+    gap: 5px; /* separación entre iconos */
+    padding: 15px 0;
+}
+
+/* Iconos */
+.main-copy-redes .footer-redes a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    color: black;
+    text-decoration: none;
 	
-	.footer-main .footer-columna span p {
-	width:95%;
-	display: inline-block;
-	margin:0 auto;
-	padding-top:15px;
-	margin-bottom: 15px;
-	font-family: Raleway;
-	text-align:center;
-   }	
  }
+}
  
  
 
-@media(max-width: 860px){
+@media(max-width: 690px){
 .footer-container {
 	width: 100%;
 	background:;
@@ -4275,24 +4272,22 @@ footer {
 }
 
 	.main-copy-redes .footer-redes {
-	width: 80%;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	gap: 30px; 
+		width: 80%;
+		text-align:center;
+		margin:0 auto;
 	}
 
 .main-copy-redes .footer-redes a {
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
+	display: inline-block;
 	text-decoration: none;
 	width: 40px;
 	height: 40px;
-	border-radius: 50%;
+	line-height: 40px;
+	border-radius:50%;
 	background: #fff;
-	color: black;
+	color:black;
+	text-align: center;
+	margin-bottom:15px;
   }
 }  
 
@@ -4493,4 +4488,72 @@ footer {
   .chats {
     width: 20%; /* Usa más espacio para el botón */
   }
+}
+
+
+#adsense-native-wrapper {
+    max-width: 320px; /* Tamaño estándar de AdSense */
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-family: 'Roboto', Arial, sans-serif;
+    overflow: hidden;
+    margin: 10px auto;
+}
+
+/* Barra superior grisácea muy limpia */
+.adsense-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.ads-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ads-info span {
+    font-size: 11px;
+    color: #5f6368;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#ads-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 2px;
+    border-radius: 50%;
+}
+
+#ads-close-btn:hover {
+    background-color: #e8eaed;
+}
+
+.adsense-content {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+}
+
+/* Ajuste para que el iframe de Adsterra no se rompa */
+.adsense-content div {
+    max-width: 100% !important;
+}
+
+#adsense-native-wrapper {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    margin: 0;
 }

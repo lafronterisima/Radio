@@ -9,8 +9,6 @@ fetch(api)
 .then(res=>res.json())
 .then(data=>{
 
-/* ordenar ranking */
-
 data.sort((a,b)=>b.votes-a.votes);
 
 data.forEach(a=>{
@@ -18,9 +16,7 @@ data.forEach(a=>{
 let contador=document.getElementById("vote-"+a.id);
 
 if(contador){
-
 animarVotos(contador,a.votes);
-
 }
 
 });
@@ -29,27 +25,28 @@ animarVotos(contador,a.votes);
 
 }
 
-/* ANIMACION DE VOTOS */
+/* ANIMACION RAPIDA */
 
 function animarVotos(elemento,valorFinal){
 
-let inicio=0;
+let actual=parseInt(elemento.innerText) || 0;
+
+let incremento=Math.ceil((valorFinal-actual)/10);
 
 let intervalo=setInterval(()=>{
 
-if(inicio>=valorFinal){
+actual+=incremento;
 
+if(actual>=valorFinal){
+
+actual=valorFinal;
 clearInterval(intervalo);
-
-}else{
-
-inicio++;
-
-elemento.innerText=inicio+" votos";
 
 }
 
-},20);
+elemento.innerText=actual+" votos";
+
+},30);
 
 }
 
@@ -60,7 +57,6 @@ document.querySelectorAll(".vote-button").forEach(btn=>{
 btn.addEventListener("click",function(){
 
 let id=this.dataset.artist;
-
 votar(id);
 
 });
@@ -73,44 +69,62 @@ votar(id);
 function votar(id){
 
 if(localStorage.getItem("vote")){
-
-alert("Ya votaste");
-
+mostrarMensaje("Ya votaste");
 return;
-
 }
 
 fetch("https://api.ipify.org?format=json")
 .then(res=>res.json())
 .then(ip=>{
 
-fetch(api,{
+return fetch(api,{
 method:"POST",
 headers:{
 "Content-Type":"application/x-www-form-urlencoded"
 },
 body:"id="+id+"&ip="+ip.ip
+});
+
 })
 .then(res=>res.text())
 .then(data=>{
 
 if(data=="already voted"){
 
-alert("Ya votaste");
+mostrarMensaje("Ya votaste");
 
 }else{
 
 localStorage.setItem("vote","true");
-
-alert("Voto registrado");
-
+mostrarMensaje("Voto registrado");
 cargarArtistas();
 
 }
 
+})
+.catch(err=>{
+mostrarMensaje("Error al votar");
+console.error(err);
 });
 
-});
+}
+
+/* MENSAJES */
+
+function mostrarMensaje(msg){
+
+let box=document.getElementById("mensaje");
+
+if(box){
+
+box.innerText=msg;
+box.style.display="block";
+
+setTimeout(()=>{
+box.style.display="none";
+},3000);
+
+}
 
 }
 

@@ -2214,32 +2214,22 @@ servicio posible, particularmente para mantener un registro de usuarios,
     </script>
 	
 	
-	
-	<div id="adsense-native-wrapper">
+<div id="ads-box">
 
-<div class="adsense-bar">
+<div class="ads-header">
 
-<div class="ads-info">
+<span>Publicidad</span>
 
-<svg width="14" height="14" viewBox="0 0 24 24" fill="#5f6368">
-<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-</svg>
+<div class="ads-controls">
 
-<span>Anuncio</span>
+<button onclick="minimizarAd()">–</button>
+<button onclick="cerrarAd()">×</button>
 
 </div>
 
-<button id="ads-close-btn" onclick="cerrarAd()">
-
-<svg width="18" height="18" viewBox="0 0 24 24" fill="#5f6368">
-<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-</svg>
-
-</button>
-
 </div>
 
-<div class="adsense-content">
+<div class="ads-content">
 
 <script async data-cfasync="false" src="https://pl28839125.effectivegatecpm.com/4b38409b7045c1423470383d101e6375/invoke.js"></script>
 <div id="container-4b38409b7045c1423470383d101e6375"></div>
@@ -2250,21 +2240,26 @@ servicio posible, particularmente para mantener un registro de usuarios,
 
 <script>
 
-function cerrarAd(){
-document.getElementById("adsense-native-wrapper").style.display="none";
-}
-
-/* ocultar automáticamente después de 15 segundos */
 
 setTimeout(()=>{
 
-const ad=document.getElementById("adsense-native-wrapper");
+document.getElementById("ads-box").style.display="block";
 
-if(ad){
-ad.style.display="none";
+},6000);
+
+
+function minimizarAd(){
+
+document.getElementById("ads-box").classList.toggle("ads-min");
+
 }
 
-},15000);
+
+function cerrarAd(){
+
+document.getElementById("ads-box").style.display="none";
+
+}
 
 </script>
 

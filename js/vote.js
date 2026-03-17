@@ -9,12 +9,18 @@ fetch(api)
 .then(res=>res.json())
 .then(data=>{
 
+/* ordenar ranking */
+
+data.sort((a,b)=>b.votes-a.votes);
+
 data.forEach(a=>{
 
-let contador = document.getElementById("vote-"+a.id);
+let contador=document.getElementById("vote-"+a.id);
 
 if(contador){
-contador.innerText = a.votes + " votos";
+
+animarVotos(contador,a.votes);
+
 }
 
 });
@@ -23,7 +29,31 @@ contador.innerText = a.votes + " votos";
 
 }
 
-/* EVENTO BOTONES */
+/* ANIMACION DE VOTOS */
+
+function animarVotos(elemento,valorFinal){
+
+let inicio=0;
+
+let intervalo=setInterval(()=>{
+
+if(inicio>=valorFinal){
+
+clearInterval(intervalo);
+
+}else{
+
+inicio++;
+
+elemento.innerText=inicio+" votos";
+
+}
+
+},20);
+
+}
+
+/* BOTONES */
 
 document.querySelectorAll(".vote-button").forEach(btn=>{
 
@@ -43,8 +73,11 @@ votar(id);
 function votar(id){
 
 if(localStorage.getItem("vote")){
+
 alert("Ya votaste");
+
 return;
+
 }
 
 fetch("https://api.ipify.org?format=json")
@@ -81,11 +114,11 @@ cargarArtistas();
 
 }
 
-/* cargar votos al abrir */
+
+/* CARGAR AL ABRIR */
 
 cargarArtistas();
 
-/* actualizar cada 10 segundos */
+/* ACTUALIZAR CADA 15 SEGUNDOS */
 
-setInterval(cargarArtistas,10000);
-
+setInterval(cargarArtistas,15000);

@@ -1,11 +1,11 @@
-const api ="https://script.google.com/macros/s/AKfycbwj3aBcHzOnOK3iAg_oSfRpq2qELyZg4CUeYMfK74vZrdxLjA7CcPy3NTBN6g8U-yh6Ow/exec";
+const api = "https://script.google.com/macros/s/AKfycbwj3aBcHzOnOK3iAg_oSfRpq2qELyZg4CUeYMfK74vZrdxLjA7CcPy3NTBN6g8U-yh6Ow/exec";
 
 /* CONTROL */
 let cargando = false;
 let ultimaVersion = 0;
 
 /* CARGAR VOTOS */
-function cargarArtistas(){
+function cargarArtistas() {
   if(cargando) return;
   cargando = true;
 
@@ -13,23 +13,32 @@ function cargarArtistas(){
     .then(res => res.json())
     .then(data => {
 
-      // Si no hay cambios, no hace nada
-      if(!data || !data.artistas) return;
+      if(!data) return;
 
-      // Guardar versión
+      // manejar sin cambios
+      if(data.status === "nochange"){
+        return;
+      }
+
+      let artistas = data.artistas || data;
+
+      if(!Array.isArray(artistas)){
+        console.error("Formato inválido:", data);
+        return;
+      }
+
       if(data.version){
         ultimaVersion = data.version;
       }
 
-      data.artistas.sort((a,b)=>b.votes-a.votes);
+      artistas.sort((a,b)=>b.votes - a.votes);
 
-      data.artistas.forEach(a=>{
+      artistas.forEach(a => {
         let contador = document.getElementById("vote-" + a.id);
 
         if(contador){
           let actual = parseInt(contador.innerText) || 0;
 
-          // Solo animar si cambia
           if(actual !== a.votes){
             animarVotos(contador, a.votes);
           }
@@ -37,7 +46,7 @@ function cargarArtistas(){
       });
 
     })
-    .catch(err => console.error(err))
+    .catch(err => console.error("Error fetch:", err))
     .finally(()=>{ cargando = false; });
 }
 
@@ -59,7 +68,7 @@ function animarVotos(elemento, valorFinal){
 }
 
 /* BOTONES */
-document.querySelectorAll(".vote-button").forEach(btn=>{
+document.querySelectorAll(".vote-button").forEach(btn => {
   btn.addEventListener("click", function(){
     let id = this.dataset.artist;
     votar(id);
@@ -74,32 +83,32 @@ function votar(id){
   }
 
   fetch("https://api.ipify.org?format=json")
-    .then(res=>res.json())
-    .then(ip=>{
-      return fetch(api,{
-        method:"POST",
-        headers:{
-          "Content-Type":"application/x-www-form-urlencoded"
+    .then(res => res.json())
+    .then(ip => {
+      return fetch(api, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
         },
-        body:"id=" + id + "&ip=" + ip.ip
+        body: "id=" + id + "&ip=" + ip.ip
       });
     })
-    .then(res=>res.text())
-    .then(data=>{
+    .then(res => res.text())
+    .then(data => {
 
       if(data === "already voted"){
         mostrarMensaje("Ya votaste");
       } else {
         localStorage.setItem("vote","true");
 
-        // ⚡ actualización inmediata
+        // actualización inmediata
         cargarArtistas();
 
         mostrarMensaje("Voto registrado");
       }
 
     })
-    .catch(err=>{
+    .catch(err => {
       mostrarMensaje("Error al votar");
       console.error(err);
     });
@@ -115,7 +124,7 @@ function mostrarMensaje(msg){
 
     setTimeout(()=>{
       box.style.display = "none";
-    },3000);
+    }, 3000);
   }
 }
 

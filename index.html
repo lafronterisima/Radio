@@ -3,59 +3,73 @@
 <head>
   <meta charset="utf-8"> 
   <title>La Fronterisima</title>
+
+  <!-- SEO -->
   <meta name="description" content="Una plataforma online dedicada a compartir música de artistas colombianos e hispanos.">
   <meta name="keywords" content="la fronterisima, música colombiana, noticias, artistas de Colombia, La Paz Santander, música en vivo, géneros musicales colombianos, artistas nuevos, canciones populares, noticias musicales, música online, artistas emergentes, música variadas, mejores emisoras, sonidos de Colombia, tendencias musicales 2025">
-  
-  <meta property="og:site_name" content="La Fronterísima" />
-  <meta property="og:image" content="https://www.lafronterisima.online/frontera.png">
-  <link rel="canonical" href="https://www.lafronterisima.online">
-  <meta name="author" content="La Fronterisima - plataforma musical" />
+  <meta name="author" content="La Fronterisima - plataforma musical">
+  <meta name="robots" content="index, follow">
 
-  <!-- Preload de imágenes esenciales -->
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="La Fronterísima">
+  <meta property="og:title" content="La Fronterísima">
+  <meta property="og:description" content="Escucha música colombiana en vivo y descubre nuevos artistas.">
+  <meta property="og:image" content="https://www.lafronterisima.stream/frontera.png">
+  <meta property="og:url" content="https://www.lafronterisima.stream">
+  <meta property="og:type" content="website">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.lafronterisima.stream">
+
+  <!-- Preload (corregido) -->
   <link rel="preload" as="image" href="https://img.icons8.com/ios-filled/50/000000/play--v1.png" crossorigin="anonymous">
   <link rel="preload" as="image" href="https://img.icons8.com/ios-filled/50/000000/pause--v1.png" crossorigin="anonymous">
-  
+
+  <!-- ⚡ Optimización fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 
-  <!-- CSS principal -->
+  <!-- CSS (orden optimizado, sin eliminar nada crítico) -->
+  <link rel="stylesheet" href="css/materialize.css">
   <link rel="stylesheet" href="css/combined.min.css"> 
   <link rel="stylesheet" href="css/outlined.css">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" href="css/fonts-icon.css">
-  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/materialize.css" type="text/css" media="screen,projection"/>
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen,projection"/>
   <link rel="stylesheet" href="owl/assets/owl.carousel.min.css">
-  <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet">
 
-  <!-- PWA y favicons -->
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Icons -->
   <link rel="apple-touch-icon" sizes="72x72" href="pwa/icon-72x72.png">
   <link rel="apple-touch-icon" sizes="96x96" href="pwa/icon-96x96.png">
   <link rel="apple-touch-icon" sizes="128x128" href="pwa/icon-128x128.png">
   <link rel="apple-touch-icon" sizes="256x256" href="pwa/icon-256x256.png">
   <link rel="apple-touch-icon" sizes="512x512" href="pwa/icon-512x512.png">
-  <link rel="manifest" href="manifest.json">
   <link rel="icon" href="imagenes/frontera.png" type="image/png">
   <link rel="shortcut icon" href="image/frontera.png" type="image/x-icon">
-  <link href="https://lafronterisima.online/app-ads.txt" rel="preload">
 
-  <!-- Meta móviles -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Meta móviles (corregido UX) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#20B2AA">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-status-bar" content="#e34c00">
-  <meta name="MobileOptimized" content="width">
-  <meta name="HandheldFriendly" content="true">
 
-  <!-- JS esenciales -->
-  <script src="js/jquery 1.9.0.min.js"></script>
+  <!-- JS (optimizado sin romper) -->
+  <script src="js/jquery-1.9.0.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="https://www.youtube.com/iframe_api" async></script>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest" defer></script>
+
+
+</head>
   
   
   <div class="navbar-fixed"> 
@@ -294,7 +308,7 @@ function onYouTubeIframeAPIReady() {
 	
 	
         <div class="logo">
-          <img src="image/frontera.png">
+          <img src="image/frontera.png" loading="eager">
 		
           <div id="weather">
             <div id="locationName" class="inline"></div>
@@ -344,7 +358,7 @@ function onYouTubeIframeAPIReady() {
 <!-- Imagen para abrir el modal -->
 
 
-<img id="weather-img" src="imagenes/microfonox.png" loading="eager" />
+<img id="weather-img" loading="eager" src="imagenes/microfonox.png" />
 
 			
    </div>
@@ -456,8 +470,11 @@ function onYouTubeIframeAPIReady() {
     <div class="live-messages">
         <i class="material-icons-outlined"></i>
 		
-        <label class="live-icon">
-		<span class="material-icons-outlined"><img loading="lazy" src="imagenes/microfono.png" loading="eager"></span></label>
+      <label class="live-icon">
+    <span>
+        <img src="imagenes/microfono.png" loading="eager" alt="En vivo">
+    </span>
+    </label>
 		
     </div>   
 	  
@@ -2211,18 +2228,19 @@ servicio posible, particularmente para mantener un registro de usuarios,
  
   </main>
 
-  
+
   <script src="js/repro.js"></script> 
   <script src="js/saludo.js"></script>
   <script src="js/cargar_news.js" defer></script>
   <script src="js/jquery.jplayer.min.js"></script>
   <script src="https://kit.fontawesome.com/35db202371.js"></script>
   <script src="js/materialize.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest" defer></script>
   <script src="js/animado.js"></script>
-  <script src="js/share.js"></script>
+  <script src="js/share.js" defer></script>
   <script src="js/temperature.js"></script>
   <script src="js/form_send.js"></script>
-  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <script src="https://w.soundcloud.com/player/api.js" defer></script>
   <script src="regist_serviceWorker.js"></script> 
    
    <script>

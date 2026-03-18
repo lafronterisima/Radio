@@ -4122,7 +4122,7 @@ footer {
 	width:40%;
     display: flex;
     justify-content: center;
-    gap: 5px; /* separación entre iconos */
+    gap: 15px; /* separación entre iconos */
     padding: 15px 0;
 }
 
@@ -4270,12 +4270,14 @@ footer {
 	margin-bottom:5px;
 	text-align:center;
 }
-
+	
 	.main-copy-redes .footer-redes {
-		width: 80%;
-		text-align:center;
-		margin:0 auto;
-	}
+	width: 100%; 
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+}
 
 .main-copy-redes .footer-redes a {
 	display: inline-block;
@@ -4287,7 +4289,6 @@ footer {
 	background: #fff;
 	color:black;
 	text-align: center;
-	margin-bottom:15px;
   }
 }  
 

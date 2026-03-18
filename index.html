@@ -659,7 +659,7 @@ function onYouTubeIframeAPIReady() {
             <div class="caption">
                 <h1 class="typewrite" data-period="2000" data-type='["Somos una plataforma", "con variedad musical", "Sintonizanos, para complacerte"]'></h1>
                 <p></p>
-                <div class="fb-like" data-href="https://www.facebook.com/Emisora La Fronterisima " data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+                <div class="fb-like" data-href="https://www.facebook.com/emisora.lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
             </div>
         </div>
         <!-- Diapositiva 2 -->
@@ -773,29 +773,47 @@ document.addEventListener("DOMContentLoaded", function() {
 	        </div>
 			
 	
-		   <aside class="video-responsive" >
+		   <aside class="video-responsive">
 
-		     <video id="video" width="100%" height="98%" controls>
-               <source src="https://live20.bozztv.com/giatvplayout7/giatv-209411/playlist.m3u8" type="application/x-mpegURL">
-             </video>
+<video id="video" width="100%" height="98%" controls></video>
 
-           <script>
-             if (Hls.isSupported()) {
-              var video = document.getElementById('video');
-              var hls = new Hls();
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-             hls.loadSource('https://stream.gia.tv/giatvplayout7/giatv-209411/playlist.m3u8');
-             hls.attachMedia(video);
+    var video = document.getElementById('video');
+    var videoSrc = "https://stream.gia.tv/giatvplayout7/giatv-209411/playlist.m3u8";
 
-             hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                video.play();
-             });
-             } else {
-             console.log("El navegador no soporta HLS.js. Usa un navegador compatible.");
-            }
-          </script> 
-	   
-	   </aside>
+    // 🔥 Safari (soporte nativo)
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = videoSrc;
+        video.addEventListener('loadedmetadata', function () {
+            video.play();
+        });
+
+    // 🔥 Otros navegadores
+    } else if (Hls.isSupported()) {
+
+        var hls = new Hls();
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            video.play();
+        });
+
+        // ⚠️ Manejo de errores
+        hls.on(Hls.Events.ERROR, function (event, data) {
+            console.error("Error HLS:", data);
+        });
+
+    } else {
+        console.log("Este navegador no soporta HLS");
+    }
+
+});
+</script>
+
+</aside>
 	   
      </section>
 	 
@@ -1541,7 +1559,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                         <div class="news-box" onclick="loadNews('sub/news1.html')" style="cursor: pointer;">
                             <h3>Lenguaje musical</h3>
                             <div class="datetime">
-                                <span class="glyphicon"><span>10/25/2023 8:00 am</span>
+                                <span class="glyphicon"><span>1/5/2026 8:00 am</span>
 							
                             </div>
                             <div class="note">
@@ -1642,7 +1660,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                 <div class="news-box" onclick="loadNews('sub/news1.html')" style="cursor: pointer;">
                     <h3 id="pulsar2">Lenguaje musical</h3>
                     <div class="datetime">
-                        <span class="glyphicon"></span><span>10/25/2023 8:00 am</span>
+                        <span class="glyphicon"></span><span>1/8/2026 8:00 am</span>
                     </div>
                     <div class="note">
                         <p>La música, una de las formas de expresión más antiguas y universales, ha acompañado a la humanidad a lo largo de su historia.</p>
@@ -1657,7 +1675,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                         <div class="top-info">
                             <img loading="lazy" src="images/natural1.jpg" alt="Fallout 76" id="foto1">
                             <h3>Un futuro sostenible</h3>
-                            <h1 class="date">Junio 7, 2024</h1>
+                            <h1 class="date">Enero 7, 2026</h1>
                             <p>La naturaleza es un regalo invaluable que nos brinda vida, belleza y recursos esenciales. Cuidar de ella es una responsabilidad compartida por todos los habitantes de nuestro planeta. En un mundo en constante cambio, la conservación de la naturaleza se ha vuelto más crucial que nunca. En este artículo, exploraremos cómo podemos desempeñar un papel activo en la protección y preservación de nuestro entorno natural.</p>
                         </div>
                     </div>
@@ -1666,7 +1684,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                             <div class="top-info">
                                 <img src="images/mascotas1.jpg" alt="Fallout 76" id="foto1">
                                 <h3>Cuidar las mascotas</h3>
-                                <h1 class="date">Junio 26, 2024</h1>
+                                <h1 class="date">Enero 26, 6</h1>
                                 <p>¡Por fin! Bethesda Game Studios, galardonado creador de The Elder Scrolls V: Skyrim y Fallout 4, presenta Fallout 76. Bethesda nos ofrecerá más detalles durante la presentación en el E3 de este año.</p>
                             </div>
                         </div>
@@ -1674,7 +1692,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                             <div class="top-info">
                                 <img src="images/sociedad1.jpg" alt="Fallout 76" id="foto1">
                                 <h3>Lazos sociales</h3>
-                                <h1 class="date">Agosto 18, 2024</h1>
+                                <h1 class="date">Enero 18, 2026</h1>
                                 <p>Las mascotas son más que simples animales de compañía; se convierten en parte de nuestras vidas, ofreciendo amor incondicional y compañía. Como dueños de mascotas, es nuestra responsabilidad asegurarnos de que reciban el cuidado y el amor que merecen. En este artículo, exploraremos consejos esenciales para el cuidado de mascotas, garantizando su bienestar y felicidad.</p>
                             </div>
                         </div>
@@ -1684,7 +1702,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                             <div class="top-info">
                                 <img src="images/pasatiempo1.jpg" alt="Fallout 76" id="foto1">
                                 <h3>Tiempo libre</h3>
-                                <h1 class="date">Agosto 15, 2024</h1>
+                                <h1 class="date">Febrero 15, 2026</h1>
                                 <p>El tiempo libre brinda la oportunidad de mantenerse activo. Practicar deportes, hacer ejercicio o simplemente dar un paseo al aire libre son formas de mejorar la salud física. La actividad física regular ayuda a mantener un peso saludable, fortalece el sistema cardiovascular y mejora la resistencia. La participación en actividades intelectualmente desafiantes, como resolver rompecabezas, aprender un nuevo idioma o tocar un instrumento musical, estimula el cerebro y puede mejorar las habilidades cognitivas, la creatividad y la agilidad mental.</p>
                             </div>
                         </div>
@@ -1692,7 +1710,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                             <div class="top-info">
                                 <img src="images/deporte1.jpg" alt="Fallout 76" id="foto1">
                                 <h3>Importancia del deporte</h3>
-                                <h1 class="date">Septiembre 27, 2024</h1>
+                                <h1 class="date">Marzo 7, 2026</h1>
                                 <p>El deporte es mucho más que competiciones y entretenimiento. Es una fuerza poderosa que puede tener un impacto significativo en la sociedad. A través de la historia, el deporte ha demostrado ser una herramienta que puede inspirar, unir comunidades, promover la igualdad y enseñar valiosas lecciones de vida. En este artículo, exploraremos el impacto del deporte en la sociedad y cómo va más allá de los campos de juego.</p>
                             </div>
                         </div>
@@ -2236,7 +2254,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
   <script src="js/jquery.jplayer.min.js"></script>
   <script src="https://kit.fontawesome.com/35db202371.js"></script>
   <script src="js/materialize.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script src="js/animado.js"></script>
   <script src="js/share.js" defer></script>
   <script src="js/temperature.js"></script>

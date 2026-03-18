@@ -1,61 +1,90 @@
+document.addEventListener("DOMContentLoaded", function() {
 
-$(document).ready(function() {
-    $('.sidenav').sidenav();
+    let sidenavInstance = null;
 
-    var bloque = $('.elemento'),
-        enlaces = $('.menu, .sidenav').find('a');
+    // Inicializar sidenav (Materialize)
+    if (typeof M !== "undefined") {
+        const elems = document.querySelectorAll('.sidenav');
+        M.Sidenav.init(elems);
 
-    enlaces.click(function(e){
-        e.preventDefault();
-        var hash = $(this).attr('href');
-        bloque.filter(hash).addClass('visible').siblings().removeClass('visible');
-        enlaces.removeClass('activo');
-        $(this).addClass('activo');
-    });
-
-    $(".submenu").click(function(){
-        $(".submenu .dropdown").slideToggle();
-        $("ul ul").css("display", "none");
-    });
-
-    $('ul li').click(function () {
-        $(this).siblings().find('ul').slideUp();
-        $(this).find('ul').slideToggle();
-    });
-
-    $("a").click(function(){
-        $('html,body').scrollTop(0);
-    });
-
-    function cerrarSidenav() {
-        $(".sidenav").hide();
+        // Obtener instancia (solo uno)
+        sidenavInstance = M.Sidenav.getInstance(document.querySelector('.sidenav'));
     }
 
-    $('ul li').on('click', function() {
-        $("#nav-mobile").show(); 
-        $('.sidenav-overlay').click(); 
+    const bloques = document.querySelectorAll('.elemento');
+    const enlaces = document.querySelectorAll('.menu a, .sidenav a');
+
+    enlaces.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+
+            if (hash && hash.startsWith("#")) {
+                e.preventDefault();
+
+                // Mostrar sección
+                bloques.forEach(b => b.classList.remove('visible'));
+                document.querySelector(hash)?.classList.add('visible');
+
+                // Activar link
+                enlaces.forEach(l => l.classList.remove('activo'));
+                this.classList.add('activo');
+
+                // Scroll arriba
+                window.scrollTo(0, 0);
+
+                // 🔥 CERRAR SIDENAV
+                if (sidenavInstance) {
+                    sidenavInstance.close();
+                }
+            }
+        });
     });
 
-    $(".sidenav-trigger").click(function () {
-        $("#nav-mobile").show();
-        $('.sidenav-overlay').click();
+    // Submenu
+    document.querySelectorAll('.submenu').forEach(menu => {
+        menu.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const dropdown = this.querySelector('.dropdown');
+            if (dropdown) {
+                dropdown.style.display =
+                    dropdown.style.display === "block" ? "none" : "block";
+            }
+        });
     });
 
-    var initialX = null;
-    $(document).on('touchstart', function(e) {
+    // Menú desplegable limpio (sin conflicto)
+    document.querySelectorAll('ul li').forEach(li => {
+        li.addEventListener('click', function(e) {
+            e.stopPropagation();
+
+            this.querySelectorAll(':scope > ul').forEach(sub => {
+                sub.style.display =
+                    sub.style.display === "block" ? "none" : "block";
+            });
+
+            this.parentElement.querySelectorAll('ul ul').forEach(sub => {
+                if (!this.contains(sub)) sub.style.display = "none";
+            });
+        });
+    });
+
+    // Touch swipe (abrir menú)
+    let initialX = null;
+
+    document.addEventListener('touchstart', function(e) {
         initialX = e.touches[0].clientX;
     });
 
-    $(document).on('touchmove', function(e) {
-        if (initialX === null) {
-            return;
-        }
+    document.addEventListener('touchmove', function(e) {
+        if (initialX === null) return;
 
-        var currentX = e.touches[0].clientX;
-        var diffX = initialX - currentX;
-        if (diffX > 50) { 
-            $("#nav-mobile").show();
+        let currentX = e.touches[0].clientX;
+        let diffX = initialX - currentX;
+
+        if (diffX > 50) {
+            document.getElementById("nav-mobile").style.display = "block";
             initialX = null;
         }
     });
+
 });

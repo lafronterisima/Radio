@@ -42,6 +42,9 @@
   <link rel="stylesheet" href="css/fonts-icon.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="owl/assets/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet">
 
@@ -63,13 +66,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <!-- JS (optimizado sin romper) -->
+  <script src="js/jquery-1.9.0.min.js"></script>
+  <script src="js/menu.js"></script>
 
   <script src="https://www.youtube.com/iframe_api" async></script>
 
 
-</head>
-  
   
   <div class="navbar-fixed"> 
   
@@ -466,14 +468,11 @@ function onYouTubeIframeAPIReady() {
  </script> 
 
 	  
-    <div class="live-messages">
+  <div class="live-messages">
         <i class="material-icons-outlined"></i>
 		
-      <label class="live-icon">
-    <span>
-        <img src="imagenes/microfono.png" loading="eager" alt="En vivo">
-    </span>
-    </label>
+        <label class="live-icon">
+		<span class="material-icons-outlined"><img loading="lazy" src="imagenes/microfono.png" loading="eager"></span></label>
 		
     </div>   
 	  
@@ -2246,8 +2245,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
   </main>
 
  
-  <script src="js/jquery-1.9.0.min.js"></script>
-  <script src="js/menu.js"></script>
+
   <script src="js/repro.js"></script> 
   <script src="js/saludo.js"></script>
   <script src="js/cargar_news.js" defer></script>

@@ -1,59 +1,49 @@
-
 const newsFiles = ["sub/carga1.html", "sub/carga2.html"];
 let currentNewsIndex = 0;
+let expanded = false; // 👈 controla estado
 
 function cargarNoticias() {
-    document.getElementById("gif").style.display = "block";
+    const contenedor = document.getElementById("contenedor5");
+    const boton = document.getElementById("boton");
+    const gif = document.getElementById("gif");
 
+    gif.style.display = "block";
+
+    // 👉 SI YA ESTÁ TODO CARGADO → VOLVER ATRÁS
+    if (expanded) {
+        contenedor.innerHTML = "";
+        currentNewsIndex = 0;
+        expanded = false;
+
+        boton.innerHTML = "Cargar más";
+        boton.disabled = false;
+
+        gif.style.display = "none";
+        return;
+    }
+
+    // 👉 CARGAR NOTICIAS
     if (currentNewsIndex < newsFiles.length) {
-        var xhr = new XMLHttpRequest();
-
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                document.getElementById("contenedor5").innerHTML += xhr.responseText; 
+        fetch(newsFiles[currentNewsIndex])
+            .then(res => res.text())
+            .then(data => {
+                contenedor.innerHTML += data;
                 currentNewsIndex++;
 
+                // 🔥 Llegó al final
                 if (currentNewsIndex >= newsFiles.length) {
-                    document.getElementById("boton").innerHTML = "No hay más";
-                    document.getElementById("boton").disabled = true; 
+                    boton.innerHTML = "Ver menos";
+                    expanded = true;
                 }
-            } else {
-                document.getElementById("contenedor5").innerHTML += "<p>Error al cargar.</p>";
-            }
 
-            document.getElementById("gif").style.display = "none";
-        };
-
-        xhr.open("GET", newsFiles[currentNewsIndex], true);
-        xhr.send();
-    } else {
-     
-        currentNewsIndex = 0; 
-        document.getElementById("contenedor5").innerHTML = ""; 
-        document.getElementById("boton").innerHTML = "Cargar más"; 
-        document.getElementById("boton").disabled = false;
-        cargarNoticias(); 
+                gif.style.display = "none";
+            })
+           .catch(() => {
+    if (!errorMostrado) {
+        document.getElementById("contenedor5").innerHTML += "<p>Error al cargar.</p>";
+        errorMostrado = true;
+    }
+    gif.style.display = "none";
+});
     }
 }
-
-
- function loadNews(url) {
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok: ' + response.statusText);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('contex').innerHTML = data + `
-                        <button onclick="goBack()" class="back-button">Volver</button>
-                    `;
-                    // Desplazar hacia arriba después de cargar la noticia
-                    window.scrollTo(0, 0);
-                })
-                .catch(error => {
-                    console.error('Error fetching the news:', error);
-                    document.getElementById('contex').innerHTML = `<p>Error al cargar la noticia.</p>`;
-                });
-        }

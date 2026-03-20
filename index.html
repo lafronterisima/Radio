@@ -41,12 +41,13 @@
   <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" href="css/fonts-icon.css">
   <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="owl/assets/owl.carousel.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet">
+  <script src="js/jquery-1.9.0.min.js"></script>
+  <script src="js/menu.js"></script>
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
@@ -65,10 +66,7 @@
   <meta name="theme-color" content="#20B2AA">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <script src="js/jquery-1.9.0.min.js"></script>
-  <script src="js/menu.js"></script>
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <script src="https://www.youtube.com/iframe_api" async></script>
 
 
@@ -477,99 +475,113 @@ function onYouTubeIframeAPIReady() {
     </div>   
 	  
 
-  <div class="modal_wrapers" data-action="modals_close">
-     <div class="trasmisor">
-      
-	   
-	 <div class="radio" data-action="modal_aut">
-    <p>Emisoras</p>
-    <a href="https://wa.me/573170340249?text=Hola%20me%20interesa%20tu%20servicio!" 
-       class="whatsapp-button" 
-       target="_blank">
-         <img loading="lazy" src="imagenes/whatsapp.png">
-    </a>
-</div>
+ <div class="modal_wrapers" id="modal">
+  <div class="trasmisor">
 
-      <div class="carousel-wrapper">
-    <div class="owl-carousel owl-theme">
-        <!--  <div class="item">
-            <img src="emisora/cristiana.png" alt="Radio Celestial Logo" />
-            <div class="content">
-                <div class="title">Radio Celestial</div>
-                <div class="sub-title">Pereira</div>
-                <p>Una radio de esperanza a través de reflexiones y melodías. Síntoniza el devocional a las 6:50 de la mañana.</p>
-                 <audio controls id="audio-player" class="btns">
-                    <source src="https://stream2.305stream.com/proxy/client059?mp=/stream" type="audio/mpeg"/>
-                </audio>
-            </div>
-        </div>  -->
-
-        <div class="item">
-            <img loading="lazy" src="emisora/mensajeros.png" loading="eager">
-            <div class="content">
-                <div class="title">Mensajeros de Gloria</div>
-                <div class="sub-title">Cristiana</div>
-                <p>Usar los medios digitales y radiales para difundir el evangelio; edificar y consolar a los creyentes hispanos.</p>
-                 <audio controls id="audio-player-2" class="btns">
-                    <source src="https://stream.zeno.fm/6q6gx5fcn48uv">
-                </audio>
-            </div>
-        </div>
-
-       <!-- <div class="item">
-            <img src="emisora/buenavista.png" alt="Buenavista Stereo Logo" />
-            <div class="content">
-                <div class="title">Buenavista Stereo</div>
-                <div class="sub-title">Córdoba</div>
-                <p>Estación radial con programas variados y musicales. Responsabilidad para construir una radio al servicio de la comunidad.</p>
-                 <audio controls id="audio-player-3" class="btns">
-                    <source src="https://stream.zeno.fm/rxajjjkmmvtuv">
-                </audio>
-            </div>
-        </div> -->
-
-        <div class="item">
-            <img loading="lazy" src="emisora/scom.png" alt="Radio Scom Logo" loading="eager" />
-            <div class="content">
-                <div class="title">Radio Scom</div>
-                <div class="sub-title">Cali</div>
-                <p>Transmisión las 24 horas, que permiten estar a la vanguardia de las nuevas tendencias tecnológicas en comunicación.</p>
-                 <audio controls id="audio-player-4" class="btns">
-                    <source src="https://emisorasdigitales2.com:7002/stream">
-                </audio>
-            </div>
-        </div>
-
-          <!-- <div class="item">
-            <img src="emisora/empresa.png" alt="Musica Sin Fronteras Logo" />
-            <div class="content">
-                <div class="title">Musica Sin Fronteras</div>
-                <div class="sub-title">Bogotá</div>
-                <p>Difundir artistas de todas las latitudes. Por lo tanto, transmite y produce una programación variada y sin límites.</p>
-                <audio controls id="audio-player" class="btns">
-                    <source src="https://stream.zeno.fm/672xk039ptzuv" type="audio/mpeg"/>
-                </audio>
-            </div>
-        </div -->
-
-        <div class="item">
-            <img loading="lazy" src="emisora/palacio.png" alt="Palacio Vallenato Logo" loading="eager"/>
-            <div class="content">
-                <div class="title">Palacio Vallenato</div>
-                <div class="sub-title">Riohacha</div>
-                <p>Una propuesta musical vallenata desde el año 2012, para la difusión de nuestro folclor en su máxima expresión.</p>
-                <audio controls id="audio-player-5" class="btns">
-                    <source src="https://stream.zeno.fm/v5ecixm4fvduv">
-                </audio>
-				
-            </div>
-        </div>
+    <div class="radio">
+      <p>Emisoras</p>
+      <a href="https://wa.me/573170340249?text=Hola%20me%20interesa%20tu%20servicio!" 
+         class="whatsapp-button" target="_blank">
+        <img loading="lazy" src="imagenes/whatsapp.png">
+      </a>
     </div>
-</div>
-	
+
+    <div class="carousel-wrapper">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+
+          <!-- ITEM -->
+          <div class="swiper-slide">
+            <img src="emisora/mensajeros.png">
+            <div class="content">
+              <div class="title">Mensajeros de Gloria</div>
+              <div class="sub-title">Cristiana</div>
+               <p>Usar los medios digitales y radiales para difundir el evangelio; edificar y consolar a los creyentes hispanos.</p>
+          
+              <audio controls class="btns">
+                <source src="https://stream.zeno.fm/6q6gx5fcn48uv">
+              </audio>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <img src="emisora/scom.png">
+            <div class="content">
+              <div class="title">Radio Scom</div>
+              <div class="sub-title">Cali</div>
+               <p>Transmisión las 24 horas, que permiten estar a la vanguardia de las nuevas tendencias tecnológicas en comunicación.</p>
+              
+              <audio controls class="btns">
+                <source src="https://emisorasdigitales2.com:7002/stream">
+              </audio>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <img src="emisora/palacio.png">
+            <div class="content">
+              <div class="title">Palacio Vallenato</div>
+              <div class="sub-title">Riohacha</div>
+               <p>Una propuesta musical vallenata desde el año 2012, para la difusión de nuestro folclor en su máxima expresión.</p>
+              <audio controls class="btns">
+                <source src="https://stream.zeno.fm/v5ecixm4fvduv">
+              </audio>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
-	  
+
+<script>
+
+
+
+ document.addEventListener("DOMContentLoaded", function () {
+
+  // 🎯 Carrusel (reemplazo de Owl)
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    spaceBetween: 15,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 1
+  });
+
+  // Mostrar transmisor
+  document.querySelectorAll('.live-icon').forEach(icon => {
+    icon.addEventListener('click', () => {
+      document.querySelector('.trasmisor').style.display = 'block';
+    });
+  });
+
+  // Ocultar al seleccionar radio
+  document.querySelectorAll('.radio').forEach(radio => {
+    radio.addEventListener('click', () => {
+      document.querySelector('.trasmisor').style.display = 'none';
+    });
+  });
+
+  // Cerrar al hacer clic fuera
+  document.addEventListener('click', function(event) {
+    const modal = document.querySelector('.trasmisor');
+    if (!modal) return;
+
+    const isInside = modal.contains(event.target);
+    const isLive = event.target.closest('.live-icon');
+
+    if (!isInside && !isLive) {
+      modal.style.display = 'none';
+    }
+  });
+
+});
+</script>	  
       
       <div class="control-container">
        
@@ -599,47 +611,7 @@ function onYouTubeIframeAPIReady() {
     
     </div>
 	
-	<script src="owl/owl.carousel.min.js"></script>
-
-<script>
-  $(document).ready(function() {
-    $('.owl-carousel').owlCarousel({
-      margin: 15,
-      loop: true,
-      autoplay: true,
-      nav: false,
-      responsive: {
-        0: {
-          items: 1
-        }
-      }
-    });
-
-  
-    document.querySelectorAll('.live-icon').forEach(function(icon) {
-      icon.addEventListener('click', function() {
-        document.querySelector('.trasmisor').style.display = 'block';
-      });
-    });
-
-    document.querySelectorAll('.radio').forEach(function(radio) {
-      radio.addEventListener('click', function() {
-        document.querySelector('.trasmisor').style.display = 'none';
-      });
-    });
-
-    document.addEventListener('click', function(event) {
-      var modal = document.querySelector('.trasmisor');
-      var isClickInsideModal = modal.contains(event.target);
-      var isClickOnLiveIcon = event.target.closest('.live-icon');
-      
-      if (!isClickInsideModal && !isClickOnLiveIcon) {
-        modal.style.display = 'none';
-      }
-    });
-  });
-  
-</script>
+	
    
   
     </section>  
@@ -1576,7 +1548,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                                 <div class="top-info">
                                     <img loading="lazy" src="images/natural1.jpg" alt="Fallout 76" id="foto1">
                                     <h3>Un futuro sostenible</h3>
-                                    <h1 class="date">Junio 7, 2024</h1>
+                                    <h1 class="date">Enero 7, 2026</h1>
                                     <p>La naturaleza es un regalo invaluable que nos brinda vida, belleza y recursos esenciales. Cuidar de ella es una responsabilidad compartida por todos los habitantes de nuestro planeta. En un mundo en constante cambio, la conservación de la naturaleza se ha vuelto más crucial que nunca. En este artículo, exploraremos cómo podemos desempeñar un papel activo en la protección y preservación de nuestro entorno natural.</p>
                                 </div>
                             </div>
@@ -1586,7 +1558,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                                     <div class="top-info">
                                         <img src="images/mascotas1.jpg" alt="Fallout 76" id="foto1">
                                         <h3>Cuidar las mascotas</h3>
-                                        <h1 class="date">Junio 26, 2024</h1>
+                                        <h1 class="date">Enero 26, 2026</h1>
                                         <p>¡Por fin! Bethesda Game Studios, galardonado creador de The Elder Scrolls V: Skyrim y Fallout 4, presenta Fallout 76. Bethesda nos ofrecerá más detalles durante la presentación en el E3 de este año.</p>
                                     </div>
                                 </div>
@@ -1595,7 +1567,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                                     <div class="top-info">
                                         <img src="images/sociedad1.jpg" alt="Fallout 76" id="foto1">
                                         <h3>Vínculos sociales</h3>
-                                        <h1 class="date">Agosto 18, 2024</h1>
+                                        <h1 class="date">Febrero 18, 2026</h1>
                                         <p>Las mascotas son más que simples animales de compañía; se convierten en parte de nuestras vidas, ofreciendo amor incondicional y compañía. Como dueños de mascotas, es nuestra responsabilidad asegurarnos de que reciban el cuidado y el amor que merecen. En este artículo, exploraremos consejos esenciales para el cuidado de mascotas, garantizando su bienestar y felicidad.</p>
                                     </div>
                                 </div>
@@ -1606,7 +1578,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                                     <div class="top-info">
                                         <img src="images/pasatiempo1.jpg" alt="Fallout 76" id="foto1">
                                         <h3>Actividades aire libre</h3>
-                                        <h1 class="date">Agosto 15, 2024</h1>
+                                        <h1 class="date">Marzo 15, 2026</h1>
                                         <p>El tiempo libre brinda la oportunidad de mantenerse activo. Practicar deportes, hacer ejercicio o simplemente dar un paseo al aire libre son formas de mejorar la salud física. La actividad física regular ayuda a mantener un peso saludable, fortalece el sistema cardiovascular y mejora la resistencia. La participación en actividades intelectualmente desafiantes, como resolver rompecabezas, aprender un nuevo idioma o tocar un instrumento musical, estimula el cerebro y puede mejorar las habilidades cognitivas, la creatividad y la agilidad mental.</p>
                                     </div>
                                 </div>
@@ -1615,7 +1587,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
                                     <div class="top-info">
                                         <img src="images/deporte1.jpg" alt="Fallout 76" id="foto1">
                                         <h3>Importancia del deporte</h3>
-                                        <h1 class="date">Septiembre 27, 2024</h1>
+                                        <h1 class="date">Marzo 17, 2026</h1>
                                         <p>El deporte es mucho más que competiciones y entretenimiento. Es una fuerza poderosa que puede tener un impacto significativo en la sociedad. A través de la historia, el deporte ha demostrado ser una herramienta que puede inspirar, unir comunidades, promover la igualdad y enseñar valiosas lecciones de vida. En este artículo, exploraremos el impacto del deporte en la sociedad y cómo va más allá de los campos de juego.</p>
                                     </div>
                                 </div>
@@ -2245,7 +2217,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
   </main>
 
  
-
+ 
   <script src="js/repro.js"></script> 
   <script src="js/saludo.js"></script>
   <script src="js/cargar_news.js" defer></script>
@@ -2253,6 +2225,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
   <script src="https://kit.fontawesome.com/35db202371.js"></script>
   <script src="js/materialize.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/animado.js"></script>
   <script src="js/share.js" defer></script>
   <script src="js/temperature.js"></script>
@@ -2270,9 +2243,6 @@ servicio posible, particularmente para mantener un registro de usuarios,
      });
     </script>
 	
-	
-
-
   </body>
   
 </html>

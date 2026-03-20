@@ -37,6 +37,12 @@ main {
     background:#0c3f43;  
  } 
  
+ .submenu {
+  display: flex;
+  align-items: center;
+  gap:4px;
+}
+
  .logo {
     display: inline-block; 
     margin-top:8px;
@@ -553,17 +559,8 @@ color:;
   font-family: sans-serif;
 }
 
-.trasmisor .owl-carousel .owl-nav {
-  overflow: hidden;
-  height: 0;
-}
 
-.trasmisor .owl-theme .owl-dots .owl-dot.active span,
-.trasmisor .owl-theme .owl-dots .owl-dot:hover span {
-  background: #5110e9;
-}
-
-.trasmisor .owl-carousel .item {
+.trasmisor .swiper-slide .content{
   width: 100%;
   position: relative;
   text-align: center;
@@ -572,14 +569,14 @@ color:;
   align-items: center;
 }
 
-.trasmisor .owl-carousel .item img {
+.trasmisor .swiper-slide img {
   width: 90px;
   height: 90px;
   padding-top: 30px;
   margin: 0 auto;
 }
 
-.trasmisor .owl-carousel .content {
+.trasmisor .swiper-slide .content {
   padding: 15px;
   color: white;
   width: 100%;
@@ -591,7 +588,7 @@ color:;
   height:230px;
 }
 
-.trasmisor .owl-carousel .content .title {
+.trasmisor .swiper-slide .content .title {
   width: 100%;
   font-size: 18px;
   display: flex;
@@ -601,7 +598,7 @@ color:;
   color: orange;
 }
 
-.trasmisor .owl-carousel .content .sub-title {
+.trasmisor .swiper-slide .content .sub-title {
   font-size: 14px;
   color: orange;
   line-height: 20px;
@@ -610,7 +607,7 @@ color:;
   flex-wrap: wrap;
 }
 
-.trasmisor .owl-carousel .content p {
+.trasmisor .swiper-slide .content p {
   width: 97%;
   text-align: justify;
   padding-top: 10px;
@@ -621,19 +618,9 @@ color:;
   flex-grow: 1;
 }
 
-.trasmisor .owl-carousel .nav-button {
-  display: none;
-}
-
-.trasmisor .owl-carousel .owl-prev.disabled,
-.trasmisor .owl-carousel .owl-next.disabled {
-  pointer-events: none;
-  opacity: 0.25;
-}
-
-.trasmisor .item .btns {
+.trasmisor .content .btns {
     display: inline-block;
-    width: 150px; 
+    width: 100px; 
     height: 45px; 
     padding: 0; 
     margin-bottom: 10px;
@@ -642,6 +629,15 @@ color:;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
+ 
+ @media (min-width:320px)and (max-width:570px){
+ .trasmisor, .carousel-wrapper{
+	width:100%;
+	height:340px;
+	position: fixed;
+     }
+ }
+ 
  
 .contain_radio .live-messages,.fa-circle{
   text-shadow:2px 2px 1px rgb(248, 24, 110);
@@ -662,11 +658,6 @@ color:;
   }
 }
 
-.submenu {
-  display: flex;
-  align-items: center;
-  gap:4px;
-}
 
 .contain_radio .control-container{
   width: max-content;
@@ -709,8 +700,6 @@ color:;
   cursor: pointer;
 }
 
-
-
 /* Estado PLAY */
 #playPauseBtn.play .pause-icon {
   display: none;
@@ -720,15 +709,6 @@ color:;
 #playPauseBtn.pause .play-icon {
   display: none;
 }
-
-@media (min-width:320px)and (max-width:570px){
- .trasmisor, .carousel-wrapper{
-	width:100%;
-	height:340px;
-	position: fixed;
-     }
- }
-	
     
 .share_btn {
   width:50px;

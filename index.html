@@ -66,7 +66,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <script src="https://www.youtube.com/iframe_api" async></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
 
 
   
@@ -743,7 +743,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	        </div>
 			
 	
-		  <aside class="video-responsive">
+<aside class="video-responsive">
 
   <div id="video_yt"></div>
 
@@ -752,117 +752,82 @@ const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9L
 
 let lista = [];
 let index = 0;
-let hls = null;
-let ytPlayer = null;
+let player;
 
-// 🔥 YouTube listo
+// 🔥 cuando YouTube esté listo
 function onYouTubeIframeAPIReady() {
   cargarVideos();
 }
 
-// 🔥 Cargar JSON
+// 🔥 cargar JSON
 async function cargarVideos() {
+  const container = document.getElementById("video_yt");
+
   try {
-    const res = await fetch(API_URL);
+    const res = await fetch(API_URL + "?t=" + Date.now());
     lista = await res.json();
 
-    console.log("Lista:", lista);
+    console.log("DATA:", lista);
 
     if (!lista || lista.length === 0) {
-      document.getElementById("video_yt").innerHTML = "❌ No hay videos";
+      container.innerHTML = "❌ No hay videos";
       return;
     }
 
-    reproducir(lista[index].video_id);
+    let id = limpiarID(lista[index].video_id);
+
+    crearPlayer(id);
 
   } catch (error) {
-    console.error("Error:", error);
-    document.getElementById("video_yt").innerHTML = "❌ Error cargando videos";
+    console.error(error);
+    container.innerHTML = "❌ Error cargando videos";
   }
 }
 
-// 🔁 siguiente
-function siguienteVideo() {
-  index++;
-  if (index >= lista.length) index = 0;
-  reproducir(lista[index].video_id);
-}
-
-// 🎬 reproducir
-function reproducir(url) {
-  const container = document.getElementById("video_yt");
-  container.innerHTML = "";
-
-  // limpiar HLS
-  if (hls) {
-    hls.destroy();
-    hls = null;
-  }
-
-  // 🎬 YOUTUBE
-  if (!url.includes(".m3u8")) {
-
-    const div = document.createElement("div");
-    div.id = "ytplayer";
-    container.appendChild(div);
-
-    ytPlayer = new YT.Player("ytplayer", {
-      height: "400",
-      width: "100%",
-      videoId: url,
-      playerVars: {
-        autoplay: 1,
-        mute: 1,
-        controls: 1
-      },
-      events: {
-        onReady: function(event) {
-          event.target.playVideo();
-
-          setTimeout(() => {
-            event.target.unMute();
-          }, 2000);
-        },
-        onStateChange: function(event) {
-          if (event.data === YT.PlayerState.ENDED) {
-            siguienteVideo();
-          }
-        },
-        onError: function() {
-          console.log("Error YouTube → siguiente");
+// 🎬 crear reproductor
+function crearPlayer(id) {
+  player = new YT.Player("video_yt", {
+    height: "100%",
+    width: "100%",
+    videoId: id,
+    playerVars: {
+      autoplay: 1,
+      mute: 1
+    },
+    events: {
+      onReady: (e) => e.target.playVideo(),
+      onStateChange: function(event) {
+        if (event.data === YT.PlayerState.ENDED) {
           siguienteVideo();
         }
+      },
+      onError: function() {
+        console.log("Error → siguiente");
+        siguienteVideo();
       }
-    });
-  }
-
-  // 🔴 HLS
-  else {
-    const video = document.createElement("video");
-    video.controls = true;
-    video.autoplay = true;
-    video.muted = true;
-
-    container.appendChild(video);
-
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = url;
-    } else if (Hls.isSupported()) {
-      hls = new Hls();
-      hls.loadSource(url);
-      hls.attachMedia(video);
-    } else {
-      container.innerHTML = "❌ HLS no soportado";
-      return;
     }
+  });
+}
 
-    video.onended = siguienteVideo;
+// 🔁 siguiente video
+function siguienteVideo() {
+  index = (index + 1) % lista.length;
 
-    video.onerror = () => {
-      console.log("Error HLS → siguiente");
-      siguienteVideo();
-    };
+  let id = limpiarID(lista[index].video_id);
+
+  player.loadVideoById(id);
+}
+
+// 🔥 limpiar ID (por si viene como URL)
+function limpiarID(id) {
+  if (!id) return "DvxaoPqfvs8"; // fallback
+
+  if (id.includes("youtube")) {
+    const match = id.match(/v=([^&]+)/);
+    if (match) return match[1];
   }
+
+  return id;
 }
 </script>
 

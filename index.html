@@ -43,7 +43,6 @@
   <link rel="stylesheet" href="css/animate.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet">
   <script src="js/jquery-1.9.0.min.js"></script>
@@ -357,7 +356,7 @@ function onYouTubeIframeAPIReady() {
 <!-- Imagen para abrir el modal -->
 
 
-<img id="weather-img" loading="eager" src="imagenes/microfonox.png" />
+<img id="weather-img" src="imagenes/microfonox.png" loading="lazy">
 
 			
    </div>
@@ -746,43 +745,69 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 		   <aside class="video-responsive">
 
-<video id="video" width="100%" height="98%" controls></video>
+  <div id="video_yt"></div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+  <script>
+  const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
 
-    var video = document.getElementById('video');
-    var videoSrc = "https://stream.gia.tv/giatvplayout7/giatv-209411/playlist.m3u8";
+  let hls;
 
-    // 🔥 Safari (soporte nativo)
-    if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = videoSrc;
-        video.addEventListener('loadedmetadata', function () {
-            video.play();
-        });
+  async function cargarVideos() {
+    try {
+      const res = await fetch(API_URL);
+      const data = await res.json();
 
-    // 🔥 Otros navegadores
-    } else if (Hls.isSupported()) {
+      console.log("DATA:", data);
 
-        var hls = new Hls();
-        hls.loadSource(videoSrc);
-        hls.attachMedia(video);
+      if (data.length > 0) {
+        reproducir(data[0].video_id);
+      }
 
-        hls.on(Hls.Events.MANIFEST_PARSED, function () {
-            video.play();
-        });
+    } catch (e) {
+      console.error("Error:", e);
+    }
+  }
 
-        // ⚠️ Manejo de errores
-        hls.on(Hls.Events.ERROR, function (event, data) {
-            console.error("Error HLS:", data);
-        });
+  function reproducir(url) {
+    const container = document.getElementById("video_yt");
+    container.innerHTML = "";
 
-    } else {
-        console.log("Este navegador no soporta HLS");
+    if (hls) hls.destroy();
+
+    // 🎬 YOUTUBE
+    if (!url.includes(".m3u8")) {
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube.com/embed/${url}`;
+      iframe.style.width = "100%";
+      iframe.style.height = "400px";
+      iframe.allowFullscreen = true;
+
+      container.appendChild(iframe);
     }
 
-});
-</script>
+    // 🔴 HLS (.m3u8)
+    else {
+      const video = document.createElement("video");
+      video.controls = true;
+      video.autoplay = true;
+      video.style.width = "100%";
+
+      container.appendChild(video);
+
+      if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = url;
+      } else if (Hls.isSupported()) {
+        hls = new Hls();
+        hls.loadSource(url);
+        hls.attachMedia(video);
+      } else {
+        alert("Tu navegador no soporta HLS");
+      }
+    }
+  }
+
+  cargarVideos();
+  </script>
 
 </aside>
 	   

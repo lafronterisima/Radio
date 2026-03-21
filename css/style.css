@@ -1468,22 +1468,37 @@ aside {
 /* contenedor general */
 .video-responsive {
   width: 100%;
-  max-width: 900px;
+  height: 95%;
   margin: auto;
 }
 
+/* caja del video */
 #video_yt {
+  position: relative;
   width: 100%;
-   width: 95%;
-  background: black;
-  overflow:hidden;
+  height:98%;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* VIDEO / IFRAME */
-#video_yt, iframe {
- height: 100%;
- width: 95%;
- border:none;
+/* proporción 16:9 */
+#video_yt::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+
+/* video centrado */
+#video_yt iframe,
+#video_yt video {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;   /* puedes usar 100% si quieres sin márgenes */
+  height: 100%;
+  border: 0;
 }
    
    .publicidades{

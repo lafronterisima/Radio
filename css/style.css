@@ -1320,15 +1320,17 @@ color:;
   width: 100%;
   background: black;
   border-radius: 10px;
-  overflow: hidden;
+  overflow:hidden;
 }
 
 /* VIDEO / IFRAME */
-video, iframe {
+#video_yt, iframe {
  height: 100%;
 		width: 98%;
 		border:none;
 }
+
+
 
   .video-slider {
 		width: 100%;

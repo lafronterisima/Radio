@@ -748,66 +748,84 @@ document.addEventListener("DOMContentLoaded", function() {
   <div id="video_yt"></div>
 
   <script>
-  const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
+const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
 
-  let hls;
+let hls;
+let lista = [];
+let index = 0;
 
-  async function cargarVideos() {
-    try {
-      const res = await fetch(API_URL);
-      const data = await res.json();
+async function cargarVideos() {
+  try {
+    const res = await fetch(API_URL);
+    lista = await res.json();
 
-      console.log("DATA:", data);
+    console.log("LISTA:", lista);
 
-      if (data.length > 0) {
-        reproducir(data[0].video_id);
-      }
-
-    } catch (e) {
-      console.error("Error:", e);
+    if (lista.length > 0) {
+      reproducir(lista[index].video_id);
     }
+
+  } catch (e) {
+    console.error("Error:", e);
+  }
+}
+
+function siguienteVideo() {
+  index++;
+
+  if (index >= lista.length) {
+    index = 0; // 🔁 vuelve al inicio
   }
 
-  function reproducir(url) {
-    const container = document.getElementById("video_yt");
-    container.innerHTML = "";
+  reproducir(lista[index].video_id);
+}
 
-    if (hls) hls.destroy();
+function reproducir(url) {
+  const container = document.getElementById("video_yt");
+  container.innerHTML = "";
 
-    // 🎬 YOUTUBE
-    if (!url.includes(".m3u8")) {
-      const iframe = document.createElement("iframe");
-      iframe.src = `https://www.youtube.com/embed/${url}`;
-      iframe.style.width = "100%";
-      iframe.style.height = "400px";
-      iframe.allowFullscreen = true;
+  if (hls) hls.destroy();
 
-      container.appendChild(iframe);
-    }
+  // 🎬 YOUTUBE
+  if (!url.includes(".m3u8")) {
+    const iframe = document.createElement("iframe");
 
-    // 🔴 HLS (.m3u8)
-    else {
-      const video = document.createElement("video");
-      video.controls = true;
-      video.autoplay = true;
-      video.style.width = "100%";
+    // autoplay + loop hack
+    iframe.src = `https://www.youtube.com/embed/${url}?autoplay=1&mute=1&enablejsapi=1`;
+    iframe.allow = "autoplay";
+    iframe.style.width = "100%";
+    iframe.style.height = "400px";
 
-      container.appendChild(video);
+    container.appendChild(iframe);
 
-      if (video.canPlayType("application/vnd.apple.mpegurl")) {
-        video.src = url;
-      } else if (Hls.isSupported()) {
-        hls = new Hls();
-        hls.loadSource(url);
-        hls.attachMedia(video);
-      } else {
-        alert("Tu navegador no soporta HLS");
-      }
-    }
+    // ⏱ cambiar después de X segundos (ej: 30s)
+    setTimeout(siguienteVideo, 30000);
   }
 
-  cargarVideos();
-  </script>
+  // 🔴 HLS
+  else {
+    const video = document.createElement("video");
+    video.controls = true;
+    video.autoplay = true;
+    video.muted = true;
+    video.style.width = "100%";
+
+    container.appendChild(video);
+
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = url;
+    } else if (Hls.isSupported()) {
+      hls = new Hls();
+      hls.loadSource(url);
+      hls.attachMedia(video);
+    }
+
+    // ✅ cuando termina → siguiente
+    video.onended = siguienteVideo;
+  }
+}
+
+cargarVideos();
 
 </aside>
 	   

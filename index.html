@@ -747,59 +747,61 @@ document.addEventListener("DOMContentLoaded", function() {
 
   <div id="video_yt"></div>
 
-  <script>
+ <script>
 const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
 
-let hls;
 let lista = [];
 let index = 0;
+let hls;
+let ytPlayer;
 
+// 🔥 Cargar lista
 async function cargarVideos() {
-  try {
-    const res = await fetch(API_URL);
-    lista = await res.json();
+  const res = await fetch(API_URL);
+  lista = await res.json();
 
-    console.log("LISTA:", lista);
-
-    if (lista.length > 0) {
-      reproducir(lista[index].video_id);
-    }
-
-  } catch (e) {
-    console.error("Error:", e);
+  if (lista.length > 0) {
+    reproducir(lista[index].video_id);
   }
 }
 
+// 🔁 siguiente
 function siguienteVideo() {
   index++;
-
-  if (index >= lista.length) {
-    index = 0; // 🔁 vuelve al inicio
-  }
-
+  if (index >= lista.length) index = 0;
   reproducir(lista[index].video_id);
 }
 
+// 🎬 reproducir
 function reproducir(url) {
-  const container = document.getElementById("video_yt");
+  const container = document.getElementById("player");
   container.innerHTML = "";
 
   if (hls) hls.destroy();
 
-  // 🎬 YOUTUBE
+  // 🎬 YOUTUBE (PRO)
   if (!url.includes(".m3u8")) {
-    const iframe = document.createElement("iframe");
+    const div = document.createElement("div");
+    div.id = "ytplayer";
+    container.appendChild(div);
 
-    // autoplay + loop hack
-    iframe.src = `https://www.youtube.com/embed/${url}?autoplay=1&mute=1&enablejsapi=1`;
-    iframe.allow = "autoplay";
-    iframe.style.width = "100%";
-    iframe.style.height = "400px";
-
-    container.appendChild(iframe);
-
-    // ⏱ cambiar después de X segundos (ej: 30s)
-    setTimeout(siguienteVideo, 30000);
+    ytPlayer = new YT.Player("ytplayer", {
+      height: "400",
+      width: "100%",
+      videoId: url,
+      playerVars: {
+        autoplay: 1,
+        mute: 1
+      },
+      events: {
+        onStateChange: function(event) {
+          // 🔥 CUANDO TERMINA
+          if (event.data === YT.PlayerState.ENDED) {
+            siguienteVideo();
+          }
+        }
+      }
+    });
   }
 
   // 🔴 HLS
@@ -808,7 +810,6 @@ function reproducir(url) {
     video.controls = true;
     video.autoplay = true;
     video.muted = true;
-    video.style.width = "100%";
 
     container.appendChild(video);
 
@@ -820,13 +821,13 @@ function reproducir(url) {
       hls.attachMedia(video);
     }
 
-    // ✅ cuando termina → siguiente
+    // 🔥 cuando termina
     video.onended = siguienteVideo;
   }
 }
 
+// iniciar
 cargarVideos();
-
 </script>
 
 </aside>

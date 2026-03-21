@@ -743,9 +743,14 @@ document.addEventListener("DOMContentLoaded", function() {
 	        </div>
 			
 	
-		   <aside class="video-responsive">
+		  <aside class="video-responsive">
 
   <div id="video_yt"></div>
+
+  <!-- API YouTube -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <!-- HLS -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
 <script>
 const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
@@ -755,7 +760,7 @@ let index = 0;
 let hls = null;
 let ytPlayer = null;
 
-// 🔥 Esperar API YouTube
+// 🔥 YouTube listo
 function onYouTubeIframeAPIReady() {
   cargarVideos();
 }
@@ -769,7 +774,7 @@ async function cargarVideos() {
     console.log("Lista:", lista);
 
     if (!lista || lista.length === 0) {
-      document.getElementById("player").innerHTML = "❌ No hay videos";
+      document.getElementById("video_yt").innerHTML = "❌ No hay videos";
       return;
     }
 
@@ -777,18 +782,18 @@ async function cargarVideos() {
 
   } catch (error) {
     console.error("Error:", error);
-    document.getElementById("player").innerHTML = "❌ Error cargando videos";
+    document.getElementById("video_yt").innerHTML = "❌ Error cargando videos";
   }
 }
 
-// 🔁 Siguiente video
+// 🔁 siguiente
 function siguienteVideo() {
   index++;
   if (index >= lista.length) index = 0;
   reproducir(lista[index].video_id);
 }
 
-// 🎬 Reproducir
+// 🎬 reproducir
 function reproducir(url) {
   const container = document.getElementById("video_yt");
   container.innerHTML = "";
@@ -801,6 +806,7 @@ function reproducir(url) {
 
   // 🎬 YOUTUBE
   if (!url.includes(".m3u8")) {
+
     const div = document.createElement("div");
     div.id = "ytplayer";
     container.appendChild(div);
@@ -818,7 +824,6 @@ function reproducir(url) {
         onReady: function(event) {
           event.target.playVideo();
 
-          // 🔊 intentar activar audio
           setTimeout(() => {
             event.target.unMute();
           }, 2000);
@@ -836,7 +841,7 @@ function reproducir(url) {
     });
   }
 
-  // 🔴 HLS (stream)
+  // 🔴 HLS
   else {
     const video = document.createElement("video");
     video.controls = true;

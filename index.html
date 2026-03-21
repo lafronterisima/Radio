@@ -752,34 +752,54 @@ const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9L
 
 let lista = [];
 let index = 0;
-let hls;
-let ytPlayer;
+let hls = null;
+let ytPlayer = null;
 
-// 🔥 Cargar lista
+// 🔥 Esperar API YouTube
+function onYouTubeIframeAPIReady() {
+  cargarVideos();
+}
+
+// 🔥 Cargar JSON
 async function cargarVideos() {
-  const res = await fetch(API_URL);
-  lista = await res.json();
+  try {
+    const res = await fetch(API_URL);
+    lista = await res.json();
 
-  if (lista.length > 0) {
+    console.log("Lista:", lista);
+
+    if (!lista || lista.length === 0) {
+      document.getElementById("player").innerHTML = "❌ No hay videos";
+      return;
+    }
+
     reproducir(lista[index].video_id);
+
+  } catch (error) {
+    console.error("Error:", error);
+    document.getElementById("player").innerHTML = "❌ Error cargando videos";
   }
 }
 
-// 🔁 siguiente
+// 🔁 Siguiente video
 function siguienteVideo() {
   index++;
   if (index >= lista.length) index = 0;
   reproducir(lista[index].video_id);
 }
 
-// 🎬 reproducir
+// 🎬 Reproducir
 function reproducir(url) {
-  const container = document.getElementById("player");
+  const container = document.getElementById("video_yt");
   container.innerHTML = "";
 
-  if (hls) hls.destroy();
+  // limpiar HLS
+  if (hls) {
+    hls.destroy();
+    hls = null;
+  }
 
-  // 🎬 YOUTUBE (PRO)
+  // 🎬 YOUTUBE
   if (!url.includes(".m3u8")) {
     const div = document.createElement("div");
     div.id = "ytplayer";
@@ -791,20 +811,32 @@ function reproducir(url) {
       videoId: url,
       playerVars: {
         autoplay: 1,
-        mute: 1
+        mute: 1,
+        controls: 1
       },
       events: {
+        onReady: function(event) {
+          event.target.playVideo();
+
+          // 🔊 intentar activar audio
+          setTimeout(() => {
+            event.target.unMute();
+          }, 2000);
+        },
         onStateChange: function(event) {
-          // 🔥 CUANDO TERMINA
           if (event.data === YT.PlayerState.ENDED) {
             siguienteVideo();
           }
+        },
+        onError: function() {
+          console.log("Error YouTube → siguiente");
+          siguienteVideo();
         }
       }
     });
   }
 
-  // 🔴 HLS
+  // 🔴 HLS (stream)
   else {
     const video = document.createElement("video");
     video.controls = true;
@@ -819,15 +851,19 @@ function reproducir(url) {
       hls = new Hls();
       hls.loadSource(url);
       hls.attachMedia(video);
+    } else {
+      container.innerHTML = "❌ HLS no soportado";
+      return;
     }
 
-    // 🔥 cuando termina
     video.onended = siguienteVideo;
+
+    video.onerror = () => {
+      console.log("Error HLS → siguiente");
+      siguienteVideo();
+    };
   }
 }
-
-// iniciar
-cargarVideos();
 </script>
 
 </aside>

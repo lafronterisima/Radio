@@ -1469,10 +1469,10 @@ aside {
 .video-responsive {
   width: 100%;
   max-width: 900px;
-  margin: 0 auto; /* centra horizontalmente */
+  margin: auto;
 }
 
-/* contenedor del video */
+/* caja del video */
 #video_yt {
   position: relative;
   width: 100%;
@@ -1488,13 +1488,14 @@ aside {
   padding-top: 56.25%;
 }
 
-/* iframe centrado correctamente */
+/* video centrado */
 #video_yt iframe,
 #video_yt video {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;   /* puedes usar 100% si quieres sin márgenes */
   height: 100%;
   border: 0;
 }

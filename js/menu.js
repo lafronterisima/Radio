@@ -1,90 +1,75 @@
 document.addEventListener("DOMContentLoaded", function() {
-
     let sidenavInstance = null;
 
-    // Inicializar sidenav (Materialize)
+    // 1. Inicializar Sidenav (Materialize)
     if (typeof M !== "undefined") {
         const elems = document.querySelectorAll('.sidenav');
         M.Sidenav.init(elems);
-
-        // Obtener instancia (solo uno)
         sidenavInstance = M.Sidenav.getInstance(document.querySelector('.sidenav'));
     }
 
     const bloques = document.querySelectorAll('.elemento');
     const enlaces = document.querySelectorAll('.menu a, .sidenav a');
 
+    // 2. Lógica de Navegación y Secciones
     enlaces.forEach(link => {
         link.addEventListener('click', function(e) {
             const hash = this.getAttribute('href');
 
+            // Si el enlace tiene un hash (ej: #contacto)
             if (hash && hash.startsWith("#")) {
-                e.preventDefault();
+                const target = document.querySelector(hash);
+                
+                // Si la sección existe, manejamos el cambio
+                if (target) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Evitamos que el click llegue al LI del submenú
 
-                // Mostrar sección
-                bloques.forEach(b => b.classList.remove('visible'));
-                document.querySelector(hash)?.classList.add('visible');
+                    // Mostrar sección
+                    bloques.forEach(b => b.classList.remove('visible'));
+                    target.classList.add('visible');
 
-                // Activar link
-                enlaces.forEach(l => l.classList.remove('activo'));
-                this.classList.add('activo');
+                    // Activar link
+                    enlaces.forEach(l => l.classList.remove('activo'));
+                    this.classList.add('activo');
 
-                // Scroll arriba
-                window.scrollTo(0, 0);
-
-                // 🔥 CERRAR SIDENAV
-                if (sidenavInstance) {
-                    sidenavInstance.close();
+                    // Scroll arriba y cerrar menú móvil
+                    window.scrollTo(0, 0);
+                    if (sidenavInstance) sidenavInstance.close();
                 }
             }
         });
     });
 
-    // Submenu
-    document.querySelectorAll('.submenu').forEach(menu => {
-        menu.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const dropdown = this.querySelector('.dropdown');
+    // 3. Lógica ÚNICA para Submenús (Dropdowns)
+    // Buscamos los elementos LI que contienen un UL (el submenú)
+    const submenus = document.querySelectorAll('li.submenu, .menu li:has(ul)');
+
+    submenus.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Buscamos el submenú interno directo
+            const dropdown = this.querySelector('ul');
+            
             if (dropdown) {
-                dropdown.style.display =
-                    dropdown.style.display === "block" ? "none" : "block";
+                e.stopPropagation(); // Evita que el click cierre otros menús padres
+                
+                // Alternar visibilidad
+                const isVisible = dropdown.style.display === "block";
+                
+                // Cerramos otros submenús abiertos al mismo nivel para que no se solapen
+                this.parentElement.querySelectorAll(':scope > li > ul').forEach(openUl => {
+                    openUl.style.display = "none";
+                });
+
+                dropdown.style.display = isVisible ? "none" : "block";
             }
         });
     });
 
-    // Menú desplegable limpio (sin conflicto)
-    document.querySelectorAll('ul li').forEach(li => {
-        li.addEventListener('click', function(e) {
-            e.stopPropagation();
-
-            this.querySelectorAll(':scope > ul').forEach(sub => {
-                sub.style.display =
-                    sub.style.display === "block" ? "none" : "block";
-            });
-
-            this.parentElement.querySelectorAll('ul ul').forEach(sub => {
-                if (!this.contains(sub)) sub.style.display = "none";
-            });
+    // 4. Cerrar submenús si se hace click fuera
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.menu ul ul, .sidenav ul ul').forEach(sub => {
+            sub.style.display = "none";
         });
     });
-
-    // Touch swipe (abrir menú)
-    let initialX = null;
-
-    document.addEventListener('touchstart', function(e) {
-        initialX = e.touches[0].clientX;
-    });
-
-    document.addEventListener('touchmove', function(e) {
-        if (initialX === null) return;
-
-        let currentX = e.touches[0].clientX;
-        let diffX = initialX - currentX;
-
-        if (diffX > 50) {
-            document.getElementById("nav-mobile").style.display = "block";
-            initialX = null;
-        }
-    });
-
 });

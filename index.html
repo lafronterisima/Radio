@@ -66,7 +66,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
+   
 
 
   
@@ -740,71 +740,68 @@ document.addEventListener("DOMContentLoaded", function() {
 	        </div>
 		
 	
-<aside class="video-responsive">
-  <div id="video_yt"></div>
+<aside class="contenedor_pt">
+  <div class="video-responsive">
+    <iframe 
+      id="video-canvas" 
+      src="" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+  </div>
 </aside>
-
-<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
 const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
+const iframe = document.getElementById('video-canvas');
 
-let lista = [];
-let index = 0;
-let player;
+let queuePlaylist = [];
+let curQueue = 0;
 
-// obligatorio global
-window.onYouTubeIframeAPIReady = function () {
-  cargarVideos();
-};
-
-async function cargarVideos() {
-  try {
-    const res = await fetch(API_URL);
-    lista = await res.json();
-
-    if (!Array.isArray(lista) || lista.length === 0) {
-      throw new Error("Lista vacía");
-    }
-
-    crearPlayer();
-
-  } catch (err) {
-    console.error("ERROR:", err);
-  }
+// 1. Extraer ID del video
+function extractID(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length == 11) ? match[2] : url;
 }
 
-function crearPlayer() {
-  player = new YT.Player("video_yt", {
-    width: "100%",
-    height: "400",
-    videoId: lista[index].video_id,
-    playerVars: {
-      autoplay: 1,
-      mute: 1,
-      rel: 0
-    },
-    events: {
-      onReady: (e) => {
-        e.target.mute();
-        e.target.playVideo();
-      },
-      onStateChange: (e) => {
-        if (e.data === YT.PlayerState.ENDED) {
-          siguienteVideo();
+// 2. Cargar Google Sheets y configurar la URL inicial
+async function loadSheet() {
+    try {
+        const res = await fetch(API_URL);
+        const data = await res.json();
+
+        queuePlaylist = data
+            .filter(v => v.vid)
+            .map(v => extractID(v.vid));
+
+        if (queuePlaylist.length > 0) {
+            startPlaylist();
         }
-      }
+    } catch (e) {
+        console.error("Error cargando la hoja:", e);
     }
-  });
 }
 
-function siguienteVideo() {
-  index = (index + 1) % lista.length;
-  player.loadVideoById(lista[index].video_id);
+// 3. Crear la URL de Embed con el parámetro 'playlist'
+// Esto permite que YouTube maneje la cola automáticamente
+function startPlaylist() {
+    const firstVideo = queuePlaylist[0];
+    // Unimos el resto de la lista por comas para el parámetro playlist
+    const otherVideos = queuePlaylist.slice(1).join(',');
+    
+    // Construimos la URL
+    // loop=1 y playlist=ID1,ID2... hace que se reproduzcan todos en bucle
+    const embedUrl = `https://www.youtube.com/embed/${firstVideo}?autoplay=1&mute=1&playlist=${queuePlaylist.join(',')}&loop=1`;
+    
+    iframe.src = embedUrl;
 }
+
+// Iniciar proceso
+loadSheet();
 </script>
-
-</aside>
+  
+ 
 
 	   
      </section>
@@ -920,30 +917,41 @@ function siguienteVideo() {
 
            <div class="fb_back">		   
   		
-            <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/125486431/favorites" width="100%" height="auto" scrolling="yes" frameborder="no"></iframe>
+ <iframe id="sc-widget"
+  src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/125486431/favorites"
+  width="100%"
+  height="166"
+  scrolling="no"
+  frameborder="no">
+</iframe>
             
-          <script type="text/javascript">
-            (function(){
-             var widgetIframe = document.getElementById('sc-widget'),
-             widget = SC.Widget(widgetIframe);
+          <script>
+(function() {
 
-             widget.bind(SC.Widget.Events.READY, function() {
-             widget.bind(SC.Widget.Events.PLAY, function() {
-     
-             widget.getCurrentSound(function(currentSound) {
-             console.log('sound ' + currentSound.get('') + 'began to play');
-            });
-          });
-     
-          widget.getVolume(function(volume) {
-          console.log('current volume value is ' + volume);
-          });
- 
-         widget.setVolume(95);
-     
-        });
+  var widgetIframe = document.getElementById('sc-widget');
+  var widget = SC.Widget(widgetIframe);
 
-      }());
+  widget.bind(SC.Widget.Events.READY, function() {
+
+    console.log("✅ Widget listo");
+
+    widget.setVolume(95);
+
+    widget.bind(SC.Widget.Events.PLAY, function() {
+
+      widget.getCurrentSound(function(currentSound) {
+        console.log('🎵 Reproduciendo: ' + currentSound.title);
+      });
+
+    });
+
+    widget.getVolume(function(volume) {
+      console.log('🔊 Volumen actual: ' + volume);
+    });
+
+  });
+
+})();
      </script>
 		   
 		   </div>
@@ -2242,7 +2250,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
   <script src="js/repro.js"></script> 
   <script src="js/saludo.js"></script>
   <script src="js/cargar_news.js" defer></script>
- 
+  <script src="js/back_video.j"></script>
   <script src="https://kit.fontawesome.com/35db202371.js"></script>
   <script src="js/materialize.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -2252,6 +2260,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
   <script src="js/temperature.js"></script>
   <script src="js/form_send.js"></script>
   <script src="https://w.soundcloud.com/player/api.js" defer></script>
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js"></script>
   <script src="regist_serviceWorker.js"></script> 
    
    <script>

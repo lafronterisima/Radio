@@ -37,11 +37,6 @@ main {
     background:#0c3f43;  
  } 
  
- .submenu {
-  display: flex;
-  align-items: center;
-  gap:4px;
-}
 
  .logo {
     display: inline-block; 
@@ -658,6 +653,11 @@ color:;
   }
 }
 
+.submenu {
+  display: flex;
+  align-items: center;
+  gap:4px;
+}
 
 .contain_radio .control-container{
   width: max-content;

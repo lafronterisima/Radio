@@ -1,40 +1,38 @@
-const shareButton = document.getElementById("button-share");
-
-
-shareButton.addEventListener("click", (event) => {
 
  
-  if ("share" in navigator) {
-    navigator
-      .share({
-      
-        title: "Comparte la página web",
-        message: "La Fronterisima"
-        url: 'https://lafronterisima.com'
-      }) 
-  } 
-});
-
-
-
-
-  const shareBtnRef = document.querySelector('#button-share');
-    shareBtnRef.onclick = async () => {
-    if(navigator.share) {
-      try {
-        const shareData = {
-          title: "Comparte la página web",
-          url: 'https://lafronterisima.com'
-        }
-        await navigator.share(shareData);
-        console.log('Share successfull');
-      } catch(err) {
-        console.log('Error: ', err);
-      }
-    } else {
-      console.warn('Native Web');
-    }
+   let share_btns = document.querySelectorAll('.share_btn'),
+   modal_wraper = document.querySelector('.modal_wraper');
+   share_btns.forEach(share_btn => {
+   share_btn.addEventListener('click', ()=>{
+   modal_wraper.classList.add('active');
+   });
+  });
+  
+  addEventListener('click', (e)=>{
+  if(e.target.dataset.action == 'modal_close'){
+  modal_wraper.classList.remove('active');
   }
+  });
+  
+  let copy_url_btn = document.querySelector('.copy_url_btn');
+  if(copy_url_btn)
+  {
+  copy_url_btn.addEventListener('click', copyURL);
+  }
+  function copyURL(){
+  let copyInput = document.getElementById('shareable_url');
+  copyInput.select();
+  document.execCommand("copy");
+  }
+  
+  document.querySelectorAll('.shared').forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar la acción por defecto del enlace
+            var url = this.getAttribute('href');
+            window.open(url, '_blank'); // Abrir enlace en una nueva pestaña
+        });
+    });
+
 
 
 

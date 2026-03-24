@@ -103,7 +103,7 @@
     <i class="material-icons-outlined"> whatsapp</i>
    </a> 
  
-   <a href="mailto:?Subject=Descarga%20nuestra%20app:%20La%20Fronterisima%20link%20https://lafronterisima.online" target="_blank" class="shared ce"> 
+   <a href="mailto:?Subject=Descarga%20nuestra%20app:%20La%20Fronterisima%20link%20https://lafronterisima.stream" target="_blank" class="shared ce"> 
     <i class="material-icons-outlined"> mail</i>
    </a>
    
@@ -134,42 +134,7 @@
    </div>
   </div>
 
-<script>
- 
-   let share_btns = document.querySelectorAll('.share_btn'),
-   modal_wraper = document.querySelector('.modal_wraper');
-   share_btns.forEach(share_btn => {
-   share_btn.addEventListener('click', ()=>{
-   modal_wraper.classList.add('active');
-   });
-  });
-  
-  addEventListener('click', (e)=>{
-  if(e.target.dataset.action == 'modal_close'){
-  modal_wraper.classList.remove('active');
-  }
-  });
-  
-  let copy_url_btn = document.querySelector('.copy_url_btn');
-  if(copy_url_btn)
-  {
-  copy_url_btn.addEventListener('click', copyURL);
-  }
-  function copyURL(){
-  let copyInput = document.getElementById('shareable_url');
-  copyInput.select();
-  document.execCommand("copy");
-  }
-  
-  document.querySelectorAll('.shared').forEach(function(button) {
-        button.addEventListener('click', function(event) {
-            event.preventDefault(); // Evitar la acción por defecto del enlace
-            var url = this.getAttribute('href');
-            window.open(url, '_blank'); // Abrir enlace en una nueva pestaña
-        });
-    });
 
-</script>
       
    <ul class="right hide-on-med-and-down" >
      <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
@@ -1022,10 +987,14 @@ loadSheet();
 
            <div class="fb_background">		   
   		
-          <div class="fb-page" data-href="https://www.facebook.com/lafronterisima" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/lafronterisima" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lafronterisima"></a></blockquotes></div>
+       
+       <div class="fb-page" data-href="https://www.facebook.com/lafronterisima" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/lafronterisima" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lafronterisima"></a></blockquotes></div>
+
+          </div>
 		   
-		   </div>
-		 </div>
+	  </div>
+ 
+  </div>
 		
 
  <div class="caja-portfolio">
@@ -2253,7 +2222,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/animado.js"></script>
-  <script src="js/share.js" defer></script>
+  <script src="js/share.js"></script>
   <script src="js/temperature.js"></script>
   <script src="js/form_send.js"></script>
   <script src="https://w.soundcloud.com/player/api.js" defer></script>

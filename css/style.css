@@ -113,7 +113,22 @@ main {
     .menu .dropdown ul li{
 	  width:200px;
       display:block;
-    }   
+    }  
+
+.dropdown {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.right li {
+    position: relative; /* Necesario para que el absolute del dropdown funcione */
+}	
 	
   /* Estilos para el menú de escritorio */
   
@@ -527,6 +542,7 @@ color:;
 .radio span{
 	color:white;
 }
+
 
 .whatsapp-button {
    position: absolute;
@@ -2178,32 +2194,30 @@ aside.contenedor_pt {
 		margin-bottom:35px;
 		}
 		
-		.fb_background{
-			width:98%; 
-            height:390px; 
-            overflow-y:scroll;
-            background-color:white;  
-           -webkit-border-radius: 1px; 
-           -moz-border-radius: 1px; 
-            border-radius: 1px; 
-           -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
-            margin: 0 auto;
-			margin-bottom:10px;
-		}
-			
-		.fb-page{
-			width:98%;
-			height:390px;
-			overflow-y:;
-			background-color:white;
-		    padding-top:10px;
-			text-align:center;
-			margin:0 auto;
-		}	
-       .fb-page img{
-			width:98%;
-			height:370px;
-		}	
+		.fb_background {
+    width: 98%; 
+    height: 400px; /* Un poco más alto para compensar el padding del hijo */
+    background-color: white;  
+    border-radius: 1px; 
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
+    margin: 0 auto 10px auto;
+    overflow: hidden; /* Evita que el contenido se salga de las esquinas */
+}
+
+.fb-page {
+    /* El plugin de FB necesita estos parámetros para que 'data-adapt-container-width' funcione */
+    display: block;
+    width: 100% !important; 
+	max-width:500px; 
+    margin: 0 auto;
+    padding-top: 10px;
+    text-align: center;
+}
+
+/* Forzar que el iframe interno use el ancho disponible */
+.fb-page span, .fb-page iframe {
+    width: 100% !important;
+}
 
 @media (min-width:961px)and (max-width:1280px){
  .boxes-portfolio{

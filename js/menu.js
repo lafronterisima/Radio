@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
     let sidenavInstance = null;
 
@@ -9,67 +10,75 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     const bloques = document.querySelectorAll('.elemento');
-    const enlaces = document.querySelectorAll('.menu a, .sidenav a');
+    const enlaces = document.querySelectorAll('.menu a, .sidenav a, .right a');
 
-    // 2. Lógica de Navegación y Secciones
+    // --- FUNCIÓN PARA CERRAR EL DESPLEGABLE ---
+    const cerrarDropdown = () => {
+        document.querySelectorAll('.dropdown').forEach(menu => {
+            menu.style.display = "none";
+        });
+    };
+
+    // 2. Lógica de Navegación (Enlaces finales)
     enlaces.forEach(link => {
         link.addEventListener('click', function(e) {
             const hash = this.getAttribute('href');
 
-            // Si el enlace tiene un hash (ej: #contacto)
+            // Si es un enlace a sección (#) y NO es el disparador del submenú
             if (hash && hash.startsWith("#")) {
                 const target = document.querySelector(hash);
                 
-                // Si la sección existe, manejamos el cambio
                 if (target) {
-                    e.preventDefault();
-                    e.stopPropagation(); // Evitamos que el click llegue al LI del submenú
+                    // Si el enlace está dentro de un submenú, cerramos el submenú
+                    if (this.closest('.dropdown')) {
+                        cerrarDropdown();
+                    }
 
-                    // Mostrar sección
+                    // Navegación lógica
+                    e.preventDefault();
                     bloques.forEach(b => b.classList.remove('visible'));
                     target.classList.add('visible');
 
-                    // Activar link
+                    // Estado activo
                     enlaces.forEach(l => l.classList.remove('activo'));
                     this.classList.add('activo');
 
-                    // Scroll arriba y cerrar menú móvil
-                    window.scrollTo(0, 0);
+                    // Cerrar menús globales
                     if (sidenavInstance) sidenavInstance.close();
+                    window.scrollTo(0, 0);
                 }
             }
         });
     });
 
-    // 3. Lógica ÚNICA para Submenús (Dropdowns)
-    // Buscamos los elementos LI que contienen un UL (el submenú)
-    const submenus = document.querySelectorAll('li.submenu, .menu li:has(ul)');
+    // 3. Lógica para Abrir/Cerrar "Catálogo" (Submenú)
+    const disparadores = document.querySelectorAll('.submenu');
 
-    submenus.forEach(item => {
-        item.addEventListener('click', function(e) {
-            // Buscamos el submenú interno directo
-            const dropdown = this.querySelector('ul');
-            
+    disparadores.forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const parentLi = this.parentElement;
+            const dropdown = parentLi.querySelector('.dropdown');
+
             if (dropdown) {
-                e.stopPropagation(); // Evita que el click cierre otros menús padres
+                const estaVisible = dropdown.style.display === "block";
                 
-                // Alternar visibilidad
-                const isVisible = dropdown.style.display === "block";
-                
-                // Cerramos otros submenús abiertos al mismo nivel para que no se solapen
-                this.parentElement.querySelectorAll(':scope > li > ul').forEach(openUl => {
-                    openUl.style.display = "none";
-                });
+                // Cerramos otros por si acaso
+                cerrarDropdown();
 
-                dropdown.style.display = isVisible ? "none" : "block";
+                // Alternamos el actual
+                dropdown.style.display = estaVisible ? "none" : "block";
             }
         });
     });
 
-    // 4. Cerrar submenús si se hace click fuera
-    document.addEventListener('click', () => {
-        document.querySelectorAll('.menu ul ul, .sidenav ul ul').forEach(sub => {
-            sub.style.display = "none";
-        });
+    // 4. Cerrar si se hace clic fuera del menú o en un enlace normal del menú principal
+    document.addEventListener('click', (e) => {
+        // Si el clic no es en el botón de submenú, cerramos cualquier dropdown abierto
+        if (!e.target.closest('.submenu')) {
+            cerrarDropdown();
+        }
     });
 });

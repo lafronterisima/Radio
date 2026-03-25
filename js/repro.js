@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('track');
     const playPauseBtn = document.getElementById('playPauseBtn');
-    const video = document.getElementById('video');
+    const video = document.getElementById('video-canvas');
     const audioPlayers = Array.from(document.querySelectorAll('audio'));
     let lastAudio = null;
     let players = {};
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
        BOTÓN VISUAL (SVG)
        ========================= */
     function updateButton() {
-        if (track.paused) {
+        if (track && track.paused) {
             playPauseBtn.classList.add('play');
             playPauseBtn.classList.remove('pause');
         } else {
@@ -24,11 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
        PAUSAS
        ========================= */
     function pauseAllYouTubeVideos() {
-        Object.values(players).forEach(player => player.pauseVideo());
+        Object.values(players).forEach(player => {
+            if (player.pauseVideo) {
+                player.pauseVideo();
+            }
+        });
     }
 
     function pauseAudio() {
-        if (!track.paused) {
+        if (track && !track.paused) {
             track.pause();
             updateButton();
         }
@@ -43,17 +47,19 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================
        CLICK PLAY / PAUSE
        ========================= */
-    playPauseBtn.addEventListener('click', () => {
-        if (track.paused) {
-            track.play();
-        } else {
-            track.pause();
-        }
+    if (playPauseBtn && track) {
+        playPauseBtn.addEventListener('click', () => {
+            if (track.paused) {
+                track.play();
+            } else {
+                track.pause();
+            }
 
-        pauseAllYouTubeVideos();
-        pauseVideo();
-        updateButton();
-    });
+            pauseAllYouTubeVideos();
+            pauseVideo();
+            updateButton();
+        });
+    }
 
     /* =========================
        OTROS AUDIOS
@@ -94,18 +100,22 @@ document.addEventListener('DOMContentLoaded', () => {
         updateButton();
     }
 
-    function onYouTubeIframeAPIReady() {
+    // IMPORTANTE: debe ser global
+    window.onYouTubeIframeAPIReady = function () {
         document
             .querySelectorAll('iframe[id^="video-iframe-"]')
             .forEach(iframe => {
                 players[iframe.id] = new YT.Player(iframe.id, {
-                    events: { onStateChange }
+                    events: {
+                        onStateChange: onPlayerStateChange
+                    }
                 });
             });
-    }
+    };
 
+    // Si la API ya está cargada
     if (window.YT && YT.Player) {
-        onYouTubeIframeAPIReady();
+        window.onYouTubeIframeAPIReady();
     }
 
     /* =========================

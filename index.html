@@ -247,18 +247,22 @@ function onYouTubeIframeAPIReady() {
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8389148678200434"
      crossorigin="anonymous"></script>
 
+
 <script type="speculationrules">
- {
+{
   "prefetch": [{
-   "where": {
-    "and": [
-     { "href_matches": "/*" },
-     { "not": {"href_matches": "/logout"}}
-    ]
-   },
-   "eagerness": "moderate"
+    "where": {
+      "href_matches": "/(.*)"
+    },
+    "eagerness": "moderate"
+  }],
+  "prerender": [{
+    "where": {
+      "href_matches": "/(.*)"
+    },
+    "eagerness": "conservative"
   }]
- }
+}
 </script>
 
 

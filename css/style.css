@@ -1291,30 +1291,44 @@ color:;
 			margin: 0 auto;
 		}
 		
-		.caja-matrix{
-		  width:52%;
-		  height:auto;
-		  padding-top:px; 
-		  margin:0 auto;
-		  margin-bottom:2px; 
-		}
-		
-		.caja-matrix h3{
-		text-align:center;
-		color:white;
-		padding-top:10px;
-		font-size:20px;
-		}
-		
-		.caja-matrix p{
-		  width:90%;
-		  text-align:center;
-		  color:white;
-		  text-align:justify;
-		  padding-top:25px;
-		   margin:0 auto;
-		  font-size:14px;
-		}
+	.caja-matrix {
+    width: 52%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom:5px;
+    text-align: center; /* Centra todo el contenido inline/texto */
+}
+
+.caja-matrix h3 {
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.caja-matrix p {
+    width: 95%;
+    color: white;
+    text-align: center; 
+    padding-top: 25px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+/* Estilo para el contenedor del botón */
+.caja-matrix .button {
+    display: inline-block; /* Permite que responda al centrado del padre */
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+/* Estilo para la imagen dentro del botón */
+.caja-matrix .button img {
+    display: block; /* Convertir a bloque para que margin: 0 auto funcione */
+    margin: 0 auto;
+    padding-top: 10px;
+    max-width: 100%; /* Asegura que no se desborde */
+}
 		
   aside{
 	display: inline-block;
@@ -1469,11 +1483,12 @@ aside .contenedor_pt {
 }
 
 .inicio-matrix .caja-matrix p {
-  width: 90%;
-  text-align: justify;
-  padding-top: 25px;
-  margin: 0 auto;
-  font-size: 14px;
+   width: 90%;
+    color: white;
+    text-align: center; 
+    padding-top: 25px;
+    margin: 0 auto;
+    font-size: 14px;
 }
 
 

@@ -1307,12 +1307,12 @@ color:;
 }
 
 .caja-matrix p {
-    width: 95%;
-    color: white;
-    text-align: center; 
-    padding-top: 25px;
-    margin: 0 auto;
-    font-size: 14px;
+    width:90%;
+	color:white;
+    text-align:justify;
+    padding-top:25px;
+	margin:0 auto;
+    font-size:14px;
 }
 
 /* Estilo para el contenedor del botón */
@@ -1483,12 +1483,12 @@ aside .contenedor_pt {
 }
 
 .inicio-matrix .caja-matrix p {
-   width: 90%;
-    color: white;
-    text-align: center; 
-    padding-top: 25px;
-    margin: 0 auto;
-    font-size: 14px;
+   width:90%;
+   color:;
+   text-align:justify;
+   padding-top:25px;
+   margin:0 auto;
+   font-size:13px;
 }
 
 
@@ -4028,12 +4028,15 @@ footer {
 	font-family: Raleway;
 	text-align:center;
 }
+
 .footer-main .footer-columna p {
-    width:95%;
-	text-align: justify;
-	text-align:center;
-	font-size:16px;
+    color: #ecf0f1;
+    font-size: 15px;
+    width:90%;
+    margin: 0 auto;
+    text-align: justify;	
 	}
+	
 .footer-main .footer-columna span p {
 	display: block;
 	text-align:center;

@@ -2249,6 +2249,23 @@ servicio posible, particularmente para mantener un registro de usuarios,
   <script src="https://w.soundcloud.com/player/api.js" defer></script>
   <script src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js"></script>
   <script src="regist_serviceWorker.js"></script> 
+
+
+	<script>
+  (function() {
+    const CABINA_URL = 'https://p01--radio-iax--jwv2l2cyk69y.code.run/oyente-conectado';
+
+    fetch(CABINA_URL, { mode: 'cors' })
+      .then(response => {
+        if (response.ok) {
+          console.log('🎙️ Lupe detectó tu sintonía.');
+        }
+      })
+      .catch(error => {
+        console.warn('⚠️ La cabina de Lupe no respondió, pero la radio sigue sonando.');
+      });
+  })();
+</script>
    
    <script>
       $(function(){

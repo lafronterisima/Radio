@@ -26,4 +26,5 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más 
 Descargo de responsabilidad: Esta plataforma actúa como un retransmisor técnico de contenidos. La música y programas emitidos provienen de fuentes y plataformas externas independientes. El desarrollador no se hace responsable por la selección editorial, el mal uso de las llaves de API o la infracción de derechos de ejecución pública derivada de los contenidos de terceros.
 
 Desarrollado por: La Fronterísima
+www.lafronterisima.com
 

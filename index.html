@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="utf-8"> 
-  <title>La Fronterísima | La Primera Radio independiente online Inteligente Nivel 5 de Colombia</title>
+  <title>La Fronterisima</title>
 
   <!-- SEO -->
-  <meta name="description" content="Estación independiente Nivel 5 con automatización total. Interacción por notas de voz (Whisper) y locución neural rumbera en tiempo real.">
+  <meta name="description" content="La primera emisora online independiente de Colombia semi operada con IA autónoma.">
   <meta name="keywords" content="Radio Smart IA, La Fronterísima, inteligencia artificial, radio autónoma, música colombiana, artistas emergentes, automatización radial, streaming inteligente, sonidos de Colombia, tecnología musical, emisora independiente">
   <meta name="author" content="La Fronterisima - Plataforma Tecnológica">
   <meta name="robots" content="index, follow">
@@ -16,9 +16,6 @@
   <meta property="og:image" content="https://www.lafronterisima.stream/frontera.png">
   <meta property="og:url" content="https://www.lafronterisima.stream">
   <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="La Fronterísima - Nivel 5">
-  <meta name="twitter:description" content="Radio independiente con locución automática e interacción inteligente.">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://www.lafronterisima.stream">
@@ -339,7 +336,7 @@ function onYouTubeIframeAPIReady() {
 
 <!-- Imagen para abrir el modal -->
 
-<img id="weather-img" src="imagenes/tiempo.png" loading="eager">
+<img id="weather-img" src="imagenes/tiempo.png" loading="lazy">
 			
    </div>
 	  
@@ -1417,6 +1414,15 @@ servicio posible, particularmente para mantener un registro de usuarios,
  por lo cual es recomendable que los consulte para confirmar que 
  usted está de acuerdo con estas.</p>
  
+   <h2><strong>Tecnológia y contenidos</strong></h2>
+   
+      <p>☁️ Clima en tiempo real por <a href="https://open-meteo.com/" target="_blank" style="color: #bbb; text-decoration: underline;">Open-Meteo.com</a><br> 
+        🤖 Inteligencia Artificial por <a href="https://openai.com" target="_blank" style="color: #666; text-decoration: underline;">OpenAI (GPT & Whisper)</a><br>
+		🚀 Streaming provisto por <a href="https://www.mediacp.eu" target="_blank" style="color: #666; text-decoration: underline;">MediaCP.eu</a><br>
+		🎵 Música independiente vía <a href="https://www.jamendo.com" target="_blank" style="color: #bbb; text-decoration: underline;">Jamendo.com</a><br>
+        🌍 Informes globales por <a href="https://www.bbc.com/mundo" target="_blank" style="color: #bbb; text-decoration: underline;">BBC Mundo</a><br>
+        📢 Actualidad internacional por <a href="https://es.euronews.com" target="_blank" style="color: #bbb; text-decoration: underline;">Euronews</a></p>
+ 
  <h2><strong>Control de su información personal</strong></h2>
  
  <p>La Fronterisima se reserva el derecho de cambiar los términos de la presente 
@@ -2249,23 +2255,6 @@ servicio posible, particularmente para mantener un registro de usuarios,
   <script src="https://w.soundcloud.com/player/api.js" defer></script>
   <script src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js"></script>
   <script src="regist_serviceWorker.js"></script> 
-
-
-	<script>
-  (function() {
-    const CABINA_URL = 'https://p01--radio-iax--jwv2l2cyk69y.code.run/oyente-conectado';
-
-    fetch(CABINA_URL, { mode: 'cors' })
-      .then(response => {
-        if (response.ok) {
-          console.log('🎙️ Lupe detectó tu sintonía.');
-        }
-      })
-      .catch(error => {
-        console.warn('⚠️ La cabina de Lupe no respondió, pero la radio sigue sonando.');
-      });
-  })();
-</script>
    
    <script>
       $(function(){

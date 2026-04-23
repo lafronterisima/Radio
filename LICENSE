@@ -1,0 +1,12 @@
+## ⚖️ Créditos y Atribuciones
+
+Este proyecto integra diversas tecnologías y fuentes de datos bajo sus respectivas licencias:
+
+* **IA & Procesamiento:** [OpenAI](https://openai.com) (GPT & Whisper).
+* **Locución Neural:** [Google Cloud TTS](https://cloud.google.com/text-to-speech).
+* **Streaming:** Infraestructura de [MediaCP.eu](https://www.mediacp.eu).
+* **Datos Climáticos:** [Open-Meteo](https://open-meteo.com/) (Licencia CC BY 4.0).
+* **Música:** [Jamendo](https://www.jamendo.com) (Licencia Creative Commons).
+* **Noticias:** Feeds RSS de [BBC Mundo](https://www.bbc.com/mundo) y [Euronews](https://es.euronews.com).
+
+Desarrollado por La Fronterísima.

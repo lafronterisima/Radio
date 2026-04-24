@@ -533,20 +533,20 @@ function onYouTubeIframeAPIReady() {
   // Mostrar transmisor
   document.querySelectorAll('.live-icons').forEach(icon => {
     icon.addEventListener('click', () => {
-      document.querySelector('.trasmisor').style.display = 'block';
+      document.querySelector('.trasmisors').style.display = 'block';
     });
   });
 
   // Ocultar al seleccionar radio
   document.querySelectorAll('.radio').forEach(radio => {
     radio.addEventListener('click', () => {
-      document.querySelector('.trasmisor').style.display = 'none';
+      document.querySelector('.trasmisors').style.display = 'none';
     });
   });
 
   // Cerrar al hacer clic fuera
   document.addEventListener('click', function(event) {
-    const modal = document.querySelector('.trasmisor');
+    const modal = document.querySelector('.trasmisors');
     if (!modal) return;
 
     const isInside = modal.contains(event.target);

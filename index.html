@@ -550,7 +550,7 @@ function onYouTubeIframeAPIReady() {
     if (!modal) return;
 
     const isInside = modal.contains(event.target);
-    const isLive = event.target.closest('.live-icon');
+    const isLive = event.target.closest('.live-icons');
 
     if (!isInside && !isLive) {
       modal.style.display = 'none';

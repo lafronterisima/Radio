@@ -1,7 +1,18 @@
 
-📻 La Fronterísima - Radio Smart IA
-Estación independiente Nivel 5 con automatización y locución neural de la IA en tiempo real
-"Este sistema de automatización utiliza la API de Open-Meteo bajo su política de uso no comercial. La Fronterísima es una plataforma de experimentación técnica y difusión cultural sin fines de lucro."
+📻 La Fronterísima - Radio Smart IA Estación independiente con automatización y locución neural en tiempo real.
 
-www.lafronterisima.com
+🚀 Descripción: Sistema autónomo que integra IA para guiones, locución neural, reportes climáticos y gestión de pedidos vía Telegram.
+
+⚖️ Aviso Legal y Créditos:
+
+Clima: Utiliza la API de Open-Meteo (Uso no comercial).
+
+Naturaleza: Plataforma de experimentación técnica y difusión cultural sin fines de lucro.
+
+Música: Contenido servida bajo licencias libres de Jamendo.
+
+Noticias: Basadas en feeds RSS de la BBC. El operador actúa como retransmisor técnico y no se responsabiliza por la exactitud de la fuente original.
+
+www.lafronterisima.stream
+
 

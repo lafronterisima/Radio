@@ -1,7 +1,7 @@
 
 📻 Radio Smart IA Estación independiente con locución neural.
 
-🚀 Descripción: Sistema autónomo que integra IA para guiones, locución neural, reportes climáticos y gestión de pedidos vía Telegram.
+🚀 Descripción: Sistema autónomo que integra I A para guiones, locución neural, reportes climáticos y gestión de pedidos vía Telegram.
 
 ⚖️ Aviso Legal y Créditos:
 
@@ -11,7 +11,7 @@ Naturaleza: Plataforma de experimentación técnica y difusión cultural sin fin
 
 Música: Contenido servida bajo licencias libres de Jamendo.
 
-Noticias: Basadas en feeds RSS de la BBC. El operador actúa como retransmisor técnico y no se responsabiliza por la exactitud de la fuente original.
+Notas informativas: Basadas en feeds RSS de la BBC o Euronews El operador actúa como retransmisor técnico y no se responsabiliza por la exactitud de la fuente original.
 
 www.lafronterisima.stream
 

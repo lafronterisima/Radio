@@ -1,5 +1,5 @@
 
-📻 Radio Smart IA Estación independiente con locución neural.
+📻 Radio Smart: Estación independiente con locución neural.
 
 🚀 Descripción: Sistema autónomo que integra I A para guiones, locución neural, reportes climáticos y gestión de pedidos vía Telegram.
 

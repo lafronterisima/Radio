@@ -1,58 +1,37 @@
-// =======================
-// CLIMA (Migrado a Open-Meteo)
-// =======================
+const apiKeyClima = "185dbcc57e27f9315a49d3f1c762ebd7";
+
 function obtenerClima(lat, lon, ciudad = "") {
-    // URL de Open-Meteo con datos actuales de temperatura, humedad, código de clima y viento
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto`;
+    // URL con unidades métricas y lenguaje en español
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKeyClima}&units=metric&lang=es`;
 
     fetch(url)
         .then(r => r.json())
         .then(data => {
-            const current = data.current;
-            const ciudadFinal = ciudad || "Ubicación detectada";
+            // Sincronización con tus IDs de HTML
+            const ciudadFinal = ciudad || data.name || "Ubicación desconocida";
 
-            // 1. Mapeo de códigos de clima (WMO codes) a descripción e iconos
-            const code = current.weather_code;
-            let descripcion = "Despejado";
-            let icon = "sun.png";
-
-            if (code === 0) {
-                descripcion = "Cielo despejado";
-                icon = "sun.png";
-            } else if (code >= 1 && code <= 3) {
-                descripcion = "Parcialmente nublado";
-                icon = "cloud.png";
-            } else if (code >= 45 && code <= 48) {
-                descripcion = "Niebla";
-                icon = "cloud.png";
-            } else if ((code >= 51 && code <= 67) || (code >= 80 && code <= 82)) {
-                descripcion = "Lluvia";
-                icon = "rain.png";
-            } else if ((code >= 71 && code <= 77) || (code >= 85 && code <= 86)) {
-                descripcion = "Nieve";
-                icon = "snow.png";
-            } else if (code >= 95) {
-                descripcion = "Tormenta eléctrica";
-                icon = "rain.png";
-            }
-
-            // 2. Actualizar la interfaz de usuario (UI)
+            // Inyectar datos en los divs correspondientes
             document.getElementById("locationName").textContent = ciudadFinal;
-            document.getElementById("texto-clima").textContent = descripcion;
-            document.getElementById("texto-temp").textContent = `Temperatura: ${current.temperature_2m} °C`;
-            document.getElementById("humidity").textContent = `Humedad: ${current.relative_humidity_2m}%`;
-            document.getElementById("windSpeed").textContent = `Viento: ${current.wind_speed_10m} km/h`;
+            document.getElementById("texto-clima").textContent = `- ${data.weather[0].description}`;
+            document.getElementById("texto-temp").textContent = `Temperatura: ${Math.round(data.main.temp)} °C`;
+            document.getElementById("humidity").textContent = `Humedad: ${data.main.humidity}%`;
+            document.getElementById("windSpeed").textContent = `Viento: ${data.wind.speed} m/s`;
 
-            // 3. Cambiar imagen según el clima
+            // Lógica de iconos (usando tu sistema de icons8)
+            const weatherMain = data.weather[0].main.toLowerCase();
             const weatherImg = document.getElementById("weather-img");
+            
+            let icon = "weather.png"; // Icono por defecto
+            if (weatherMain.includes("clear")) icon = "sun.png";
+            else if (weatherMain.includes("cloud")) icon = "cloud.png";
+            else if (weatherMain.includes("rain") || weatherMain.includes("drizzle")) icon = "rain.png";
+            else if (weatherMain.includes("snow")) icon = "snow.png";
+
             if (weatherImg) {
                 weatherImg.src = `https://img.icons8.com/color/96/${icon}`;
             }
-
-            // Nota legal obligatoria para la consola (o puedes ponerla en el HTML)
-            console.log("Datos meteorológicos por Open-Meteo.com");
         })
-        .catch(err => console.error("Error clima Open-Meteo:", err));
+        .catch(err => console.error("Error con OpenWeatherMap:", err));
 }
 
 // =======================

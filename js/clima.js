@@ -1,39 +1,58 @@
-
-const apiKeyClima = "185dbcc57e27f9315a49d3f1c762ebd7";
-
 // =======================
-// CLIMA
+// CLIMA (Migrado a Open-Meteo)
 // =======================
 function obtenerClima(lat, lon, ciudad = "") {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKeyClima}&units=metric&lang=es`;
+    // URL de Open-Meteo con datos actuales de temperatura, humedad, código de clima y viento
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto`;
 
     fetch(url)
         .then(r => r.json())
         .then(data => {
-            const ciudadFinal = ciudad || data.name || "Ubicación desconocida";
+            const current = data.current;
+            const ciudadFinal = ciudad || "Ubicación detectada";
 
-            document.getElementById("locationName").textContent = ciudadFinal;
-            document.getElementById("texto-clima").textContent = data.weather[0].description;
-            document.getElementById("texto-temp").textContent = `Temperatura: ${data.main.temp} °C`;
-            document.getElementById("humidity").textContent = `Humedad: ${data.main.humidity}%`;
-            document.getElementById("windSpeed").textContent = `Viento: ${data.wind.speed} m/s`;
+            // 1. Mapeo de códigos de clima (WMO codes) a descripción e iconos
+            const code = current.weather_code;
+            let descripcion = "Despejado";
+            let icon = "sun.png";
 
-            const weather = data.weather[0].main.toLowerCase();
-            const weatherImg = document.getElementById("weather-img");
-
-            if (weather.includes("clear")) {
-                weatherImg.src = "https://img.icons8.com/color/96/sun.png";
-            } else if (weather.includes("cloud")) {
-                weatherImg.src = "https://img.icons8.com/color/96/cloud.png";
-            } else if (weather.includes("rain") || weather.includes("drizzle")) {
-                weatherImg.src = "https://img.icons8.com/color/96/rain.png";
-            } else if (weather.includes("snow")) {
-                weatherImg.src = "https://img.icons8.com/color/96/snow.png";
-            } else {
-                weatherImg.src = "https://img.icons8.com/color/96/weather.png";
+            if (code === 0) {
+                descripcion = "Cielo despejado";
+                icon = "sun.png";
+            } else if (code >= 1 && code <= 3) {
+                descripcion = "Parcialmente nublado";
+                icon = "cloud.png";
+            } else if (code >= 45 && code <= 48) {
+                descripcion = "Niebla";
+                icon = "cloud.png";
+            } else if ((code >= 51 && code <= 67) || (code >= 80 && code <= 82)) {
+                descripcion = "Lluvia";
+                icon = "rain.png";
+            } else if ((code >= 71 && code <= 77) || (code >= 85 && code <= 86)) {
+                descripcion = "Nieve";
+                icon = "snow.png";
+            } else if (code >= 95) {
+                descripcion = "Tormenta eléctrica";
+                icon = "rain.png";
             }
+
+            // 2. Actualizar la interfaz de usuario (UI)
+            document.getElementById("locationName").textContent = ciudadFinal;
+            document.getElementById("texto-clima").textContent = descripcion;
+            document.getElementById("texto-temp").textContent = `Temperatura: ${current.temperature_2m} °C`;
+            document.getElementById("humidity").textContent = `Humedad: ${current.relative_humidity_2m}%`;
+            document.getElementById("windSpeed").textContent = `Viento: ${current.wind_speed_10m} km/h`;
+
+            // 3. Cambiar imagen según el clima
+            const weatherImg = document.getElementById("weather-img");
+            if (weatherImg) {
+                weatherImg.src = `https://img.icons8.com/color/96/${icon}`;
+            }
+
+            // Nota legal obligatoria para la consola (o puedes ponerla en el HTML)
+            console.log("Datos meteorológicos por Open-Meteo.com");
         })
-        .catch(err => console.error("Error clima:", err));
+        .catch(err => console.error("Error clima Open-Meteo:", err));
 }
 
 // =======================
@@ -44,7 +63,6 @@ function obtenerUbicacionIP() {
         .then(r => r.json())
         .then(data => {
             if (!data.success) throw new Error("IP no válida");
-
             obtenerClima(data.latitude, data.longitude, data.city);
         })
         .catch(err => console.error("Error IP:", err));
@@ -63,21 +81,20 @@ function obtenerUbicacionPrecisa() {
     navigator.geolocation.getCurrentPosition(
         position => {
             const { latitude, longitude } = position.coords;
-            obtenerClima(latitude, longitude);
+            // Al ser GPS no tenemos el nombre de la ciudad directamente
+            obtenerClima(latitude, longitude, "Tu ubicación actual");
         },
         error => {
-            console.warn("GPS falló, usando IP", error);
+            console.warn("GPS falló o fue denegado, usando IP", error);
             obtenerUbicacionIP();
         },
         {
             enableHighAccuracy: true,
-            timeout: 15000,
+            timeout: 10000,
             maximumAge: 0
         }
     );
 }
 
-// =======================
-// EJECUCIÓN
-// =======================
+// Ejecutar al cargar
 obtenerUbicacionPrecisa();

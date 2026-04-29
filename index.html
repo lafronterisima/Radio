@@ -541,17 +541,17 @@ function onYouTubeIframeAPIReady() {
   // Ocultar al seleccionar radio
   document.querySelectorAll('.radio').forEach(radio => {
     radio.addEventListener('click', () => {
-      document.querySelector('.trasmisors').style.display = 'none';
+      document.querySelector('.trasmisor').style.display = 'none';
     });
   });
 
   // Cerrar al hacer clic fuera
   document.addEventListener('click', function(event) {
-    const modal = document.querySelector('.trasmisors');
+    const modal = document.querySelector('.trasmisor');
     if (!modal) return;
 
     const isInside = modal.contains(event.target);
-    const isLive = event.target.closest('.live-icons');
+    const isLive = event.target.closest('.live-icon');
 
     if (!isInside && !isLive) {
       modal.style.display = 'none';

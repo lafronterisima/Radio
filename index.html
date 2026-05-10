@@ -29,17 +29,26 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/materialize.css">
-  <link rel="stylesheet" href="css/combined.min.css"> 
-  <link rel="stylesheet" href="css/outlined.css">
-  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="css/font-awesome.css">
-  <link rel="stylesheet" href="css/fonts-icon.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet">
+  <!-- CSS Crítico (inline) -->
+  <style>
+    /* Estilos críticos para above-the-fold */
+    body{margin:0;font-family:Roboto,sans-serif;line-height:1.6}.navbar-fixed{position:fixed;z-index:1000;width:100%}.elemento{display:none}.elemento.visible{display:block}.play{cursor:pointer}
+  </style>
+  
+  <!-- Preload CSS crítico -->
+  <link rel="preload" href="css/materialize.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- CSS no crítico con defer -->
+  <link rel="stylesheet" href="css/combined.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/outlined.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/font-awesome.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/fonts-icon.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/animate.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://vjs.zencdn.net/7.10.2/video-js.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
@@ -58,7 +67,6 @@
   <meta name="theme-color" content="#20B2AA">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
   <script type="speculationrules">
   {
@@ -78,7 +86,7 @@
         <i class="material-icons-outlined">menu</i>
       </div>
       <a href="https://google.com" class="logo" target="_blank">
-        <img id="tiempo" src="imagenes/news.png" loading="eager" style="cursor: pointer;">
+        <img id="tiempo" src="imagenes/news.png" loading="eager" fetchpriority="high" style="cursor: pointer;" width="50" height="50" alt="News">
       </a>
       <a class="share_btn">
         <i class="material-icons-outlined">share</i>
@@ -177,7 +185,7 @@
       <section class="streaming">
         <div class="contain_radio">
           <div class="logo">
-            <img src="image/frontera.png" loading="eager" alt="Logo">
+            <img src="image/frontera.png" loading="eager" fetchpriority="high" alt="Logo" width="120" height="120">
             <div id="weather">
               <div id="locationName" class="inline"></div>
               <div id="texto-clima" class="inline"></div>
@@ -203,12 +211,12 @@
                     <div id="chat-box"></div>
 					
 					 <iframe id="sc-widget" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                     src="https://es.euronews.com/embed/just-in"></script></iframe>
+                     src="" data-src="https://es.euronews.com/embed/just-in" loading="lazy"></iframe>
                      
 				 </div>
                 </div>
 				
-                <img id="weather-img" src="imagenes/tiempo.png" loading="eager" alt="Noticias">
+                <img id="weather-img" src="imagenes/tiempo.png" loading="lazy" fetchpriority="low" alt="Noticias" width="40" height="40">
               </div>
             </div>
 
@@ -240,7 +248,7 @@
             <div class="live-messages">
               <i class="material-icons-outlined"></i>
               <label class="live-icon">
-                <span class="material-icons-outlined"><img src="imagenes/microfono.png" loading="eager" alt="Microfono"></span>
+                <span class="material-icons-outlined"><img src="imagenes/microfono.png" loading="lazy" fetchpriority="low" alt="Microfono" width="20" height="20"></span>
               </label>
             </div>   
 
@@ -249,7 +257,7 @@
                 <div class="radio">
                   <p>Emisoras</p>
                   <a href="https://wa.me/573170340249?text=Hola%20me%20interesa%20tu%20servicio!" class="whatsapp-button" target="_blank">
-                    <img loading="lazy" src="imagenes/whatsapp.png" alt="WhatsApp">
+                    <img loading="lazy" fetchpriority="low" src="imagenes/whatsapp.png" alt="WhatsApp" width="30" height="30">
                   </a>
                 </div>
                 <div class="carousel-wrapper">
@@ -348,21 +356,21 @@
       <section class="home">
         <div class="slider" id="slider">
           <div class="slide active">
-            <img loading="lazy" src="imagenes/1.jpg" alt="Slide 1">
+            <img loading="lazy" fetchpriority="low" src="imagenes/1.jpg" alt="Slide 1" width="800" height="400">
             <div class="caption">
               <h1 class="typewrite" data-period="2000" data-type='["Somos una plataforma", "con variedad musical", "Sintonizanos, para complacerte"]'></h1>
               <div class="fb-like" data-href="https://www.facebook.com/emisora.lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
             </div>
           </div>
           <div class="slide">
-            <img loading="lazy" src="imagenes/2.jpg" alt="Slide 2">
+            <img loading="lazy" fetchpriority="low" src="imagenes/2.jpg" alt="Slide 2" width="800" height="400">
             <div class="caption">
               <h1 class="typewrite" data-period="2000" data-type='["Una propuesta", "con actualidad", "y mucho más"]'></h1>
               <div class="fb-like" data-href="https://www.facebook.com/lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
             </div>
           </div>
           <div class="slide">
-            <img loading="lazy" src="imagenes/3.jpg" alt="Slide 3">
+            <img loading="lazy" fetchpriority="low" src="imagenes/3.jpg" alt="Slide 3" width="800" height="400">
             <div class="caption">
               <h1 class="typewrite" data-period="2000" data-type='["La Fronterísima", "notas surcando", "fronteras"]'></h1>
               <div class="fb-like" data-href="https://www.facebook.com/lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
@@ -443,7 +451,7 @@
 
         <aside class="contenedor_pt">
           <div class="video-responsive">
-            <iframe id="video-canvas" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe id="video-canvas" src="" data-src="" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
           </div>
         </aside>
       </section>
@@ -476,8 +484,8 @@
         <div class="contenido_block">
           <section class="radiox">
             <div class="slideshow">
-              <div class="mySlides1"><img loading="lazy" src="imagenes/Programación.jpg" alt="Programación"></div>
-              <div class="mySlides1"><img loading="lazy" src="imagenes/arlex.jpg" alt="Arlex"></div>
+              <div class="mySlides1"><img loading="lazy" fetchpriority="low" src="imagenes/Programación.jpg" alt="Programación" width="300" height="200"></div>
+              <div class="mySlides1"><img loading="lazy" fetchpriority="low" src="imagenes/arlex.jpg" alt="Arlex" width="300" height="200"></div>
               <div class="prev" onclick="plusSlides(-1, 0)">&#10094;</div>
               <div class="next" onclick="plusSlides(1, 0)">&#10095;</div>
             </div>
@@ -487,8 +495,8 @@
           </section>
           <section class="radiox">
             <div class="slideshow">
-              <div class="mySlides2"><img loading="lazy" src="imagenes/artistas.jpg" alt="Artistas"></div>
-              <div class="mySlides2"><img loading="lazy" src="imagenes/contas.jpg" alt="Contas"></div>
+              <div class="mySlides2"><img loading="lazy" fetchpriority="low" src="imagenes/artistas.jpg" alt="Artistas" width="300" height="200"></div>
+              <div class="mySlides2"><img loading="lazy" fetchpriority="low" src="imagenes/contas.jpg" alt="Contas" width="300" height="200"></div>
               <div class="prev" onclick="plusSlides(-1, 1)">&#10094;</div>
               <div class="next" onclick="plusSlides(1, 1)">&#10095;</div>
             </div>
@@ -498,8 +506,8 @@
           </section>
           <section class="radiox">
             <div class="slideshow">
-              <div class="mySlides3"><img loading="lazy" src="imagenes/difusion.jpg" alt="Difusión"></div>
-              <div class="mySlides3"><img loading="lazy" src="imagenes/noticias.jpg" alt="Noticias"></div>
+              <div class="mySlides3"><img loading="lazy" fetchpriority="low" src="imagenes/difusion.jpg" alt="Difusión" width="300" height="200"></div>
+              <div class="mySlides3"><img loading="lazy" fetchpriority="low" src="imagenes/noticias.jpg" alt="Noticias" width="300" height="200"></div>
               <div class="prev" onclick="plusSlides(-1, 2)">&#10094;</div>
               <div class="next" onclick="plusSlides(1, 2)">&#10095;</div>
             </div>
@@ -515,7 +523,7 @@
         <div class="caja-portfa">
           <h3>SOUNDS</h3>
           <div class="fb_back">
-            <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/125486431/favorites" width="100%" height="166" scrolling="no" frameborder="no"></iframe>
+            <iframe id="sc-widget" src="" data-src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/125486431/favorites" width="100%" height="166" scrolling="no" frameborder="no" loading="lazy"></iframe>
           </div>
           <script>
             (function() {
@@ -542,7 +550,7 @@
         <div class="caja-portfa">
           <h3>ACTUALIDAD</h3>
           <div class="fb_back" id="slider-container">
-            <img id="slidex" src="imagenes/1.jpg" width="100%" height="390px" alt="Actualidad">
+            <img id="slidex" src="imagenes/1.jpg" width="100%" height="390" loading="lazy" fetchpriority="low" alt="Actualidad">
           </div>
           <script>
             const images = ["imagenes/1.jpg", "imagenes/2.jpg", "imagenes/3.jpg"];
@@ -609,7 +617,7 @@
                 <span class="fa fa-envelope"><a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span>
               </form>
               <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
-                <img loading="lazy" src="imagenes/paypal.png" alt="PayPal">
+                <img loading="lazy" fetchpriority="low" src="imagenes/paypal.png" alt="PayPal" width="120" height="40">
               </a>
             </div>
             <div class="footer-columna">
@@ -747,7 +755,7 @@
                 <span class="fa fa-envelope"><a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span>
               </form>
               <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
-                <img loading="lazy" src="imagenes/paypal.png" alt="PayPal">
+                <img loading="lazy" fetchpriority="low" src="imagenes/paypal.png" alt="PayPal" width="120" height="40">
               </a>
             </div>
             <div class="footer-columna">
@@ -816,7 +824,7 @@
                 <span class="fa fa-envelope"><a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span>
               </form>
               <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
-                <img loading="lazy" src="imagenes/paypal.png" alt="PayPal">
+                <img loading="lazy" fetchpriority="low" src="imagenes/paypal.png" alt="PayPal" width="120" height="40">
               </a>
             </div>
             <div class="footer-columna">
@@ -855,11 +863,11 @@
           <div class="advert-container">
             <div class="container-fluid">
               <div class="imagen">
-                <a href="#"><img class="img-responsive" src="imagenes/consola.jpg" alt="Consola"><p>La Fronterísima</p></a>
+                <a href="#"><img class="img-responsive" loading="lazy" fetchpriority="low" src="imagenes/consola.jpg" alt="Consola" width="300" height="200"><p>La Fronterísima</p></a>
               </div>
             </div>
             <div class="container-fluid">
-              <div id="Adds"><img id="imgAdd" src="imagenes/3.jpg" style="display: block; width: 100%;" alt="Publicidad"></div>
+              <div id="Adds"><img id="imgAdd" loading="lazy" fetchpriority="low" src="imagenes/3.jpg" style="display: block; width: 100%;" alt="Publicidad"></div>
             </div>
             <script>
               const imagenesAdd = ["imagenes/3.jpg", "imagenes/1.jpg", "imagenes/2.jpg"];
@@ -1065,7 +1073,7 @@
                 <span class="fa fa-envelope"><a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span>
               </form>
               <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
-                <img loading="lazy" src="imagenes/paypal.png" alt="PayPal">
+                <img loading="lazy" fetchpriority="low" src="imagenes/paypal.png" alt="PayPal" width="120" height="40">
               </a>
             </div>
             <div class="footer-columna">
@@ -1338,7 +1346,7 @@
                 <span class="fa fa-envelope"><a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span>
               </form>
               <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
-                <img loading="lazy" src="imagenes/paypal.png" alt="PayPal">
+                <img loading="lazy" fetchpriority="low" src="imagenes/paypal.png" alt="PayPal" width="120" height="40">
               </a>
             </div>
             <div class="footer-columna">
@@ -1373,29 +1381,35 @@
   </section>
 </main>
 
-<script src="js/jquery-1.9.0.min.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/materialize.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="js/repro.js"></script>
-<script src="js/saludo.js"></script>
-<script src="js/cargar_news.js" defer></script>
-<script src="https://kit.fontawesome.com/35db202371.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script src="js/animado.js"></script>
-<script src="js/share.js" defer></script>
-<script src="js/temperature.js"></script>
-<script src="js/form_send.js" defer></script>
-<script src="js/artistas.js" defer></script>
-<script src="https://w.soundcloud.com/player/api.js" defer></script>
-<script src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js" defer></script>
-<script src="regist_serviceWorker.js"></script> 
+  <!-- Scripts críticos -->
+  <script src="js/jquery-1.9.0.min.js"></script>
+  <script src="js/lazy-iframes.js" defer></script>
+  
+  <!-- Scripts no críticos con defer -->
+  <script src="js/menu.js" defer></script>
+  <script src="js/materialize.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="js/repro.js" defer></script>
+  <script src="js/saludo.js" defer></script>
+  <script src="js/cargar_news.js" defer></script>
+  <script src="https://kit.fontawesome.com/35db202371.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest" defer></script>
+  <script src="js/animado.js" defer></script>
+  <script src="js/share.js" defer></script>
+  <script src="js/temperature.js" defer></script>
+  <script src="js/form_send.js" defer></script>
+  <script src="js/artistas.js" defer></script>
+  <script src="https://w.soundcloud.com/player/api.js" defer></script>
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js" defer></script>
+  <script src="regist_serviceWorker.js" defer></script> 
 
 <script>
-  $(function(){
-    setTimeout(function(){
-      $(".cargando").hide(); 
-    }, 10);
+  // Optimizado: reducir timeout y eliminar jQuery innecesario
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+      const cargando = document.querySelector(".cargando");
+      if (cargando) cargando.style.display = 'none'; 
+    }, 100);
   });
 </script>
 

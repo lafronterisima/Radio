@@ -1,19 +1,62 @@
-Options -Indexes
+# Optimización de rendimiento y caching
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType text/css "access 1 year"
+    ExpiresByType application/javascript "access 1 year"
+    ExpiresByType image/png "access 1 year"
+    ExpiresByType image/jpg "access 1 year"
+    ExpiresByType image/jpeg "access 1 year"
+    ExpiresByType image/gif "access 1 year"
+    ExpiresByType image/ico "access 1 year"
+    ExpiresByType image/svg+xml "access 1 year"
+    ExpiresByType image/webp "access 1 year"
+    ExpiresByType font/woff "access 1 year"
+    ExpiresByType font/woff2 "access 1 year"
+    ExpiresByType application/font-woff "access 1 year"
+    ExpiresByType application/font-woff2 "access 1 year"
+    ExpiresByType text/html "access 1 hour"
+</IfModule>
 
-RewriteEngine On
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|webp)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "public, max-age=3600"
+    </FilesMatch>
+    # Habilitar compresión
+    <FilesMatch "\.(js|css|html|php|xml|json|txt)$">
+        Header set Vary "Accept-Encoding"
+    </FilesMatch>
+</IfModule>
 
-# 🔒 Forzar HTTPS y dominio sin www
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\.lafronterisima\.stream$ [NC]
-RewriteRule ^(.*)$ https://lafronterisima.stream/$1 [L,R=301]
+# Compresión Gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
 
-# 📄 Redirigir .html a versión limpia (IMPORTANTE)
-RewriteCond %{THE_REQUEST} \s/([^.]+)\.html [NC]
-RewriteRule ^ %1 [L,R=301]
+# Optimización de conexión
+<IfModule mod_http2.c>
+    Protocols h2 h2c http/1.1
+</IfModule>
 
-# 📄 Servir archivos .html sin mostrarlos en la URL
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+)$ $1.html [L]
+# Seguridad básica
+<Files "wp-config.php">
+    Order allow,deny
+    Deny from all
+</Files>
 
-DirectoryIndex index.html
+# Prevenir acceso a archivos sensibles
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

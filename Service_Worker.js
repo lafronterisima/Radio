@@ -1,47 +1,22 @@
 
-//asignar un nombre y versión al cache
-const CACHE_NAME = 'La Fronterísima',
-  urlsToCache = [
-    '',
-    'index.html',
-    'css/radio.css',
-    'font-awesome.css',
-    'css/fonts-icon.css',
-    'css/animate.css',
-    'css/lightbox.min.css',
-    'css/jquery.scrollflow.css',
-    'owl/assets/owl.carousel.min.css',
-
-  
-    'js/jquery 1.9.0.min.js',
-    'js/prefix.min.js',
-    'js/image.js',
-    'js/lightbox-plus-jquery.min.js',
-    'js/lightbox.min.js',
-    'js/jquery.scrollflow.min.js',
-    'js/app.js',
-    'js/ajax.js',
-    'js/pulsar.js',
-    'js/audio.js',
-    'js/menu.js',
-    'js/main.js',
-    'js/share.js',
-    'js/ajaxfom.js',
-    'js/header.js',
-    'js/script.js',
-    'js/navegar.js',
-    'js/imagesslider01.js',
-    'js/imagesslider1.js',
-    'js/imagesslider2.js',
-    'js/imagesslider3.js',
-    'js/prueba.js',
-    'js/floating-wpp.js',
-    'js/stream.js',
- 
-    'regist_serviceWorker.js',
-    'pwa/icon-512x512.png',
-    'pwa/icon-72x72.png'
-  ]
+// Service Worker optimizado para La Fronterísima
+const CACHE_NAME = 'la-fronterisima-v1.0';
+const urlsToCache = [
+  '/',
+  '/index.html',
+  '/css/materialize.css',
+  '/css/style.css',
+  '/css/combined.min.css',
+  '/js/jquery-1.9.0.min.js',
+  '/js/lazy-iframes.js',
+  '/js/menu.js',
+  '/js/materialize.js',
+  '/manifest.json',
+  '/pwa/icon-512x512.png',
+  '/pwa/icon-72x72.png',
+  '/imagenes/frontera.png',
+  '/image/frontera.png'
+];
 
 
 self.addEventListener('install', e => {
@@ -55,38 +30,90 @@ self.addEventListener('install', e => {
   )
 })
 
-self.addEventListener('activate', e => {
-  const cacheWhitelist = [CACHE_NAME]
-
-  e.waitUntil(
+// Activación y limpieza de caches antiguos
+self.addEventListener('activate', event => {
+  const cacheWhitelist = [CACHE_NAME];
+  
+  event.waitUntil(
     caches.keys()
       .then(cacheNames => {
         return Promise.all(
           cacheNames.map(cacheName => {
-         
             if (cacheWhitelist.indexOf(cacheName) === -1) {
-              return caches.delete(cacheName)
+              console.log('Eliminando cache antiguo:', cacheName);
+              return caches.delete(cacheName);
             }
           })
-        )
+        );
       })
-   
       .then(() => self.clients.claim())
-  )
-})
+  );
+});
 
+// Manejo de mensajes para actualización manual
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
 
-self.addEventListener('fetch', e => {
-
-  e.respondWith(
-    caches.match(e.request)
-      .then(res => {
-        if (res) {
-        
-          return res
+// Estrategia de cache optimizada
+const cacheStrategy = {
+  // Para recursos estáticos - Cache First
+  static: (request) => {
+    return caches.match(request).then(response => {
+      if (response) {
+        return response;
+      }
+      return fetch(request).then(response => {
+        // Solo cacheamos respuestas exitosas
+        if (!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
         }
-       
-        return fetch(e.request)
-      })
-  )
-})
+        const responseToCache = response.clone();
+        caches.open(CACHE_NAME).then(cache => {
+          cache.put(request, responseToCache);
+        });
+        return response;
+      });
+    });
+  },
+  
+  // Para recursos dinámicos - Network First
+  dynamic: (request) => {
+    return fetch(request).then(response => {
+      if (!response || response.status !== 200) {
+        return caches.match(request);
+      }
+      const responseToCache = response.clone();
+      caches.open(CACHE_NAME).then(cache => {
+        cache.put(request, responseToCache);
+      });
+      return response;
+    }).catch(() => {
+      return caches.match(request);
+    });
+  }
+};
+
+// Interceptación de peticiones
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  const url = new URL(request.url);
+  
+  // Solo cacheamos peticiones GET y HTTP/HTTPS
+  if (request.method !== 'GET' || !url.protocol.startsWith('http')) {
+    return;
+  }
+  
+  // Estrategia según el tipo de recurso
+  if (url.pathname.includes('/css/') || url.pathname.includes('/js/') || 
+      url.pathname.includes('/imagenes/') || url.pathname.includes('/image/') ||
+      url.pathname.includes('/pwa/')) {
+    // Recursos estáticos - Cache First
+    event.respondWith(cacheStrategy.static(request));
+  } else {
+    // Recursos dinámicos - Network First
+    event.respondWith(cacheStrategy.dynamic(request));
+  }
+});

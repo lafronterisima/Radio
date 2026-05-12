@@ -5,22 +5,26 @@
   <title>La Fronterisima</title>
 
   <!-- SEO -->
-  <meta name="description" content="Plataforma online independiente de Colombia - música colombiana, artistas emergentes, sonidos de Colombia">
-  <meta name="keywords" content="La Fronterísima, música colombiana, artistas emergentes, sonidos de Colombia, tecnología musical, radio online">
-  <meta name="author" content="La Fronterisima">
+  <meta name="description" content="La primera emisora online independiente de Colombia semi operada con IA autónoma.">
+  <meta name="keywords" content="Radio Smart IA, La Fronterísima, inteligencia artificial, radio autónoma, música colombiana, artistas emergentes, automatización radial, streaming inteligente, sonidos de Colombia, tecnología musical, emisora independiente">
+  <meta name="author" content="La Fronterisima - Plataforma Tecnológica">
   <meta name="robots" content="index, follow">
+
   <meta property="og:site_name" content="La Fronterísima">
-  <meta property="og:description" content="Música e innovación surcando fronteras.">
+  <meta property="og:title" content="Radio Smart IA - La primera emisora online independiente de Colombia">
+  <meta property="og:description" content="Transformando la radio con IA autónoma y automatización inteligente en la nube. Música e innovación surcando fronteras.">
   <meta property="og:image" content="https://www.lafronterisima.stream/frontera.png">
   <meta property="og:url" content="https://www.lafronterisima.stream">
   <meta property="og:type" content="website">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://www.lafronterisima.stream">
 
-  <!-- Preload -->
+  <!-- Preload (corregido) -->
   <link rel="preload" as="image" href="https://img.icons8.com/ios-filled/50/000000/play--v1.png" crossorigin="anonymous">
   <link rel="preload" as="image" href="https://img.icons8.com/ios-filled/50/000000/pause--v1.png" crossorigin="anonymous">
 
-  <!-- Preconnect -->
+  <!-- ⚡ Optimización fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://az.azurafree.eu" crossorigin>
@@ -29,26 +33,19 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 
-  <!-- CSS Crítico (inline) -->
-  <style>
-    /* Estilos críticos para above-the-fold */
-    body{margin:0;font-family:Roboto,sans-serif;line-height:1.6}.navbar-fixed{position:fixed;z-index:1000;width:100%}.elemento{display:none}.elemento.visible{display:block}.play{cursor:pointer}
-  </style>
-  
-  <!-- Preload CSS crítico -->
-  <link rel="preload" href="css/materialize.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- CSS no crítico con defer -->
-  <link rel="stylesheet" href="css/combined.min.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="css/outlined.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="css/font-awesome.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="css/fonts-icon.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="css/animate.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="https://vjs.zencdn.net/7.10.2/video-js.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+  <!-- CSS (orden optimizado, sin eliminar nada crítico) -->
+  <link rel="stylesheet" href="css/materialize.css">
+  <link rel="stylesheet" href="css/combined.min.css"> 
+  <link rel="stylesheet" href="css/outlined.css">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/fonts-icon.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
@@ -62,595 +59,1098 @@
   <link rel="icon" href="imagenes/frontera.png" type="image/png">
   <link rel="shortcut icon" href="image/frontera.png" type="image/x-icon">
 
-  <!-- Meta móviles -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <!-- Meta móviles (corregido UX) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#20B2AA">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-  <script type="speculationrules">
-  {
-    "prefetch": [{ "where": { "href_matches": "/(.*)" }, "eagerness": "moderate" }],
-    "prerender": [{ "where": { "href_matches": "/(.*)" }, "eagerness": "conservative" }]
-  }
+  
+  <div class="navbar-fixed"> 
+  
+  <nav class="menu" role="navigation">
+  
+   <div class="nav-wrappers" class="menu">
+           
+    <div class="sidenav-trigger" data-target="nav-mobile" class="sidenav-overlay"><i class="material-icons-outlined">menu</i>
+      </div>
+	 
+	 <a href="https://google.com" class="logo" target="_blank">
+	   <img id="tiempo" src="imagenes/news.png" loading="eager"  style="cursor: pointer;">
+     </a>
+	 
+	  <a class="share_btn">
+      <i class="material-icons-outlined">share</i></a> 
+
+    <div class="modal_wraper" data-action="modal_close"> 
+
+    <div class="modal_container"> 
+
+    <div class="header"><strong>Compartir página web</strong><button class="close" data-action="modal_close">
+    <i class="material-icons-outlined">close</i></button> 
+    </div>
+ 
+   <div class="boxes"> 
+ 
+   <div class="social_media"> 
+   <a href="http://www.facebook.com/sharer.php?u=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared fb""> 
+    <i class="material-icons-outlined"> facebook</i>
+   </a>
+ 
+   <a href="https://wa.me/?text=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared wa">
+    <i class="material-icons-outlined"> whatsapp</i>
+   </a> 
+ 
+   <a href="mailto:?Subject=Descarga%20nuestra%20app:%20La%20Fronterisima%20link%20https://lafronterisima.stream" target="_blank" class="shared ce"> 
+    <i class="material-icons-outlined"> mail</i>
+   </a>
+   
+    <a href="https://telegram.me/share/url?url=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tl"> 
+    <i class="material-icons-outlined"> telegram</i>
+   </a>
+
+   <a href="https://instagram.com/share?url=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tt"> 
+     <i class="material-icons-outlined"> photo_camera</i>
+   </a>
+   
+  </div> 
+ 
+  <div class="copy_wraper"> 
+   <strong>Copiar link</strong>
+   <div class="copy_url_wraper">
+  <input type="url" id="shareable_url" value="https://lafronterisima.stream"/> 
+ 
+   <button class="copy_url_btn"> Copiar </button> 
+ 
+  </div> 
+  
+  </div> 
+  </div> 
+   
+    <i class="icon-android-share"></i>
+    
+   </div>
+  </div>
+
+
+      
+   <ul class="right hide-on-med-and-down" >
+     <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
+     <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>  
+	 <li><a href="#NOTAS"><span class="material-icons-outlined"> newspaper</span> Noticias</a></li> 
+	 <li> <a class="submenu"><span class="material-icons-outlined"> map </span> Catálogo <span class="icon-circle-down"> </span></a>  
+		 
+		 <ul class="dropdown">
+		 
+			 <li><a href="#VIDEOS"><span class="material-icons-outlined"> camera</span> Video</a></li>
+			 <li><a href="#PRIVACIDAD"><span class="material-icons-outlined"> lock</span> Seguridad</a></li>
+		 </ul>
+		 
+		 </li> 
+		  
+        <li><a href="#ARTISTAS"><span class="material-icons-outlined"> headphones</span> Artistas</a>
+		</li>           
+   </ul>
+       
+     </div>
+    </nav>
+   </div>
+	  
+
+  <ul id="nav-mobile" class="sidenav">
+    <div class="sidenav-trigger" data-target="mobile-menu"></div>
+    
+	
+    <div class="nav_perfil">
+        <div class="nav_logo">
+            <img src="image/frontera.png">
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
+        <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>
+        <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
+        <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Videos</a></li>
+        <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
+		            
+    </div>
+	
+	  <div class="enlaces">
+            <h2><a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w"><span class="material-icons-outlined">speaker</span> Colombia</a></h2>
+        </div> 
+	
+</ul>
+ 
+ 
+ 
+ <script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+    OneSignal.init({
+      appId: "c34ccfa8-4709-4bfc-8dc3-03cfa982186c",   
+      });
+    });
   </script>
+  
+  <script>
+  
+ $(document).ready(function () {
+    setUpSlider($('#slider1'));
+});
+
+// Slider setup function
+function setUpSlider($container) {
+    var pos = 0,
+        slides = $container.find('.slides'),
+        numOfSlides = slides.length;
+
+    function nextSlides() {
+        // Ensure video stops before sliding out
+        if (slides[pos].video) slides[pos].video.stopVideo();
+        slides.eq(pos).animate({ left: '-100%' }, 500);
+        pos = (pos >= numOfSlides - 1 ? 0 : ++pos);
+        slides.eq(pos).css({ left: '100%' }).animate({ left: 0 }, 500);
+    }
+
+    function previousSlides() {
+        // Ensure video stops before sliding out
+        if (slides[pos].video) slides[pos].video.stopVideo();
+        slides.eq(pos).animate({ left: '100%' }, 500);
+        pos = (pos === 0 ? numOfSlides - 1 : --pos);
+        slides.eq(pos).css({ left: '-100%' }).animate({ left: 0 }, 500);
+    }
+
+    // Bind click events to navigation buttons
+    $container.find('.left').click(previousSlides);
+    $container.find('.right').click(nextSlides);
+}
+
+// YouTube API ready function to initialize players
+function onYouTubeIframeAPIReady() {
+    $('.slides').each(function (index, slides) {
+        // Get the '.video' element inside each `.slides`
+        var iframe = $(slides).find('.video')[0];
+        // Create a new YT.Player from the iFrame, and store it on the '.slides' DOM object
+        slides.video = new YT.Player(iframe);
+    });
+}
+
+  </script>
+  
+	
+</div>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8389148678200434"
+     crossorigin="anonymous"></script>
+
+
+<script type="speculationrules">
+{
+  "prefetch": [{
+    "where": {
+      "href_matches": "/(.*)"
+    },
+    "eagerness": "moderate"
+  }],
+  "prerender": [{
+    "where": {
+      "href_matches": "/(.*)"
+    },
+    "eagerness": "conservative"
+  }]
+}
+</script>
+
+
 </head>
+
 <body>
 
 <div id="fb-root"></div>
-
-<div class="navbar-fixed"> 
-  <nav class="menu" role="navigation">
-    <div class="nav-wrappers">
-      <div class="sidenav-trigger" data-target="nav-mobile">
-        <i class="material-icons-outlined">menu</i>
-      </div>
-      <a href="https://google.com" class="logo" target="_blank">
-        <img id="tiempo" src="imagenes/news.png" loading="eager" fetchpriority="high" style="cursor: pointer;" width="50" height="50" alt="News">
-      </a>
-      <a class="share_btn">
-        <i class="material-icons-outlined">share</i>
-      </a>
-	  
-      <div class="modal_wraper" data-action="modal_close"> 
-        <div class="modal_container"> 
-          <div class="header">
-            <strong>Compartir página web</strong>
-            <button class="close" data-action="modal_close">
-              <i class="material-icons-outlined">close</i>
-            </button> 
-          </div>
-          <div class="boxes"> 
-            <div class="social_media"> 
-              <a href="http://www.facebook.com/sharer.php?u=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared fb"> 
-                <i class="material-icons-outlined">facebook</i>
-              </a>
-              <a href="https://wa.me/?text=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared wa">
-                <i class="material-icons-outlined">whatsapp</i>
-              </a> 
-              <a href="mailto:?Subject=Descarga%20nuestra%20app:%20La%20Fronterisima%20link%20https://lafronterisima.stream" target="_blank" class="shared ce"> 
-                <i class="material-icons-outlined">mail</i>
-              </a>
-              <a href="https://telegram.me/share/url?url=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tl"> 
-                <i class="material-icons-outlined">telegram</i>
-              </a>
-              <a href="https://instagram.com/share?url=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tt"> 
-                <i class="material-icons-outlined">photo_camera</i>
-              </a>
-            </div> 
-            <div class="copy_wraper"> 
-              <strong>Copiar link</strong>
-              <div class="copy_url_wraper">
-                <input type="url" id="shareable_url" value="https://lafronterisima.stream"/> 
-                <button class="copy_url_btn">Copiar</button> 
-              </div> 
-            </div> 
-          </div> 
-          <i class="icon-android-share"></i>
-        </div>
-      </div>
-	  
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
-        <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>  
-        <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li> 
-        <li>
-          <a class="submenu"><span class="material-icons-outlined">map</span> Catálogo <span class="icon-circle-down"></span></a>  
-          <ul class="dropdown">
-            <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Video</a></li>
-            <li><a href="#PRIVACIDAD"><span class="material-icons-outlined">lock</span> Seguridad</a></li>
-          </ul>
-        </li> 
-        <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>           
-      </ul>
-    </div>
-  </nav>
-</div>
-
-<ul id="nav-mobile" class="sidenav">
-  <div class="nav_perfil">
-    <div class="nav_logo">
-      <img src="image/frontera.png" alt="Logo">
-    </div>
-  </div>
-  <div class="navigation">
-    <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
-    <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>
-    <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
-    <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Videos</a></li>
-    <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
-  </div>
-  <div class="enlaces">
-    <h2><a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w"><span class="material-icons-outlined">speaker</span> Colombia</a></h2>
-  </div> 
-</ul>
-
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "c34ccfa8-4709-4bfc-8dc3-03cfa982186c",   
-    });
-  });
-</script>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8389148678200434" crossorigin="anonymous"></script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v12.0&appId=275754110188363&autoLogAppEvents=1" nonce="o7sE84jb"></script>
 
-<main>
+
+
+ <main>
+
   <section id="contenido">
   
-    <!-- RADIO SECTION -->
-    <article id="RADIO" class="elemento visible">
-      <section class="streaming">
-        <div class="contain_radio">
-          <div class="logo">
-            <img src="image/frontera.png" loading="eager" fetchpriority="high" alt="Logo" width="120" height="120">
-            <div id="weather">
-              <div id="locationName" class="inline"></div>
-              <div id="texto-clima" class="inline"></div>
-              <div id="texto-temp"></div>
-              <div id="humidity"></div>
-              <div id="windSpeed"></div>
-              <script src="js/clima.js"></script>
-            </div>
-          </div>
-
-          <div class="player-container">
-            <div class="live-message">
-              <div class="saludo">
-                <div class="modal_box" id="modal_box"> 
-                  <div class="modal_containers">
-                    <div class="header_box">
-                      <h3>NEWS</h3>
-                      <button class="close" id="cerrar_modal">
-                        <i class="material-icons-outlined">close</i>
-                      </button>
-                    </div>
-					
-                    <div id="chat-box"></div>
-					
-					 <iframe id="sc-widget" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                     src="" data-src="https://es.euronews.com/embed/just-in" loading="lazy"></iframe>
-                     
-				 </div>
-                </div>
-				
-                <img id="weather-img" src="imagenes/tiempo.png" loading="lazy" fetchpriority="low" alt="Noticias" width="40" height="40">
-              </div>
-            </div>
-
-            <script>
-              document.addEventListener('DOMContentLoaded', function() {
-                document.querySelectorAll('#weather-img').forEach(function(icon) {
-                  icon.addEventListener('click', function() {
-                    document.querySelector('#modal_box').classList.add('active');
-                  });
-                });
-                document.querySelectorAll('#cerrar_modal').forEach(function(button) {
-                  button.addEventListener('click', function() {
-                    document.querySelector('#modal_box').classList.remove('active');
-                  });
-                });
-                document.addEventListener('click', function(event) {
-                  var modal = document.querySelector('#modal_box');
-                  var modalContent = document.querySelector('.modal_containers');
-                  if (!modal || !modalContent) return;
-                  var isClickInsideModal = modalContent.contains(event.target);
-                  var isClickOnLiveIcon = event.target.closest('#weather-img');
-                  if (!isClickInsideModal && !isClickOnLiveIcon) {
-                    modal.classList.remove('active');
-                  }
-                });
-              });
-            </script>
-
-            <div class="live-messages">
-              <i class="material-icons-outlined"></i>
-              <label class="live-icon">
-                <span class="material-icons-outlined"><img src="imagenes/microfono.png" loading="lazy" fetchpriority="low" alt="Microfono" width="20" height="20"></span>
-              </label>
-            </div>   
-
-            <div class="modal_wrapers" id="modal">
-              <div class="trasmisor">
-                <div class="radio">
-                  <p>Emisoras</p>
-                  <a href="https://wa.me/573170340249?text=Hola%20me%20interesa%20tu%20servicio!" class="whatsapp-button" target="_blank">
-                    <img loading="lazy" fetchpriority="low" src="imagenes/whatsapp.png" alt="WhatsApp" width="30" height="30">
-                  </a>
-                </div>
-                <div class="carousel-wrapper">
-                  <div class="swiper">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <img src="emisora/mensajeros.png" alt="Mensajeros">
-                        <div class="content">
-                          <div class="title">Mensajeros de Gloria</div>
-                          <div class="sub-title">Cristiana</div>
-                          <p>Usar los medios digitales y radiales para difundir el evangelio; edificar y consolar a los creyentes hispanos.</p>
-                          <audio controls class="btns">
-                            <source src="https://stream.zeno.fm/6q6gx5fcn48uv">
-                          </audio>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="emisora/scom.png" alt="Scom">
-                        <div class="content">
-                          <div class="title">Radio Scom</div>
-                          <div class="sub-title">Cali</div>
-                          <p>Transmisión las 24 horas, que permiten estar a la vanguardia de las nuevas tendencias tecnológicas en comunicación.</p>
-                          <audio controls class="btns">
-                            <source src="https://emisorasdigitales2.com:7002/stream">
-                          </audio>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="emisora/palacio.png" alt="Palacio">
-                        <div class="content">
-                          <div class="title">Palacio Vallenato</div>
-                          <div class="sub-title">Riohacha</div>
-                          <p>Una propuesta musical vallenata desde el año 2012, para la difusión de nuestro folclor en su máxima expresión.</p>
-                          <audio controls class="btns">
-                            <source src="https://stream.zeno.fm/v5ecixm4fvduv">
-                          </audio>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <script>
-              document.addEventListener("DOMContentLoaded", function() {
-                const swiper = new Swiper('.swiper', {
-                  loop: true,
-                  spaceBetween: 15,
-                  autoplay: { delay: 3000, disableOnInteraction: false },
-                  slidesPerView: 1
-                });
-                document.querySelectorAll('.live-icon').forEach(icon => {
-                  icon.addEventListener('click', () => {
-                    document.querySelector('.trasmisor').style.display = 'block';
-                  });
-                });
-                document.querySelectorAll('.radio').forEach(radio => {
-                  radio.addEventListener('click', () => {
-                    document.querySelector('.trasmisor').style.display = 'none';
-                  });
-                });
-                document.addEventListener('click', function(event) {
-                  const modal = document.querySelector('.trasmisor');
-                  if (!modal) return;
-                  const isInside = modal.contains(event.target);
-                  const isLive = event.target.closest('.live-icon');
-                  if (!isInside && !isLive) {
-                    modal.style.display = 'none';
-                  }
-                });
-              });
-            </script>
-
-            <div class="control-container">
-              <audio id="track" class="radioSource" src="https://virtual5.emisorasvirtuales.com/listen/la_fronterisima/live" preload="auto" crossorigin="anonymous"></audio>    
-              <div id="player-container">
-                <div id="playPauseBtn" class="play" aria-label="Play / Pause" role="button">
-                  <svg class="icon play-icon" viewBox="0 0 24 24">
-                    <polygon points="6,4 20,12 6,20"/>
-                  </svg>
-                  <svg class="icon pause-icon" viewBox="0 0 24 24">
-                    <rect x="6" y="4" width="4" height="16"/>
-                    <rect x="14" y="4" width="4" height="16"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
+   <article id="RADIO" class="elemento visible">
+  	 
+  <section class="streaming">
+   
+    <div class="contain_radio">
+	
+	
+        <div class="logo">
+          <img src="image/frontera.png" loading="eager">
+		
+          <div id="weather">
+            <div id="locationName" class="inline"></div>
+            <div id="texto-clima" class="inline"></div>
+            <div id="texto-temp"></div>
+            <div id="humidity"></div>
+            <div id="windSpeed"></div>
+          <script src="js/clima.js"></script>
+         </div>
+		  
         </div>
-      </section>
-    </article>
+	  
+	   
+    <div class="player-container">
+    
+     <div class="live-message">
+      <div class="saludo">
+	  
+	
+	
+  <!-- Imagen que abre el modal al hacer clic -->
+  <div class="modal_box" id="modal_box"> 
+  <div class="modal_containers">
+    <div class="header_box">
+      <h3>NEWS</h3>
+      <button class="close" id="cerrar_modal">
+        <i class="material-icons-outlined">close</i>
+      </button>
+    </div>
 
-    <!-- INICIO SECTION -->
-    <article id="INICIO" class="elemento">
-      <section class="home">
-        <div class="slider" id="slider">
-          <div class="slide active">
-            <img loading="lazy" fetchpriority="low" src="imagenes/1.jpg" alt="Slide 1" width="800" height="400">
-            <div class="caption">
-              <h1 class="typewrite" data-period="2000" data-type='["Somos una plataforma", "con variedad musical", "Sintonizanos, para complacerte"]'></h1>
-              <div class="fb-like" data-href="https://www.facebook.com/emisora.lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+    <div id="chat-box"></div>
+
+    <!-- 
+    <form id="form_comentario" onsubmit="enviarMensaje(event)">
+      <input type="text" id="usuario" name="usuario" placeholder="Tu nombre" required>
+      <textarea id="comentario" name="comentario" placeholder="Escribe tu comentario..." required></textarea>
+      <button class="chats" type="submit">Enviar</button>
+    </form> 
+	-->
+	
+	 <iframe id="sc-widget" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+      src="https://es.euronews.com/embed/just-in"></script></iframe>
+	
+  </div>
+</div>
+
+<!-- Imagen para abrir el modal -->
+
+<img id="weather-img" src="imagenes/tiempo.png" loading="lazy">
+			
+   </div>
+	  
+    </div>
+
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Abrir el modal de chat al hacer clic en la imagen
+    document.querySelectorAll('#weather-img').forEach(function(icon) {
+     icon.addEventListener('click', function() {
+      document.querySelector('#modal_box').classList.add('active'); // Mostrar el modal
+    });
+  });
+
+  // Cerrar el modal cuando se hace clic en el botón de cerrar
+  document.querySelectorAll('#cerrar_modal').forEach(function(button) {
+    button.addEventListener('click', function() {
+      document.querySelector('#modal_box').classList.remove('active'); // Ocultar el modal
+    });
+  });
+
+  // Cerrar el modal al hacer clic fuera del contenedor del modal
+  document.addEventListener('click', function(event) {
+    var modal = document.querySelector('#modal_box');
+    var modalContent = document.querySelector('.modal_containers');
+    var isClickInsideModal = modalContent.contains(event.target);
+    var isClickOnLiveIcon = event.target.closest('#weather-img');
+
+    // Cierra el modal si el clic es fuera del modal y fuera del ícono
+    if (!isClickInsideModal && !isClickOnLiveIcon) {
+      modal.classList.remove('active');
+    }
+  });  
+
+ 
+ //async function enviarMensaje(event){
+   // event.preventDefault(); 
+
+  //  const usuario = document.getElementById('usuario').value.trim();
+   // const comentario = document.getElementById('comentario').value.trim();
+
+  //  if (usuario === '' || comentario === '') return; 
+
+   // try {
+   //  const response = await fetch('send_message.php', {
+     //   method: 'POST',
+     //   headers: {
+     //     'Content-Type': 'application/x-www-form-urlencoded'
+     //   },
+      //  body: new URLSearchParams({
+       //   usuario: usuario,
+       //   comentario: comentario
+    //    })
+    //  });
+
+    //  if (response.ok) {
+       
+      //  const comentariosDiv = document.getElementById('chat-box');
+      //  const comentarioElement = document.createElement('div');
+       // comentarioElement.classList.add('comentario');
+
+       // const fecha = new Date().toLocaleTimeString();
+
+     //   comentarioElement.innerHTML = `
+        //  <strong>${usuario}</strong>
+        //  <small>${fecha}</small>
+        //  <p>${comentario}</p>
+      //  `;
+        
+      //  comentariosDiv.insertBefore(comentarioElement, comentariosDiv.firstChild);
+
+      //  document.getElementById('comentario').value = '';
+  //    } else {
+     //   console.error('Error al enviar el mensaje:', response.statusText);
+   //   }
+  //  } catch (error) {
+  //    console.error('Error en la solicitud:', error);
+  //  }
+ // }
+
+ 
+ //  async function fetchMessages() {
+  //  try {
+   //   const response = await fetch('chat.php');
+    //  if (response.ok) {
+    //    const chatBox = document.getElementById('chat-box');
+     //   chatBox.innerHTML = await response.text();
+     //   chatBox.scrollTop = chatBox.scrollHeight; 
+   //   } else {
+      //  console.error('Error al recuperar los mensajes:', response.statusText);
+   //   }
+  //  } catch (error) {
+   //   console.error('Error en la solicitud:', error);
+  //  }
+//  }
+
+ // setInterval(fetchMessages, 5000);
+
+//  const form = document.getElementById('form_comentario');
+ // if (form) {
+  //  form.addEventListener('submit', enviarMensaje);
+  //  }
+	
+  });
+ </script> 
+
+	  
+  <div class="live-messages">
+        <i class="material-icons-outlined"></i>
+		
+        <label class="live-icon">
+		<span class="material-icons-outlined"><img src="imagenes/microfono.png" loading="eager"></span></label>
+		
+    </div>   
+	  
+
+ <div class="modal_wrapers" id="modal">
+  <div class="trasmisor">
+
+    <div class="radio">
+      <p>Emisoras</p>
+      <a href="https://wa.me/573170340249?text=Hola%20me%20interesa%20tu%20servicio!" 
+         class="whatsapp-button" target="_blank">
+        <img loading="lazy" src="imagenes/whatsapp.png">
+      </a>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+
+          <!-- ITEM -->
+          <div class="swiper-slide">
+            <img src="emisora/mensajeros.png">
+            <div class="content">
+              <div class="title">Mensajeros de Gloria</div>
+              <div class="sub-title">Cristiana</div>
+               <p>Usar los medios digitales y radiales para difundir el evangelio; edificar y consolar a los creyentes hispanos.</p>
+          
+              <audio controls class="btns">
+                <source src="https://stream.zeno.fm/6q6gx5fcn48uv">
+              </audio>
             </div>
           </div>
-          <div class="slide">
-            <img loading="lazy" fetchpriority="low" src="imagenes/2.jpg" alt="Slide 2" width="800" height="400">
-            <div class="caption">
-              <h1 class="typewrite" data-period="2000" data-type='["Una propuesta", "con actualidad", "y mucho más"]'></h1>
-              <div class="fb-like" data-href="https://www.facebook.com/lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+
+          <div class="swiper-slide">
+            <img src="emisora/scom.png">
+            <div class="content">
+              <div class="title">Radio Scom</div>
+              <div class="sub-title">Cali</div>
+               <p>Transmisión las 24 horas, que permiten estar a la vanguardia de las nuevas tendencias tecnológicas en comunicación.</p>
+              
+              <audio controls class="btns">
+                <source src="https://emisorasdigitales2.com:7002/stream">
+              </audio>
             </div>
           </div>
-          <div class="slide">
-            <img loading="lazy" fetchpriority="low" src="imagenes/3.jpg" alt="Slide 3" width="800" height="400">
-            <div class="caption">
-              <h1 class="typewrite" data-period="2000" data-type='["La Fronterísima", "notas surcando", "fronteras"]'></h1>
-              <div class="fb-like" data-href="https://www.facebook.com/lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+
+          <div class="swiper-slide">
+            <img src="emisora/palacio.png">
+            <div class="content">
+              <div class="title">Palacio Vallenato</div>
+              <div class="sub-title">Riohacha</div>
+               <p>Una propuesta musical vallenata desde el año 2012, para la difusión de nuestro folclor en su máxima expresión.</p>
+              <audio controls class="btns">
+                <source src="https://stream.zeno.fm/v5ecixm4fvduv">
+              </audio>
             </div>
           </div>
+
         </div>
-      </section>
+      </div>
+    </div>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          let slides = document.querySelectorAll('.slide');
-          let currentIndex = 0;
-          const totalSlides = slides.length;
-          const slider = document.getElementById('slider');
-          function changeSlide() {
-            slides[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % totalSlides;
-            slides[currentIndex].classList.add('active');
+  </div>
+</div>
+
+<script>
+
+
+
+ document.addEventListener("DOMContentLoaded", function () {
+
+  // 🎯 Carrusel (reemplazo de Owl)
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    spaceBetween: 15,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 1
+  });
+
+  // Mostrar transmisor
+  document.querySelectorAll('.live-icon').forEach(icon => {
+    icon.addEventListener('click', () => {
+      document.querySelector('.trasmisor').style.display = 'block';
+    });
+  });
+
+  // Ocultar al seleccionar radio
+  document.querySelectorAll('.radio').forEach(radio => {
+    radio.addEventListener('click', () => {
+      document.querySelector('.trasmisor').style.display = 'none';
+    });
+  });
+
+  // Cerrar al hacer clic fuera
+  document.addEventListener('click', function(event) {
+    const modal = document.querySelector('.trasmisor');
+    if (!modal) return;
+
+    const isInside = modal.contains(event.target);
+    const isLive = event.target.closest('.live-icon');
+
+    if (!isInside && !isLive) {
+      modal.style.display = 'none';
+    }
+  });
+
+});
+</script>	  
+      
+      <div class="control-container">
+       
+         <audio id="track" class="radioSource" src="https://virtual5.emisorasvirtuales.com/listen/la_fronterisima/live" preload="auto" crossorigin="anonymous"></audio>    
+            
+			 
+		 <div id="player-container">
+  <div id="playPauseBtn" class="play" aria-label="Play / Pause" role="button">
+    <!-- PLAY -->
+    <svg class="icon play-icon" viewBox="0 0 24 24">
+      <polygon points="6,4 20,12 6,20"/>
+    </svg>
+
+    <!-- PAUSE -->
+    <svg class="icon pause-icon" viewBox="0 0 24 24">
+      <rect x="6" y="4" width="4" height="16"/>
+      <rect x="14" y="4" width="4" height="16"/>
+    </svg>
+   </div>
+  </div>
+		
+	  </div>
+	                      
+      </div>
+   
+    </div>
+    
+    </div>
+	
+    </section>  
+
+  </article>
+	 
+	 
+	  
+	 <article id="INICIO" class="elemento">
+	 
+     <section class="home">
+    <div class="slider" id="slider">
+        <!-- Diapositiva 1 -->
+        <div class="slide active">
+            <img loading="lazy" src="imagenes/1.jpg">
+            <div class="caption">
+                <h1 class="typewrite" data-period="2000" data-type='["Somos una plataforma", "con variedad musical", "Sintonizanos, para complacerte"]'></h1>
+                <p></p>
+                <div class="fb-like" data-href="https://www.facebook.com/emisora.lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+            </div>
+        </div>
+        <!-- Diapositiva 2 -->
+        <div class="slide">
+            <img loading="lazy" src="imagenes/2.jpg">
+            <div class="caption">
+                <h1 class="typewrite" data-period="2000" data-type='["Una propuesta", "con actualidad", "y mucho más"]'></h1>
+                <p></p>
+                <div class="fb-like" data-href="https://www.facebook.com/lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+            </div>
+        </div>
+        <!-- Diapositiva 3 -->
+        <div class="slide">
+            <img loading="lazy" src="imagenes/3.jpg" >
+            <div class="caption">
+                <h1 class="typewrite" data-period="2000" data-type='["La Fronterísima", "notas surcando", "fronteras"]'></h1>
+                <p></p>
+                <div class="fb-like" data-href="https://www.facebook.com/lafronterisima" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+            </div>
+        </div>
+    </div>
+</section>
+   
+  
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    let slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const slider = document.getElementById('slider');
+
+    // Función para cambiar de diapositiva automáticamente
+    function changeSlide() {
+        slides[currentIndex].classList.remove('active'); // Eliminar la clase 'active' de la diapositiva actual
+        currentIndex = (currentIndex + 1) % totalSlides; // Incrementar el índice de la diapositiva
+        slides[currentIndex].classList.add('active'); // Agregar la clase 'active' a la siguiente diapositiva
+        showSlide(currentIndex); // Mostrar la diapositiva
+    }
+
+    // Función para mover el slider usando translateX
+    function showSlide(index) {
+        const offset = -index * 100; // Desplazamiento basado en el índice
+        slider.style.transform = `translateX(${offset}%)`; // Aplicar el desplazamiento
+    }
+
+    // Implementar deslizamiento táctil
+    let startX;
+    slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX; // Captura la posición inicial del toque
+    });
+
+    slider.addEventListener('touchmove', (e) => {
+        const moveX = e.touches[0].clientX; // Captura la nueva posición del toque
+        const difference = startX - moveX; // Calcula la diferencia
+
+        if (difference > 50) { // Si el desplazamiento es mayor que 50px
+            changeSlide(); // Cambiar a la siguiente diapositiva
+        } else if (difference < -50) { // Si el desplazamiento es menor que -50px
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Retroceder una diapositiva
             showSlide(currentIndex);
-          }
-          function showSlide(index) {
-            const offset = -index * 100;
-            slider.style.transform = `translateX(${offset}%)`;
-          }
-          let startX;
-          slider.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
-          slider.addEventListener('touchmove', (e) => {
-            const moveX = e.touches[0].clientX;
-            const difference = startX - moveX;
-            if (difference > 50) {
-              changeSlide();
-            } else if (difference < -50) {
-              currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-              showSlide(currentIndex);
-            }
-          });
-          let elements = document.querySelectorAll('.typewrite');
-          elements.forEach((el) => {
-            let toType = JSON.parse(el.getAttribute('data-type'));
-            let period = el.getAttribute('data-period') || 2000;
-            let idx = 0;
-            function typeText() {
-              let currentText = toType[idx];
-              let i = 0;
-              el.textContent = '';
-              let typingInterval = setInterval(() => {
-                if (i < currentText.length) {
-                  el.textContent += currentText.charAt(i);
-                  i++;
-                } else {
-                  clearInterval(typingInterval);
-                  setTimeout(() => {
-                    idx = (idx + 1) % toType.length;
-                    typeText();
-                  }, period);
+        }
+    });
+
+    // Animación "typewriter"
+    let elements = document.querySelectorAll('.typewrite');
+    elements.forEach((el) => {
+        let toType = JSON.parse(el.getAttribute('data-type'));
+        let period = el.getAttribute('data-period') || 2000;
+        let currentIndex = 0;
+        let currentText = '';
+
+        function typeText() {
+            currentText = toType[currentIndex];
+            let i = 0;
+            let typingInterval = setInterval(() => {
+                el.textContent += currentText.charAt(i);
+                i++;
+                if (i === currentText.length) {
+                    clearInterval(typingInterval);
+                    setTimeout(() => {
+                        currentIndex = (currentIndex + 1) % toType.length;
+                        el.textContent = '';
+                        typeText();
+                    }, period);
                 }
-              }, 100);
-            }
-            typeText();
-          });
-        });
-      </script>
-
-      <section class="inicio-matrix">	
-        <div class="caja-matrix">
-          <h3>INNOVACIÓN</h3>	
-          <p>La Fronterísima es una plataforma digital que fusiona una diversa selección de música hispanoamericana y global con innovación como proyecto experimental. Tratamos de ofrecer una experiencia sonora auténtica, emocionante y siempre actualizada, diseñada para conectar con el corazón de cada oyente.</p>                    
-          <p>
-            <a href="https://www.facebook.com/lafronterisima" target="_blank" style="color:white">1. Facebook</a><br>
-            <a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" style="color:white">2. Youtube </a><br>
-            <a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968un" target="_blank" style="color:white">3. Instagram</a>
-          </p>
-          <p>Envía tu saludo a través de Telegram o pide tu tema musical</p>
-          <a href="" target="_blank" class="button" style="display: inline-block;">
-            <img loading="lazy" src="imagenes/telegram.png" style="vertical-align: middle;" alt="Telegram">
-          </a>
-        </div>
-
-        <aside class="contenedor_pt">
-          <div class="video-responsive">
-            <iframe id="video-canvas" src="" data-src="" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
-          </div>
-        </aside>
-      </section>
-
-      <script>
-        const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
-        const iframe = document.getElementById('video-canvas');
-        let queuePlaylist = [];
-        function extractID(url) {
-          const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-          const match = url.match(regExp);
-          return (match && match[2].length == 11) ? match[2] : url;
+            }, 100); // Escribir cada letra con intervalo de 100 ms
         }
-        async function loadSheet() {
-          try {
-            const res = await fetch(API_URL);
-            const data = await res.json();
-            queuePlaylist = data.filter(v => v.vid).map(v => extractID(v.vid));
-            if (queuePlaylist.length > 0) {
-              const embedUrl = `https://www.youtube.com/embed/${queuePlaylist[0]}?autoplay=1&mute=1&playlist=${queuePlaylist.join(',')}&loop=1`;
-              iframe.src = embedUrl;
-            }
-          } catch (e) { console.error("Error cargando la hoja:", e); }
-        }
-        loadSheet();
-      </script>
 
-      <section id="bloggers">
-        <h3>NOSOTROS</h3>
-        <div class="contenido_block">
-          <section class="radiox">
-            <div class="slideshow">
-              <div class="mySlides1"><img loading="lazy" fetchpriority="low" src="imagenes/Programación.jpg" alt="Programación" width="300" height="200"></div>
-              <div class="mySlides1"><img loading="lazy" fetchpriority="low" src="imagenes/arlex.jpg" alt="Arlex" width="300" height="200"></div>
+        typeText();
+    });
+});
+</script>
+	  
+		<section class="inicio-matrix">	
+	      
+           <div class="caja-matrix">
+    
+    <h3>INNOVACIÓN</h3>	
+
+    <p>La Fronterísima es una plataforma digital de vanguardia que fusiona una diversa selección de música hispanoamericana y global con innovación tecnológica. Mediante el uso de inteligencia artificial, ofrecemos una experiencia sonora auténtica, emocionante y siempre actualizada, diseñada para conectar con el corazón de cada oyente.</p>					
+                
+    <p>
+        <a href="https://www.facebook.com/lafronterisima" target="_blank" style="color:white">1. Facebook</a><br>
+        <a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank" style="color:white">2. Youtube </a><br>
+        <a href="https://instagram.com/lafronterisimaonlain?igshid=8ya0xso968un" target="_blank" style="color:white">3. Instagram</a>
+    </p>
+
+    <p>Envía tu saludo a través de Telegram o pide tu tema musical</p>
+
+    <a href="https://t.me/emisoralafronterisima_bot" target="_blank" class="button" style="display: inline-block;">
+        <img loading="lazy" src="imagenes/telegram.png" style="vertical-align: middle;">
+    </a>
+
+</div>
+		
+	
+<aside class="contenedor_pt">
+  <div class="video-responsive">
+    <iframe 
+      id="video-canvas" 
+      src="" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</aside>
+
+<script>
+const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
+const iframe = document.getElementById('video-canvas');
+
+let queuePlaylist = [];
+let curQueue = 0;
+
+// 1. Extraer ID del video
+function extractID(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length == 11) ? match[2] : url;
+}
+
+// 2. Cargar Google Sheets y configurar la URL inicial
+async function loadSheet() {
+    try {
+        const res = await fetch(API_URL);
+        const data = await res.json();
+
+        queuePlaylist = data
+            .filter(v => v.vid)
+            .map(v => extractID(v.vid));
+
+        if (queuePlaylist.length > 0) {
+            startPlaylist();
+        }
+    } catch (e) {
+        console.error("Error cargando la hoja:", e);
+    }
+}
+
+// 3. Crear la URL de Embed con el parámetro 'playlist'
+// Esto permite que YouTube maneje la cola automáticamente
+function startPlaylist() {
+    const firstVideo = queuePlaylist[0];
+    // Unimos el resto de la lista por comas para el parámetro playlist
+    const otherVideos = queuePlaylist.slice(1).join(',');
+    
+    // Construimos la URL
+    // loop=1 y playlist=ID1,ID2... hace que se reproduzcan todos en bucle
+    const embedUrl = `https://www.youtube.com/embed/${firstVideo}?autoplay=1&mute=1&playlist=${queuePlaylist.join(',')}&loop=1`;
+    
+    iframe.src = embedUrl;
+}
+
+// Iniciar proceso
+loadSheet();
+</script>
+  
+ 
+
+	   
+     </section>
+	 
+
+   <section id="bloggers">
+     <h3>NOSOTROS</h3>
+				
+	 <div class="contenido_block">
+	
+		<section class="radiox">
+			 <div class="slideshow">
+              
+			   <div class="mySlides1">
+                    <img loading="lazy" src="imagenes/Programación.jpg">
+               <!-- <div class="note">
+                  <p></p>
+                </div>-->
+              </div>
+
+              <div class="mySlides1">
+                    <img loading="lazy" src="imagenes/arlex.jpg">
+             <!-- <div class="note">
+                  <p></p>
+                </div>-->
+              </div>
+			
+
               <div class="prev" onclick="plusSlides(-1, 0)">&#10094;</div>
               <div class="next" onclick="plusSlides(1, 0)">&#10095;</div>
             </div>
-            <h4>Objetivo</h4>
-            <p class="description">Transformamos la tradición en una experiencia accesible, dinámica y enriquecedora, transmitiendo cultura sin fronteras.</p>
-            <a class="btn1" href="programas.html" target="_blank">Programas</a>
-          </section>
-          <section class="radiox">
-            <div class="slideshow">
-              <div class="mySlides2"><img loading="lazy" fetchpriority="low" src="imagenes/artistas.jpg" alt="Artistas" width="300" height="200"></div>
-              <div class="mySlides2"><img loading="lazy" fetchpriority="low" src="imagenes/contas.jpg" alt="Contas" width="300" height="200"></div>
+
+		     <h4>Objetivo</h4>
+            <p class="description">Transformamos la tradición en una experiencia accesible, dinámica y enriquecedora, transmitiendo cultura con tecnología de vanguardia.</p>	
+
+            <!-- <div class="fb-like" data-href="https://www.facebook.com/Fronterisima-Online-110195480742453" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div> -->		
+			 <a class="btn1" href="programas.html" target="_blank">Programas</a>	
+    </section> 
+	
+					
+		<section class="radiox">
+             <div class="slideshow">
+             
+			    <div class="mySlides2" >
+                 <img loading="lazy" src="imagenes/artistas.jpg">
+                <!-- <div class="note">
+                  <p></p>
+                </div>-->
+              </div>
+
+              <div class="mySlides2" >
+                     <img loading="lazy" src="imagenes/contas.jpg">
+                <!--<div class="note">
+                  <p></p>
+                </div>-->
+              </div>
+
               <div class="prev" onclick="plusSlides(-1, 1)">&#10094;</div>
               <div class="next" onclick="plusSlides(1, 1)">&#10095;</div>
             </div>
-            <h4>Info</h4>
-            <p class="description">"La vanguardia de la comunicación y la música vive en lo digital. Sintoniza los sonidos del mundo hispano y descubre artistas que trascienden fronteras."</p>
-            <a class="btn1" href="mensual/potcast.html" target="_blank">Potcast's</a>
-          </section>
-          <section class="radiox">
-            <div class="slideshow">
-              <div class="mySlides3"><img loading="lazy" fetchpriority="low" src="imagenes/difusion.jpg" alt="Difusión" width="300" height="200"></div>
-              <div class="mySlides3"><img loading="lazy" fetchpriority="low" src="imagenes/noticias.jpg" alt="Noticias" width="300" height="200"></div>
+        
+		     <h4>Info</h4>
+            
+			<p class="description">"La vanguardia de la comunicación y la música vive en lo digital. Sintoniza los sonidos del mundo hispano y descubre artistas que trascienden fronteras."</p> 
+	
+		    <!-- <h4><input type ='button' value = 'Encuesta' onclick="window.open('mensual/encuesta.html');"/></h4> -->					               
+	        <a class="btn1" href="mensual/potcast.html" target="_blank">Potcast's</a>		
+			 
+	  </section>
+					
+        <section class="radiox">
+
+              <div class="slideshow">
+              
+			   <div class="mySlides3">
+                   <img loading="lazy" img src="imagenes/difusion.jpg">
+               <!-- <div class="note">
+                  <p></p>
+                </div>-->
+              </div>
+
+              <div class="mySlides3">
+                    <img loading="lazy" src="imagenes/noticias.jpg">
+                <!-- <div class="note">
+                  <p></p>
+                </div-->
+              </div>
+            
               <div class="prev" onclick="plusSlides(-1, 2)">&#10094;</div>
               <div class="next" onclick="plusSlides(1, 2)">&#10095;</div>
             </div>
-            <h4>Misión</h4>
-            <p class="description">Nuestra misión es hacer vibrar el alma de Hispanoamérica a través de la música. Cada canción que suena es una historia, una raíz, un latido cultural que viaja sin límites.</p>
-            <a class="btn1" href="mensual/musicales.html" target="_blank">Canciones</a>
-          </section>
-        </div>
-        <script src="js/slide.js"></script>
-      </section>
-
-      <section class="boxes-podcast" id="podcast">
-        <div class="caja-portfa">
-          <h3>SOUNDS</h3>
-          <div class="fb_back">
-            <iframe id="sc-widget" src="" data-src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/125486431/favorites" width="100%" height="166" scrolling="no" frameborder="no" loading="lazy"></iframe>
-          </div>
-          <script>
-            (function() {
-              var widgetIframe = document.getElementById('sc-widget');
-              if (widgetIframe) {
-                var widget = SC.Widget(widgetIframe);
-                widget.bind(SC.Widget.Events.READY, function() {
-                  console.log("Widget listo");
-                  widget.setVolume(95);
-                  widget.bind(SC.Widget.Events.PLAY, function() {
-                    widget.getCurrentSound(function(currentSound) {
-                      console.log('Reproduciendo: ' + currentSound.title);
-                    });
-                  });
-                  widget.getVolume(function(volume) {
-                    console.log('Volumen actual: ' + volume);
-                  });
-                });
-              }
-            })();
-          </script>
-        </div>
+       
+		  <h4>Misión</h4>
+          <p class="description">Nuestra misión es hacer vibrar el alma de Hispanoamérica a través de la música. Cada canción que suena es una historia, una raíz, un latido cultural que viaja sin límites.</p>
 		
+         <a class="btn1" href="mensual/musicales.html" target="_blank">Canciones</a>	
+ 	 
+	   
+	  </section>
+	  
+	 
+	 </div>
+	 
+	   <script src="js/slide.js"></script>	
+	 			
+ </section>
+ 
+ 
+ <section class="boxes-podcast" id="podcast">	
+	
         <div class="caja-portfa">
-          <h3>ACTUALIDAD</h3>
-          <div class="fb_back" id="slider-container">
-            <img id="slidex" src="imagenes/1.jpg" width="100%" height="390" loading="lazy" fetchpriority="low" alt="Actualidad">
-          </div>
-          <script>
-            const images = ["imagenes/1.jpg", "imagenes/2.jpg", "imagenes/3.jpg"];
-            let currentImageIndex = 0;
-            function slideit() {
-              document.getElementById("slidex").src = images[currentImageIndex];
-              currentImageIndex = (currentImageIndex + 1) % images.length;
-            }
-            setInterval(slideit, 2500);
-          </script>
-        </div>
-      </section>
+           <h3>SOUNDS</h3>
 
-      <section class="containers">
-        <div class="header-video">
-          <video src="" muted autoplay loop></video>
-        </div>
-        <div class="header-overlay"></div>
-        <div class="header-containex">
-          <h1>La Fronterísima</h1>
-          <p>Notas surcando fronteras</p>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank">Síguenos</a>
-        </div>
-      </section>
-
-      <section class="boxes-portfolio" id="fans">
-        <div class="caja-portfolio">
-          <h3>FAN PAGE</h3>
-		  
-          <div class="fb_background">
+           <div class="fb_back">		   
+  		
+ <iframe id="sc-widget"
+  src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/125486431/favorites"
+  width="100%"
+  height="166"
+  scrolling="no"
+  frameborder="no">
+</iframe>
             
-		<div class="fb-page" data-href="https://www.facebook.com/lafronterisima" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/lafronterisima" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lafronterisima"></a></blockquotes></div>
-		
-			
+          <script>
+(function() {
+
+  var widgetIframe = document.getElementById('sc-widget');
+  var widget = SC.Widget(widgetIframe);
+
+  widget.bind(SC.Widget.Events.READY, function() {
+
+    console.log("✅ Widget listo");
+
+    widget.setVolume(95);
+
+    widget.bind(SC.Widget.Events.PLAY, function() {
+
+      widget.getCurrentSound(function(currentSound) {
+        console.log('🎵 Reproduciendo: ' + currentSound.title);
+      });
+
+    });
+
+    widget.getVolume(function(volume) {
+      console.log('🔊 Volumen actual: ' + volume);
+    });
+
+  });
+
+})();
+     </script>
+		   
+		   </div>
 		 </div>
-        </div>
 		
+
+		  <div class="caja-portfa">
+           <h3>ACTUALIDAD</h3>	
+  		
+		    <div class="fb_back" id="slider-container">	
+			
+
+                 <img id="slidex" src="imagenes/1.jpg" width="100%" height="390px">
+               </div>
+			   
+   <script> 
+     const images = [
+      "imagenes/1.jpg",
+      "imagenes/2.jpg",
+      "imagenes/3.jpg"
+    ];
+
+    let currentImageIndex = 0;
+
+    // Función para cambiar las imágenes
+    function slideit() {
+      // Cambiar la imagen
+      document.getElementById("slidex").src = images[currentImageIndex];
+
+      // Actualizar el índice de la imagen para la próxima
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
+
+    // Cambiar la imagen cada 2.5 segundos
+    setInterval(slideit, 2500);
+
+  </script>  
+		
+              <!-- <iframe id="sc-widget" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" 
+            src="https://es.euronews.com/embed/timeline
+             "></iframe> -->
+                
+                
+             </div>
+	        
+		  </div>
+		  
+		 </div>
+		  
+     </section>	
+	 
+	 
+	  <section class="containers">
+      <div class="header-video">
+        <video src="" muted autoplay loop></video>
+      </div>
+      <div class="header-overlay"></div>
+      <div class="header-containex">
+        <h1>La Fronterísima</h1>
+        <p>Notas surcando fronteras</p>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank" class="btn">Síguenos</a>
+      </div>
+    </section>
+	
+	
+	 <section class="boxes-portfolio" id="fans">	
+	
         <div class="caja-portfolio">
-          <h3>PROMO</h3>
-          <div class="fb_background">
-            <div class="video-slider" id="slider1">
-              <div class="slides">
-                <iframe class="video" id="video-iframe-1" src="https://www.youtube.com/embed/PvGZebtV6Ew?enablejsapi=1&html5=1"></iframe>
-              </div>
-              <div class="slides">
-                <iframe class="video" id="video-iframe-2" src="https://www.youtube.com/embed/xN683CQ8hwU?enablejsapi=1&html5=1"></iframe>
-              </div>
-              <div class="slides">
-                <iframe class="video" id="video-iframe-3" src="https://www.youtube.com/embed/ZGNqaE10Oeg?enablejsapi=1&html5=1"></iframe>
-              </div>
-              <div class="slide-arrow left"></div>
-              <div class="slide-arrow right"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+           <h3>FAN PAGE</h3>
 
-      <footer>
-        <div class="footer-container">
-          <div class="footer-main">
-            <div class="footer-columna">
-              <h3>Contacto</h3>
-              <form action="" method="" id="formulario">
-                <span class="fa fa-envelope"><a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span>
-              </form>
-              <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
-                <img loading="lazy" fetchpriority="low" src="imagenes/paypal.png" alt="PayPal" width="120" height="40">
-              </a>
-            </div>
-            <div class="footer-columna">
-              <h3>Dirección</h3>
-              <span class="fas fa-map-marker"><a href="https://lafronterisima.online" target="_blank" style="color:white"><p>Colombia</p></a></span><br> 
-              <span class="fa fa-phone"><a href="tel:+57 3170340249" style="color:white"><p>+573170340249</p></a></span><br>   
-            </div>
-            <div class="footer-columna">
-              <h3>Nosotros</h3>
-              <p>Unimos sin fronteras la esencia y las raíces colombianas e hispana. Creamos una experiencia sonora auténtica donde la cultura musical y la tecnología convergen para emocionar al mundo en tiempo real.</p>
-            </div>
-          </div>
-        </div>
+         <div class="fb_background">
+  
+  <iframe 
+    src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/lafronterisima&tabs=timeline&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+    width="100%" 
+    height="500"
+    style="border:none;overflow:hidden;border-radius:10px;"
+    scrolling="no" 
+    frameborder="0"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+  
+</div>
+		   
+	  </div>
+ 
+  </div>
 		
-        <div class="footer-copy-redes">
-          <div class="main-copy-redes">
-            <div class="footer-copy">
-              <h4><span class="fas fa-headphones"><a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank"> Escúchanos: Radio Box App</a></span></h4>
-              <h4><span class="fas fa-podcast"><a class="copy"> Notas surcando fronteras</a></span></h4>
-            </div>
-            <div class="footer-redes">
-              <a href="https://www.facebook.com/emisora.la.fronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/la_fronterisima" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://youtube.com/@lafronterisima" target="_blank"><i class="fab fa-youtube"></i></a>
-              <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"><i class="fab fa-google-play"></i></a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </article>
 
-    <!-- VIDEOS SECTION -->
-    <article id="VIDEOS" class="elemento">
+ <div class="caja-portfolio">
+           <h3>PROMO</h3>	
+  		
+		    <div class="fb_background">	
+			  
+			<!--   <div class="fb-page" id="slider-container">
+                 <img id="slidex" src="imagenes/1.jpg" width="100%" height="400">
+               </div>
+			   
+   <script> 
+     const images = [
+      "imagenes/1.jpg",
+      "imagenes/2.jpg",
+      "imagenes/3.jpg"
+    ];
+
+    let currentImageIndex = 0;
+
+    // Función para cambiar las imágenes
+    function slideit() {
+      // Cambiar la imagen
+      document.getElementById("slidex").src = images[currentImageIndex];
+
+      // Actualizar el índice de la imagen para la próxima
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
+
+    // Cambiar la imagen cada 2.5 segundos
+    setInterval(slideit, 2500);
+
+  </script>  -->
+  
+	 <div class="video-slider" id="slider1">
+		
+		<div class="slides">
+			<iframe class="video" id="video-iframe-1" src="https://www.youtube.com/embed/PvGZebtV6Ew
+			?enablejsapi=1&html5=1"></iframe>
+		</div>
+		
+		<div class="slides">
+           <iframe class="video" id="video-iframe-2" src="https://www.youtube.com/embed/xN683CQ8hwU
+			?enablejsapi=1&html5=1"></iframe>
+		</div>
+	
+		<div class="slides">
+			<iframe class="video" id="video-iframe-3" src="https://www.youtube.com/embed/ZGNqaE10Oeg?enablejsapi=1&html5=1"></iframe>
+		</div>
+
+		<div class="slide-arrow left"></div>
+		<div class="slide-arrow right"></div>
+	   </div>
+	   
+	
+     </div>
+		  
+    </div>
+	
+  	
+     </section>
+
+	
+	 	<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+				<!--<form action="correo.php" method="POST" id="formulario">-->
+					  
+				  <form action="" method="" id="formulario">
+				 
+					<!-- <input type="email" name="Sender" id="Sender" placeholder="Ingresa su correo" required>
+					  
+				      <textarea type="text" name="Message" id="Message"  placeholder="Ingresa su mensaje" required></textarea>
+					
+					  
+					   <input type="submit" value="Enviar" id="button"> -->
+					  
+					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+					   	
+				    </form>
+					
+				 <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
+                    <img loading="lazy" src="imagenes/paypal.png">
+                </a>
+				   
+        </div>
+				
+		
+
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fas fa-map-marker"> <a href="https://lafronterisima.online" target="_blank" style="color:white"><p>Colombia</p></a></span><br> 
+					<span class="fa fa-phone"> <a href="tel:+57 3170340249" style="color:white"> <p>+573170340249</p></a></span><br>   
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					<p>Unimos sin fronteras la esencia y las raíces colombianas e hispano con automatización e inteligencia artificial. Creamos una experiencia sonora auténtica donde la cultura musical y la tecnología convergen para emocionar al mundo en tiempo real.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="fas fa-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4>
+					 <!-- <a href="">INICIO</a></h4><br> -->
+				       <h4> <span class="fas fa-podcast"> <a class="copy"> Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/emisora.la.fronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
+					<a href="https://www.instagram.com/la_fronterisima" target="_blank"><i class="fab fa-instagram"></i></a>
+				    <a href="https://youtube.com/@lafronterisima" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"> <i class="fab fa-google-play"></i></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+	
+     </article>
+	 
+	 
+	 
+	  
+	  <article id="VIDEOS" class="elemento">
       <section class="artistas">
         <div class="artistas-container">
           <section class="artistas-item">
@@ -786,103 +1286,233 @@
         </div>
       </footer>
     </article>
-
-    <!-- PRIVACIDAD SECTION -->
-    <article id="PRIVACIDAD" class="elemento">
-      <section class="privacy">
-        <div class="privacy-container">
-          <section class="privacy-text">
-            <h2><strong>POLÍTICA DE PRIVACIDAD</strong></h2>
-            <p>La presente política de privacidad establece los términos en que La Fronterisima usa y protege la información que es proporcionada por sus usuarios al momento de utilizar su sitio web. Esta compañía está comprometida con la seguridad de los datos de sus usuarios. Cuando le pedimos llenar los campos de información personal con la cual usted pueda ser identificado, lo hacemos asegurando que sólo se empleará de acuerdo con los términos de este documento.<br>Sin embargo esta Política de Privacidad puede cambiar con el tiempo o ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente esta página para asegurarse que está de acuerdo con dichos cambios.</p>
-            <h2><strong>Información que es recogida</strong></h2>
-            <p>Nuestro sitio web podrá recoger información personal por ejemplo: Nombre, información de contacto como su dirección de correo electrónica.</p>
-            <h2><strong>Uso de la información recogida</strong></h2>
-            <p>Nuestro sitio web emplea la información con el fin de proporcionar el mejor servicio posible, particularmente para mantener un registro de usuarios, de pedidos en caso que aplique y mejorar nuestros servicios. Es posible que sean enviados correos electrónicos periódicamente a través de nuestro sitio con para contactar un artísta u otra información publicitaria que consideremos relevante para usted o que pueda brindarle algún beneficio, estos correos electrónicos serán enviados a la dirección que usted proporcione y podrán ser cancelados en cualquier momento.</p>
-            <p>La Fronterisima está altamente comprometido para cumplir con el compromiso de mantener su información segura. Usamos los sistemas más avanzados y los actualizamos constantemente, para asegurarnos que no exista ningún acceso no autorizado.</p>
-            <h2><strong>Cookies</strong></h2>
-            <p>Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar permiso para almacenarse en su ordenador, al aceptar dicho fichero se crea y la cookie sirve entonces para tener información respecto al tráfico web y también facilita las futuras visitas a una web recurrente. Otra función que tienen las cookies es que con ellas las web pueden reconocerte individualmente y por tanto brindarte el mejor servicio personalizado de su web.</p>
-            <p>Nuestro sitio web emplea las cookies para poder identificar las páginas que son visitadas y su frecuencia. Esta información es empleada únicamente para análisis estadístico y después la información se elimina de forma permanente. Usted puede eliminar las cookies en cualquier momento desde su ordenador. Sin embargo las cookies ayudan a proporcionar un mejor servicio de los sitios web, estás no dan acceso a información de su ordenador ni de usted, a menos de que usted así lo quiera y la proporcione directamente. Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de navegadores aceptan cookies automáticamente pues sirve para tener un mejor servicio web. También usted puede cambiar la configuración de su ordenador para declinar las cookies. Si se declinan es posible que no pueda utilizar algunos de nuestros servicios.</p>
-            <h2><strong>Enlaces a Terceros</strong></h2>
-            <p>Este sitio web pudiera contener enlaces a otros sitios que pudieran ser de su interés. Una vez que usted de clic en estos enlaces y abandone nuestra página, ya no tenemos control sobre al sitio al que es redirigido y por lo tanto no somos responsables de los ni de la protección de sus datos en esos otros sitios terceros. Dichos sitios están sujetos a sus propias políticas de privacidad por lo cual es recomendable que los consulte para confirmar que usted está de acuerdo con estas.</p>
-            <h2><strong>Responsabilidad de Contenidos de Terceros</strong></h2>
-            <p>La Fronterisima actúa como una plataforma de difusión y se deslinda de cualquier responsabilidad legal derivada de contenidos de terceros. Las opiniones y comentarios expresados por colaboradores, invitados o usuarios son de exclusiva responsabilidad de sus autores. Asimismo, la información provista por servicios externos (noticias, clima, música) y el contenido asistido por Inteligencia Artificial son responsabilidad de sus respectivos proveedores. Se advierte al usuario que la tecnología de IA puede, en ocasiones, cometer errores en la lectura o interpretación de los datos.</p>
-            <h2><strong>Tecnología y contenidos</strong></h2>
-            <p>☁️ Clima en tiempo real por <a href="https://openweathermap.org/" target="_blank" style="color: #bbb; text-decoration: underline;">OpenWeatherMap.org</a><br>🤖 I A por <a href="https://openai.com" target="_blank" style="color: #666; text-decoration: underline;">OpenAI (GPT & Whisper)</a><br>🎙️ Locución Neural por <a href="https://cloud.google.com/text-to-speech" target="_blank" style="color: #666; text-decoration: underline;">Google TTS</a><br>📢 Actualidad internacional por <a href="https://es.euronews.com" target="_blank" style="color: #bbb; text-decoration: underline;">Euronews</a></p>
-            <h2><strong>Control de su información personal</strong></h2>
-            <p>"En cumplimiento de la Ley 1581 de 2012, usted puede ejercer sus derechos de acceso, rectificación o supresión de datos enviando un mensaje a nuestro bot de Telegram o al correo oficial del sitio."</p>
-            <p>La Fronterisima se reserva el derecho de cambiar los términos de la presente política de privacidad en cualquier momento.</p>
-          </section>
-        </div>
-      </section>
-
-     <footer>
-        <div class="footer-container">
-          <div class="footer-main">
-            <div class="footer-columna">
-              <h3>Contacto</h3>
-              <form action="" method="" id="formulario">
-                <span class="fa fa-envelope"><a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span>
-              </form>
-              <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
-                <img loading="lazy" fetchpriority="low" src="imagenes/paypal.png" alt="PayPal" width="120" height="40">
-              </a>
-            </div>
-            <div class="footer-columna">
-              <h3>Dirección</h3>
-              <span class="fas fa-map-marker"><a href="https://lafronterisima.online" target="_blank" style="color:white"><p>Colombia</p></a></span><br> 
-              <span class="fa fa-phone"><a href="tel:+57 3170340249" style="color:white"><p>+573170340249</p></a></span><br>   
-            </div>
-            <div class="footer-columna">
-              <h3>Nosotros</h3>
-              <p>Unimos sin fronteras la esencia y las raíces colombianas e hispana. Creamos una experiencia sonora auténtica donde la cultura musical y la tecnología convergen para emocionar al mundo en tiempo real.</p>
-            </div>
-          </div>
-        </div>
+	
+	 
+	  <article id='PRIVACIDAD' class='elemento'>
+	
+	 	  <section class="privacy">
+	
+		   <div class="privacy-container">
+			
+			
+		  <section class="privacy-text">
 		
-        <div class="footer-copy-redes">
-          <div class="main-copy-redes">
-            <div class="footer-copy">
-              <h4><span class="fas fa-headphones"><a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank"> Escúchanos: Radio Box App</a></span></h4>
-              <h4><span class="fas fa-podcast"><a class="copy"> Notas surcando fronteras</a></span></h4>
-            </div>
-            <div class="footer-redes">
-              <a href="https://www.facebook.com/emisora.la.fronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/la_fronterisima" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://youtube.com/@lafronterisima" target="_blank"><i class="fab fa-youtube"></i></a>
-              <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"><i class="fab fa-google-play"></i></a>
-            </div>
-          </div>
+				
+   <h2><strong>POLÍTICA DE PRIVACIDAD</strong></h2>
+   
+    <p>La presente política de privacidad establece los términos en que La Fronterisima 
+usa y protege la información que es proporcionada por sus usuarios al momento de 
+utilizar su sitio web. Esta compañía está comprometida con la seguridad de los datos
+ de sus usuarios. Cuando le pedimos llenar los campos de información personal
+ con la cual usted pueda ser identificado, lo hacemos asegurando que sólo
+ se empleará de acuerdo con los términos de este documento.<br>
+ 
+ Sin embargo esta Política de Privacidad puede cambiar con el tiempo o 
+ ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente 
+ esta página para asegurarse que está de acuerdo con dichos cambios.</p>
+ 
+ <h2><strong>Información que es recogida</strong></h2>
+ 
+ <p>Nuestro sitio web podrá recoger información personal por ejemplo: Nombre,&nbsp;
+ información de contacto como&nbsp; su dirección de correo electrónica. </p>
+
+<h2><strong>Uso de la información recogida</strong></h2>
+
+<p>Nuestro sitio web emplea la información con el fin de proporcionar el mejor 
+servicio posible, particularmente para mantener un registro de usuarios,
+ de pedidos en caso que aplique y mejorar nuestros servicios.
+ 
+ &nbsp;Es posible que sean enviados correos electrónicos periódicamente 
+ a través de nuestro sitio con para contactar un artísta u otra 
+ información publicitaria que consideremos relevante para usted o que pueda
+ brindarle algún beneficio, estos correos electrónicos serán enviados a la
+ dirección que usted proporcione y podrán ser cancelados en cualquier momento.</p>
+ 
+ <p>La Fronterisima está altamente comprometido para cumplir con el compromiso
+ de mantener su información segura. Usamos los sistemas más avanzados y 
+ los actualizamos constantemente, para asegurarnos que no exista ningún 
+ acceso no autorizado.</p>
+ 
+ <h2><strong>Cookies</strong></h2>
+ 
+ <p>Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar 
+ permiso para almacenarse en su ordenador, al aceptar dicho fichero se crea y la 
+ cookie sirve entonces para tener información respecto al tráfico web y también 
+ facilita las futuras visitas a una web recurrente. 
+ 
+ Otra función que tienen las cookies es que con ellas las web pueden reconocerte individualmente
+ y por tanto brindarte el mejor servicio personalizado de su web.</p>
+ 
+ <p>Nuestro sitio web emplea las cookies para poder identificar las páginas
+ que son visitadas y su frecuencia. Esta información es empleada únicamente para
+ análisis estadístico y después la información se elimina de forma permanente.
+ Usted puede eliminar las cookies en cualquier momento desde su ordenador. 
+ 
+ Sin embargo las cookies ayudan a proporcionar un mejor servicio de los sitios web,
+ estás no dan acceso a información de su ordenador ni de usted, 
+ a menos de que usted así lo quiera y la proporcione directamente.
+
+ Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de
+ navegadores aceptan cookies automáticamente pues sirve para tener un mejor
+ servicio web. 
+ 
+ También usted puede cambiar la configuración de su ordenador
+ para declinar las cookies.
+
+ Si se declinan es posible que no pueda utilizar algunos de nuestros servicios.</p>
+ 
+ <h2><strong>Enlaces a Terceros</strong></h2>
+ 
+ <p>Este sitio web pudiera contener enlaces a otros sitios que
+ pudieran ser de su interés. Una vez que usted de clic en estos enlaces 
+ y abandone nuestra página, ya no tenemos control sobre al sitio al que
+ es redirigido y por lo tanto no somos responsables de los 
+ ni de la protección de sus datos en esos otros sitios terceros. 
+ 
+ Dichos sitios están sujetos a sus propias políticas de privacidad
+ por lo cual es recomendable que los consulte para confirmar que 
+ usted está de acuerdo con estas.</p>
+
+ <h2><strong>Responsabilidad de Contenidos de Terceros</strong></h2>
+ 
+ <p>La Fronterisima actúa como una plataforma de difusión y se deslinda de cualquier responsabilidad legal derivada de contenidos de terceros. Las opiniones y comentarios expresados por colaboradores, invitados o usuarios son de exclusiva responsabilidad de sus autores. Asimismo, la información provista por servicios externos (noticias, clima, música) y el contenido asistido por Inteligencia Artificial son responsabilidad de sus respectivos proveedores. Se advierte al usuario que la tecnología de IA puede, en ocasiones, cometer errores en la lectura o interpretación de los datos.</p>
+ 
+  <h2><strong>Tecnología y contenidos</strong></h2> 
+   
+   <p>
+    ☁️ Clima en tiempo real por <a href="https://open-meteo.com/" target="_blank" style="color: #bbb; text-decoration: underline;">Open-Meteo.com</a><br>
+    🤖 Inteligencia Artificial por <a href="https://openai.com" target="_blank" style="color: #666; text-decoration: underline;">OpenAI (GPT & Whisper)</a><br>
+    🎙️ Locución Neural por <a href="https://cloud.google.com/text-to-speech" target="_blank" style="color: #666; text-decoration: underline;">Google TTS</a><br>
+    📢 Actualidad internacional por <a href="https://es.euronews.com" target="_blank" style="color: #bbb; text-decoration: underline;">Euronews</a>
+   </p>
+ 
+ <h2><strong>Control de su información personal</strong></h2>
+ 
+ <p>La Fronterisima se reserva el derecho de cambiar los términos de la presente 
+ política de privacidad en cualquier momento.</p>
+
+
+
+	 </section>
+				
+		
+   </div>
+			
+
+	     </section>
+	
+   
+	<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+				<!--<form action="correo.php" method="POST" id="formulario">-->
+					  
+				  <form action="" method="" id="formulario">
+				 
+					<!-- <input type="email" name="Sender" id="Sender" placeholder="Ingresa su correo" required>
+					  
+				      <textarea type="text" name="Message" id="Message"  placeholder="Ingresa su mensaje" required></textarea>
+					
+					  
+					   <input type="submit" value="Enviar" id="button"> -->
+					   
+					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+					   	
+				    </form>
+					
+                  <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
+                    <img loading="lazy" src="imagenes/paypal.png">
+                  </a>				
+				   
         </div>
-      </footer>
-    </article>
+				
+		
 
-    <!-- NOTAS SECTION -->
-    <article id="NOTAS" class="elemento">
-      <section class="notas_page">
-        <div id="publicaciones" class="containst">
-          <div class="advert-container">
-            <div class="container-fluid">
-              <div class="imagen">
-                <a href="#"><img class="img-responsive" loading="lazy" fetchpriority="low" src="imagenes/consola.jpg" alt="Consola" width="300" height="200"><p>La Fronterísima</p></a>
-              </div>
-            </div>
-            <div class="container-fluid">
-              <div id="Adds"><img id="imgAdd" loading="lazy" fetchpriority="low" src="imagenes/3.jpg" style="display: block; width: 100%;" alt="Publicidad"></div>
-            </div>
-            <script>
-              const imagenesAdd = ["imagenes/3.jpg", "imagenes/1.jpg", "imagenes/2.jpg"];
-              let indice = 0;
-              function rotarAnuncios() {
-                indice = (indice + 1) % imagenesAdd.length;
-                const el = document.getElementById("imgAdd");
-                if (el) { el.src = imagenesAdd[indice]; }
-              }
-              document.addEventListener("DOMContentLoaded", () => { setInterval(rotarAnuncios, 5000); });
-            </script>
-            <div class="right"></div>
-          </div>
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fas fa-map-marker"><p>Colombia</p></span><br>
+					
+				</div>
 
-           <div class="main-contain">
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					<p>Unimos sin fronteras la esencia y las raíces colombianas e hispano con automatización e inteligencia artificial. Creamos una experiencia sonora auténtica donde la cultura musical y la tecnología convergen para emocionar al mundo en tiempo real.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="fas fa-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4>
+					 <!-- <a href="">INICIO</a></h4><br> -->
+				       <h4> <span class="fas fa-podcast"> <a class="copy"> Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/emisora.la.fronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
+					<a href="https://www.instagram.com/la_fronterisima" target="_blank"><i class="fab fa-instagram"></i></a>
+				    <a href="https://youtube.com/@lafronterisima" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"> <i class="fab fa-google-play"></i></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+
+  </article>
+  
+  
+
+     <article id="NOTAS" class="elemento">
+	  
+	
+  <section class="notas_page">
+    <div id="publicaciones" class="containst">
+    
+	<div class="advert-container">
+    <div class="container-fluid">
+        <div class="imagen">
+            <a href="#">
+                <img class="img-responsive" src="imagenes/consola.jpg">
+                <p>La Fronterísima</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div id="Adds">
+            <img id="imgAdd" src="imagenes/3.jpg" style="display: block; width: 100%;">
+        </div>
+    </div>
+
+    <script>
+        // Usamos un array de precarga para que el cambio sea instantáneo
+        const imagenes = ["imagenes/3.jpg", "imagenes/1.jpg", "imagenes/2.jpg"];
+        let indice = 0;
+
+        function rotarAnuncios() {
+            indice = (indice + 1) % imagenes.length; // Ciclo automático 0, 1, 2
+            
+            const el = document.getElementById("imgAdd");
+            if (el) {
+                el.src = imagenes[indice];
+            }
+        }
+
+        // Ejecutar apenas el DOM esté listo para no perder tiempo
+        document.addEventListener("DOMContentLoaded", () => {
+            setInterval(rotarAnuncios, 5000);
+        });
+    </script>
+
+    <div class="right">
+        </div>
+</div>
+        
+        <div class="main-contain">
             <div id="notas_titular" class="container-fluid">
                 <div class="contec">
                     <div id="contex">
@@ -1064,336 +1694,526 @@
 
 </section>
 
-      <footer>
-        <div class="footer-container">
-          <div class="footer-main">
-            <div class="footer-columna">
-              <h3>Contacto</h3>
-              <form action="" method="" id="formulario">
-                <span class="fa fa-envelope"><a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span>
-              </form>
-              <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
-                <img loading="lazy" fetchpriority="low" src="imagenes/paypal.png" alt="PayPal" width="120" height="40">
-              </a>
-            </div>
-            <div class="footer-columna">
-              <h3>Dirección</h3>
-              <span class="fas fa-map-marker"><a href="https://lafronterisima.online" target="_blank" style="color:white"><p>Colombia</p></a></span><br> 
-              <span class="fa fa-phone"><a href="tel:+57 3170340249" style="color:white"><p>+573170340249</p></a></span><br>   
-            </div>
-            <div class="footer-columna">
-              <h3>Nosotros</h3>
-              <p>Unimos sin fronteras la esencia y las raíces colombianas e hispana. Creamos una experiencia sonora auténtica donde la cultura musical y la tecnología convergen para emocionar al mundo en tiempo real.</p>
-            </div>
-          </div>
+	 
+	 	<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+				<!--<form action="correo.php" method="POST" id="formulario">-->
+					  
+				  <form action="" method="" id="formulario">
+				 
+					<!-- <input type="email" name="Sender" id="Sender" placeholder="Ingresa su correo" required>
+					  
+				      <textarea type="text" name="Message" id="Message"  placeholder="Ingresa su mensaje" required></textarea>
+					
+					  
+					   <input type="submit" value="Enviar" id="button"> -->
+					   
+					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+					   	
+				    </form>
+							
+				 <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
+                    <img loading="lazy" src="imagenes/paypal.png">
+                 </a>
+				
         </div>
+				
 		
-        <div class="footer-copy-redes">
-          <div class="main-copy-redes">
-            <div class="footer-copy">
-              <h4><span class="fas fa-headphones"><a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank"> Escúchanos: Radio Box App</a></span></h4>
-              <h4><span class="fas fa-podcast"><a class="copy"> Notas surcando fronteras</a></span></h4>
-            </div>
-            <div class="footer-redes">
-              <a href="https://www.facebook.com/emisora.la.fronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/la_fronterisima" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://youtube.com/@lafronterisima" target="_blank"><i class="fab fa-youtube"></i></a>
-              <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"><i class="fab fa-google-play"></i></a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </article>
 
-    <!-- ARTISTAS SECTION -->
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fas fa-map-marker"><p>Colombia</p></span><br>
+					
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					<p>Unimos sin fronteras la esencia y las raíces colombianas e hispano con automatización e inteligencia artificial. Creamos una experiencia sonora auténtica donde la cultura musical y la tecnología convergen para emocionar al mundo en tiempo real.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="fas fa-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4>
+					 <!-- <a href="">INICIO</a></h4><br> -->
+				       <h4> <span class="fas fa-podcast"> <a class="copy"> Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/emisora.la.fronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
+					<a href="https://www.instagram.com/la_fronterisima" target="_blank"><i class="fab fa-instagram"></i></a>
+				    <a href="https://youtube.com/@lafronterisima" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"> <i class="fab fa-google-play"></i></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+
+   </article>
+   
+   
     <article id="ARTISTAS" class="elemento">
-      <section class="contenedors">
+	  
+       <section class="contenedors">
         <!-- Tarjeta 1 -->
         <div class="cards">
-          <div class="card-headers">
-            <div class="sliders">
-              <div class="slides active"><img loading="lazy" src="artistas/Georgy.jpg" alt="Georgy"></div>
-              <div class="slides"><img loading="lazy" src="artistas/Georgy.jpg" alt="Georgy"></div>
-              <button class="prev">&#10094;</button>
-              <button class="next">&#10095;</button>
+            <div class="card-headers">
+                <div class="sliders">
+                    <div class="slides active">
+                          <img loading="lazy" src="artistas/Georgy.jpg" alt="">
+                    </div>
+                    <div class="slides">
+                         <img loading="lazy" src="artistas/Georgy.jpg" alt="">
+                    </div>
+                    <button class="prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="next" aria-label="Next slide">&#10095;</button>
+                </div>
             </div>
-          </div>
-		  
-          <div class="card-bodys">
-            <h2 class="card-titles">Georgy Cañas</h2>
-            <p class="card-descriptions">Cantante e interprete polifacetico de los diferentes generos musicales, oriundo del municipio de Chinchina - Caldas y radicado en Pereira, con una gran trayectoria en el plano musical.<br>Luego de haber integrado diferentes agrupaciones y orquestas a nivel nacional e internacional, decide lanzar su carrera musical como solista con el genero popular, los invito a seguir una nueva propuesta.</p>
-            <form class="vote-form">
-              <ul class="artists-list">
-                <li class="artist-item">
-                  <button type="button" class="vote-button" data-artist="1"><span class="vote-count" id="vote-1">0 votos</span></button>
-                  <div class="mensaje"></div>	  
-                </li>
-              </ul>
+            <div class="card-bodys">
+                <h2 class="card-titles">Georgy Cañas</h2>
+                <p class="card-descriptions">
+                     Cantante e interprete polifacetico de los diferentes generos musicales, oriundo del
+          			municipio de Chinchina - Caldas y radicado en Pereira, con una gran trayectoria en el plano musical.<br>
+				    Luego de haber integrado diferentes agrupaciones y orquestas a nivel nacional e internacional, decide
+					lanzar su carrera musical como solista con el genero popular, los invito a seguir una nueva propuesta.
+                </p>
+              
+			  <form id="vote-form">
+              <ul id="artists-list">
+              <li id="artist-1">
+              
+               <button type="button" class="vote-button" data-artist="1">
+               <span class="vote-count" id="vote-1">0 votos</span>
+               </button>
+               <div id="mensaje"></div>
+
+              </li>
+		     </ul>
             </form>
-          </div>
+            </div>
         </div>
-		
+
         <!-- Tarjeta 2 -->
-        <div class="cards">
-          <div class="card-headers">
-            <div class="sliders">
-              <div class="slides active"><img loading="lazy" src="artistas/Cly&beyr.jpg" alt="Clybeyr"></div>
-              <div class="slides"><img loading="lazy" src="artistas/Cly&beyr.jpg" alt="Clybeyr"></div>
-              <button class="prev">&#10094;</button>
-              <button class="next">&#10095;</button>
+         <div class="cards">
+            <div class="card-headers">
+                <div class="sliders">
+                    <div class="slides active">
+                         <img loading="lazy" src="artistas/Cly&beyr.jpg" alt="">
+                    </div>
+                    <div class="slides">
+                         <img loading="lazy" src="artistas/Cly&beyr.jpg" alt="">
+                    </div>
+                    <button class="prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="next" aria-label="Next slide">&#10095;</button>
+                </div>
             </div>
-          </div>
-		  
-          <div class="card-bodys">
-            <h2 class="card-titles">Cly&beyr</h2>
-            <p class="card-descriptions">Es una agrupacion de género urbano, conformado por jóvenes Leguizameños dispuestos a dar todo por su talento,con su gran talento musical han viajado a diferentes de Colombia y Ecuador. Ha participado en eventos como ferias, carnavales, festivales y encuentros culturales, a estado lanzando diferentes sencillos: "Leguízamo" un tema músical homenaje a una tierra de culturas en el sur del país.</p>
-            <form class="vote-form">
-              <ul class="artists-list">
-                <li class="artist-item">
-                  <button type="button" class="vote-button" data-artist="2"><span class="vote-count" id="vote-2">0 votos</span></button>
-                  <div class="mensaje"></div>
-                </li>
-              </ul>
+            <div class="card-bodys">
+                <h2 class="card-titles">Cly&beyr</h2>
+                <p class="card-descriptions">
+                  Es una agrupacion de género urbano, conformado por jóvenes Leguizameños dispuestos a dar todo por su talento,con su gran talento musical han viajado a diferentes de Colombia y Ecuador. Ha participado en eventos como ferias,
+				  carnavales, festivales y encuentros culturales, a estado lanzando diferentes sencillos: 
+				 "Leguízamo" un tema músical homenaje a una tierra de culturas en el sur del país.
+		       </p>
+              
+			  <form id="vote-form">
+               <ul id="artists-list">
+              <li id="artist-2">
+             
+                <button type="button" class="vote-button" data-artist="2"><span class="vote-count" id="vote-2">0 votos</span></button>
+				 <div id="mensaje"></div>
+				 
+              </li>
+		     </ul>
             </form>
-          </div>
+            </div>
         </div>
-		
+
         <!-- Tarjeta 3 -->
-        <div class="cards">
-          <div class="card-headers">
-            <div class="sliders">
-              <div class="slides active"><img loading="lazy" src="artistas/Pentagrama Mix.jpg" alt="Pentagrama"></div>
-              <div class="slides"><img loading="lazy" src="artistas/Pentagrama Mix.jpg" alt="Pentagrama"></div>
-              <button class="prev">&#10094;</button>
-              <button class="next">&#10095;</button>
+          <div class="cards">
+            <div class="card-headers">
+                <div class="sliders">
+                    <div class="slides active">
+                         <img loading="lazy" src="artistas/Pentagrama Mix.jpg" alt="">
+                    </div>
+                    <div class="slides">
+                         <img loading="lazy" src="artistas/Pentagrama Mix.jpg" alt="">
+                    </div>
+                    <button class="prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="next" aria-label="Next slide">&#10095;</button>
+                </div>
             </div>
-          </div>
-		  
-          <div class="card-bodys">
-            <h2 class="card-titles">Pentagrama Mix</h2>
-            <p class="card-descriptions">Agrupación de género Tropical, constituida por jóvenes Leguizameños dispuestos a dar todo por su talento, reconocida a nivel Departamental e Internacional, con su gran talento musical a recorrido diferentes partes de Colombia y Ecuador. Ha participado en eventos como ferias, festivales y encuentros culturales. "LEGUIZAMO" hace homenaje a una tierra de culturas en el sur del pais.</p>
-            <form class="vote-form">
-              <ul class="artists-list">
-                <li class="artist-item">
-                  <button type="button" class="vote-button" data-artist="3"><span class="vote-count" id="vote-3">0 votos</span></button>
-                  <div class="mensaje"></div>
-                </li>
-              </ul>
-            </form>
-          </div>
+            <div class="card-bodys">
+                <h2 class="card-titles">Pentagrama Mix</h2>
+                <p class="card-descriptions">
+                 Agrupación de género Tropical, constituida por jóvenes Leguizameños dispuestos a dar todo por su talento, reconocida a nivel
+                 Departamental e Internacional, con su gran talento musical a recorrido diferentes partes de Colombia y Ecuador. Ha participado en eventos como 
+				 ferias, festivales y encuentros culturales. "LEGUIZAMO" hace homenaje a una tierra de culturas en el sur del pais.
+				</p>
+              
+			 <form id="vote-form">
+              <ul id="artists-list">
+              <li id="artist-3">
+              
+                <button type="button" class="vote-button" data-artist="3"><span class="vote-count" id="vote-3"> 0 votos</span></button>
+				 <div id="mensaje"></div>
+				 
+              </li>
+		     </ul>
+           </form>
+            </div>
         </div>
 		
-        <!-- Tarjeta 4 -->
-        <div class="cards">
-          <div class="card-headers">
-            <div class="sliders">
-              <div class="slides active"><img loading="lazy" src="artistas/indomables.jpg" alt="Indomables"></div>
-              <div class="slides"><img loading="lazy" src="artistas/indomables.jpg" alt="Indomables"></div>
-              <button class="prev">&#10094;</button>
-              <button class="next">&#10095;</button>
+		  <!-- Tarjeta 4 -->
+          <div class="cards">
+            <div class="card-headers">
+                <div class="sliders">
+                    <div class="slides active">
+                       <img loading="lazy" src="artistas/indomables.jpg" alt="">
+                    </div>
+                    <div class="slides">
+                        <img loading="lazy" src="artistas/indomables.jpg" alt="">
+                    </div>
+                    <button class="prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="next" aria-label="Next slide">&#10095;</button>
+                </div>
             </div>
-          </div>
-		  
-          <div class="card-bodys">
-            <h2 class="card-titles">Las Indomables</h2>
-            <p class="card-descriptions">Tenemos el gusto de presentarles a "Las Indomables" (Género Tecno-Carrilera) con el mejor repertorio de éxitos del género, han alternado con varios artístas de cartelera en ferias y fiestas. Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena.</p>
-            <form class="vote-form">
-              <ul class="artists-list">
-                <li class="artist-item">
-                  <button type="button" class="vote-button" data-artist="4"><span class="vote-count" id="vote-4">0 votos</span></button>
-                  <div class="mensaje"></div>
+            <div class="card-bodys">
+                <h2 class="card-titles">Las Indomables</h2>
+                <p class="card-descriptions">
+                  Tenemos el gusto de presentarles a "Las Indomables" (Género Tecno-Carrilera) con el mejor repertorio de éxitos 
+				  del género, han alternado con varios artístas de cartelera en ferias y fiestas.
+				  Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos
+				  instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena. 
+	         </p>
+              
+			  <form id="vote-form">
+                 <ul id="artists-list">
+                 <li id="artist-4">
+               
+                 <button type="button" class="vote-button" data-artist="4"><span class="vote-count" id="vote-4"> 0 votos</span></button>
+				  <div id="mensaje"></div>
+				  
                 </li>
-              </ul>
-            </form>
-          </div>
+		        </ul>
+               </form>
+            </div>
         </div>
 		
-        <!-- Tarjeta 5 -->
-        <div class="cards">
-          <div class="card-headers">
-            <div class="sliders">
-              <div class="slides active"><img loading="lazy" src="artistas/federales.jpg" alt="Federales"></div>
-              <div class="slides"><img loading="lazy" src="artistas/federales.jpg" alt="Federales"></div>
-              <button class="prev">&#10094;</button>
-              <button class="next">&#10095;</button>
+		  <!-- Tarjeta 5 -->
+          <div class="cards">
+            <div class="card-headers">
+                <div class="sliders">
+                    <div class="slides active">
+                       <img loading="lazy" src="artistas/federales.jpg" alt="">
+                    </div>
+                    <div class="slides">
+                        <img loading="lazy" src="artistas/federales.jpg" alt="">  <img loading="lazy" src="artistas/Georgy.jpg" alt="">
+                    </div>
+                    <button class="prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="next" aria-label="Next slide">&#10095;</button>
+                </div>
             </div>
-          </div>
-		  
-          <div class="card-bodys">
-            <h2 class="card-titles">Los Federales</h2>
-            <p class="card-descriptions">Con más de 18 años de carrera musical "Los Federales de Colombia" son reconocidos por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Cuncurso de Temas Inéditos en Sinaloa Radio TV, con Lupita Villa en México. Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por exitos como: Vivo como un rey, A mi pueblo querido etc.</p>
-            <form class="vote-form">
-              <ul class="artists-list">
-                <li class="artist-item">
-                  <button type="button" class="vote-button" data-artist="5"><span class="vote-count" id="vote-5">0 votos</span></button>
-                  <div class="mensaje"></div>
-                </li>
-              </ul>
-            </form>
-          </div>
+            <div class="card-bodys">
+                <h2 class="card-titles">Los Federales</h2>
+                <p class="card-descriptions">
+                  Con más de 18 años de carrera musical "Los Federales de Colombia" son reconocidos
+				  por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Cuncurso de Temas
+				  Inéditos en Sinaloa Radio TV, con Lupita Villa en México.
+				  Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por exitos como: Vivo como un rey, A mi pueblo querido etc.
+                </p>
+              
+			   <form id="vote-form">
+                 <ul id="artists-list">
+                  <li id="artist-5">
+                 
+                  <button type="button" class="vote-button" data-artist="5"><span class="vote-count" id="vote-5"> 0 votos</span></button>
+				   <div id="mensaje"></div>
+				   
+                  </li>
+		         </ul>
+               </form>
+            </div>
         </div>
 		
-        <!-- Tarjeta 6 -->
-        <div class="cards">
-          <div class="card-headers">
-            <div class="sliders">
-              <div class="slides active"><img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="Alzate"></div>
-              <div class="slides"><img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="Alzate"></div>
-              <button class="prev">&#10094;</button>
-              <button class="next">&#10095;</button>
+		  <!-- Tarjeta 6 -->
+          <div class="cards">
+            <div class="card-headers">
+                <div class="sliders">
+                    <div class="slides active">
+                       <img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="">
+                    </div>
+                    <div class="slides">
+                       <img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="">
+                    </div>
+                    <button class="prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="next" aria-label="Next slide">&#10095;</button>
+                </div>
             </div>
-          </div>
-		  
-          <div class="card-bodys">
-            <h2 class="card-titles">Yo me llamo Alzate</h2>
-            <p class="card-descriptions">Un gran artista multifacético "Xavier El Gato blanco", participo en "Yo me llamo" interprentando a Alzate y catalogado como el "Mil Voces" por imitar artístas como Alzate, Yeison Jiménez,Alexis Escobar entre otros.<br>La agrupación está integrada por: Voz oficial y un marco de (2) trompetas, (1) bajo, (1) piano o acordeón, (1) vihuela, (2) requintos, y (1) batería, total de (8) integrantes en escena.</p>
-            <form class="vote-form">
-              <ul class="artists-list">
-                <li class="artist-item">
-                  <button type="button" class="vote-button" data-artist="6"><span class="vote-count" id="vote-6">0 votos</span></button>
-                  <div class="mensaje"></div>
-                </li>
-              </ul>
-            </form>
-          </div>
+            <div class="card-bodys">
+                <h2 class="card-titles">Yo me llamo Alzate</h2>
+                <p class="card-descriptions">
+                  Un gran artista multifacético "Xavier El Gato blanco", participo
+				  en "Yo me llamo" interprentando a Alzate y catalogado como el "Mil Voces" por imitar artístas como Alzate, Yeison
+				  Jiménez,Alexis Escobar entre otros.<br>
+				
+				  La agrupación está integrada por: Voz oficial y un marco de (2) trompetas, (1) bajo, (1) piano o acordeón, (1) vihuela, (2) requintos,
+				  y (1) batería, total de (8) integrantes en escena.                   
+				</p>
+              
+			 <form id="vote-form">
+                 <ul id="artists-list">
+                  <li id="artist-6">
+                 
+                  <button type="button" class="vote-button" data-artist="6"><span class="vote-count" id="vote-6"> 0 votos</span></button>
+				   <div id="mensaje"></div>
+				   
+                  </li>
+		         </ul>
+               </form>
+            </div>
         </div>
 		
-        <!-- Tarjeta 7 -->
-        <div class="cards">
-          <div class="card-headers">
-            <div class="sliders">
-              <div class="slides active"><img loading="lazy" src="artistas/latin show.jpg" alt="Latin Show"></div>
-              <div class="slides"><img loading="lazy" src="artistas/latin show.jpg" alt="Latin Show"></div>
-              <button class="prev">&#10094;</button>
-              <button class="next">&#10095;</button>
+		  <!-- Tarjeta 7 -->
+          <div class="cards">
+            <div class="card-headers">
+                <div class="sliders">
+                    <div class="slides active">
+                         <img loading="lazy" src="artistas/latin show.jpg" alt="">
+                    </div>
+                    <div class="slides">
+                         <img loading="lazy" src="artistas/latin show.jpg" alt="">
+                    </div>
+                    <button class="prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="next" aria-label="Next slide">&#10095;</button>
+                </div>
             </div>
-          </div>
-		  
-          <div class="card-bodys">
-            <h2 class="card-titles">Pedro Vidal</h2>
-            <p class="card-descriptions">Presentación Musical: Reinado Nacional De la Belleza AFRO, Carnaval de pasto, Festival Vallenato, Feria de las Flores, Feria de Cali, La feria de Manizales, entre otros. A nivel internacional, el artista show Central del festival más importante del mundo de los Colombianos, Festival que se da en la ciudad de New york "El Festival de Flushing" festivales en Washington DC. Miami Fl., artista invitado en mis mundos internacionales y en el reinado de belleza de Bolivia. Diferentes festivales en Ecuador y Centroamérica.</p>
-            <form class="vote-form">
-              <ul class="artists-list">
-                <li class="artist-item">
-                  <button type="button" class="vote-button" data-artist="7"><span class="vote-count" id="vote-7">0 votos</span></button>
-                  <div class="mensaje"></div>
-                </li>
-              </ul>
-            </form>
-          </div>
+            <div class="card-bodys">
+                <h2 class="card-titles">Pedro Vidal</h2>
+                <p class="card-descriptions">
+                  Presentación Musical: Reinado Nacional De la Belleza AFRO, Carnaval de pasto, Festival Vallenato,
+				  Feria de las Flores, Feria de Cali, La feria de Manizales, entre otros.
+                  A nivel internacional, el artista show Central del festival más importante del mundo de los Colombianos,
+				  Festival que se da en la ciudad de New york "El Festival de Flushing" festivales en Washington DC. Miami Fl., 
+				  artista invitado en mis mundos internacionales y en el reinado de belleza de Bolivia.
+				  Diferentes festivales en Ecuador y Centroamérica.                
+				</p>
+              
+			  <form id="vote-form">
+                   <ul id="artists-list">
+                   <li id="artist-7">
+                
+                <button type="button" class="vote-button" data-artist="7"><span class="vote-count" id="vote-7"> 0 votos</span></button>
+				 <div id="mensaje"></div>
+				 
+              </li>
+		     </ul>
+           </form>
+            </div>
         </div>
 		
-        <!-- Tarjeta 8 -->
-        <div class="cards">
-          <div class="card-headers">
-            <div class="sliders">
-              <div class="slides active"><img loading="lazy" src="artistas/fantasticos vallenato.jpg" alt="Fantasticos"></div>
-              <div class="slides"><img loading="lazy" src="artistas/fantasticos vallenato.jpg" alt="Fantasticos"></div>
-              <button class="prev">&#10094;</button>
-              <button class="next">&#10095;</button>
+		  <!-- Tarjeta 8 -->
+          <div class="cards">
+            <div class="card-headers">
+                <div class="sliders">
+                    <div class="slides active">
+                         <img loading="lazy" src="artistas/fantasticos vallenato.jpg" alt="">
+                    </div>
+                    <div class="slides">
+                         <img loading="lazy" src="artistas/fantasticos vallenato.jpg" alt="">
+                    </div>
+                    <button class="prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="next" aria-label="Next slide">&#10095;</button>
+                </div>
             </div>
-          </div>
-		  
-          <div class="card-bodys">
-            <h2 class="card-titles">Fantásticos del Vallenato</h2>
-            <p class="card-descriptions">Es un orgullo presentar a Huberth Montero y Los Fantásticos del Vallenato (Género Vallenato) Agrupación con más de 26 años de vida artística y con éxitos nacionales e internacionales como Te Extraño, Dime Soledad, Porque Te Vas Y Solamente Tu entre otros. Voz Líder, Acordeón, dos (2) Coros, Caja, Guacharaca, Congas, Timbal, Bajo, Guitarra, Piano, para un total de once (11) integrantes en escena. La presentación de "Huberth Montero y los Fantásticos del Vallenato".</p>
-            <form class="vote-form">
-              <ul class="artists-list">
-                <li class="artist-item">
-                  <button type="button" class="vote-button" data-artist="8"><span class="vote-count" id="vote-8">0 votos</span></button>
-                  <div class="mensaje"></div>
+            <div class="card-bodys">
+                <h2 class="card-titles">Fantásticos del Vallenato</h2>
+                <p class="card-descriptions">
+                  Es un orgullo presentar a Huberth Montero y Los Fantásticos del Vallenato (Género Vallenato)
+                  Agrupación con más de 26 años de vida artística y con éxitos nacionales e internacionales como Te Extraño, 
+				  Dime Soledad, Porque Te Vas Y Solamente Tu entre otros.
+                  Voz Líder, Acordeón, dos (2) Coros, Caja, Guacharaca, Congas, Timbal, Bajo, Guitarra, Piano, para un total 
+				  de once (11) integrantes en escena.
+                  La presentación de "Huberth Montero y los Fantásticos del Vallenato”.
+				</p>
+              
+			    <form id="vote-form">
+                  <ul id="artists-list">
+                 <li id="artist-8">
+              
+                <button type="button" class="vote-button" data-artist="8"><span class="vote-count" id="vote-8"> 0 votos</span></button>
+				 <div id="mensaje"></div>
+				 
                 </li>
-              </ul>
-            </form>
-          </div>
-        </div>
-		
-        <!-- Tarjeta 9 -->
-        <div class="cards">
-          <div class="card-headers">
-            <div class="sliders">
-              <div class="slides active"><img loading="lazy" src="artistas/genesis orquesta.jpg" alt="Genesis"></div>
-              <div class="slides"><img loading="lazy" src="artistas/genesis orquesta.jpg" alt="Genesis"></div>
-              <button class="prev">&#10094;</button>
-              <button class="next">&#10095;</button>
-            </div>
-          </div>
-		  
-          <div class="card-bodys">
-            <h2 class="card-titles">Génesis Internacional</h2>
-            <p class="card-descriptions">Es una agrupacion creada en el 2010 en la ciudad de San Juan de Pasto, impulsada con el propósito de exaltar el talento artístico femenino complementado con el empuje, ahínco y musicalidad masculinos. Su propuesta musical es variada e influenciada por el género tropical fiestero y Tecnocumbiero por excelencia, el son sureño y ritmos propios de la región nariñense y más adelante profundizará e incursionará en géneros musicales variados y caribeños de la costa colombiana, el merengue, y la salsa.</p>
-            <form class="vote-form">
-              <ul class="artists-list">
-                <li class="artist-item">
-                  <button type="button" class="vote-button" data-artist="9"><span class="vote-count" id="vote-9">0 votos</span></button>
-                  <div class="mensaje"></div>
-                </li>
-              </ul>
-            </form>
-          </div>
-        </div>
-		
-		   <script src="js/vote.js"></script>
-		   
-      </section>
-
-     <footer>
-        <div class="footer-container">
-          <div class="footer-main">
-            <div class="footer-columna">
-              <h3>Contacto</h3>
-              <form action="" method="" id="formulario">
-                <span class="fa fa-envelope"><a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span>
+		        </ul>
               </form>
-              <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
-                <img loading="lazy" fetchpriority="low" src="imagenes/paypal.png" alt="PayPal" width="120" height="40">
-              </a>
             </div>
-            <div class="footer-columna">
-              <h3>Dirección</h3>
-              <span class="fas fa-map-marker"><a href="https://lafronterisima.online" target="_blank" style="color:white"><p>Colombia</p></a></span><br> 
-              <span class="fa fa-phone"><a href="tel:+57 3170340249" style="color:white"><p>+573170340249</p></a></span><br>   
-            </div>
-            <div class="footer-columna">
-              <h3>Nosotros</h3>
-              <p>Unimos sin fronteras la esencia y las raíces colombianas e hispana. Creamos una experiencia sonora auténtica donde la cultura musical y la tecnología convergen para emocionar al mundo en tiempo real.</p>
-            </div>
-          </div>
         </div>
 		
-        <div class="footer-copy-redes">
-          <div class="main-copy-redes">
-            <div class="footer-copy">
-              <h4><span class="fas fa-headphones"><a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank"> Escúchanos: Radio Box App</a></span></h4>
-              <h4><span class="fas fa-podcast"><a class="copy"> Notas surcando fronteras</a></span></h4>
+		  <!-- Tarjeta 9 -->
+          <div class="cards">
+            <div class="card-headers">
+                <div class="sliders">
+                    <div class="slides active">
+                         <img loading="lazy" src="artistas/genesis orquesta.jpg" alt="">
+                    </div>
+                    <div class="slides">
+                         <img loading="lazy" src="artistas/genesis orquesta.jpg" alt="">
+                    </div>
+                    <button class="prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="next" aria-label="Next slide">&#10095;</button>
+                </div>
             </div>
-            <div class="footer-redes">
-              <a href="https://www.facebook.com/emisora.la.fronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/la_fronterisima" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://youtube.com/@lafronterisima" target="_blank"><i class="fab fa-youtube"></i></a>
-              <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"><i class="fab fa-google-play"></i></a>
+            <div class="card-bodys">
+                <h2 class="card-titles">Génesis Internacional</h2>
+                <p class="card-descriptions">
+                  Es una agrupacion creada en el 2010 en la ciudad de San Juan de Pasto, impulsada con
+				  el propósito de exaltar el talento artístico femenino complementado con el empuje, ahínco y musicalidad masculinos. 
+				  Su propuesta musical es variada e influenciada por el género tropical fiestero y Tecnocumbiero por excelencia, el son sureño
+  				  y ritmos propios de la región nariñense y más adelante profundizará e incursionará en géneros musicales variados y caribeños
+                  de la costa colombiana, el merengue, y la salsa.      
+				</p>
+              
+			  <form id="vote-form">
+                  <ul id="artists-list">
+                 <li id="artist-9">
+               
+                <button type="button" class="vote-button" data-artist="9"><span class="vote-count" id="vote-9"> 0 votos</span></button>
+				 <div id="mensaje"></div>
+				 
+                 </li>
+		        </ul>
+               </form>	
             </div>
-          </div>
         </div>
-      </footer>
-    </article>
-	
-  </section>
-</main>
+		
+		
+		 <script src="js/vote.js"></script>
+		
+   </section>
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliders = document.querySelectorAll('.sliders');
 
-  <!-- Scripts críticos -->
+            sliders.forEach(slider => {
+                const slides = slider.querySelectorAll('.slides');
+                const prevButton = slider.querySelector('.prev');
+                const nextButton = slider.querySelector('.next');
+                let currentSlide = 0;
+
+                function showSlide(index) {
+                    if (index >= slides.length) {
+                        currentSlide = 0;
+                    } else if (index < 0) {
+                        currentSlide = slides.length - 1;
+                    } else {
+                        currentSlide = index;
+                    }
+                    slides.forEach((slide, i) => {
+                        slide.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    });
+                }
+
+                prevButton.addEventListener('click', () => {
+                    showSlide(currentSlide - 1);
+                });
+
+                nextButton.addEventListener('click', () => {
+                    showSlide(currentSlide + 1);
+                });
+
+          
+            });
+        });
+    </script>
+   
+   	 
+	 	<footer>
+		<div class="footer-container">
+			<div class="footer-main">
+				<div class="footer-columna">
+					<h3>Contacto</h3>
+					
+				<!--<form action="correo.php" method="POST" id="formulario">-->
+					  
+				  <form action="" method="" id="formulario">
+				 
+					<!-- <input type="email" name="Sender" id="Sender" placeholder="Ingresa su correo" required>
+					  
+				      <textarea type="text" name="Message" id="Message"  placeholder="Ingresa su mensaje" required></textarea>
+					
+					  
+					   <input type="submit" value="Enviar" id="button"> -->
+					   
+					    <span class="fa fa-envelope"> <a href="https://mail.google.com" target="_blank" style="color:white"><p>lafronterisima@gmail.com</p></a></span> 	
+					   	
+				    </form>
+				
+                  <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
+                    <img loading="lazy" src="imagenes/paypal.png">
+                  </a>				
+				   
+        </div>
+				
+		
+
+				<div class="footer-columna">
+					<h3>Dirección</h3>
+					<span class="fas fa-map-marker"><p>Colombia</p></span><br>
+					
+				</div>
+
+				<div class="footer-columna">
+					<h3>Nosotros</h3>
+					<p>Unimos sin fronteras la esencia y las raíces colombianas e hispano con automatización e inteligencia artificial. Creamos una experiencia sonora auténtica donde la cultura musical y la tecnología convergen para emocionar al mundo en tiempo real.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-copy-redes">
+			<div class="main-copy-redes">
+				<div class="footer-copy">
+					 <h4> <span class="fas fa-headphones"> <a href="https://onlineradiobox.com/co/lafronterisima/?cs=co.lafronterisima" target="_blank" >Escúchanos: Radio Box App</a></span> </h4>
+					 <!-- <a href="">INICIO</a></h4><br> -->
+				       <h4> <span class="fas fa-podcast"> <a class="copy"> Notas surcando fronteras</a></span></h4>
+				</div>
+				<div class="footer-redes">
+					<a href="https://www.facebook.com/emisora.la.fronterisima" target="_blank"><i class="fab fa-facebook-f"></i></a>
+					<a href="https://www.instagram.com/la_fronterisima" target="_blank"><i class="fab fa-instagram"></i></a>
+				    <a href="https://youtube.com/@lafronterisima" target="_blank"> <i class="fab fa-youtube"></i></a>
+				    <a href="https://play.google.com/store/apps/details?id=com.androsoft.radio" target="_blank"> <i class="fab fa-google-play"></i></a>
+				</div>
+			</div>
+		</div>
+		
+    </footer>
+	
+   </article>
+   
+ 
+   
+ </section> 
+ 
+  </main>
+
+ 
   <script src="js/jquery-1.9.0.min.js"></script>
-  <script src="js/lazy-iframes.js" defer></script>
+  <script src="js/menu.js"></script>
   
-  <!-- Scripts no críticos con defer -->
-  <script src="js/menu.js" defer></script>
-  <script src="js/materialize.js" defer></script>
+  <script src="js/lazy-iframes.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-  <script src="js/repro.js" defer></script>
+  <script src="js/repro.js"></script>
   <script src="js/saludo.js" defer></script>
   <script src="js/cargar_news.js" defer></script>
   <script src="https://kit.fontawesome.com/35db202371.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest" defer></script>
+ 
   <script src="js/animado.js" defer></script>
   <script src="js/share.js" defer></script>
   <script src="js/temperature.js" defer></script>
@@ -1411,7 +2231,7 @@
       if (cargando) cargando.style.display = 'none'; 
     }, 100);
   });
-</script>
-
-</body>
+	
+  </body>
+  
 </html>

@@ -462,51 +462,57 @@ function onYouTubeIframeAPIReady() {
   </div>
 </div>
 
-<script>
+ <script>
 
+  document.addEventListener("DOMContentLoaded", () => {
 
+  // 🎯 Carrusel Swiper
+  const swiperContainer = document.querySelector('.swiper');
 
- document.addEventListener("DOMContentLoaded", function () {
+  if (swiperContainer) {
+    new Swiper(swiperContainer, {
+      loop: true,
+      spaceBetween: 15,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      slidesPerView: 1
+    });
+  }
 
-  // 🎯 Carrusel (reemplazo de Owl)
-  const swiper = new Swiper('.swiper', {
-    loop: true,
-    spaceBetween: 15,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 1
-  });
+  // Elemento transmisor
+  const transmisor = document.querySelector('.trasmisor');
+
+  if (!transmisor) return;
 
   // Mostrar transmisor
   document.querySelectorAll('.live-icon').forEach(icon => {
     icon.addEventListener('click', () => {
-      document.querySelector('.trasmisor').style.display = 'block';
+      transmisor.style.display = 'block';
     });
   });
 
   // Ocultar al seleccionar radio
   document.querySelectorAll('.radio').forEach(radio => {
     radio.addEventListener('click', () => {
-      document.querySelector('.trasmisor').style.display = 'none';
+      transmisor.style.display = 'none';
     });
   });
 
   // Cerrar al hacer clic fuera
-  document.addEventListener('click', function(event) {
-    const modal = document.querySelector('.trasmisor');
-    if (!modal) return;
+  document.addEventListener('click', (event) => {
 
-    const isInside = modal.contains(event.target);
+    const isInside = transmisor.contains(event.target);
     const isLive = event.target.closest('.live-icon');
 
     if (!isInside && !isLive) {
-      modal.style.display = 'none';
+      transmisor.style.display = 'none';
     }
   });
 
 });
+
 </script>	  
       
       <div class="control-container">
@@ -2150,33 +2156,50 @@ servicio posible, particularmente para mantener un registro de usuarios,
  </section> 
  
   </main>
+  
 
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/jquery-3.6.0.min.js"></script>
+
+<!-- Materialize -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- OwlCarousel -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="https://kit.fontawesome.com/35db202371.js"></script>
+
+<!-- Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/35db202371.js" crossorigin="anonymous"></script>
+
+<!-- SoundCloud -->
 <script src="https://w.soundcloud.com/player/api.js"></script>
-<script src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v12.0&appId=275754110188363&autoLogAppEvents=1" async defer crossorigin="anonymous"></script>
-<script src="js/jquery-1.9.0.min.js"></script>
-<script src="js/menu.js"></script>
- <script src="js/repro.js"></script>
-  <script src="js/lazy-iframes.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
- 
-  <script src="js/saludo.js" defer></script>
-  <script src="js/cargar_news.js" defer></script>
-  <script src="https://kit.fontawesome.com/35db202371.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest" defer></script>
- 
-  <script src="js/animado.js" defer></script>
-  <script src="js/share.js" defer></script>
-  <script src="js/temperature.js" defer></script>
-  <script src="js/form_send.js" defer></script>
-  <script src="js/artistas.js" defer></script>
-  <script src="https://w.soundcloud.com/player/api.js" defer></script>
-  <script src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js" defer></script>
-  <script src="regist_serviceWorker.js" defer></script> 
+<script src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js"></script>
+
+<!-- Facebook SDK -->
+<script
+  async
+  defer
+  crossorigin="anonymous"
+  src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v12.0&appId=275754110188363&autoLogAppEvents=1">
+</script>
+
+<!-- HLS -->
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<script src="js/menu.js" defer></script>
+<script src="js/repro.js" defer></script>
+<script src="js/lazy-iframes.js" defer></script>
+<script src="js/saludo.js" defer></script>
+<script src="js/cargar_news.js" defer></script>
+<script src="js/animado.js" defer></script>
+<script src="js/share.js" defer></script>
+<script src="js/temperature.js" defer></script>
+<script src="js/form_send.js" defer></script>
+<script src="js/artistas.js" defer></script>
+
+<!-- Service Worker -->
+<script src="regist_serviceWorker.js" defer></script>
 
 <script>
   // Optimizado: reducir timeout y eliminar jQuery innecesario

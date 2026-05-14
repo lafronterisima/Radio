@@ -19,6 +19,7 @@ body {
   box-sizing:content-box;
   width:100%; 
 }
+
 main {
   width:100%;
   height:100vh;
@@ -31,12 +32,6 @@ main {
   .menu{
     background:#0c3f43;  
  } 
-
-
-  .menu{
-    background:#0c3f43;  
- } 
- 
 
  .logo {
     display: inline-block; 
@@ -151,14 +146,18 @@ ul.right li a {
 /* Estilos para el menú móvil */
 ul#nav-mobile {
     list-style-type: none; 
-    padding: 0;
-	
+    padding: 0;	
 }
 
 ul#nav-mobile .navigation {
     display: flex;
     flex-direction: column; 
     align-items: center; 
+}
+
+ul#nav-mobile i{
+    color: white;
+    font-size: 22px;
 }
 
 ul#nav-mobile .navigation li a {
@@ -279,7 +278,7 @@ ul#nav-mobile .enlaces a {
     height: 100%;
     color: white;
     margin-top: 5px;
-    background-color: transparent; /* Add a default color if needed */
+    background-color: transparent; 
 }
 
 .navigation li {
@@ -310,7 +309,7 @@ ul#nav-mobile .enlaces a {
 
 @media (max-width: 992px) {
     .sidenav {
-        width: 53%;
+        width:55%;
     }
 	
 	.logo{
@@ -324,11 +323,16 @@ ul#nav-mobile .enlaces a {
 
 @media (max-width: 690px) {
     .sidenav {
-        width: 87%;
+        width: 65%;
     }
 }
 
 @media (max-width: 479px) {
+	
+	.sidenav {
+        width: 80%;
+    }
+	
     .enlaces h2 {
         height: 80px;
     }
@@ -775,15 +779,18 @@ color:;
 }
 
 .modal_wraper .modal_container .header .close {
-  width:20px;
-  height:20px;
-  border: none;
-  background-color:;
-  outline: none;
-  margin-top:-8px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
+width: 20px;
+height: 20px;
+border: none;
+outline: none;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+font-size: 1.5rem;
+cursor: pointer;
+transition: 0.3s ease-in-out;
 }
 .modal_wraper .modal_container .header .close > * {
   pointer-events: none;
@@ -815,15 +822,17 @@ color:;
 }
 
 .modal_wraper .modal_container .boxes .social_media a{
-  text-decoration: none;
-  margin:0 auto;
+   text-decoration: none;
+  margin: 0 auto;
   width: 40px;
   height: 40px;
-  padding-top:8px;
   background-color: gray;
   font-size: 1rem;
+
   display: flex;
-  place-content: center;
+  justify-content: center;
+  align-items: center;
+
   border-radius: 50%;
   color: #fff;
   box-shadow: 0 2px 10px #0003;

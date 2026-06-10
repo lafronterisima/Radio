@@ -1,0 +1,117 @@
+<html>
+<head>
+    <title>Temas top 5</title>
+	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/estilo.css" media="screen">
+	
+</head>
+
+<body>
+
+  <div id="container">	 
+	<div id="audio-image">
+		<img class="cover" />
+	</div>
+	<div id="audio-player">
+		<div id="audio-info">
+			<span class="artist"></span> - <span class="title"></span>
+		</div>
+		 <input id="volume" type="range" min="0" max="10" value="5" />
+		 <br>
+		 <div id="buttons">
+		 <span>
+			<button id="prev"></button>
+			<button id="play"></button>
+			<button id="pause"></button>
+			<button id="stop"></button>
+			<button id="next"></button>
+			</span>
+		 </div>
+		 <div class="clearfix"></div>
+		 <div id="tracker">
+			<div id="progressBar">
+				<span id="progress"></span>
+			</div>
+			<span id="duration">0:00</span>
+		 </div>
+		 <div class="clearfix"></div>
+		 <ul id="playlist" class="hidden">
+			<li song="bendito Licor.mp3" cover="cover1.jpg" artist="Marco Antonio Arias">1. Bendito Licor</li>
+			<li song="que te vaya bien.mp3" cover="cover1.jpg" artist="José Escarpeta">2. Qué te vaya bien</li>
+			<li song="Porque un hombre llora.mp3" cover="cover1.jpg" artist="Andrey Loja">3. Porque un hombre llora</li>
+			<li song="dime.mp3" cover="cover1.jpg" artist="Grupo Clyber">4. Dime</li>
+			<li song="tu me gustas.mp3" cover="cover1.jpg" artist="Jorge Díaz">5. Tú me gustas</li>
+		</ul>
+	</div>
+
+</div>
+
+
+   <div class="container">
+        <table class="table">
+            <caption>Top 5 del Mes</caption>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Artísta</th>
+                    <th>Canción</th>
+                    <th>Género</th>
+                    <th>Orígen</th>
+      
+                </tr>
+            </thead>
+            
+            <tbody>
+          
+                <tr>
+                    <td data-label="Posición">Top 1</td>
+                    <td data-label="Artísta">Marco A. Arias "El León del Oriente"</td>
+                    <td data-label="Canción">"Bendito Licor"</td>
+                    <td data-label="Género">Popular</td>
+                    <td data-label="Orígen">Artísta Antioqueño con gran talento.</td>
+                </tr>
+                
+                 <tr>
+                    <td data-label="Posición">Top 2</td>
+                    <td data-label="Artísta">José Escarpeta</td>
+                    <td data-label="Canción">"Que te vaya bonito"</td>
+                    <td data-label="Género">Popular</td>
+                    <td data-label="Orígen">Artísta Caqueteño "El mensajero del amor"</td>
+                </tr>
+                
+                <tr>
+                    <td data-label="Posición">Top 3</td>
+                    <td data-label="Artísta">Andrey Loja</td>
+                    <td data-label="Canción">"Porque un hombre llora"</td>
+                    <td data-label="Género">Popular</td>
+                    <td data-label="Orígen">Artísta del Putumayo que llega a sus seguidores.</td>
+                </tr>
+                
+                 <tr>
+                    <td data-label="Posición">Top 4</td>
+                    <td data-label="Artísta">Grupo Cly y Bety"</td>
+                    <td data-label="Canción">"Dime"</td>
+                    <td data-label="Género">"Urbano"</td>
+                    <td data-label="Orígen">Artístas Leguizámenos, han cautivado a sus seguidores.</td>
+                </tr>
+                
+                 <tr>
+                    <td data-label="Posición">Top 5</td>
+                    <td data-label="Artísta">Jorge Díaz</td>
+                    <td data-label="Canción">"Tú me gustas"</td>
+                    <td data-label="Género">Estilo Cumbia</td>
+                    <td data-label="Orígen">Artísta Cáqueteño con gran entrega y talento.</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+		
+
+    <script src="js/jquery 2.1.1.min.js"></script>
+    <script src="js/main.js"></script>  
+
+</body>
+</html>

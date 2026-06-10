@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Programación La Fronterísima</title>
+    
+</head>
+
+<style>
+
+
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.principal {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.table {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+}
+
+.table caption {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 8px 0px;
+}
+
+.table caption h1{
+    font-size: 28px;
+    color:red;
+}
+
+.table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+
+.table th, .table td {
+    font-size: 16px;
+    padding: 8px;
+    text-align: center;
+}
+
+.table thead th{ 
+    text-transform: uppercase;
+    background-color: #ddd;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.table tbody td:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width:320px) and (max-width:860px){
+    .table {
+        border: 0px;
+    }
+    .table caption {
+        font-size: 22px;
+    }
+    .table thead {
+        display: none;
+    }
+    .table tr {
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ddd;
+        display: block;
+    }
+    .table th, .table td {
+        font-size: 12px;
+    }
+    .table td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+    .table  td:last-child {
+        border-bottom: 0px;
+    }
+    .table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        float: left;
+    }
+}
+
+
+</style>
+
+<body>
+    <div class="principal">
+        <table class="table">
+            <caption><h1>Programación</h1></caption>
+            <thead>
+                <tr>
+                    <th>Horario</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miercoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sábado</th>
+                    <th>Domingo</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+                <tr>
+                    <td data-label="Horario">5:00-6:00 am</td>
+                    <td data-label="Lunes">Full Fronterísima</td>
+                    <td data-label="Martes">Full Fronterísima</td>
+                    <td data-label="Miércoles">Full Fronterísima</td>
+                    <td data-label="Jueves">Full Fronterísima</td>
+                    <td data-label="Viernes">Full Fronterísima</td>
+                    <td data-label="Sábado">Full Fronterísima</td>
+                    <td data-label="Domingo">Full Fronterísima</td>
+                </tr>
+                
+                 <tr>
+                    <td data-label="Horario">6:00-8:00 am</td>
+                    <td data-label="Lunes">Sistema Musical</td>
+                    <td data-label="Martes">Sistema Musical</td>
+                    <td data-label="Miércoles">Sistema Musical</td>
+                    <td data-label="Jueves">Sistema Musical</td>
+                    <td data-label="viernes">Sistema Musical</td>
+                    <td data-label="Sábado">Sistema Musical</td>
+                    <td data-label="Domingo">Sistema Musical</td>
+                </tr>
+                
+                 <tr>
+                    <td data-label="Horario">8:00-10:00 am</td>
+                    <td data-label="Lunes">Música Tropical</td>
+                    <td data-label="Martes">Música Tropical</td>
+                    <td data-label="Miércoles">Música Tropical</td>
+                    <td data-label="Jueves">Música Tropical</td>
+                    <td data-label="Viernes">Música Tropical</td>
+                    <td data-label="Sábado">Música Tropical</td>
+                    <td data-label="Domingo">Música Tropical</td>
+                </tr>
+                
+                 <tr>
+                    <td data-label="Horario">10:00-12:00 pm</td>
+                    <td data-label="Lunes">Mañana Diversa</td>
+                    <td data-label="Martes">Mañana Diversa</td>
+                    <td data-label="Miércoles">Mañana Diversa</td>
+                    <td data-label="Jueves">Mañana Diversa</td>
+                    <td data-label="Viernes">Mañana Diversa</td>
+                    <td data-label="Sábado">Mañana Diversa</td>
+                    <td data-label="Domingo">Mañana Diversa</td>
+                </tr>
+                
+                 <tr>
+                    <td data-label="Horario">12:00-14:00 pm</td>
+                    <td data-label="Lunes">Impácto Músical</td>
+                    <td data-label="Martes">Impácto Músical</td>
+                    <td data-label="Miércoles">Impácto Músical</td>
+                    <td data-label="Jueves">Impácto Músical</td>
+                    <td data-label="Viernes">Impácto Músical</td>
+                    <td data-label="Sábado">Impácto Músical</td>
+                    <td data-label="Domingo">Impácto Músical</td>
+                 <tr>
+                 
+                    <td data-label="Horario">14:00-17:00 pm</td>
+                    <td data-label="Lunes">Tarde Fronterísima</td>
+                    <td data-label="Martes">Tarde Fronterísima</td>
+                    <td data-label="Miércoles">Tarde Fronterísima</td>
+                    <td data-label="Jueves">Tarde Fronterísima</td>
+                    <td data-label="Viernes">Tarde Fronterísima</td>
+                    <td data-label="Sábado">Tarde Fronterísima</td>
+                    <td data-label="Domingo">Tarde Fronterísima</td>
+                </tr>
+                
+                 <tr>
+                    <td data-label="Horario">17:00-18:00 pm</td>
+                    <td data-label="Lunes">Tardes Populares</td>
+                    <td data-label="Martes">Tardes Populares</td>
+                    <td data-label="Miércoles">Tardes Populares</td>
+                    <td data-label="Jueves">Tardes Populares</td>
+                    <td data-label="Viernes">Tardes Populares</td>
+                    <td data-label="Sábado">Tardes Populares</td>
+                    <td data-label="Domingo">Tardes Populares</td>
+                </tr>
+                
+                 <tr>
+                    <td data-label="Horario">18:00-20:00 am</td>
+                    <td data-label="Lunes">Noche Sabrosa</td>
+                    <td data-label="Martes">Noche Sabrosa</td>
+                    <td data-label="Miércoles">Noche Sabrosa</td>
+                    <td data-label="Jueves">Noche Sabrosa</td>
+                    <td data-label="Viernes">Noche Sabrosa</td>
+                    <td data-label="Sábado">Noche Sabrosa</td>
+                    <td data-label="Domingo">Noche Sabrosa</td>
+                </tr>
+                
+                 <tr>
+                    <td data-label="Horario">20:00-5:00 am</td>
+                    <td data-label="Lunes">Dj Fronterísima</td>
+                    <td data-label="Martes">Dj Fronterísima</td>
+                    <td data-label="Miércoles">Dj Fronterísima</td>
+                    <td data-label="Jueves">Dj Fronterísima</td>
+                    <td data-label="Viernes">Dj Fronterísima</td>
+                    <td data-label="Sábado">Dj Fronterísima</td>
+                    <td data-label="Domingo">Dj Fronterísima</td>
+                </tr>
+                
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

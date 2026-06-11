@@ -1,4 +1,4 @@
-  // ==================== OPTIMIZACIÓN DE CARGA ====================
+// ==================== OPTIMIZACIÓN DE CARGA ====================
 // Usar DOMContentLoaded solo para lo esencial
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar solo lo necesario al inicio
@@ -148,8 +148,14 @@ function initNavigation() {
             if (element) element.style.display = sec === sectionId ? 'block' : 'none';
         });
         window.location.hash = sectionId;
-        const sidenavInstance = M.Sidenav.getInstance(document.querySelector('.sidenav'));
-        if (sidenavInstance && sidenavInstance.isOpen) sidenavInstance.close();
+        
+        if (typeof M !== 'undefined' && M.Sidenav) {
+            const sidenavElem = document.querySelector('.sidenav');
+            if (sidenavElem) {
+                const sidenavInstance = M.Sidenav.getInstance(sidenavElem);
+                if (sidenavInstance && sidenavInstance.isOpen) sidenavInstance.close();
+            }
+        }
     };
     
     document.querySelectorAll('.right a, .sidenav .navigation a, .dropdown a').forEach(link => {
@@ -176,7 +182,7 @@ function initNavigation() {
 // ==================== SIDENAV OPTIMIZADO ====================
 function initSidenav() {
     const elems = document.querySelectorAll('.sidenav');
-    if (elems.length && M.Sidenav) {
+    if (elems.length && typeof M !== 'undefined' && M.Sidenav) {
         M.Sidenav.init(elems, { edge: 'left', draggable: true });
     }
 }
@@ -207,25 +213,32 @@ function initImageSlideshows() {
 }
 
 // ==================== REPRODUCTOR OPTIMIZADO ====================
-const audio = document.getElementById("radio");
-const btn = document.getElementById("playPauseBtn");
-const icon = btn.querySelector("i");
+function initPlayer() {
+    const audio = document.getElementById("radio");
+    const btn = document.getElementById("playPauseBtn");
+    if (!audio || !btn) return;
+    const icon = btn.querySelector("i");
 
-btn.addEventListener("click", async () => {
-    try {
-        if (audio.paused) {
-            await audio.play();
-            icon.classList.remove("fa-play");
-            icon.classList.add("fa-pause");
-        } else {
-            audio.pause();
-            icon.classList.remove("fa-pause");
-            icon.classList.add("fa-play");
+    btn.addEventListener("click", async () => {
+        try {
+            if (audio.paused) {
+                await audio.play();
+                if (icon) {
+                    icon.classList.remove("fa-play");
+                    icon.classList.add("fa-pause");
+                }
+            } else {
+                audio.pause();
+                if (icon) {
+                    icon.classList.remove("fa-pause");
+                    icon.classList.add("fa-play");
+                }
+            }
+        } catch (error) {
+            console.log("Error reproduciendo audio:", error);
         }
-    } catch (error) {
-        console.log("Error reproduciendo audio:", error);
-    }
-});
+    });
+}
 
 // ==================== CLIMA (carga diferida) ====================
 async function fetchWeatherByIP() {
@@ -274,7 +287,7 @@ async function fetchWeatherByIP() {
 // Ejecutar al cargar la página
 fetchWeatherByIP();
 
-// ==================== COMPARTIR OPTIMIZADO ====================
+// ==================== COMPARTIR OPTIMIZADO Y CORREGIDO ====================
 function initShare() {
     const shareModal = document.getElementById('shareModal');
     if (!shareModal) return;
@@ -282,9 +295,19 @@ function initShare() {
     const shareUrl = encodeURIComponent('https://lafronterisima.stream');
     const shareText = encodeURIComponent('La Fronterisima - Notas surcando fronteras');
     
-    document.getElementById('shareNavBtn')?.addEventListener('click', () => shareModal.classList.add('active'));
-    document.getElementById('closeModal')?.addEventListener('click', () => shareModal.classList.remove('active'));
+    // Abrir modal (asegúrate de que tu botón en el menú tenga id="shareNavBtn")
+    document.getElementById('shareNavBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        shareModal.classList.add('active');
+    });
     
+    // Cerrar modal con la X
+    document.getElementById('closeModal')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        shareModal.classList.remove('active');
+    });
+    
+    // Asignar enlaces a redes sociales
     const shareFb = document.getElementById('shareFb');
     const shareWa = document.getElementById('shareWa');
     const shareEmail = document.getElementById('shareEmail');
@@ -292,22 +315,39 @@ function initShare() {
     const shareIg = document.getElementById('shareIg');
     
     if (shareFb) shareFb.href = `https://www.facebook.com/sharer.php?u=${shareUrl}`;
-    if (shareWa) shareWa.href = `https://wa.me/?text=${shareText}%20${shareUrl}`;
+    if (shareWa) shareWa.href = `https://api.whatsapp.com/send?text=${shareText}%20${shareUrl}`;
     if (shareEmail) shareEmail.href = `mailto:?subject=${shareText}&body=${shareUrl}`;
     if (shareTg) shareTg.href = `https://telegram.me/share/url?url=${shareUrl}&text=${shareText}`;
-    if (shareIg) shareIg.href = `https://www.instagram.com/?url=${shareUrl}`;
+    if (shareIg) shareIg.href = `https://www.instagram.com/`; // Instagram no admite parámetros directos por URL
     
-    document.getElementById('copyUrlBtn')?.addEventListener('click', () => {
+    // Copiar URL optimizado para móviles y navegadores modernos
+    const copyUrlBtn = document.getElementById('copyUrlBtn');
+    copyUrlBtn?.addEventListener('click', async () => {
         const input = document.getElementById('shareable_url');
         if (input) {
-            input.select();
-            document.execCommand('copy');
-            showToast('✅ Enlace copiado al portapapeles');
+            try {
+                // Usamos la API moderna del portapapeles (Clipboard API)
+                await navigator.clipboard.writeText(input.value);
+                if (window.showToast) {
+                    window.showToast('✅ Enlace copiado al portapapeles');
+                } else {
+                    alert('✅ Enlace copiado al portapapeles');
+                }
+            } catch (err) {
+                // Fallback clásico por si el navegador bloquea la API moderna
+                input.select();
+                input.setSelectionRange(0, 99999); // Ajuste móvil
+                document.execCommand('copy');
+                window.showToast?.('✅ Enlace copiado al portapapeles');
+            }
         }
     });
     
+    // Cerrar modal si el usuario hace clic afuera de la caja blanca
     shareModal.addEventListener('click', (e) => {
-        if (e.target === shareModal) shareModal.classList.remove('active');
+        if (e.target === shareModal) {
+            shareModal.classList.remove('active');
+        }
     });
 }
 
@@ -352,7 +392,7 @@ function initNonCritical() {
     initVideoSlider();
     initImageSlideshows();
     initShare();
-    fetchWeather();
+    fetchWeatherByIP(); // ✅ Corregido el nombre para evitar el error de interrupción catastrófico
 }
 
 // Guardar contenido original para noticias
@@ -382,8 +422,7 @@ if (scrollTopBtn) {
     });
 }
 
-
-
+// ==================== CONTROLES DE MODAL EN VIVO ====================
 const liveModal = document.getElementById("liveModal");
 const timeInfo = document.getElementById("timeInfo");
 const liveDot = document.querySelector(".live-dot");
@@ -393,6 +432,7 @@ const closeBtn = document.querySelector(".live-modal .close");
    ABRIR MODAL
 ======================= */
 function openModal(e) {
+    if (!liveModal) return;
     e.stopPropagation();
     liveModal.classList.add("active");
 }
@@ -404,7 +444,7 @@ liveDot?.addEventListener("click", openModal);
    CERRAR MODAL (SIN PARAR AUDIO)
 ======================= */
 function closeModal() {
-    liveModal.classList.remove("active");
+    if (liveModal) liveModal.classList.remove("active");
 }
 
 // botón X
@@ -414,7 +454,7 @@ closeBtn?.addEventListener("click", (e) => {
 });
 
 // click fuera del contenido
-liveModal.addEventListener("click", (e) => {
+liveModal?.addEventListener("click", (e) => {
     if (e.target === liveModal) {
         closeModal();
     }
@@ -424,13 +464,15 @@ liveModal.addEventListener("click", (e) => {
    RADIO PLAYER LOGIC
 ======================= */
 function toggleRadio(id, btn) {
-    const audio = document.getElementById(id);
+    const audioEl = document.getElementById(id);
     const allAudio = document.querySelectorAll("audio");
     const allButtons = document.querySelectorAll(".player-btn");
 
+    if (!audioEl) return;
+
     // detener otros radios
     allAudio.forEach(a => {
-        if (a !== audio) {
+        if (a !== audioEl) {
             a.pause();
             a.currentTime = 0;
         }
@@ -440,11 +482,11 @@ function toggleRadio(id, btn) {
     allButtons.forEach(b => b.textContent = "▶");
 
     // play / pause actual
-    if (audio.paused) {
-        audio.play();
+    if (audioEl.paused) {
+        audioEl.play();
         btn.textContent = "❚❚";
     } else {
-        audio.pause();
+        audioEl.pause();
         btn.textContent = "▶";
     }
 }

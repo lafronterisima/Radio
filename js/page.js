@@ -207,37 +207,25 @@ function initImageSlideshows() {
 }
 
 // ==================== REPRODUCTOR OPTIMIZADO ====================
-function initPlayer() {
-    const streamUrl = 'https://virtual5.emisorasvirtuales.com/listen/la_fronterisima/live';
-    let audio = new Audio();
-    let isPlaying = false;
-    
-    audio.src = streamUrl;
-    audio.volume = 0.7;
-    audio.preload = 'none'; // No cargar hasta que se necesite
-    
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    if (!playPauseBtn) return;
-    
-    function updatePlayButton(playing) {
-        const icon = playing ? 'fa-pause' : 'fa-play';
-        playPauseBtn.innerHTML = `<i class="fas ${icon}"></i>`;
-    }
-    
-    function togglePlay() {
-        if (isPlaying) {
-            audio.pause();
-            isPlaying = false;
-            updatePlayButton(false);
+const audio = document.getElementById("radio2");
+const btn = document.getElementById("playPauseBtn");
+const icon = btn.querySelector("i");
+
+btn.addEventListener("click", async () => {
+    try {
+        if (audio.paused) {
+            await audio.play();
+            icon.classList.remove("fa-play");
+            icon.classList.add("fa-pause");
         } else {
-            audio.play().catch(e => showToast('No se pudo iniciar la reproducción'));
-            isPlaying = true;
-            updatePlayButton(true);
+            audio.pause();
+            icon.classList.remove("fa-pause");
+            icon.classList.add("fa-play");
         }
+    } catch (error) {
+        console.log("Error reproduciendo audio:", error);
     }
-    
-    playPauseBtn.addEventListener('click', togglePlay);
-}
+});
 
 // ==================== CLIMA (carga diferida) ====================
 async function fetchWeatherByIP() {
@@ -394,24 +382,83 @@ if (scrollTopBtn) {
     });
 }
 
-const liveDot = document.querySelector('.live-dot');
-const liveModal = document.getElementById('liveModal');
-const closeBtn = document.querySelector('.live-modal .close');
 
-// abrir modal
-liveDot.addEventListener('click', (e) => {
+
+const liveModal = document.getElementById("liveModal");
+const timeInfo = document.getElementById("timeInfo");
+const liveDot = document.querySelector(".live-dot");
+const closeBtn = document.querySelector(".live-modal .close");
+
+/* =======================
+   ABRIR MODAL
+======================= */
+function openModal(e) {
     e.stopPropagation();
-    liveModal.classList.add('active');
+    liveModal.classList.add("active");
+}
+
+timeInfo?.addEventListener("click", openModal);
+liveDot?.addEventListener("click", openModal);
+
+/* =======================
+   CERRAR MODAL (SIN PARAR AUDIO)
+======================= */
+function closeModal() {
+    liveModal.classList.remove("active");
+}
+
+// botón X
+closeBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeModal();
 });
 
-// cerrar modal
-closeBtn.addEventListener('click', () => {
-    liveModal.classList.remove('active');
-});
-
-// cerrar al click fuera
-document.addEventListener('click', (e) => {
-    if (!liveModal.contains(e.target) && !document.getElementById('timeInfo').contains(e.target)) {
-        liveModal.classList.remove('active');
+// click fuera del contenido
+liveModal.addEventListener("click", (e) => {
+    if (e.target === liveModal) {
+        closeModal();
     }
 });
+
+/* =======================
+   RADIO PLAYER LOGIC
+======================= */
+function toggleRadio(id, btn) {
+    const audio = document.getElementById(id);
+    const allAudio = document.querySelectorAll("audio");
+    const allButtons = document.querySelectorAll(".player-btn");
+
+    // detener otros radios
+    allAudio.forEach(a => {
+        if (a !== audio) {
+            a.pause();
+            a.currentTime = 0;
+        }
+    });
+
+    // reset botones
+    allButtons.forEach(b => b.textContent = "▶");
+
+    // play / pause actual
+    if (audio.paused) {
+        audio.play();
+        btn.textContent = "❚❚";
+    } else {
+        audio.pause();
+        btn.textContent = "▶";
+    }
+}
+
+/* =======================
+   OPCIONAL: STOP TOTAL (manual)
+======================= */
+function stopAllRadios() {
+    document.querySelectorAll("audio").forEach(a => {
+        a.pause();
+        a.currentTime = 0;
+    });
+
+    document.querySelectorAll(".player-btn").forEach(b => {
+        b.textContent = "▶";
+    });
+}

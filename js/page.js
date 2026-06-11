@@ -207,7 +207,7 @@ function initImageSlideshows() {
 }
 
 // ==================== REPRODUCTOR OPTIMIZADO ====================
-const audio = document.getElementById("radio2");
+const audio = document.getElementById("radio");
 const btn = document.getElementById("playPauseBtn");
 const icon = btn.querySelector("i");
 

@@ -9,7 +9,7 @@ body {
     background: linear-gradient(135deg, #0a0a0a 0%, #0f0f1a 50%, #1a1a2e 100%);
     color: #ffffff;
     overflow-x: hidden;
-    padding-bottom:30px;
+    padding-bottom:40px;
 }
 
 ::-webkit-scrollbar {
@@ -446,13 +446,18 @@ nav.menu {
     width: 100%;
 }
 
-.hero {
+.hero { 
     position: relative;
     width: 100%;
+    min-height: 75vh; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 50px 5px;
+    padding: 20px;
     margin-bottom: 40px;
-
     background-image: url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4");
     background-size: cover;
     background-position: center;
@@ -477,14 +482,14 @@ nav.menu {
 .hero h1 {
     font-size: 38px;
     margin-bottom: 18px;
-    color: #2EE6D6;
+    color: white;
 }
 
 .hero p {
     font-size: 20px;
     line-height: 1.5;
     padding: 0 5px;
-	color: #00FFD5;
+	color: white;
 }
 
 /* RESPONSIVE MAIN CONTENT */
@@ -824,12 +829,16 @@ footer {
 
 .footer-columna p,
 .footer-columna a {
-    color: rgba(255, 255, 255, 0.55);
+	width:90%;
+    color: white;
     text-decoration: none;
     font-size: 13px;
     line-height: 1.9;
     text-align: center;
     display: block;
+	text-align:justify;
+	text-align:center;
+	margin:0 auto;
 }
 
 .footer-columna a:hover {
@@ -871,7 +880,7 @@ footer {
 }
 
 .footer-redes a {
-    color: rgba(255, 255, 255, 0.5);
+    color: white;
     font-size: 25px;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -1399,6 +1408,11 @@ footer {
     padding: 25px;
     transition: all 0.3s ease;
     width: 100%;
+	
+	  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .radiox:hover {
@@ -1464,14 +1478,21 @@ footer {
     text-align: center
 }
 
-.radiox .description {
+.radiox .description p {
     line-height: 1.6;
-    margin-bottom: 20px;
-    color: rgba(255, 255, 255, 0.7);
+    margin: 0 auto 20px;
+    width: 98%;
+    font-size: 14px;
+    color: #fff;
+    text-align:justify;
+	text-justify: inter-word;
+	margin-bottom:15px;
+	flex-grow: 1;
 }
 
 .btn1 {
-    width: 40%;
+    margin-top: auto;
+    width: 35%;
     display: block;
     background: linear-gradient(135deg, #20B2AA 0%, #FF6B35 100%);
     color: white;
@@ -1539,7 +1560,10 @@ footer {
     }
 
     .radiox .description {
-        font-size: 14px;
+        width: 100%;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
     }
 
     .btn1 {
@@ -2284,6 +2308,7 @@ footer {
 .time-info {
     display: flex;
     align-items: center;
+	margin-left:15px;
     gap: 6px;
     font-size: 11px;
     font-weight: 700;

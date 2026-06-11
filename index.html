@@ -951,24 +951,79 @@ loadSheet();
                     <span class="track-status"></span>
                 </div>
             </div>
+			
+            <audio id="radio2">
+              <source src="https://virtual5.emisorasvirtuales.com/listen/la_fronterisima/live" type="audio/mpeg">
+            </audio>
+
             <div class="player-controls">
-                <button class="control-btn play-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
-            </div>
+			
+            <button class="control-btn play-btn" id="playPauseBtn">
+              <i class="fas fa-play"></i>
+            </button>
+           </div>
 			
             <div class="time-info" id="timeInfo"><span class="live-dot"></span> EN VIVO</div>
-					
-             <div class="live-modal" id="liveModal">
-    <div class="live-modal-box">
+			
+
+     <div class="live-modal" id="liveModal">
+
+      <div class="live-modal-box">
+
         <span class="close">&times;</span>
-        <h4>EN VIVO</h4>
-        <p>Contenido en tiempo real aquí</p>
+
+        <h4>EMISORAS</h4>
+
+        <div class="radio-player">
+
+            <div class="station">
+                <div class="station-info">
+                    <div class="signal"></div>
+                    <span>Mensajeros de Gloria</span>
+                </div>
+
+                <audio id="radio1">
+                    <source src="https://stream.zeno.fm/6q6gx5fcn48uv">
+                </audio>
+
+                <button class="player-btns" onclick="toggleRadio('radio1', this)">▶</button>
+            </div>
+
+            <div class="station">
+                <div class="station-info">
+                    <div class="signal"></div>
+                    <span>Radio Scom</span>
+                </div>
+
+                <audio id="radio2">
+                    <source src="https://emisorasdigitales2.com:7002/stream">
+                </audio>
+
+                <button class="player-btns" onclick="toggleRadio('radio2', this)">▶</button>
+            </div>
+
+            <div class="station">
+                <div class="station-info">
+                    <div class="signal"></div>
+                    <span>Palacio Vallenato</span>
+                </div>
+
+                <audio id="radio3">
+                    <source src="https://stream.zeno.fm/v5ecixm4fvduv">
+                </audio>
+
+                <button class="player-btns" onclick="toggleRadio('radio3', this)">▶</button>
+            </div>
+
+        </div>
+
     </div>
 </div>
 
 
-					
-        </div>
     </div>
+		
+  </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

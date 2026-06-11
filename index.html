@@ -309,7 +309,7 @@ loadSheet();
                 <div class="caja-portfolio">
                     <h3>FAN PAGE</h3>
                     <div class="fb_background">
-                        <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/lafronterisima&tabs=timeline&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" width="100%" height="430" style="border:none;overflow:hidden;border-radius:10px;" scrolling="no" frameborder="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/lafronterisima&tabs=timeline&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" width="" height="" style="border:none;overflow:hidden;border-radius:10px;" scrolling="no" frameborder="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
@@ -339,61 +339,108 @@ loadSheet();
 
         <!-- SECCIÓN NOTICIAS -->
         <section id="NOTAS" class="elemento" style="display: none;">
-            <div class="section">
-              
-                <div class="notas_page">
-                    <div id="publicaciones" class="containst">
-                        <div class="advert-container">
-                            <div class="container-fluid">
+            
+			<div class="section">
+    <div class="notas_page">
+        <div id="publicaciones" class="containst">
+            <!-- Publicidad lateral -->
+            <div class="advert-container">
+                <div class="container-fluid">
+                    <div class="imagen">
+                        <a href="#">
+                            <img class="img-responsive" src="imagenes/consola.jpg" alt="Consola">
+                            <p>La Fronterísima</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div id="Adds">
+                        <img id="imgAdd" src="imagenes/3.jpg" style="display: block; width: 100%;" alt="Anuncio">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contenido principal -->
+            <div class="main-contain">
+                <div id="notas_titular" class="container-fluid">
+                    <div class="contec">
+                        <div id="contex">
+                            <!-- Noticia principal -->
+                            <div class="news-box" onclick="loadNews('sub/news1.html')" style="cursor: pointer;">
+                                <h3>Lenguaje musical</h3>
+                                <div class="datetime"><span>1/5/2026 8:00 am</span></div>
+                                <div class="note">
+                                    <p>La música, una de las formas de expresión más antiguas y universales, ha acompañado a la humanidad a lo largo de su historia.</p>
+                                </div>
                                 <div class="imagen">
-                                    <a href="#"><img class="img-responsive" src="imagenes/consola.jpg" alt="Consola"><p>La Fronterísima</p></a>
+                                    <img loading="lazy" class="img" src="images/musica.jpg" alt="Música">
+                                    <h5>Imagen tomada de: pixabay.com</h5>
                                 </div>
                             </div>
-                            <div class="container-fluid">
-                                <div id="Adds"><img id="imgAdd" src="imagenes/3.jpg" style="display: block; width: 100%;" alt="Anuncio"></div>
-                            </div>
-                        </div>
-                        <div class="main-contain">
-                            <div id="notas_titular" class="container-fluid">
-                                <div class="contec">
-                                    <div id="contex">
-                                        <div class="news-box" onclick="loadNews('sub/news1.html')" style="cursor: pointer;">
-                                            <h3>Lenguaje musical</h3>
-                                            <div class="datetime"><span>1/5/2026 8:00 am</span></div>
-                                            <div class="note"><p>La música, una de las formas de expresión más antiguas y universales, ha acompañado a la humanidad a lo largo de su historia.</p></div>
-                                            <div class="imagen"><img loading="lazy" class="img" src="images/musica.jpg" alt="Música"><h5>Imagen tomada de: pixabay.com</h5></div>
-                                        </div>
-                                        <section class="news-container">
-                                            <div class="infoes" onclick="loadNews('sub/news2.html')" style="cursor: pointer;">
-                                                <div class="top-info"><img loading="lazy" src="images/natural1.jpg" alt="Naturaleza"><h3>Un futuro sostenible</h3><div class="date">Enero 7, 2026</div><p>La naturaleza es un regalo invaluable que nos brinda vida, belleza y recursos esenciales.</p></div>
-                                            </div>
-                                            <div class="news">
-                                                <div class="infoes" onclick="loadNews('sub/news3.html')" style="cursor: pointer;">
-                                                    <div class="top-info"><img src="images/mascotas1.jpg" alt="Mascotas"><h3>Cuidar las mascotas</h3><div class="date">Enero 26, 2026</div><p>Las mascotas son más que simples animales de compañía.</p></div>
-                                                </div>
-                                                <div class="infoes" onclick="loadNews('sub/news4.html')" style="cursor: pointer;">
-                                                    <div class="top-info"><img src="images/sociedad1.jpg" alt="Sociedad"><h3>Vínculos sociales</h3><div class="date">Febrero 18, 2026</div><p>Las mascotas son más que simples animales de compañía.</p></div>
-                                                </div>
-                                            </div>
-                                            <div class="news">
-                                                <div class="infoes" onclick="loadNews('sub/news5.html')" style="cursor: pointer;">
-                                                    <div class="top-info"><img src="images/pasatiempo1.jpg" alt="Pasatiempos"><h3>Actividades aire libre</h3><div class="date">Marzo 15, 2026</div><p>El tiempo libre brinda la oportunidad de mantenerse activo.</p></div>
-                                                </div>
-                                                <div class="infoes" onclick="loadNews('sub/news6.html')" style="cursor: pointer;">
-                                                    <div class="top-info"><img src="images/deporte1.jpg" alt="Deporte"><h3>Importancia del deporte</h3><div class="date">Marzo 17, 2026</div><p>El deporte es mucho más que competiciones y entretenimiento.</p></div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                        <section class="news-container" id="contenedor5"></section>
-                                        <div id="gif" class="loader center-block" style="display:none;"></div>
-                                        <div class="boton_content"><button onclick="cargarNoticias()" type="button" id="boton">Cargar más</button></div>
+                            
+                            <!-- Grid de noticias -->
+                            <section class="news-container">
+                                <div class="infoes" onclick="loadNews('sub/news2.html')" style="cursor: pointer;">
+                                    <div class="top-info">
+                                        <img loading="lazy" src="images/natural1.jpg" alt="Naturaleza">
+                                        <h3>Un futuro sostenible</h3>
+                                        <div class="date">Enero 7, 2026</div>
+                                        <p>La naturaleza es un regalo invaluable que nos brinda vida, belleza y recursos esenciales.</p>
                                     </div>
                                 </div>
+                                
+                                <div class="news">
+                                    <div class="infoes" onclick="loadNews('sub/news3.html')" style="cursor: pointer;">
+                                        <div class="top-info">
+                                            <img src="images/mascotas1.jpg" alt="Mascotas">
+                                            <h3>Cuidar las mascotas</h3>
+                                            <div class="date">Enero 26, 2026</div>
+                                            <p>Las mascotas son más que simples animales de compañía.</p>
+                                        </div>
+                                    </div>
+                                    <div class="infoes" onclick="loadNews('sub/news4.html')" style="cursor: pointer;">
+                                        <div class="top-info">
+                                            <img src="images/sociedad1.jpg" alt="Sociedad">
+                                            <h3>Vínculos sociales</h3>
+                                            <div class="date">Febrero 18, 2026</div>
+                                            <p>Las mascotas son más que simples animales de compañía.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="news">
+                                    <div class="infoes" onclick="loadNews('sub/news5.html')" style="cursor: pointer;">
+                                        <div class="top-info">
+                                            <img src="images/pasatiempo1.jpg" alt="Pasatiempos">
+                                            <h3>Actividades aire libre</h3>
+                                            <div class="date">Marzo 15, 2026</div>
+                                            <p>El tiempo libre brinda la oportunidad de mantenerse activo.</p>
+                                        </div>
+                                    </div>
+                                    <div class="infoes" onclick="loadNews('sub/news6.html')" style="cursor: pointer;">
+                                        <div class="top-info">
+                                            <img src="images/deporte1.jpg" alt="Deporte">
+                                            <h3>Importancia del deporte</h3>
+                                            <div class="date">Marzo 17, 2026</div>
+                                            <p>El deporte es mucho más que competiciones y entretenimiento.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            <section class="news-container" id="contenedor5"></section>
+                            <div id="gif" class="loader center-block" style="display:none;"></div>
+                            <div class="boton_content">
+                                <button onclick="cargarNoticias()" type="button" id="boton">Cargar más</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+			
         </section>
 
         <!-- SECCIÓN VIDEOS -->
@@ -907,7 +954,19 @@ loadSheet();
             <div class="player-controls">
                 <button class="control-btn play-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
             </div>
+			
             <div class="time-info" id="timeInfo"><span class="live-dot"></span> EN VIVO</div>
+					
+             <div class="live-modal" id="liveModal">
+    <div class="live-modal-box">
+        <span class="close">&times;</span>
+        <h4>EN VIVO</h4>
+        <p>Contenido en tiempo real aquí</p>
+    </div>
+</div>
+
+
+					
         </div>
     </div>
 

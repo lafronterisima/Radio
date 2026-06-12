@@ -871,12 +871,13 @@ footer {
     flex-wrap: wrap;
     gap: 15px;
     text-align: center;
-    width: 100%;
+    width: 100%; 
 }
 
 .footer-redes {
     display: flex;
-    gap: 18px;
+    gap: 18px; margin-right:10px;
+	
 }
 
 .footer-redes a {
@@ -935,6 +936,18 @@ footer {
     .footer-redes a {
         font-size: 20px;
     }
+	
+  .paypal-button img {
+    padding-top: 10px;
+    width: 100px;
+	height:40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
     .paypal-button form {
         transform: scale(0.75);
     }
@@ -963,6 +976,18 @@ footer {
     .footer-copy p {
         font-size: 10px;
     }
+	
+	.paypal-button img {
+    padding-top: 10px;
+    width: 100px;
+	height:40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
     .paypal-button form {
         transform: scale(0.7);
     }
@@ -1492,12 +1517,12 @@ footer {
 
 .btn1 {
     margin-top: auto;
-    width: 35%;
+    width: 40%;
     display: block;
     background: linear-gradient(135deg, #20B2AA 0%, #FF6B35 100%);
     color: white;
     padding: 10px 25px;
-    border-radius: 30px;
+    border-radius: 3px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -1567,7 +1592,7 @@ footer {
     }
 
     .btn1 {
-        width: 70%;
+        width: 40%;
         padding: 11px 18px;
         font-size: 14px;
     }
@@ -2308,7 +2333,7 @@ footer {
 .time-info {
     display: flex;
     align-items: center;
-	margin-left:15px;
+	margin-right:5px;
     gap: 6px;
     font-size: 11px;
     font-weight: 700;
@@ -2317,7 +2342,7 @@ footer {
     padding: 6px 12px;
     border-radius: 30px;
     border: 1px solid rgba(255, 59, 48, 0.3);
-    white-space: nowrap;
+    white-space: nowrap; 
 }
 
 .live-dot {

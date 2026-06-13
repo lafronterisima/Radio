@@ -1,12 +1,13 @@
-
 document.addEventListener("DOMContentLoaded", function() {
     let sidenavInstance = null;
 
     // 1. Inicializar Sidenav (Materialize)
     if (typeof M !== "undefined") {
         const elems = document.querySelectorAll('.sidenav');
-        M.Sidenav.init(elems);
-        sidenavInstance = M.Sidenav.getInstance(document.querySelector('.sidenav'));
+        if (elems.length) {
+            M.Sidenav.init(elems);
+            sidenavInstance = M.Sidenav.getInstance(elems[0]);
+        }
     }
 
     const bloques = document.querySelectorAll('.elemento');
@@ -19,33 +20,28 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     };
 
-    // 2. Lógica de Navegación (Enlaces finales)
+    // 2. Lógica de Navegación
     enlaces.forEach(link => {
         link.addEventListener('click', function(e) {
             const hash = this.getAttribute('href');
 
-            // Si es un enlace a sección (#) y NO es el disparador del submenú
-            if (hash && hash.startsWith("#")) {
+            if (hash && hash.startsWith("#") && hash !== "#") {
                 const target = document.querySelector(hash);
                 
-                if (target) {
-                    // Si el enlace está dentro de un submenú, cerramos el submenú
-                    if (this.closest('.dropdown')) {
-                        cerrarDropdown();
-                    }
-
-                    // Navegación lógica
+                if (target && !this.classList.contains('submenu')) {
                     e.preventDefault();
                     bloques.forEach(b => b.classList.remove('visible'));
                     target.classList.add('visible');
 
-                    // Estado activo
-                    enlaces.forEach(l => l.classList.remove('activo'));
-                    this.classList.add('activo');
-
-                    // Cerrar menús globales
-                    if (sidenavInstance) sidenavInstance.close();
-                    window.scrollTo(0, 0);
+                    // Cerrar submenús
+                    cerrarDropdown();
+                    
+                    // Cerrar sidenav en móvil
+                    if (sidenavInstance && window.innerWidth <= 992) {
+                        sidenavInstance.close();
+                    }
+                    
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             }
         });
@@ -65,20 +61,53 @@ document.addEventListener("DOMContentLoaded", function() {
             if (dropdown) {
                 const estaVisible = dropdown.style.display === "block";
                 
-                // Cerramos otros por si acaso
+                // Cerramos otros dropdowns
                 cerrarDropdown();
 
-                // Alternamos el actual
-                dropdown.style.display = estaVisible ? "none" : "block";
+                // Si estaba cerrado, lo abrimos
+                if (!estaVisible) {
+                    dropdown.style.display = "block";
+                }
+                // Si estaba abierto, ya se cerró
             }
         });
     });
 
-    // 4. Cerrar si se hace clic fuera del menú o en un enlace normal del menú principal
+    // 4. Cerrar SOLO si se hace clic fuera del submenú Y fuera del dropdown
     document.addEventListener('click', (e) => {
-        // Si el clic no es en el botón de submenú, cerramos cualquier dropdown abierto
-        if (!e.target.closest('.submenu')) {
+        const esSubmenu = e.target.closest('.submenu');
+        const esDropdown = e.target.closest('.dropdown');
+        const esEnlaceDropdown = e.target.closest('.dropdown a');
+        
+        // Si el clic es en un enlace del dropdown, NO cerramos inmediatamente
+        if (esEnlaceDropdown) {
+            return; // Dejamos que el enlace haga su trabajo
+        }
+        
+        // Si el clic no es en el submenu Y no es en el dropdown, cerramos
+        if (!esSubmenu && !esDropdown) {
             cerrarDropdown();
         }
     });
+
+    // 5. Cerrar dropdown DESPUÉS de que el enlace del dropdown haya navegado
+    document.querySelectorAll('.dropdown a').forEach(enlace => {
+        enlace.addEventListener('click', function(e) {
+            // Dejamos que la navegación ocurra primero
+            setTimeout(() => {
+                cerrarDropdown();
+            }, 100);
+        });
+    });
+
+    // 6. Mostrar sección inicial
+    const hashInicial = window.location.hash.substring(1) || 'RADIO';
+    const seccionInicial = document.getElementById(hashInicial);
+    if (seccionInicial) {
+        bloques.forEach(b => b.classList.remove('visible'));
+        seccionInicial.classList.add('visible');
+    } else {
+        const radioSeccion = document.getElementById('RADIO');
+        if (radioSeccion) radioSeccion.classList.add('visible');
+    }
 });

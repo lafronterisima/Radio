@@ -2318,161 +2318,169 @@ aside .contenedor_pt {
 
 /* Section Privacidad */
 .privacy {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding-top: 20px;
-  margin-bottom: 4px;
-  display: flex;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-top: 20px;
+    margin-bottom: 4px;
+    display: flex;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .privacy h2 {
-  text-align: center;
-  font-size: 16px;
-  padding-top: 2px;
-  margin-top: 5px;
-  padding-bottom: 15px;
-  color: black;
+    text-align: center;
+    font-size: 16px;
+    padding-top: 2px;
+    margin-top: 5px;
+    padding-bottom: 15px;
+    color: black;
 }
 
 .privacy-container {
-  width: 98%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding-bottom: 20px;
-  margin: 0 auto;
+    width: 98%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin: 0 auto;
 }
 
 .privacy-text {
-  width: 98%;
-  display: flex;
-  flex-direction: column;
-  padding-top: 10px;
-  color: #fff;
-  margin: 0 auto;
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    color: #fff;
+    margin: 0 auto;
 }
 
 .privacy-text p {
-  width: 95%;
-  text-align: center;
-  text-align: justify;
-  padding-bottom: 15px;
-  font-size: 16px;
-  color: black;
-  margin: 0 auto;
+    width: 95%;
+    text-align: center;
+    text-align: justify;
+    padding-bottom: 15px;
+    font-size: 16px;
+    color: black;
+    margin: 0 auto;
 }
 
 @media (min-width: 691px) and (max-width: 960px) {
-  .privacy {
-    width: 97%;
-    height: auto;
-    margin: 0 auto;
-    padding-top: 20px;
-    margin-bottom: 4px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .privacy h2 {
-    text-align: center;
-    font-size: 16px;
-    padding-top: 2px;
-    margin-top: 5px;
-    padding-bottom: 15px;
-    color: black;
-  }
-  .privacy-container {
-    width: 98%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding-bottom: 20px;
-  }
-  .privacy-text {
-    width: 98%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-    color: #fff;
-    margin: 0 auto;
-  }
-  .privacy-text p {
-    width: 95%;
-    text-align: center;
-    text-align: justify;
-    padding-bottom: 15px;
-    font-size: 16px;
-    margin: 0 auto;
-  }
+    .privacy {
+        width: 97%;
+        height: auto;
+        margin: 0 auto;
+        padding-top: 20px;
+        margin-bottom: 4px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .privacy h2 {
+        text-align: center;
+        font-size: 16px;
+        padding-top: 2px;
+        margin-top: 5px;
+        padding-bottom: 15px;
+        color: black;
+    }
+
+    .privacy-container {
+        width: 98%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+
+    .privacy-text {
+        width: 98%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+        color: #fff;
+        margin: 0 auto;
+    }
+
+    .privacy-text p {
+        width: 95%;
+        text-align: center;
+        text-align: justify;
+        padding-bottom: 15px;
+        font-size: 16px;
+        margin: 0 auto;
+    }
 }
 
 @media (min-width: 320px) and (max-width: 690px) {
-  .privacy {
-    width: 97%;
-    height: auto;
-    margin: auto;
-    padding-top: 20px;
-    margin-bottom: 4px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .privacy h2 {
-    text-align: center;
-    font-size: 16px;
-    padding-top: 2px;
-    margin-top: 5px;
-    padding-bottom: 15px;
-    color: black;
-  }
-  .privacy-container {
-    width: 98%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding-bottom: 20px;
-    display: inline-block;
-  }
-  .privacy-text {
-    width: 98%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-    color: #fff;
-    margin: 0 auto;
-  }
-  .privacy-text p {
-    width: 95%;
-    text-align: center;
-    text-align: justify;
-    padding-bottom: 15px;
-    font-size: 16px;
-  }
+    .privacy {
+        width: 97%;
+        height: auto;
+        margin: auto;
+        padding-top: 20px;
+        margin-bottom: 4px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .privacy h2 {
+        text-align: center;
+        font-size: 16px;
+        padding-top: 2px;
+        margin-top: 5px;
+        padding-bottom: 15px;
+        color: black;
+    }
+
+    .privacy-container {
+        width: 98%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        display: inline-block;
+    }
+
+    .privacy-text {
+        width: 98%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+        color: #fff;
+        margin: 0 auto;
+    }
+
+    .privacy-text p {
+        width: 95%;
+        text-align: center;
+        text-align: justify;
+        padding-bottom: 15px;
+        font-size: 16px;
+    }
 }
 
 /* artistas */

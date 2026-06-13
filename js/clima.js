@@ -1,79 +1,99 @@
-const apiKeyClima = "185dbcc57e27f9315a49d3f1c762ebd7";
 
-function obtenerClima(lat, lon, ciudad = "") {
-    // URL con unidades métricas y lenguaje en español
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKeyClima}&units=metric&lang=es`;
+    document.addEventListener('DOMContentLoaded', function() {
+    // Abrir el modal de chat al hacer clic en la imagen
+    document.querySelectorAll('#weather-img').forEach(function(icon) {
+     icon.addEventListener('click', function() {
+      document.querySelector('#modal_box').classList.add('active'); // Mostrar el modal
+    });
+  });
 
-    fetch(url)
-        .then(r => r.json())
-        .then(data => {
-            // Sincronización con tus IDs de HTML
-            const ciudadFinal = ciudad || data.name || "Ubicación desconocida";
+  // Cerrar el modal cuando se hace clic en el botón de cerrar
+  document.querySelectorAll('#cerrar_modal').forEach(function(button) {
+    button.addEventListener('click', function() {
+      document.querySelector('#modal_box').classList.remove('active'); // Ocultar el modal
+    });
+  });
 
-            // Inyectar datos en los divs correspondientes
-            document.getElementById("locationName").textContent = ciudadFinal;
-            document.getElementById("texto-clima").textContent = `- ${data.weather[0].description}`;
-            document.getElementById("texto-temp").textContent = `Temperatura: ${Math.round(data.main.temp)} °C`;
-            document.getElementById("humidity").textContent = `Humedad: ${data.main.humidity}%`;
-            document.getElementById("windSpeed").textContent = `Viento: ${data.wind.speed} m/s`;
+  // Cerrar el modal al hacer clic fuera del contenedor del modal
+  document.addEventListener('click', function(event) {
+    var modal = document.querySelector('#modal_box');
+    var modalContent = document.querySelector('.modal_containers');
+    var isClickInsideModal = modalContent.contains(event.target);
+    var isClickOnLiveIcon = event.target.closest('#weather-img');
 
-            // Lógica de iconos (usando tu sistema de icons8)
-            const weatherMain = data.weather[0].main.toLowerCase();
-            const weatherImg = document.getElementById("weather-img");
-            
-            let icon = "weather.png"; // Icono por defecto
-            if (weatherMain.includes("clear")) icon = "sun.png";
-            else if (weatherMain.includes("cloud")) icon = "cloud.png";
-            else if (weatherMain.includes("rain") || weatherMain.includes("drizzle")) icon = "rain.png";
-            else if (weatherMain.includes("snow")) icon = "snow.png";
-
-            if (weatherImg) {
-                weatherImg.src = `https://img.icons8.com/color/96/${icon}`;
-            }
-        })
-        .catch(err => console.error("Error con OpenWeatherMap:", err));
-}
-
-// =======================
-// UBICACIÓN POR IP (backup)
-// =======================
-function obtenerUbicacionIP() {
-    fetch("https://ipwho.is/")
-        .then(r => r.json())
-        .then(data => {
-            if (!data.success) throw new Error("IP no válida");
-            obtenerClima(data.latitude, data.longitude, data.city);
-        })
-        .catch(err => console.error("Error IP:", err));
-}
-
-// =======================
-// UBICACIÓN GPS (precisa)
-// =======================
-function obtenerUbicacionPrecisa() {
-    if (!navigator.geolocation) {
-        console.warn("Geolocalización no soportada");
-        obtenerUbicacionIP();
-        return;
+    // Cierra el modal si el clic es fuera del modal y fuera del ícono
+    if (!isClickInsideModal && !isClickOnLiveIcon) {
+      modal.classList.remove('active');
     }
+  });  
 
-    navigator.geolocation.getCurrentPosition(
-        position => {
-            const { latitude, longitude } = position.coords;
-            // Al ser GPS no tenemos el nombre de la ciudad directamente
-            obtenerClima(latitude, longitude, "Tu ubicación actual");
-        },
-        error => {
-            console.warn("GPS falló o fue denegado, usando IP", error);
-            obtenerUbicacionIP();
-        },
-        {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 0
-        }
-    );
-}
+ 
+ //async function enviarMensaje(event){
+   // event.preventDefault(); 
 
-// Ejecutar al cargar
-obtenerUbicacionPrecisa();
+  //  const usuario = document.getElementById('usuario').value.trim();
+   // const comentario = document.getElementById('comentario').value.trim();
+
+  //  if (usuario === '' || comentario === '') return; 
+
+   // try {
+   //  const response = await fetch('send_message.php', {
+     //   method: 'POST',
+     //   headers: {
+     //     'Content-Type': 'application/x-www-form-urlencoded'
+     //   },
+      //  body: new URLSearchParams({
+       //   usuario: usuario,
+       //   comentario: comentario
+    //    })
+    //  });
+
+    //  if (response.ok) {
+       
+      //  const comentariosDiv = document.getElementById('chat-box');
+      //  const comentarioElement = document.createElement('div');
+       // comentarioElement.classList.add('comentario');
+
+       // const fecha = new Date().toLocaleTimeString();
+
+     //   comentarioElement.innerHTML = `
+        //  <strong>${usuario}</strong>
+        //  <small>${fecha}</small>
+        //  <p>${comentario}</p>
+      //  `;
+        
+      //  comentariosDiv.insertBefore(comentarioElement, comentariosDiv.firstChild);
+
+      //  document.getElementById('comentario').value = '';
+  //    } else {
+     //   console.error('Error al enviar el mensaje:', response.statusText);
+   //   }
+  //  } catch (error) {
+  //    console.error('Error en la solicitud:', error);
+  //  }
+ // }
+
+ 
+ //  async function fetchMessages() {
+  //  try {
+   //   const response = await fetch('chat.php');
+    //  if (response.ok) {
+    //    const chatBox = document.getElementById('chat-box');
+     //   chatBox.innerHTML = await response.text();
+     //   chatBox.scrollTop = chatBox.scrollHeight; 
+   //   } else {
+      //  console.error('Error al recuperar los mensajes:', response.statusText);
+   //   }
+  //  } catch (error) {
+   //   console.error('Error en la solicitud:', error);
+  //  }
+//  }
+
+ // setInterval(fetchMessages, 5000);
+
+//  const form = document.getElementById('form_comentario');
+ // if (form) {
+  //  form.addEventListener('submit', enviarMensaje);
+  //  }
+	
+  });

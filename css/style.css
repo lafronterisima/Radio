@@ -85,6 +85,15 @@ main {
 }
 
 /* submenu */
+.nav-wrappers {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0c3f43;
+    padding: 0 20px;
+}
+
 .nav-wrappers ul ul {
   background: #0c3f43;
   position: absolute;
@@ -107,19 +116,53 @@ main {
   display: block;
 }
 
-.dropdown {
-  display: none;
-  position: absolute;
-  z-index: 999;
-  background-color: white;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.right li .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #0c3f43;
+    min-width: 180px;
+    border-radius: 0 0 8px 8px;
+    display: none;
+    z-index: 1000;
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.right li {
-  position: relative;
+/* Mostrar dropdown al hacer hover en desktop */
+@media (min-width: 993px) {
+    .right li:hover .dropdown {
+        display: block !important;
+    }
+}
+
+.right li .dropdown li {
+    width: 100%;
+    display: block;
+}
+
+.right li .dropdown li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+
+.right li .dropdown li a:hover {
+    background: #1a5c61;
+}
+
+/* Flecha del submenú */
+
+
+.right li:hover .icon-circle-down {
+    transform: rotate(180deg);
 }
 
 /* Estilos para el menú de escritorio */
@@ -187,6 +230,12 @@ ul#nav-mobile .enlaces a {
   font-size: 16px;
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 993px) {
+    .right li:hover .dropdown {
+        display: block !important;
+    }
 }
 
 /* Estilos comunes para íconos Material Icons */
@@ -513,144 +562,199 @@ article .elemento {
   height: 40px;
 }
 
+/* Estilos para el panel de emisoras */
 .trasmisor {
-  width: 320px;
-  height: 350px;
-  position: fixed;
-  bottom: 0;
-  z-index: 1;
-  right: 0;
-  display: none;
-  background-color: snow;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 380px;
+    max-width: 90%;
+    height: auto;
+    max-height: 80vh;      /* Altura máxima del 80% de la ventana */
+    background: #0c3f43;
+    border-radius: 15px 15px 0 0;
+    z-index: 1000;
+    overflow-y: auto;      /* Scroll vertical cuando hay más contenido */
+    overflow-x: hidden;    /* Oculta scroll horizontal */
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Personalizar la barra de scroll (opcional, para mejor apariencia) */
+.trasmisor::-webkit-scrollbar {
+    width: 6px;
+}
+
+.trasmisor::-webkit-scrollbar-track {
+    background: #1a5c61;
+    border-radius: 3px;
+}
+
+.trasmisor::-webkit-scrollbar-thumb {
+    background: #20B2AA;
+    border-radius: 3px;
+}
+
+.trasmisor::-webkit-scrollbar-thumb:hover {
+    background: #1a8f8a;
 }
 
 .radio {
-  width: 100%;
-  height: 40px;
-  cursor: pointer;
-  align-items: center;
-  user-select: none;
-  padding: 4px 0;
-  background: #0c3f43;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  padding-right: 50px;
+    background: #1a5c61;
+    padding: 12px;
+    text-align: center;
+    position: sticky;     /* Fija el encabezado mientras se hace scroll */
+    top: 0;
+    z-index: 10;
+    border-radius: 15px 15px 0 0;
 }
 
 .radio p {
-  text-align: center;
-  color: white;
-  margin: 0 auto;
-  font-size: 20px;
-}
-
-.radio span {
-  color: white;
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
 }
 
 .whatsapp-button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 10;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .whatsapp-button img {
-  width: 40px;
-  height: 40px;
+    width: 35px;
+    height: 35px;
 }
 
-/* Section Emisoras */
-.trasmisor .carousel-wrapper {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  text-align: center;
-  font-family: sans-serif;
+.radio-player {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.trasmisor .swiper-slide .content {
-  width: 100%;
-  position: relative;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.station {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.trasmisor .swiper-slide img {
-  width: 90px;
-  height: 90px;
-  padding-top: 30px;
-  margin: 0 auto;
+.station:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
 }
 
-.trasmisor .swiper-slide .content {
-  padding: 15px;
-  color: white;
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 230px;
+.station-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 160px;
 }
 
-.trasmisor .swiper-slide .content .title {
-  width: 100%;
-  font-size: 18px;
-  display: flex;
-  padding-top: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-  color: orange;
+.signal {
+    width: 10px;
+    height: 10px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+    flex-shrink: 0;
 }
 
-.trasmisor .swiper-slide .content .sub-title {
-  font-size: 14px;
-  color: orange;
-  line-height: 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
-.trasmisor .swiper-slide .content p {
-  width: 97%;
-  text-align: justify;
-  padding-top: 10px;
-  font-size: 13px;
-  margin: 0 auto;
-  color: black;
-  margin-bottom: 20px;
-  flex-grow: 1;
+.station-info span {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
 }
 
-.trasmisor .content .btns {
-  display: inline-block;
-  width: 100px;
-  height: 45px;
-  padding: 0;
-  margin-bottom: 10px;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+.station-genre {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
 }
 
-@media (min-width: 320px) and (max-width: 570px) {
-  .trasmisor, .carousel-wrapper {
-    width: 100%;
-    height: 340px;
-    position: fixed;
-  }
+.station-description {
+    flex: 1;
+    min-width: 180px;
 }
+
+.station-description p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.player-btns {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #20B2AA;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.player-btns:hover {
+    background: #1a8f8a;
+    transform: scale(1.05);
+}
+
+.player-btns:active {
+    transform: scale(0.95);
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .trasmisor {
+        width: 100%;
+        max-width: 100%;
+        right: 0;
+        left: 0;
+        border-radius: 15px 15px 0 0;
+        max-height: 70vh;  /* Un poco más pequeño en móviles */
+    }
+    
+    .station {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .station-info {
+        justify-content: center;
+    }
+    
+    .station-description {
+        text-align: center;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-height: 600px) {
+    .trasmisor {
+        max-height: 85vh;
+    }
+}
+
 
 .contain_radio .live-messages, .fa-circle {
   text-shadow: 2px 2px 1px rgb(248, 24, 110);
@@ -686,52 +790,66 @@ article .elemento {
   display: inline-block;
 }
 
+/* ==================== REPRODUCTOR OPTIMIZADO - CARGA INMEDIATA ==================== */
 #player-container #playPauseBtn {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
   border-radius: 50%;
-  background-color: gainsboro;
+  background-color: #20B2AA;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#player-container #playPauseBtn:hover {
+  transform: scale(1.05);
+  background-color: #1a8f8a;
+}
+
+#player-container #playPauseBtn:active {
+  transform: scale(0.95);
 }
 
 #player-container #playPauseBtn svg {
-  width: 28px;
-  height: 28px;
-  fill: #000;
+  width: 32px;
+  height: 32px;
+  fill: white;
 }
 
-#playPauseBtn {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
+/* Estado inicial: PLAY visible, PAUSE oculto */
+#playPauseBtn .play-icon {
+  display: block;
 }
 
-/* Estado PLAY */
-#playPauseBtn.play .pause-icon {
+#playPauseBtn .pause-icon {
   display: none;
 }
 
-/* Estado PAUSE */
-#playPauseBtn.pause .play-icon {
+/* Estado PLAYING: PLAY oculto, PAUSE visible */
+#playPauseBtn.playing .play-icon {
   display: none;
 }
 
-.share_btn {
-  width: 50px;
-  height: 50px;
-  margin-top: 5px;
-  float: right;
-  margin-right: 5px;
-  outline: none;
-  cursor: pointer;
-  border-radius: 4px;
-  border: 2px solid transparent;
+#playPauseBtn.playing .pause-icon {
+  display: block;
 }
 
+/* Optimización para móviles */
+@media (max-width: 480px) {
+  #player-container #playPauseBtn {
+    width: 50px;
+    height: 50px;
+  }
+  #player-container #playPauseBtn svg {
+    width: 28px;
+    height: 28px;
+  }
+}
 
+/* ==================== FIN REPRODUCTOR OPTIMIZADO ==================== */
 
 .share_btn {
   width: 50px;
@@ -767,7 +885,6 @@ article .elemento {
   bottom: 0;
   left: 0;
   background-color: #fff;
-
   border-radius: 15px 15px 0 0;
   overflow: hidden;
 }

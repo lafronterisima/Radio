@@ -1,99 +1,46 @@
 
-    document.addEventListener('DOMContentLoaded', function() {
-    // Abrir el modal de chat al hacer clic en la imagen
-    document.querySelectorAll('#weather-img').forEach(function(icon) {
-     icon.addEventListener('click', function() {
-      document.querySelector('#modal_box').classList.add('active'); // Mostrar el modal
-    });
-  });
+  async function fetchWeatherByIP() {
+    try {
+        // 1️⃣ Obtener ubicación aproximada por IP
+        const ipRes = await fetch("https://ipwho.is/");
+        const ipData = await ipRes.json();
 
-  // Cerrar el modal cuando se hace clic en el botón de cerrar
-  document.querySelectorAll('#cerrar_modal').forEach(function(button) {
-    button.addEventListener('click', function() {
-      document.querySelector('#modal_box').classList.remove('active'); // Ocultar el modal
-    });
-  });
+        if (!ipData.success) throw new Error("No se pudo obtener ubicación por IP");
 
-  // Cerrar el modal al hacer clic fuera del contenedor del modal
-  document.addEventListener('click', function(event) {
-    var modal = document.querySelector('#modal_box');
-    var modalContent = document.querySelector('.modal_containers');
-    var isClickInsideModal = modalContent.contains(event.target);
-    var isClickOnLiveIcon = event.target.closest('#weather-img');
+        const lat = ipData.latitude;
+        const lon = ipData.longitude;
+        const ciudad = ipData.city || "Ciudad desconocida";
 
-    // Cierra el modal si el clic es fuera del modal y fuera del ícono
-    if (!isClickInsideModal && !isClickOnLiveIcon) {
-      modal.classList.remove('active');
+        // 2️⃣ Consultar Open-Meteo con coordenadas obtenidas
+        const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`;
+        const weatherRes = await fetch(weatherUrl);
+        if (!weatherRes.ok) throw new Error(`Error en clima: ${weatherRes.status}`);
+
+        const weatherData = await weatherRes.json();
+
+        if (weatherData.current_weather && weatherData.current_weather.temperature !== undefined) {
+            const temp = Math.round(weatherData.current_weather.temperature);
+
+            // 3️⃣ Mostrar en navbar y sidenav
+            const texto = `${temp}°C ${ciudad}`;
+            const weatherTextNav = document.getElementById('weatherText');
+            const weatherTextSidenav = document.getElementById('weatherTextSidenav');
+
+            if (weatherTextNav) weatherTextNav.textContent = texto;
+            if (weatherTextSidenav) weatherTextSidenav.textContent = texto;
+        } else {
+            throw new Error("Datos de clima no disponibles");
+        }
+    } catch (error) {
+        console.error("Error obteniendo clima por IP:", error);
+        // Fallback
+        const weatherTextNav = document.getElementById('weatherText');
+        const weatherTextSidenav = document.getElementById('weatherTextSidenav');
+
+        if (weatherTextNav) weatherTextNav.textContent = "Bogotá 🌤️";
+        if (weatherTextSidenav) weatherTextSidenav.textContent = "Bogotá 🌤️";
     }
-  });  
+}
 
- 
- //async function enviarMensaje(event){
-   // event.preventDefault(); 
-
-  //  const usuario = document.getElementById('usuario').value.trim();
-   // const comentario = document.getElementById('comentario').value.trim();
-
-  //  if (usuario === '' || comentario === '') return; 
-
-   // try {
-   //  const response = await fetch('send_message.php', {
-     //   method: 'POST',
-     //   headers: {
-     //     'Content-Type': 'application/x-www-form-urlencoded'
-     //   },
-      //  body: new URLSearchParams({
-       //   usuario: usuario,
-       //   comentario: comentario
-    //    })
-    //  });
-
-    //  if (response.ok) {
-       
-      //  const comentariosDiv = document.getElementById('chat-box');
-      //  const comentarioElement = document.createElement('div');
-       // comentarioElement.classList.add('comentario');
-
-       // const fecha = new Date().toLocaleTimeString();
-
-     //   comentarioElement.innerHTML = `
-        //  <strong>${usuario}</strong>
-        //  <small>${fecha}</small>
-        //  <p>${comentario}</p>
-      //  `;
-        
-      //  comentariosDiv.insertBefore(comentarioElement, comentariosDiv.firstChild);
-
-      //  document.getElementById('comentario').value = '';
-  //    } else {
-     //   console.error('Error al enviar el mensaje:', response.statusText);
-   //   }
-  //  } catch (error) {
-  //    console.error('Error en la solicitud:', error);
-  //  }
- // }
-
- 
- //  async function fetchMessages() {
-  //  try {
-   //   const response = await fetch('chat.php');
-    //  if (response.ok) {
-    //    const chatBox = document.getElementById('chat-box');
-     //   chatBox.innerHTML = await response.text();
-     //   chatBox.scrollTop = chatBox.scrollHeight; 
-   //   } else {
-      //  console.error('Error al recuperar los mensajes:', response.statusText);
-   //   }
-  //  } catch (error) {
-   //   console.error('Error en la solicitud:', error);
-  //  }
-//  }
-
- // setInterval(fetchMessages, 5000);
-
-//  const form = document.getElementById('form_comentario');
- // if (form) {
-  //  form.addEventListener('submit', enviarMensaje);
-  //  }
-	
-  });
+// Ejecutar al cargar la página
+fetchWeatherByIP();

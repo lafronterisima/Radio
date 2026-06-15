@@ -309,99 +309,104 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   
-  <div class="navbar-fixed"> 
-  <nav class="menu" role="navigation">
-    <div class="nav-wrappers">
-      <div class="sidenav-trigger" data-target="nav-mobile"><i class="material-icons-outlined">menu</i></div>
-      <a href="https://google.com" class="logo" target="_blank">
-        <img id="tiempo" src="imagenes/news.png" loading="eager" style="cursor: pointer;">
-      </a>
-      <a class="share_btn"><i class="material-icons-outlined">share</i></a>
+    <!-- ==================== NAVBAR FIJO ==================== -->
+    <div class="navbar-fixed">
+        <nav class="menu" role="navigation">
+            <div class="nav-wrappers">
+                <div class="sidenav-trigger" data-target="nav-mobile">
+                    <i class="material-icons-outlined">menu</i>
+                </div>
+                
+                <div class="weather-nav" id="weatherNav">
+                    <i class="material-icons-outlined">wb_sunny</i>
+                    <span id="weatherText">Cargando...</span>
+                </div>
 
-      <div class="modal_wraper" data-action="modal_close"> 
+               <a class="share_btn">
+                  <i class="material-icons-outlined">share</i>
+               </a>
+
+                <ul class="right hide-on-med-and-down">
+				    <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
+                    <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>
+                    <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
+                    <li>
+                        <a class="submenu"><span class="material-icons-outlined">map</span> Catálogo <span class="icon-circle-down"></span></a>
+                        <ul class="dropdown">
+                            <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Video</a></li>
+                            <li><a href="#PRIVACIDAD"><span class="material-icons-outlined">lock</span> Seguridad</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ==================== SIDENAV MÓVIL ==================== -->
+    <ul id="nav-mobile" class="sidenav">
+        <div class="nav_perfil">
+            <div class="nav_logo">
+                <img src="imagenes/emisora.png" onerror="this.src='https://placehold.co/85x85/20B2AA/white?text=LF'">
+            </div>
+        </div>
+        
+        <div class="navigation">
+		    <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
+            <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>
+            <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
+            <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Videos</a></li>
+            <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
+        </div>
+        
+        <div class="enlaces">
+    <h2></h2>
+    <a href="#" class="weather-link" id="weatherSidenavLink">
+        <i class="material-icons-outlined">wb_sunny</i>
+        <span id="weatherTextSidenav">Cargando...</span>
+       </a>
+     </div>
+		
+    </ul>
+
+   
+	 <div class="modal_wraper" data-action="modal_close"> 
         <div class="modal_container"> 
-          <div class="header"><strong>Compartir página web</strong><button class="close" data-action="modal_close"><i class="material-icons-outlined">close</i></button></div> 
+          <div class="header">
+            <strong>Compartir website</strong>
+            <button class="close" data-action="modal_close">
+              <i class="material-icons-outlined">close</i>
+            </button> 
+          </div>
           <div class="boxes"> 
             <div class="social_media"> 
-              <a href="http://www.facebook.com/sharer.php?u=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared fb"><i class="material-icons-outlined">facebook</i></a>
-              <a href="https://wa.me/?text=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared wa"><i class="material-icons-outlined">chat</i></a>
-              <a href="mailto:?Subject=Descarga%20nuestra%20app:%20La%20Fronterisima%20link%20https://lafronterisima.stream" target="_blank" class="shared ce"><i class="material-icons-outlined">email</i></a>
-              <a href="https://telegram.me/share/url?url=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tl"><i class="material-icons-outlined">telegram</i></a>
-              <a href="https://instagram.com/share?url=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tt"><i class="material-icons-outlined">photo_camera</i></a>
-            </div>
+              <a href="http://www.facebook.com/sharer.php?u=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared fb"> 
+                <i class="material-icons-outlined">facebook</i>
+              </a>
+              <a href="https://wa.me/?text=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared wa">
+                <i class="material-icons-outlined">whatsapp</i>
+              </a> 
+              <a href="mailto:?Subject=Descarga%20nuestra%20app:%20La%20Fronterisima%20link%20https://lafronterisima.stream" target="_blank" class="shared ce"> 
+                <i class="material-icons-outlined">mail</i>
+              </a>
+              <a href="https://telegram.me/share/url?url=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tl"> 
+                <i class="material-icons-outlined">telegram</i>
+              </a>
+              <a href="https://instagram.com/share?url=https://lafronterisima.stream%20Descarga%20nuestra%20app:%20La%20Fronterisima" target="_blank" class="shared tt"> 
+                <i class="material-icons-outlined">photo_camera</i>
+              </a>
+            </div> 
             <div class="copy_wraper"> 
-             
+              <strong></strong>
               <div class="copy_url_wraper">
                 <input type="url" id="shareable_url" value="https://lafronterisima.stream"/> 
-                <button class="copy_url_btn">Copiar</button>
-              </div>
-            </div>
-          </div>
+                <button class="copy_url_btn">Copiar</button> 
+              </div> 
+            </div> 
+          </div> 
           <i class="icon-android-share"></i>
         </div>
       </div>
-
- <ul class="right hide-on-med-and-down">
-    <li><a href="#RADIO"><span class="material-icons-outlined">radio</span> Radio</a></li>
-    <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>  
-    <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li> 
-    <li>
-        <a class="submenu">
-            <span class="material-icons-outlined">map</span> Catálogo 
-            <span class="icon-circle-down"></span>
-        </a>  
-        <ul class="dropdown">
-            <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Video</a></li>
-            <li><a href="#PRIVACIDAD"><span class="material-icons-outlined">lock</span> Seguridad</a></li>
-        </ul>
-    </li> 
-    <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>           
-</ul>
-       
-     </div>
-    </nav>
-   </div>
-	  
-
-  <ul id="nav-mobile" class="sidenav">
-    <div class="sidenav-trigger" data-target="mobile-menu"></div>
-    
-	
-    <div class="nav_perfil">
-        <div class="nav_logo">
-            <img src="image/frontera.png">
-        </div>
-    </div>
-    
-    <div class="navigation">
-        <li><a href="#RADIO"><span class="material-icons-outlined"> radio</span> Radio </a></li>
-        <li><a href="#INICIO"><span class="material-icons-outlined"> home</span> Inicio </a></li>
-        <li><a href="#NOTAS"><span class="material-icons-outlined"> newspaper</span> Noticias </a></li>
-        <li><a href="#VIDEOS"><span class="material-icons-outlined"> camera</span> Videos </a></li>
-        <li><a href="#ARTISTAS"><span class="material-icons-outlined"> headphones</span> Artistas </a></li>
-		            
-    </div>
-	
-	  <div class="enlaces">
-            <h2><a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w"><span class="material-icons-outlined">speaker</span> Colombia</a></h2>
-        </div> 
-	
-</ul>
- 
- 
- 
- <script>
-    window.OneSignal = window.OneSignal || [];
-    OneSignal.push(function() {
-    OneSignal.init({
-      appId: "c34ccfa8-4709-4bfc-8dc3-03cfa982186c",   
-      });
-    });
-  </script>
-  
-
-	
-</div>
 
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8389148678200434"
@@ -1519,7 +1524,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
         <div class="imagen">
             <a href="#">
                 <img class="img-responsive" src="imagenes/consola.jpg">
-                <p>La Fronterísima</p>
+                <p></p>
             </a>
         </div>
     </div>
@@ -2273,7 +2278,7 @@ servicio posible, particularmente para mantener un registro de usuarios,
 <script src="js/saludo.js" defer></script>
 <script src="js/cargar_news.js" defer></script>
 <script src="js/animado.js" defer></script>
-<script src="js/share.js" defer></script>
+<script src="js/share.js"></script>
 <script src="js/clima.js" defer></script>
 <script src="js/form_send.js" defer></script>
 <script src="js/artistas.js" defer></script>

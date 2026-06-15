@@ -361,7 +361,7 @@ dropdown.active {
     place-items: center;
     display: none;
     margin-bottom: 10px;
-    z-index: 9999;
+    z-index: 3;
 }
 
 .modal_wraper.active {
@@ -371,7 +371,7 @@ dropdown.active {
 .modal_container {
     width: 100%;
     left:0;
-    height: 260px;
+    height: 300px;
     bottom: 0;
     background-color: azure;
     box-shadow: 0 1px 6px #0001, 0 2px 10px #0002;

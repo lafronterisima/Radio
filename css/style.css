@@ -588,23 +588,23 @@ article .elemento {
 }
 
 .contain_radio .logo {
-  padding-top: 0px;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  flex-direction: column;
+    padding-top: 0px;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    flex-direction: column;
 }
 
 .contain_radio .logo img {
-  padding-top: 4px;
-  width: 150px;
-  height: 150px;
-  padding-bottom: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 0 auto;
+    padding-top: 4px;
+    width: 150px;
+    height: 150px;
+    padding-bottom: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .inline {

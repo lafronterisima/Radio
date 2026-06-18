@@ -139,45 +139,329 @@ function initVideoSlider() {
 }
 
 // ==================== NAVEGACIÓN OPTIMIZADA ====================
-function initNavigation() {
-    const sectionsList = ['INICIO', 'NOTAS', 'VIDEOS', 'ARTISTAS', 'PRIVACIDAD'];
+
+(function() {
+    'use strict';
     
-    window.showSection = function(sectionId) {
-        sectionsList.forEach(sec => {
-            const element = document.getElementById(sec);
-            if (element) element.style.display = sec === sectionId ? 'block' : 'none';
-        });
-        window.location.hash = sectionId;
-        
-        if (typeof M !== 'undefined' && M.Sidenav) {
-            const sidenavElem = document.querySelector('.sidenav');
-            if (sidenavElem) {
-                const sidenavInstance = M.Sidenav.getInstance(sidenavElem);
-                if (sidenavInstance && sidenavInstance.isOpen) sidenavInstance.close();
-            }
-        }
-    };
+    console.log('🚀 Iniciando navegación...');
     
-    document.querySelectorAll('.right a, .sidenav .navigation a, .dropdown a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                const section = href.substring(1);
-                if (sectionsList.includes(section)) window.showSection(section);
+    const sections = ['RADIO', 'INICIO', 'NOTAS', 'VIDEOS', 'ARTISTAS', 'PRIVACIDAD'];
+    
+    // ==================== FUNCIÓN: CERRAR DROPDOWNS ====================
+    function cerrarDropdowns() {
+        document.querySelectorAll('.dropdown-container').forEach(container => {
+            container.classList.remove('active');
+            const dropdown = container.querySelector('.dropdown');
+            if (dropdown) {
+                dropdown.style.display = 'none';
             }
         });
-    });
-    
-    function handleHash() {
-        const hash = window.location.hash.substring(1);
-        if (hash && sectionsList.includes(hash)) window.showSection(hash);
-        else window.showSection('INICIO');
+        document.querySelectorAll('.dropdown').forEach(d => {
+            d.style.display = 'none';
+        });
     }
     
-    window.addEventListener('hashchange', handleHash);
-    handleHash();
-}
+    // ==================== FUNCIÓN: CERRAR SIDENAV ====================
+    function cerrarSidenav() {
+        const sidenavElem = document.querySelector('#nav-mobile');
+        if (sidenavElem && typeof M !== 'undefined' && M.Sidenav) {
+            try {
+                const instance = M.Sidenav.getInstance(sidenavElem);
+                if (instance && instance.isOpen) {
+                    instance.close();
+                }
+            } catch (e) {
+                console.log('Sidenav no disponible');
+            }
+        }
+    }
+    
+    // ==================== FUNCIÓN: ABRIR SIDENAV ====================
+    function abrirSidenav() {
+        const sidenavElem = document.querySelector('#nav-mobile');
+        if (sidenavElem && typeof M !== 'undefined' && M.Sidenav) {
+            try {
+                const instance = M.Sidenav.getInstance(sidenavElem);
+                if (instance && !instance.isOpen) {
+                    instance.open();
+                    console.log('✅ Sidenav abierto');
+                }
+            } catch (e) {
+                console.log('Sidenav no disponible');
+            }
+        }
+    }
+    
+    // ==================== FUNCIÓN: MOSTRAR SECCIÓN ====================
+    function showSection(id) {
+        console.log('📂 Mostrando sección:', id);
+        
+        if (!sections.includes(id)) return;
+        
+        sections.forEach(s => {
+            const el = document.getElementById(s);
+            if (el) {
+                el.style.display = s === id ? 'block' : 'none';
+            }
+        });
+        
+        if (window.location.hash !== `#${id}`) {
+            window.location.hash = id;
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        cerrarDropdowns();
+        cerrarSidenav();
+    }
+    
+    // ==================== CONFIGURAR SUBMENÚ ====================
+    function configurarSubmenu() {
+        console.log('🔧 Configurando submenús...');
+        
+        const submenus = document.querySelectorAll('.submenu');
+        console.log('📌 Submenús encontrados:', submenus.length);
+        
+        if (submenus.length === 0) {
+            console.warn('⚠️ No se encontraron elementos con clase .submenu');
+            return;
+        }
+        
+        submenus.forEach((submenu, index) => {
+            console.log(`  Submenú ${index + 1}:`, submenu);
+            submenu.removeEventListener('click', handleSubmenuClick);
+            submenu.addEventListener('click', handleSubmenuClick);
+        });
+    }
+    
+    // ==================== MANEJADOR DE CLIC EN SUBMENÚ ====================
+    function handleSubmenuClick(e) {
+        console.log('🖱️ Clic en submenú');
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const container = this.closest('.dropdown-container');
+        console.log('📦 Contenedor encontrado:', container);
+        
+        if (!container) {
+            console.warn('⚠️ No se encontró .dropdown-container');
+            return;
+        }
+        
+        const isActive = container.classList.contains('active');
+        console.log('📌 Estado actual:', isActive ? 'activo' : 'inactivo');
+        
+        document.querySelectorAll('.dropdown-container').forEach(c => {
+            if (c !== container) {
+                c.classList.remove('active');
+                const d = c.querySelector('.dropdown');
+                if (d) d.style.display = 'none';
+            }
+        });
+        
+        if (isActive) {
+            container.classList.remove('active');
+            const dropdown = container.querySelector('.dropdown');
+            if (dropdown) dropdown.style.display = 'none';
+            console.log('👆 Submenú cerrado');
+        } else {
+            container.classList.add('active');
+            const dropdown = container.querySelector('.dropdown');
+            if (dropdown) {
+                dropdown.style.display = 'block';
+                console.log('👆 Submenú abierto');
+            } else {
+                console.warn('⚠️ No se encontró .dropdown dentro del contenedor');
+            }
+        }
+    }
+    
+    // ==================== CONFIGURAR ENLACES ====================
+    function configurarEnlaces() {
+        console.log('🔗 Configurando enlaces...');
+        
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            if (link.classList.contains('submenu')) return;
+            
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const id = href.substring(1);
+                    if (sections.includes(id)) {
+                        e.preventDefault();
+                        showSection(id);
+                    }
+                }
+            });
+        });
+    }
+    
+    // ==================== CONFIGURAR SIDENAV ====================
+    function configurarSidenav() {
+        console.log('📱 Configurando Sidenav...');
+        
+        // Inicializar Sidenav de Materialize
+        const sidenavElem = document.querySelector('#nav-mobile');
+        if (sidenavElem && typeof M !== 'undefined' && M.Sidenav) {
+            try {
+                // Si ya tiene una instancia, destruirla primero
+                const existingInstance = M.Sidenav.getInstance(sidenavElem);
+                if (existingInstance) {
+                    existingInstance.destroy();
+                }
+                
+                // Crear nueva instancia
+                const instance = M.Sidenav.init(sidenavElem, {
+                    edge: 'left',
+                    draggable: true,
+                    inDuration: 250,
+                    outDuration: 200,
+                    onOpenStart: function() {
+                        console.log('📱 Sidenav abriendo...');
+                    },
+                    onCloseEnd: function() {
+                        console.log('📱 Sidenav cerrado');
+                    }
+                });
+                console.log('✅ Sidenav inicializado correctamente');
+                return instance;
+            } catch (e) {
+                console.error('❌ Error al inicializar Sidenav:', e);
+            }
+        } else {
+            console.warn('⚠️ Materialize Sidenav no disponible o elemento no encontrado');
+            console.log('   - Elemento #nav-mobile:', document.querySelector('#nav-mobile'));
+            console.log('   - M.Sidenav disponible:', typeof M !== 'undefined' && M.Sidenav);
+        }
+    }
+    
+    // ==================== CONFIGURAR TRIGGER DEL SIDENAV ====================
+    function configurarTriggerSidenav() {
+        console.log('🔘 Configurando trigger del Sidenav...');
+        
+        // Buscar el botón que abre el Sidenav
+        const trigger = document.querySelector('.sidenav-trigger');
+        console.log('📌 Trigger encontrado:', trigger);
+        
+        if (trigger) {
+            // Eliminar eventos existentes
+            trigger.removeEventListener('click', handleTriggerClick);
+            trigger.addEventListener('click', handleTriggerClick);
+        } else {
+            console.warn('⚠️ No se encontró .sidenav-trigger');
+        }
+    }
+    
+    // ==================== MANEJADOR DE CLIC EN TRIGGER ====================
+    function handleTriggerClick(e) {
+        console.log('🖱️ Clic en trigger del Sidenav');
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const sidenavElem = document.querySelector('#nav-mobile');
+        if (sidenavElem && typeof M !== 'undefined' && M.Sidenav) {
+            try {
+                const instance = M.Sidenav.getInstance(sidenavElem);
+                if (instance) {
+                    if (instance.isOpen) {
+                        instance.close();
+                        console.log('📱 Cerrando Sidenav');
+                    } else {
+                        instance.open();
+                        console.log('📱 Abriendo Sidenav');
+                    }
+                } else {
+                    console.warn('⚠️ Instancia de Sidenav no encontrada');
+                    // Intentar inicializar de nuevo
+                    configurarSidenav();
+                    // Intentar abrir después de inicializar
+                    setTimeout(() => {
+                        const newInstance = M.Sidenav.getInstance(sidenavElem);
+                        if (newInstance) {
+                            newInstance.open();
+                        }
+                    }, 100);
+                }
+            } catch (e) {
+                console.error('❌ Error al abrir/cerrar Sidenav:', e);
+            }
+        } else {
+            console.warn('⚠️ Sidenav no disponible');
+        }
+    }
+    
+    // ==================== CERRAR AL CLIC FUERA ====================
+    function configurarCierreExterior() {
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.submenu') && 
+                !e.target.closest('.dropdown') && 
+                !e.target.closest('.dropdown-container')) {
+                cerrarDropdowns();
+            }
+        });
+    }
+    
+    // ==================== MANEJAR HASH ====================
+    function handleHash() {
+        const hash = window.location.hash.substring(1);
+        console.log('🔗 Hash detectado:', hash || '(vacío)');
+        if (hash && sections.includes(hash)) {
+            showSection(hash);
+        } else {
+            showSection('INICIO');
+        }
+    }
+    
+    // ==================== INICIALIZAR ====================
+    function init() {
+        console.log('✅ Inicializando navegación...');
+        
+        // Esperar un momento para que el DOM esté completamente listo
+        setTimeout(() => {
+            // Primero inicializar el Sidenav
+            configurarSidenav();
+            
+            // Luego configurar el trigger
+            configurarTriggerSidenav();
+            
+            // Configurar el resto
+            configurarSubmenu();
+            configurarEnlaces();
+            configurarCierreExterior();
+            
+            window.addEventListener('hashchange', handleHash);
+            handleHash();
+            
+            console.log('✅ Navegación inicializada correctamente');
+            console.log('📊 Estado final:');
+            console.log(`  - Submenús: ${document.querySelectorAll('.submenu').length}`);
+            console.log(`  - Dropdowns: ${document.querySelectorAll('.dropdown').length}`);
+            console.log(`  - Contenedores: ${document.querySelectorAll('.dropdown-container').length}`);
+            console.log(`  - Sidenav: ${document.querySelector('#nav-mobile') ? '✅ Encontrado' : '❌ No encontrado'}`);
+            
+            // Verificar instancia de Sidenav
+            const sidenavElem = document.querySelector('#nav-mobile');
+            if (sidenavElem && typeof M !== 'undefined' && M.Sidenav) {
+                const instance = M.Sidenav.getInstance(sidenavElem);
+                console.log(`  - Instancia Sidenav: ${instance ? '✅ Activa' : '❌ No existe'}`);
+            }
+        }, 300);
+    }
+    
+    // ==================== EJECUTAR ====================
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+    
+    // Exponer funciones globalmente
+    window.showSection = showSection;
+    window.cerrarDropdowns = cerrarDropdowns;
+    window.abrirSidenav = abrirSidenav;
+    window.cerrarSidenav = cerrarSidenav;
+    
+})();
+
 
 // ==================== SIDENAV OPTIMIZADO ====================
 function initSidenav() {
@@ -212,33 +496,7 @@ function initImageSlideshows() {
     }
 }
 
-// ==================== REPRODUCTOR OPTIMIZADO ====================
-function initPlayer() {
-    const audio = document.getElementById("radio");
-    const btn = document.getElementById("playPauseBtn");
-    if (!audio || !btn) return;
-    const icon = btn.querySelector("i");
 
-    btn.addEventListener("click", async () => {
-        try {
-            if (audio.paused) {
-                await audio.play();
-                if (icon) {
-                    icon.classList.remove("fa-play");
-                    icon.classList.add("fa-pause");
-                }
-            } else {
-                audio.pause();
-                if (icon) {
-                    icon.classList.remove("fa-pause");
-                    icon.classList.add("fa-play");
-                }
-            }
-        } catch (error) {
-            console.log("Error reproduciendo audio:", error);
-        }
-    });
-}
 
 // ==================== CLIMA (carga diferida) ====================
 async function fetchWeatherByIP() {
@@ -289,66 +547,207 @@ fetchWeatherByIP();
 
 // ==================== COMPARTIR OPTIMIZADO Y CORREGIDO ====================
 function initShare() {
-    const shareModal = document.getElementById('shareModal');
-    if (!shareModal) return;
+    console.log('🔄 Inicializando compartir...');
     
+    // ==================== OBTENER ELEMENTOS ====================
+    const modalWrapper = document.querySelector('.modal_wraper');
+    const shareBtn = document.getElementById('shareNavBtn');
+    const closeBtn = document.querySelector('.modal_container .close');
+    const copyBtn = document.querySelector('.copy_url_btn');
+    const urlInput = document.querySelector('.copy_url_wraper input');
+    
+    // ==================== VERIFICAR ELEMENTOS ====================
+    console.log('📌 Elementos encontrados:');
+    console.log('  - modal_wraper:', modalWrapper ? '✅' : '❌');
+    console.log('  - shareNavBtn:', shareBtn ? '✅' : '❌');
+    console.log('  - closeBtn:', closeBtn ? '✅' : '❌');
+    console.log('  - copyBtn:', copyBtn ? '✅' : '❌');
+    console.log('  - urlInput:', urlInput ? '✅' : '❌');
+    
+    if (!modalWrapper) {
+        console.error('❌ Modal .modal_wraper no encontrado');
+        return;
+    }
+    
+    // ==================== FUNCIÓN: ABRIR MODAL ====================
+    function abrirModal(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        console.log('📂 Abriendo modal de compartir');
+        modalWrapper.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Evitar scroll
+        
+        // Actualizar URL en el input
+        if (urlInput) {
+            urlInput.value = 'https://lafronterisima.stream';
+        }
+    }
+    
+    // ==================== FUNCIÓN: CERRAR MODAL ====================
+    function cerrarModal(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        console.log('📂 Cerrando modal de compartir');
+        modalWrapper.classList.remove('active');
+        document.body.style.overflow = ''; // Restaurar scroll
+    }
+    
+    // ==================== CONFIGURAR BOTÓN DE ABRIR ====================
+    if (shareBtn) {
+        shareBtn.removeEventListener('click', abrirModal);
+        shareBtn.addEventListener('click', abrirModal);
+        console.log('✅ Botón de compartir configurado');
+    } else {
+        console.warn('⚠️ Botón #shareNavBtn no encontrado. Buscando alternativas...');
+        
+        // Buscar cualquier botón con clase share_btn
+        const altBtn = document.querySelector('.share_btn');
+        if (altBtn) {
+            console.log('📌 Usando botón alternativo:', altBtn);
+            altBtn.removeEventListener('click', abrirModal);
+            altBtn.addEventListener('click', abrirModal);
+        }
+    }
+    
+    // ==================== CONFIGURAR BOTÓN DE CERRAR ====================
+    if (closeBtn) {
+        closeBtn.removeEventListener('click', cerrarModal);
+        closeBtn.addEventListener('click', cerrarModal);
+        console.log('✅ Botón de cerrar configurado');
+    }
+    
+    // ==================== CERRAR AL CLIC FUERA ====================
+    modalWrapper.addEventListener('click', function(e) {
+        if (e.target === this) {
+            console.log('🖱️ Clic fuera del modal - cerrando');
+            cerrarModal();
+        }
+    });
+    
+    // ==================== CERRAR CON ESC ====================
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalWrapper.classList.contains('active')) {
+            console.log('⌨️ Tecla ESC - cerrando modal');
+            cerrarModal();
+        }
+    });
+    
+    // ==================== CONFIGURAR ENLACES DE REDES SOCIALES ====================
     const shareUrl = encodeURIComponent('https://lafronterisima.stream');
     const shareText = encodeURIComponent('La Fronterisima - Notas surcando fronteras');
     
-    // Abrir modal (asegúrate de que tu botón en el menú tenga id="shareNavBtn")
-    document.getElementById('shareNavBtn')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        shareModal.classList.add('active');
+    const redes = {
+        '.social_media .fb': `https://www.facebook.com/sharer.php?u=${shareUrl}`,
+        '.social_media .wa': `https://api.whatsapp.com/send?text=${shareText}%20${shareUrl}`,
+        '.social_media .tl': `https://telegram.me/share/url?url=${shareUrl}&text=${shareText}`,
+        '.social_media .ce': `mailto:?subject=${shareText}&body=${shareUrl}`,
+        '.social_media .tt': 'https://www.instagram.com/'
+    };
+    
+    Object.keys(redes).forEach(selector => {
+        const el = document.querySelector(selector);
+        if (el) {
+            el.href = redes[selector];
+            el.target = '_blank';
+            el.rel = 'noopener noreferrer';
+            console.log(`✅ Enlace configurado: ${selector}`);
+        } else {
+            console.warn(`⚠️ Elemento ${selector} no encontrado`);
+        }
     });
     
-    // Cerrar modal con la X
-    document.getElementById('closeModal')?.addEventListener('click', (e) => {
+    // ==================== COPIAR URL ====================
+    if (copyBtn && urlInput) {
+        copyBtn.removeEventListener('click', handleCopy);
+        copyBtn.addEventListener('click', handleCopy);
+        console.log('✅ Botón de copiar configurado');
+    }
+    
+    async function handleCopy(e) {
         e.preventDefault();
-        shareModal.classList.remove('active');
-    });
-    
-    // Asignar enlaces a redes sociales
-    const shareFb = document.getElementById('shareFb');
-    const shareWa = document.getElementById('shareWa');
-    const shareEmail = document.getElementById('shareEmail');
-    const shareTg = document.getElementById('shareTg');
-    const shareIg = document.getElementById('shareIg');
-    
-    if (shareFb) shareFb.href = `https://www.facebook.com/sharer.php?u=${shareUrl}`;
-    if (shareWa) shareWa.href = `https://api.whatsapp.com/send?text=${shareText}%20${shareUrl}`;
-    if (shareEmail) shareEmail.href = `mailto:?subject=${shareText}&body=${shareUrl}`;
-    if (shareTg) shareTg.href = `https://telegram.me/share/url?url=${shareUrl}&text=${shareText}`;
-    if (shareIg) shareIg.href = `https://www.instagram.com/`; // Instagram no admite parámetros directos por URL
-    
-    // Copiar URL optimizado para móviles y navegadores modernos
-    const copyUrlBtn = document.getElementById('copyUrlBtn');
-    copyUrlBtn?.addEventListener('click', async () => {
-        const input = document.getElementById('shareable_url');
-        if (input) {
+        e.stopPropagation();
+        console.log('📋 Copiando URL...');
+        
+        const url = urlInput.value;
+        
+        try {
+            await navigator.clipboard.writeText(url);
+            console.log('✅ URL copiada (Clipboard API)');
+            mostrarMensaje('✅ Enlace copiado al portapapeles');
+        } catch (err) {
+            console.log('⚠️ Fallback a método tradicional');
             try {
-                // Usamos la API moderna del portapapeles (Clipboard API)
-                await navigator.clipboard.writeText(input.value);
-                if (window.showToast) {
-                    window.showToast('✅ Enlace copiado al portapapeles');
-                } else {
-                    alert('✅ Enlace copiado al portapapeles');
-                }
-            } catch (err) {
-                // Fallback clásico por si el navegador bloquea la API moderna
-                input.select();
-                input.setSelectionRange(0, 99999); // Ajuste móvil
+                urlInput.select();
+                urlInput.setSelectionRange(0, 99999);
                 document.execCommand('copy');
-                window.showToast?.('✅ Enlace copiado al portapapeles');
+                console.log('✅ URL copiada (Fallback)');
+                mostrarMensaje('✅ Enlace copiado al portapapeles');
+            } catch (err2) {
+                console.error('❌ Error al copiar:', err2);
+                mostrarMensaje('❌ No se pudo copiar el enlace');
             }
         }
-    });
+    }
     
-    // Cerrar modal si el usuario hace clic afuera de la caja blanca
-    shareModal.addEventListener('click', (e) => {
-        if (e.target === shareModal) {
-            shareModal.classList.remove('active');
+    // ==================== MOSTRAR MENSAJE ====================
+    function mostrarMensaje(texto) {
+        console.log('📢 Mensaje:', texto);
+        
+        // Usar toast si existe
+        if (window.showToast) {
+            window.showToast(texto);
+            return;
         }
-    });
+        
+        // Crear toast temporal
+        const toast = document.createElement('div');
+        toast.textContent = texto;
+        toast.style.cssText = `
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1a2e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            animation: fadeInUp 0.3s ease;
+            max-width: 90%;
+        `;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transition = 'opacity 0.3s';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+    
+    // ==================== INYECTAR CSS PARA EL TOAST ====================
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate(-50%, 20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    console.log('✅ Compartir inicializado correctamente');
+}
+
+// ==================== INICIALIZAR ====================
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initShare);
+} else {
+    initShare();
 }
 
 // ==================== FUNCIONES GLOBALES ====================
@@ -460,47 +859,288 @@ liveModal?.addEventListener("click", (e) => {
     }
 });
 
-/* =======================
-   RADIO PLAYER LOGIC
-======================= */
-function toggleRadio(id, btn) {
-    const audioEl = document.getElementById(id);
-    const allAudio = document.querySelectorAll("audio");
-    const allButtons = document.querySelectorAll(".player-btn");
 
-    if (!audioEl) return;
+document.addEventListener("DOMContentLoaded", function () {
 
-    // detener otros radios
-    allAudio.forEach(a => {
-        if (a !== audioEl) {
-            a.pause();
-            a.currentTime = 0;
+    const modal = document.getElementById("NewsModals");
+    const abrir = document.querySelector(".player-cover");
+    const cerrar = document.querySelector(".cerrar");
+
+    // Abrir modal
+    abrir.addEventListener("click", function () {
+        modal.style.display = "block";
+    });
+
+    // Cerrar modal
+    cerrar.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    // Cerrar al hacer clic fuera del contenido
+    window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
         }
     });
 
-    // reset botones
-    allButtons.forEach(b => b.textContent = "▶");
+});
 
-    // play / pause actual
-    if (audioEl.paused) {
-        audioEl.play();
-        btn.textContent = "❚❚";
-    } else {
-        audioEl.pause();
-        btn.textContent = "▶";
+(function() {
+    // Variables para control de pausas
+    let players = {};
+    
+    function initMainPlayer() {
+        // Buscar audio principal (track o radio)
+        const audio = document.getElementById('track') || document.getElementById('radio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        
+        if (!audio) {
+            console.log('❌ No se encontró el audio principal');
+            return;
+        }
+        if (!playPauseBtn) {
+            console.log('❌ No se encontró el botón #playPauseBtn');
+            return;
+        }
+        
+        console.log('✅ Reproductor encontrado con ID:', audio.id);
+        
+        audio.preload = 'metadata';
+        audio.crossOrigin = 'anonymous';
+        audio.load();
+        
+        // ==================== PAUSAR RADIOS SECUNDARIAS ====================
+        function pauseSecondaryRadios() {
+            const secondaryRadios = document.querySelectorAll('.radio-player audio');
+            const secondaryButtons = document.querySelectorAll('.player-btns');
+            
+            secondaryRadios.forEach(radio => {
+                if (!radio.paused) {
+                    radio.pause();
+                    radio.currentTime = 0;
+                }
+            });
+            
+            secondaryButtons.forEach(btn => {
+                btn.textContent = '▶';
+                btn.classList.remove('playing');
+            });
+        }
+        
+        // ==================== ACTUALIZAR BOTÓN PRINCIPAL ====================
+        function updateMainButton() {
+            if (audio.paused) {
+                playPauseBtn.classList.remove('playing');
+                // Para FontAwesome
+                const faIcon = playPauseBtn.querySelector('i');
+                if (faIcon) {
+                    faIcon.classList.remove('fa-pause');
+                    faIcon.classList.add('fa-play');
+                }
+                // Para SVG
+                const playIcon = playPauseBtn.querySelector('.play-icon');
+                const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+                if (playIcon && pauseIcon) {
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            } else {
+                playPauseBtn.classList.add('playing');
+                const faIcon = playPauseBtn.querySelector('i');
+                if (faIcon) {
+                    faIcon.classList.remove('fa-play');
+                    faIcon.classList.add('fa-pause');
+                }
+                const playIcon = playPauseBtn.querySelector('.play-icon');
+                const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+                if (playIcon && pauseIcon) {
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                }
+            }
+        }
+        
+        // ==================== CLICK DEL BOTÓN PRINCIPAL ====================
+        playPauseBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                // Detener todas las radios secundarias ANTES de reproducir
+                pauseSecondaryRadios();
+                
+                audio.play()
+                    .then(() => {
+                        console.log('🎵 Radio principal reproduciendo');
+                        updateMainButton();
+                    })
+                    .catch(e => {
+                        console.warn('Error reproduciendo:', e);
+                        // Intentar recargar
+                        audio.load();
+                        setTimeout(() => {
+                            audio.play().catch(e2 => console.warn('Error again:', e2));
+                        }, 500);
+                    });
+            } else {
+                audio.pause();
+                console.log('⏸️ Radio principal pausada');
+                updateMainButton();
+            }
+        });
+        
+        audio.addEventListener('play', updateMainButton);
+        audio.addEventListener('pause', updateMainButton);
+        updateMainButton();
+        
+        console.log('🚀 Reproductor principal listo');
     }
-}
-
-/* =======================
-   OPCIONAL: STOP TOTAL (manual)
-======================= */
-function stopAllRadios() {
-    document.querySelectorAll("audio").forEach(a => {
-        a.pause();
-        a.currentTime = 0;
-    });
-
-    document.querySelectorAll(".player-btn").forEach(b => {
-        b.textContent = "▶";
-    });
-}
+    
+    // ==================== RADIOS SECUNDARIAS ====================
+    window.toggleRadio = function(id, btn) {
+        const audioEl = document.getElementById(id);
+        if (!audioEl) {
+            console.log('❌ Radio no encontrada:', id);
+            return;
+        }
+        
+        const allSecondary = document.querySelectorAll('.radio-player audio');
+        const allButtons = document.querySelectorAll('.player-btns');
+        const mainAudio = document.getElementById('track') || document.getElementById('radio');
+        const mainBtn = document.getElementById('playPauseBtn');
+        
+        // 1. Detener las demás radios secundarias
+        allSecondary.forEach(radio => {
+            if (radio.id !== id && !radio.paused) {
+                radio.pause();
+                radio.currentTime = 0;
+            }
+        });
+        
+        // 2. Resetear los otros botones secundarios
+        allButtons.forEach(button => {
+            if (button !== btn) {
+                button.textContent = '▶';
+                button.classList.remove('playing');
+            }
+        });
+        
+        // 3. Pausar radio principal si está sonando
+        if (mainAudio && !mainAudio.paused) {
+            mainAudio.pause();
+            if (mainBtn) {
+                mainBtn.classList.remove('playing');
+                const faIcon = mainBtn.querySelector('i');
+                if (faIcon) {
+                    faIcon.classList.remove('fa-pause');
+                    faIcon.classList.add('fa-play');
+                }
+                const playIcon = mainBtn.querySelector('.play-icon');
+                const pauseIcon = mainBtn.querySelector('.pause-icon');
+                if (playIcon && pauseIcon) {
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            }
+        }
+        
+        // 4. Reproducir o pausar la radio seleccionada
+        if (audioEl.paused) {
+            audioEl.play()
+                .then(() => {
+                    console.log('🎵 Reproduciendo radio:', id);
+                    btn.textContent = '❚❚';
+                    btn.classList.add('playing');
+                })
+                .catch(err => {
+                    console.log('❌ Error:', err);
+                    btn.textContent = '▶';
+                    btn.classList.remove('playing');
+                });
+        } else {
+            audioEl.pause();
+            console.log('⏸️ Radio pausada:', id);
+            btn.textContent = '▶';
+            btn.classList.remove('playing');
+        }
+    };
+    
+    // ==================== STOP TOTAL ====================
+    window.stopAllRadios = function() {
+        // Pausar radio principal
+        const mainAudio = document.getElementById('track') || document.getElementById('radio');
+        const mainBtn = document.getElementById('playPauseBtn');
+        
+        if (mainAudio && !mainAudio.paused) {
+            mainAudio.pause();
+            if (mainBtn) {
+                mainBtn.classList.remove('playing');
+                const faIcon = mainBtn.querySelector('i');
+                if (faIcon) {
+                    faIcon.classList.remove('fa-pause');
+                    faIcon.classList.add('fa-play');
+                }
+                const playIcon = mainBtn.querySelector('.play-icon');
+                const pauseIcon = mainBtn.querySelector('.pause-icon');
+                if (playIcon && pauseIcon) {
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            }
+        }
+        
+        // Pausar todas las radios secundarias
+        const allAudios = document.querySelectorAll(".radio-player audio");
+        allAudios.forEach(audio => {
+            if (!audio.paused) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        });
+        
+        // Resetear botones secundarios
+        const allButtons = document.querySelectorAll(".player-btns");
+        allButtons.forEach(btn => {
+            btn.textContent = "▶";
+            btn.classList.remove('playing');
+        });
+        
+        console.log('🛑 Todos los audios detenidos');
+    };
+    
+    // ==================== DETENER RADIO ESPECÍFICA ====================
+    window.stopRadio = function(id) {
+        const audio = document.getElementById(id);
+        if (audio && !audio.paused) {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+        
+        const buttons = document.querySelectorAll(".player-btns");
+        buttons.forEach(btn => {
+            const btnId = btn.getAttribute('onclick');
+            if (btnId && btnId.includes(id)) {
+                btn.textContent = "▶";
+                btn.classList.remove('playing');
+            }
+        });
+        
+        console.log('⏹️ Radio detenida:', id);
+    };
+    
+    // ==================== VERIFICAR ESTADO ====================
+    window.getRadioStatus = function(id) {
+        const audio = document.getElementById(id);
+        if (!audio) return null;
+        return {
+            id: id,
+            isPlaying: !audio.paused,
+            currentTime: audio.currentTime,
+            duration: audio.duration
+        };
+    };
+    
+    // Iniciar el reproductor principal
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMainPlayer);
+    } else {
+        initMainPlayer();
+    }
+})();

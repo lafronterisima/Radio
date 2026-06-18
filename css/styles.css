@@ -320,7 +320,7 @@ nav.menu {
     z-index: 1002 !important;
 }
 
-.enlaces a.weather-link {
+.enlaces a.weather-nav {
     display: flex;
     align-items: center;
 }
@@ -2414,7 +2414,7 @@ footer {
     min-width: 0;
 }
 
-.player-cover {
+.player-cover{
     width: 50px;
     height: 50px;
     border-radius: 10px;
@@ -2442,8 +2442,8 @@ footer {
 
 .play-btn {
     background-color:white;
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     font-size: 18px;
     transition: transform 0.2s ease;

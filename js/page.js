@@ -497,53 +497,145 @@ function initImageSlideshows() {
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    const modal = document.getElementById("NewsModals");
+    const abrir = document.querySelector(".player-cover");
+    const cerrar = document.querySelector(".cerrar");
+
+    // Abrir modal
+    abrir.addEventListener("click", function () {
+        modal.style.display = "block";
+    });
+
+    // Cerrar modal
+    cerrar.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    // Cerrar al hacer clic fuera del contenido
+    window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+});
 
 // ==================== CLIMA (carga diferida) ====================
-async function fetchWeatherByIP() {
-    try {
-        // 1️⃣ Obtener ubicación aproximada por IP
-        const ipRes = await fetch("https://ipwho.is/");
-        const ipData = await ipRes.json();
+$(document).ready(function () {
 
-        if (!ipData.success) throw new Error("No se pudo obtener ubicación por IP");
 
-        const lat = ipData.latitude;
-        const lon = ipData.longitude;
-        const ciudad = ipData.city || "Ciudad desconocida";
+    // Fondos según clima OpenWeather
+    var iconLink = {
 
-        // 2️⃣ Consultar Open-Meteo con coordenadas obtenidas
-        const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`;
-        const weatherRes = await fetch(weatherUrl);
-        if (!weatherRes.ok) throw new Error(`Error en clima: ${weatherRes.status}`);
+        "01d":"https://www.walldevil.com/wallpapers/w04/163410-clear-sky-hot-air-balloons-nature.jpg",
+        "02d":"https://www.walldevil.com/wallpapers/w01/heaven-clouds-fields-grass-landscapes-wallpaper.jpg",
+        "03d":"https://www.walldevil.com/wallpapers/w01/sun-clouds-wallpaper.jpg",
+        "04d":"https://www.walldevil.com/wallpapers/w01/430984-clouds-skyscapes.jpg",
+        "09d":"https://www.walldevil.com/wallpapers/w01/541653-rain.jpg",
+        "10d":"https://www.walldevil.com/wallpapers/w01/430720-rain-raindrops.jpg",
+        "11d":"https://www.walldevil.com/wallpapers/a80/scenic-water-night-contrast-storm-bright-wallpaper-light-rain-lightning-nature-landscapes-wallpapers-trees-forest-reflection-lakes.jpg",
+        "13d":"https://www.walldevil.com/wallpapers/a41/screensavers-wallpapers-lake-screensaver-china-snowing-walls.jpg",
+        "50d":"https://www.walldevil.com/wallpapers/w02/859093-burj-al-arab-burj-khalifa-cityscapes-dubai-mist-skyscapes-skyscrapers-united-arab-emirates.jpg"
 
-        const weatherData = await weatherRes.json();
+    };
 
-        if (weatherData.current_weather && weatherData.current_weather.temperature !== undefined) {
-            const temp = Math.round(weatherData.current_weather.temperature);
+    $.ajax({
 
-            // 3️⃣ Mostrar en navbar y sidenav
-            const texto = `${temp}°C ${ciudad}`;
-            const weatherTextNav = document.getElementById('weatherText');
-            const weatherTextSidenav = document.getElementById('weatherTextSidenav');
+        dataType:"json",
+        url:"https://ipinfo.io/json",
+        success:function(info){
+            var loc = info.loc.split(",");
 
-            if (weatherTextNav) weatherTextNav.textContent = texto;
-            if (weatherTextSidenav) weatherTextSidenav.textContent = texto;
-        } else {
-            throw new Error("Datos de clima no disponibles");
+            var lat = loc[0];
+            var lon = loc[1];
+			
+            var url =
+            "https://api.openweathermap.org/data/2.5/weather?lat="
+            +lat+
+            "&lon="
+            +lon+
+            "&lang=es&appid=1049904eff61a8f80e9cbe66c3278bab";
+
+
+
+            $.ajax({
+
+                dataType:"json",
+                url:url,
+
+                success:function(data){
+
+                    var temperatura =
+                    data.main.temp - 273.15;
+
+                    var icon =
+                    data.weather[0].icon;
+                    var materialIcon;
+
+                    if(icon.includes("01")){
+                        materialIcon="wb_sunny";
+                    }
+
+                    else if(icon.includes("02") || icon.includes("03")){
+                        materialIcon="partly_cloudy_day";
+                    }
+
+                    else if(icon.includes("04")){
+                        materialIcon="cloud";
+                    }
+
+                    else if(icon.includes("09") || icon.includes("10")){
+                        materialIcon="rainy";
+                    }
+
+                    else if(icon.includes("11")){
+                        materialIcon="flash_on";
+                    }
+
+                    else if(icon.includes("13")){
+                        materialIcon="ac_unit";
+                    }
+
+                    else if(icon.includes("50")){
+                        materialIcon="foggy";
+                    }
+
+                    else{
+                        materialIcon="wb_sunny";
+                    }
+
+                    // Clima en el menú principal
+$("#weatherIcon")
+.html(materialIcon);
+
+$("#weatherText")
+.html(
+    temperatura.toFixed(0)+"°C"
+);
+
+
+// Clima en el Sidenav
+$("#weatherSidenavIcon")
+.html(materialIcon);
+
+$("#weatherSidenavText")
+.html(
+    temperatura.toFixed(0)+"°C"
+);
+
+                    $(".bgimg")
+                    .css(
+                        "background-image",
+                        'url("'+iconLink[icon]+'")'
+                    );
+                }
+            });
         }
-    } catch (error) {
-        console.error("Error obteniendo clima por IP:", error);
-        // Fallback
-        const weatherTextNav = document.getElementById('weatherText');
-        const weatherTextSidenav = document.getElementById('weatherTextSidenav');
+    });
 
-        if (weatherTextNav) weatherTextNav.textContent = "Bogotá 🌤️";
-        if (weatherTextSidenav) weatherTextSidenav.textContent = "Bogotá 🌤️";
-    }
-}
-
-// Ejecutar al cargar la página
-fetchWeatherByIP();
+});
 
 // ==================== COMPARTIR OPTIMIZADO Y CORREGIDO ====================
 function initShare() {
@@ -859,31 +951,6 @@ liveModal?.addEventListener("click", (e) => {
     }
 });
 
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const modal = document.getElementById("NewsModals");
-    const abrir = document.querySelector(".player-cover");
-    const cerrar = document.querySelector(".cerrar");
-
-    // Abrir modal
-    abrir.addEventListener("click", function () {
-        modal.style.display = "block";
-    });
-
-    // Cerrar modal
-    cerrar.addEventListener("click", function () {
-        modal.style.display = "none";
-    });
-
-    // Cerrar al hacer clic fuera del contenido
-    window.addEventListener("click", function (e) {
-        if (e.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-
-});
 
 (function() {
     // Variables para control de pausas

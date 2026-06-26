@@ -499,24 +499,50 @@ function initImageSlideshows() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const modal = document.getElementById("NewsModals");
-    const abrir = document.querySelector(".player-cover");
-    const cerrar = document.querySelector(".cerrar");
+    // Modal de Noticias
+    const newsModal = document.getElementById("NewsModals");
+    const abrirNews = document.querySelector(".player-cover");
+    const cerrarNews = document.querySelector(".cerrar");
+    const newsBox = document.querySelector(".news-modals-boxs");
+    const mainContent = document.querySelector(".main-content"); // El fondo/overlay
 
-    // Abrir modal
-    abrir.addEventListener("click", function () {
-        modal.style.display = "block";
+    // Abrir modal de noticias
+    abrirNews.addEventListener("click", function (e) {
+        e.stopPropagation();
+        newsModal.classList.add("active");
+        document.body.style.overflow = "hidden";
     });
 
-    // Cerrar modal
-    cerrar.addEventListener("click", function () {
-        modal.style.display = "none";
+    // Cerrar con la X
+    cerrarNews.addEventListener("click", function (e) {
+        e.stopPropagation();
+        newsModal.classList.remove("active");
+        document.body.style.overflow = "";
     });
 
-    // Cerrar al hacer clic fuera del contenido
-    window.addEventListener("click", function (e) {
-        if (e.target === modal) {
-            modal.style.display = "none";
+    // Cerrar al hacer clic en main-content (el fondo)
+    mainContent.addEventListener("click", function (e) {
+        // Solo cerrar si el modal está activo
+        if (newsModal.classList.contains("active")) {
+            // Verificar que el clic fue directamente en main-content
+            // y no en algún elemento hijo que también esté dentro de main-content
+            if (e.target === mainContent || e.target.closest('.main-content') === mainContent) {
+                newsModal.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+        }
+    });
+
+    // Evitar que los clics dentro del contenido del modal cierren el modal
+    newsBox.addEventListener("click", function (e) {
+        e.stopPropagation(); // Evita que el clic llegue al mainContent
+    });
+
+    // Cerrar con la tecla ESC
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && newsModal.classList.contains("active")) {
+            newsModal.classList.remove("active");
+            document.body.style.overflow = "";
         }
     });
 
@@ -914,10 +940,13 @@ if (scrollTopBtn) {
 }
 
 // ==================== CONTROLES DE MODAL EN VIVO ====================
+// ==================== CONTROLES DE MODAL EN VIVO ====================
 const liveModal = document.getElementById("liveModal");
 const timeInfo = document.getElementById("timeInfo");
 const liveDot = document.querySelector(".live-dot");
 const closeBtn = document.querySelector(".live-modal .close");
+const liveBox = document.querySelector(".live-modal-box");
+const mainContent = document.querySelector(".main-content");
 
 /* =======================
    ABRIR MODAL
@@ -944,12 +973,29 @@ closeBtn?.addEventListener("click", (e) => {
     closeModal();
 });
 
-// click fuera del contenido
-liveModal?.addEventListener("click", (e) => {
-    if (e.target === liveModal) {
+// Cerrar al hacer clic en main-content (fuera del modal)
+mainContent?.addEventListener("click", (e) => {
+    if (liveModal && liveModal.classList.contains("active")) {
+        if (!liveBox?.contains(e.target)) {
+            closeModal();
+        }
+    }
+});
+
+// Evitar que los clics dentro del contenido del modal cierren el modal
+liveBox?.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
+
+// Cerrar con tecla ESC
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && liveModal?.classList.contains("active")) {
         closeModal();
     }
 });
+
+
+
 
 
 (function() {

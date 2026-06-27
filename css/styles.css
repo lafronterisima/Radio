@@ -270,7 +270,7 @@ nav.menu {
     font-size: 15px;
     font-weight: 500;
     transition: all 0.3s ease;
-    border-radius: 40px;
+    border-radius: 40px; 
 }
 
 .sidenav .navigation li a:hover {
@@ -308,7 +308,7 @@ nav.menu {
     font-size: 14px;
     padding: 10px 15px;
     border-radius: 40px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease;  
 }
 
 .sidenav .enlaces a:hover {
@@ -336,7 +336,7 @@ nav.menu {
   }
 }
 
-/* ==================== MODAL COMPARTIR ==================== */
+
 /* ===== MODAL DE COMPARTIR ===== */
 .modal_wraper {
     display: none;
@@ -870,217 +870,6 @@ nav.menu {
         max-width: 100% !important;
     }
 }
-
-/* ============================================ */
-/* BLOQUE 16: FOOTER - BORDE A BORDE           */
-/* PAYPAL ICONO MÁS PEQUEÑO                    */
-/* ============================================ */
-
-footer {
-    margin-top: 20px;
-    background: linear-gradient(135deg, rgba(4, 6, 12, 0.9) 0%, rgba(2, 3, 8, 0.95) 100%);
-    backdrop-filter: blur(10px);
-    border-radius: 24px;
-    padding: 35px 5px;
-    width: 100%;
-    border: 1px solid rgba(32, 178, 170, 0.1);
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 20px;
-    width: 100%;
-}
-
-.footer-columna h3 {
-    color: #20B2AA;
-    font-size: 16px;
-    text-align: center;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.footer-columna p,
-.footer-columna a {
-	width:90%;
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-    line-height: 1.9;
-    text-align: center;
-    display: block;
-	text-align:justify;
-	text-align:center;
-	margin:0 auto;
-}
-
-.footer-columna a:hover {
-    color: #20B2AA;
-}
-
-/* PAYPAL BUTTON - MÁS PEQUEÑO */
-.paypal-button {
-    padding-top: 10px;
-    width: 150px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-}
-
-.paypal-button form {
-    transform: scale(0.85);
-    transform-origin: center;
-}
-
-.footer-copy-redes {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(32, 178, 170, 0.15);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    text-align: center;
-    width: 100%; 
-}
-
-.footer-redes {
-    display: flex;
-    gap: 18px; margin-right:10px;
-	
-}
-
-.footer-redes a {
-    color: white;
-    font-size: 25px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer-copy p {
-    padding: 8px 12px;
-}
-
-.footer-redes a:hover {
-    color: #20B2AA;
-    transform: translateY(-2px);
-}
-
-/* RESPONSIVE FOOTER */
-@media (max-width: 860px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .footer-copy-redes {
-        justify-content: center;
-        text-align: center;
-        flex-direction: column;
-    }
-	.footer-redes a {
-        font-size: 23px;
-		margin-bottom:20px;
-    }
-    .footer-redes {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    footer {
-        padding: 30px 5px;
-        margin-top: 30px;
-        border-radius: 0;
-    }
-    .footer-columna h3 {
-        font-size: 17px;
-        margin-bottom: 15px;
-    }
-    .footer-columna p,
-    .footer-columna a {
-        font-size: 13px;
-        line-height: 1.9; 
-		margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        text-align: justify;
-        align-items: center;
-    }
-    .footer-redes {
-        gap: 20px;
-    }
-    .footer-redes a {
-        font-size: 23px;
-		margin-bottom:20px;
-    }
-	
-  .paypal-button img {
-    padding-top: 10px;
-    width: 100px;
-	height:40px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-
-    .paypal-button form {
-        transform: scale(0.75);
-    }
-}
-
-@media (max-width: 320px) {
-    footer {
-        padding: 25px 5px;
-        margin-top: 25px;
-    }
-    .footer-columna h3 {
-        font-size: 16px;
-        margin-bottom: 12px;
-    }
-    .footer-columna p,
-    .footer-columna a {
-        font-size: 13px;
-        line-height: 1.8;
-		
-    }
-    .footer-redes {
-        gap: 18px;
-    }
-    .footer-redes a {
-        font-size: 18px;
-    }
-    .footer-copy p {
-        font-size: 12px;
-    }
-	
-	.paypal-button img {
-    padding-top: 10px;
-    width: 100px;
-	height:40px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-  
-    .paypal-button form {
-        transform: scale(0.7);
-    }
-}
-
-/* ============================================ */
-/* RESTO DE BLOQUES (sin cambios)              */
-/* ============================================ */
 
 /* BLOQUE 6: SECCIÓN GENERAL Y CARDS */
 .section {
@@ -2603,23 +2392,16 @@ footer {
     }
 }
 
-
-/* MODAL */
-/* BACKDROP */
 /* =========================
    MODAL OVERLAY
 ========================= */
 .live-modal{
     position: fixed;
     inset: 0;
-
     background: rgba(0,0,0,.6);
-
     opacity: 0;
     pointer-events: none;
-
     transition: .3s ease;
-
     z-index: 9999;
 }
 
@@ -2634,22 +2416,15 @@ footer {
 ========================= */
 .live-modal-box{
     position: fixed;
-
     bottom: 0;
     right: 0px;
-
     width: 360px;
     max-width: 95%;
-	
 	 background:#0c3f43;
-
     border-radius: 18px 18px 0 0;
-
     padding: 18px;
-
     transform: translateY(110%);
     transition: .35s ease;
-
     box-shadow: 0 -10px 30px rgba(0,0,0,.5);
     border: 1px solid rgba(32, 178, 170, 0.2);
     border-bottom: none;
@@ -2666,7 +2441,6 @@ footer {
 .live-modal-box h4{
     text-align: center;
     margin-bottom: 16px;
-
     color: #20B2AA;
     letter-spacing: 2px;
     font-size: 16px;
@@ -2679,10 +2453,8 @@ footer {
     position: absolute;
     top: 10px;
     right: 14px;
-
     font-size: 22px;
     cursor: pointer;
-
     color: #fff;
 }
 
@@ -2702,15 +2474,10 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 12px;
-
     background: rgba(10, 14, 22, 0.6);
-
     border: 1px solid rgba(32, 178, 170, 0.15);
-
     border-radius: 14px;
-
     transition: .25s;
 }
 
@@ -2735,10 +2502,8 @@ footer {
 .signal{
     width: 10px;
     height: 10px;
-
     background: #20B2AA;
     border-radius: 50%;
-
     box-shadow: 0 0 10px #20B2AA;
 }
 
@@ -2782,14 +2547,10 @@ footer {
     .live-modal-box{
         width: 100%;
         max-width: 100%;
-
         right: 0;
         left: 0;
-
         border-radius: 18px 18px 0 0;
-
         padding: 14px;
-
         bottom: 0;
     }
 
@@ -2856,193 +2617,281 @@ footer {
 
 }
 
-
-
 /* =========================
         HEADER
 ========================= */
 
 .news-header {
-
-
     height:55px;
-
     background:#0c3f43;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     position:relative;
-
-
 }
-
-
 
 .news-header h4 {
-
-
     margin:0;
-
     color:white;
-
     font-size:18px;
-
     font-weight:600;
-
-
 }
-
-
 
 /* X cerrar */
-
 .cerrar {
-
-
     position:absolute;
-
-
     right:15px;
-
-
     top:8px;
-
-
     color:white;
-
-
     font-size:32px;
-
-
     font-weight:bold;
-
-
     cursor:pointer;
-
-
     line-height:35px;
-
-
 }
-
-
 
 .cerrar:hover {
-
-
     opacity:.7;
-
-
 }
-
-
-
-/* =========================
-        IFRAME
-========================= */
-
 
 .News-player {
-
-
     flex:1;
-
     width:100%;
-
 }
-
-
 
 .News-player iframe {
-
-
     width:100%;
-
     height:100%;
-
     border:0;
-
     display:block;
-
-
 }
-
-
 
 /* =========================
        RESPONSIVE 560px
 ========================= */
 
-
 @media(max-width:560px){
-
-
 .news-modals {
-
-
     padding:0;
-
     align-items:flex-end;
-
-
 }
-
-
 
 .news-modals-boxs {
-
-
     width:100%;
-
     max-width:none;
-
-
     height:300px;
-
-
     border-radius:18px 18px 0 0;
-
-
 }
-
-
 
 .news-header {
-
-
     height:50px;
-
-
 }
-
-
 
 .news-header h4 {
-
-
     font-size:16px;
-
-
 }
-
-
 
 .cerrar {
-
-
     font-size:28px;
-
     right:12px;
-
     top:6px;
-
-
+  }
 }
 
+footer {
+    margin-top: 20px;
+    background: linear-gradient(135deg, rgba(4, 6, 12, 0.9) 0%, rgba(2, 3, 8, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 25px 5px;
+    width: 100%;
+    border: 1px solid rgba(32, 178, 170, 0.1);
+}
 
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
 
+.footer-columna h3 {
+    color: #20B2AA;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer-columna p,
+.footer-columna a {
+	width:90%;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 1.9;
+    text-align: center;
+    display: block;
+	text-align:justify;
+	text-align:center;
+	margin:0 auto;
+}
+
+.footer-columna a:hover {
+    color: #20B2AA;
+}
+
+/* PAYPAL BUTTON - MÁS PEQUEÑO */
+.paypal-button {
+    padding-top: 10px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.paypal-button form {
+    transform: scale(0.85);
+    transform-origin: center;
+}
+
+.footer-copy-redes {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(32, 178, 170, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    text-align: center;
+    width: 100%; 
+}
+
+.footer-redes {
+    display: flex;
+    gap: 18px; margin-right:10px;
+	
+}
+
+.footer-redes a {
+    color: white;
+    font-size: 25px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-copy p {
+    padding: 8px 12px;
+}
+
+.footer-redes a:hover {
+    color: #20B2AA;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 860px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .footer-copy-redes {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+	.footer-redes a {
+        font-size: 23px;
+		margin-bottom:20px;
+    }
+    .footer-redes {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 20px 5px;
+        margin-top: 20px;
+        border-radius: 0;
+    }
+    .footer-columna h3 {
+        font-size: 17px;
+        margin-bottom: 15px;
+    }
+    .footer-columna p,
+    .footer-columna a {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+    .footer-redes {
+        gap: 20px;
+    }
+    .footer-redes a {
+        font-size: 20px;
+    }
+	
+  .paypal-button img {
+    padding-top: 10px;
+    width: 100px;
+	height:40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+    .paypal-button form {
+        transform: scale(0.75);
+    }
+}
+
+@media (max-width: 320px) {
+    footer {
+        padding: 20px 5px;
+        margin-top: 30px;
+        border-radius: 0;
+    }
+    .footer-columna h3 {
+        font-size: 17px;
+        margin-bottom: 15px;
+    }
+    .footer-columna p,
+    .footer-columna a {
+        font-size: 13px;
+        line-height: 1.9; 
+		margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: justify;
+        align-items: center;
+    }
+    .footer-redes {
+        gap: 20px;
+    }
+    .footer-redes a {
+        font-size: 23px;
+		margin-bottom:20px;
+    }
+	
+  .paypal-button img {
+    padding-top: 10px;
+    width: 100px;
+	height:40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+    .paypal-button form {
+        transform: scale(0.75);
+    }
 }

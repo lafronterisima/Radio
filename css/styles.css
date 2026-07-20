@@ -2295,8 +2295,8 @@ nav.menu {
         border-radius: 0;
     }
     .play-btn {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         font-size: 18px;
     }
 }
@@ -2512,8 +2512,8 @@ nav.menu {
    BOTON
 ========================= */
 .player-btns, .player-btn {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         background: #20B2AA;
         border: none;
@@ -2568,8 +2568,8 @@ nav.menu {
 
     /* Botón más cómodo en móvil */
     .player-btns{
-        width: 44px;
-        height: 44px;
+        width: 45px;
+        height: 45px;
         font-size: 16px;
     }
 

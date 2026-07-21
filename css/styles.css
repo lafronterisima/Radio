@@ -516,14 +516,14 @@ nav.menu {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     margin-bottom: 40px;
     background-image: url("://images.unsplash.com/photo-1511671782779-c97d3d27a1d4");
-	background-image: url('../imagenes/fondox.png');
+	background-image: url('../imagenes/hero.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 24px;
+    border-radius:0px;
     overflow: hidden;
 }
 

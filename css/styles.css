@@ -516,7 +516,7 @@ nav.menu {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 40px;
     background-image: url("://images.unsplash.com/photo-1511671782779-c97d3d27a1d4");
 	background-image: url('../imagenes/hero.jpg');
@@ -534,7 +534,7 @@ nav.menu {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .hero * {
@@ -546,7 +546,7 @@ nav.menu {
     font-size: 38px;
     margin-bottom: 18px;
     color: white;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 .hero p {
@@ -554,7 +554,7 @@ nav.menu {
     line-height: 1.5;
     padding: 0 5px;
 	color: white;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* RESPONSIVE MAIN CONTENT */
@@ -564,7 +564,7 @@ nav.menu {
     }
     .hero {
         padding: 45px 5px;
-        border-radius: 20px;
+        border-radius:0px;
     }
     .hero h1 {
         font-size: 34px;
@@ -578,7 +578,7 @@ nav.menu {
     .hero {
         padding: 40px 5px;
         margin-bottom: 35px;
-        border-radius: 18px;
+        border-radius: 0px;
     }
     .hero h1 {
         font-size: 30px;
@@ -597,7 +597,7 @@ nav.menu {
     .hero {
         padding: 35px 5px;
         margin-bottom: 30px;
-        border-radius: 16px;
+        border-radius: 0px;
     }
     .hero h1 {
         font-size: 28px;

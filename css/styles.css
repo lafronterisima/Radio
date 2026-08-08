@@ -1769,32 +1769,35 @@ nav.menu {
 
 /* BLOQUE 13: VIDEO SLIDER */
 .video-slider {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 280px;
-    overflow: hidden;
-    border-radius: 16px;
-    background-color: #000;
-}
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 16px;
+        background-color: #000;
+    }
 
-.video-slider .slides {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: none;
-}
+    /* Oculta todos los slides por defecto */
+    .video-slider .slides {
+        display: none;
+        width: 100%;
+		height: 100%;
+        aspect-ratio: 16 / 9; /* Le da altura automática según el ancho */
+        position: relative;
+    }
 
-.video-slider .slides iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
-    border: none;
-}
+    /* Solo muestra el slide con la clase 'active' */
+     .video-slider .slides.active {
+            display: block;
+        }
 
+    .video-slider .slides iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        border: none;
+    }
+
+/* Estilos de las flechas de navegación */
 .slide-arrow {
     position: absolute;
     top: 50%;
@@ -1845,9 +1848,6 @@ nav.menu {
 }
 
 @media (max-width: 768px) {
-    .video-slider {
-        min-height: 260px;
-    }
     .slide-arrow {
         width: 38px;
         height: 38px;
@@ -1856,7 +1856,6 @@ nav.menu {
 
 @media (max-width: 480px) {
     .video-slider {
-        min-height: 240px;
         border-radius: 0;
     }
     .slide-arrow {

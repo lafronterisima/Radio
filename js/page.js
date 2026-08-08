@@ -77,6 +77,49 @@ function initSlideshows() {
     showSlides(1, 2);
 }
 
+
+// ==================== SLIDESHOW VIDEOS HOME ====================
+ document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.getElementById('slider1');
+            if (!slider) return;
+
+            const slides = slider.querySelectorAll('.slides');
+            const prevBtn = slider.querySelector('.slide-arrow.left');
+            const nextBtn = slider.querySelector('.slide-arrow.right');
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function pauseYouTubeVideo(iframe) {
+                if (iframe && iframe.contentWindow) {
+                    iframe.contentWindow.postMessage(JSON.stringify({
+                        event: 'command',
+                        func: 'pauseVideo',
+                        args: []
+                    }), '*');
+                }
+            }
+
+            function showSlide(newIndex) {
+                const currentIframe = slides[currentIndex].querySelector('iframe');
+                pauseYouTubeVideo(currentIframe);
+
+                slides[currentIndex].classList.remove('active');
+                currentIndex = newIndex;
+                slides[currentIndex].classList.add('active');
+            }
+
+            nextBtn.addEventListener('click', () => {
+                const nextIndex = (currentIndex + 1) % totalSlides;
+                showSlide(nextIndex);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                showSlide(prevIndex);
+            });
+        });
+
 // ==================== SLIDERS ARTISTAS (optimizado con delegación de eventos) ====================
 function initArtistSliders() {
     const sliders = document.querySelectorAll('.sliders');

@@ -153,33 +153,66 @@ function initArtistSliders() {
 }
 
 // ==================== VIDEO SLIDER OPTIMIZADO ====================
-function initVideoSlider() {
-    const sliderContainer = document.querySelector("#slider1");
-    if (!sliderContainer) return;
+// ============================================
+// FUNCIÓN PARA CAMBIAR SLIDES
+// ============================================
+
+function changeSlide(direction, sliderId) {
+    const slider = document.getElementById(sliderId);
+    if (!slider) return;
     
-    let slideIndexVideo = 1;
-    let videoSlides = document.querySelectorAll("#slider1 .slides");
+    const slides = slider.querySelectorAll('.slides');
+    if (slides.length === 0) return;
     
-    function showVideoSlides(n) {
-        if (!videoSlides.length) return;
-        if (n > videoSlides.length) slideIndexVideo = 1;
-        if (n < 1) slideIndexVideo = videoSlides.length;
-        for (let i = 0; i < videoSlides.length; i++) {
-            videoSlides[i].style.display = "none";
+    let currentIndex = 0;
+    
+    // Encontrar el slide activo actual
+    slides.forEach((slide, index) => {
+        if (slide.classList.contains('active')) {
+            currentIndex = index;
         }
-        if (videoSlides[slideIndexVideo - 1]) {
-            videoSlides[slideIndexVideo - 1].style.display = "block";
+    });
+    
+    // Calcular nuevo índice
+    let newIndex = currentIndex + direction;
+    if (newIndex >= slides.length) newIndex = 0;
+    if (newIndex < 0) newIndex = slides.length - 1;
+    
+    // Cambiar slides
+    slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        slide.style.display = 'none';
+        if (index === newIndex) {
+            slide.classList.add('active');
+            slide.style.display = 'block';
+        }
+    });
+}
+
+// ============================================
+// INICIALIZAR SLIDER AL CARGAR
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar slider de videos
+    const videoSlider = document.querySelector('#slider1');
+    if (videoSlider) {
+        const slides = videoSlider.querySelectorAll('.slides');
+        if (slides.length > 0) {
+            // Asegurar que solo el primero esté activo
+            slides.forEach((slide, index) => {
+                if (index === 0) {
+                    slide.classList.add('active');
+                    slide.style.display = 'block';
+                } else {
+                    slide.classList.remove('active');
+                    slide.style.display = 'none';
+                }
+            });
         }
     }
-    
-    showVideoSlides(1);
-    
-    const leftArrow = document.querySelector("#slider1 .slide-arrow.left");
-    const rightArrow = document.querySelector("#slider1 .slide-arrow.right");
-    
-    if (leftArrow) leftArrow.addEventListener("click", () => showVideoSlides(slideIndexVideo += -1));
-    if (rightArrow) rightArrow.addEventListener("click", () => showVideoSlides(slideIndexVideo += 1));
-}
+});
+
 
 // ==================== NAVEGACIÓN OPTIMIZADA ====================
 

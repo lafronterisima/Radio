@@ -28,15 +28,14 @@
     <link rel="icon" href="imagenes/frontera.png" type="image/png">
     
     <!-- Fonts -->
-	  <link rel="stylesheet" href="css/materialize.css">
-  <link rel="stylesheet" href="css/combined.min.css"> 
-  <link rel="stylesheet" href="css/outlined.css">
-  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="css/font-awesome.css">
-  <link rel="stylesheet" href="css/fonts-icon.css">
-  <link rel="stylesheet" href="css/animate.css">
-  
-	
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/combined.min.css"> 
+    <link rel="stylesheet" href="css/outlined.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/fonts-icon.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800|Roboto:400,500,700&display=swap" rel="stylesheet">
@@ -44,8 +43,8 @@
     
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<link rel="stylesheet" href="css/styles.css">
-	<script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/page.js" defer></script>
    
 </head>
@@ -71,7 +70,7 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>
                 <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
-                <li class="dropdown-container"> <!-- Esta clase es importante -->
+                <li class="dropdown-container">
                     <a href="#" class="submenu">
                         <span class="material-icons-outlined">map</span> Catálogo 
                         <span class="">▼</span>
@@ -103,17 +102,14 @@
         </div>
         
         <div class="enlaces">
-    <h2></h2>
-	
-     <a href="#" class="weather-link" id="weatherSidenavLink">
-      <i class="material-icons-outlined" id="weatherSidenavIcon">wb_sunny</i>
-      <span id="weatherSidenavText"></span>
-     </a>
-	   			
-     </div>
-		
+            <h2></h2>
+            <a href="#" class="weather-link" id="weatherSidenavLink">
+                <i class="material-icons-outlined" id="weatherSidenavIcon">wb_sunny</i>
+                <span id="weatherSidenavText"></span>
+            </a>
+        </div>
     </ul>
-	
+    
     <!-- ==================== MODAL COMPARTIR ==================== -->
     <div class="modal_wraper" id="shareModal">
         <div class="modal_container">
@@ -149,14 +145,14 @@
             <!-- Sección Matrix CORREGIDA -->
             <div class="matrix-section">
                 <div class="caja-matrix">
-                    <h3>INNOVACIÓN</h3>	
-                    <p>La Fronterísima es una plataforma digital de vanguardia que fusiona una diversa selección de música hispanoamericana y global con innovación tecnológica. Mediante el uso de inteligencia artificial, ofrecemos una experiencia sonora auténtica, emocionante y siempre actualizada, diseñada para conectar con el corazón de cada oyente.</p>					
+                    <h3>INNOVACIÓN</h3>    
+                    <p>La Fronterísima es una plataforma digital de vanguardia que fusiona una diversa selección de música hispanoamericana y global con innovación tecnológica. Mediante el uso de inteligencia artificial, ofrecemos una experiencia sonora auténtica, emocionante y siempre actualizada, diseñada para conectar con el corazón de cada oyente.</p>                    
                     <p>
                         <a href="https://www.facebook.com/lafronterisima" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a><br>
                         <a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><br>
                         <a href="https://instagram.com/lafronterisimaonlain" target="_blank"><i class="fab fa-instagram"></i> Instagram</a><br>
                         <a href="https://t.me/emisoralafronterisima_bot" target="_blank"><i class="fab fa-telegram"></i> Telegram</a> 
-					</p>
+                    </p>
                    
                 </div>
                 
@@ -165,57 +161,57 @@
                         <iframe id="video-canvas" src="https://www.youtube.com/embed/PvGZebtV6Ew?enablejsapi=1&html5=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 </div>
-				
-				<script>
-const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
-const iframe = document.getElementById('video-canvas');
+                
+                <script>
+                const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
+                const iframe = document.getElementById('video-canvas');
 
-let queuePlaylist = [];
-let curQueue = 0;
+                let queuePlaylist = [];
+                let curQueue = 0;
 
-// 1. Extraer ID del video
-function extractID(url) {
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-    const match = url.match(regExp);
-    return (match && match[2].length == 11) ? match[2] : url;
-}
+                // 1. Extraer ID del video
+                function extractID(url) {
+                    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                    const match = url.match(regExp);
+                    return (match && match[2].length == 11) ? match[2] : url;
+                }
 
-// 2. Cargar Google Sheets y configurar la URL inicial
-async function loadSheet() {
-    try {
-        const res = await fetch(API_URL);
-        const data = await res.json();
+                // 2. Cargar Google Sheets y configurar la URL inicial
+                async function loadSheet() {
+                    try {
+                        const res = await fetch(API_URL);
+                        const data = await res.json();
 
-        queuePlaylist = data
-            .filter(v => v.vid)
-            .map(v => extractID(v.vid));
+                        queuePlaylist = data
+                            .filter(v => v.vid)
+                            .map(v => extractID(v.vid));
 
-        if (queuePlaylist.length > 0) {
-            startPlaylist();
-        }
-    } catch (e) {
-        console.error("Error cargando la hoja:", e);
-    }
-}
+                        if (queuePlaylist.length > 0) {
+                            startPlaylist();
+                        }
+                    } catch (e) {
+                        console.error("Error cargando la hoja:", e);
+                    }
+                }
 
-// 3. Crear la URL de Embed con el parámetro 'playlist'
-// Esto permite que YouTube maneje la cola automáticamente
-function startPlaylist() {
-    const firstVideo = queuePlaylist[0];
-    // Unimos el resto de la lista por comas para el parámetro playlist
-    const otherVideos = queuePlaylist.slice(1).join(',');
-    
-    // Construimos la URL
-    // loop=1 y playlist=ID1,ID2... hace que se reproduzcan todos en bucle
-    const embedUrl = `https://www.youtube.com/embed/${firstVideo}?autoplay=1&mute=1&playlist=${queuePlaylist.join(',')}&loop=1`;
-    
-    iframe.src = embedUrl;
-}
+                // 3. Crear la URL de Embed con el parámetro 'playlist'
+                // Esto permite que YouTube maneje la cola automáticamente
+                function startPlaylist() {
+                    const firstVideo = queuePlaylist[0];
+                    // Unimos el resto de la lista por comas para el parámetro playlist
+                    const otherVideos = queuePlaylist.slice(1).join(',');
+                    
+                    // Construimos la URL
+                    // loop=1 y playlist=ID1,ID2... hace que se reproduzcan todos en bucle
+                    const embedUrl = `https://www.youtube.com/embed/${firstVideo}?autoplay=1&mute=1&playlist=${queuePlaylist.join(',')}&loop=1`;
+                    
+                    iframe.src = embedUrl;
+                }
 
-// Iniciar proceso
-loadSheet();
-</script>
-				
+                // Iniciar proceso
+                loadSheet();
+                </script>
+                
             </div>
 
             <!-- Sección Bloggers -->
@@ -308,45 +304,45 @@ loadSheet();
 </section>
 
             <!-- Sección Podcast - Márgenes CORREGIDAS -->
-            <div class="boxes-podcast" id="podcast">	
+            <div class="boxes-podcast" id="podcast">    
                 <div class="caja-portfa">
                     <h3>SOUNDS</h3>
-                    <div class="fb_back">		   
+                    <div class="fb_back">           
                         <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/125486431/favorites" width="100%" height="166" scrolling="no" frameborder="no"></iframe>
                     </div>
                 </div>
 
                 <div class="caja-portfa">
-                    <h3>ACTUALIDAD</h3>	
-                    <div class="fb_back" id="slider-container">	
+                    <h3>ACTUALIDAD</h3>    
+                    <div class="fb_back" id="slider-container">    
                         <img id="slidex" src="imagenes/1.jpg" width="100%" height="390px" alt="Actualidad">
                     </div>
                 </div>
-			
-				
-				 <script> 
-     const images = [
-      "imagenes/1.jpg",
-      "imagenes/2.jpg",
-      "imagenes/3.jpg"
-    ];
+            
+                
+                 <script> 
+                 const images = [
+                  "imagenes/1.jpg",
+                  "imagenes/2.jpg",
+                  "imagenes/3.jpg"
+                ];
 
-    let currentImageIndex = 0;
+                let currentImageIndex = 0;
 
-    // Función para cambiar las imágenes
-    function slideit() {
-      // Cambiar la imagen
-      document.getElementById("slidex").src = images[currentImageIndex];
+                // Función para cambiar las imágenes
+                function slideit() {
+                  // Cambiar la imagen
+                  document.getElementById("slidex").src = images[currentImageIndex];
 
-      // Actualizar el índice de la imagen para la próxima
-      currentImageIndex = (currentImageIndex + 1) % images.length;
-    }
+                  // Actualizar el índice de la imagen para la próxima
+                  currentImageIndex = (currentImageIndex + 1) % images.length;
+                }
 
-    // Cambiar la imagen cada 2.5 segundos
-    setInterval(slideit, 2500);
+                // Cambiar la imagen cada 2.5 segundos
+                setInterval(slideit, 2500);
 
-  </script>  
-				
+              </script>  
+                
     </div>
 
             <!-- Sección Video Background -->
@@ -363,7 +359,7 @@ loadSheet();
             </div>
 
             <!-- Sección Fan Page -->
-      <div class="boxes-portfolio" id="fans">	
+      <div class="boxes-portfolio" id="fans">    
     <!-- Fan Page -->
     <div class="caja-portfolio">
         <h3>FAN PAGE</h3>
@@ -398,13 +394,13 @@ loadSheet();
     </div>
 </div>
    
-              	
+                
   </section>
 
         <!-- SECCIÓN NOTICIAS -->
         <section id="NOTAS" class="elemento" style="display: none;">
             
-			<div class="section">
+            <div class="section">
     <div class="notas_page">
         <div id="publicaciones" class="containst">
             <!-- Publicidad lateral -->
@@ -504,79 +500,117 @@ loadSheet();
         </div>
     </div>
 </div>
-			
+            
         </section>
 
         <!-- SECCIÓN VIDEOS -->
-        <section id="VIDEOS" class="elemento" style="display: none;">
-            <div class="section">
-             
-                <div class="artistas">
-                    <div class="artistas-container">
-                        <div class="artistas-item">
-                            <div class="embed-res">
-                                <iframe src="https://www.youtube.com/embed/02GlczrkIBk?html5=1&enablejsapi=1" title="Elfre Delgado" loading="lazy"></iframe>
-                            </div>
-                            <div class="artistas-text">
-                                <h3>Elfre Delgado</h3>
-                                <h2>Vallenato</h2>
-                                <p>Cantante del género vallenato, para gozar con ¡Sabrosura!</p>
-                            </div>
-                        </div>
-                        <div class="artistas-item">
-                            <div class="embed-res">
-                                <iframe src="https://www.youtube.com/embed/W_qrpb-u18w?html5=1&enablejsapi=1" title="Luis Alexis" loading="lazy"></iframe>
-                            </div>
-                            <div class="artistas-text">
-                                <h3>Luis Alexis</h3>
-                                <h2>Vallenato</h2>
-                                <p>Artista Ecuatoriano del género Vallenato para el mundo. ¡Ay Ombe!</p>
-                            </div>
-                        </div>
-                        <div class="artistas-item">
-                            <div class="embed-res">
-                                <iframe src="https://www.youtube.com/embed/ubHvNue4Ma4?html5=1&enablejsapi=1" title="Rodolfo Chavijo" loading="lazy"></iframe>
-                            </div>
-                            <div class="artistas-text">
-                                <h3>Rodolfo Chavijo</h3>
-                                <h2>Popular</h2>
-                                <p>Excelente intérprete dedicado al género norteño y popular.</p>
-                            </div>
-                        </div>
-                        <div class="artistas-item">
-                            <div class="embed-res">
-                                <iframe src="https://www.youtube.com/embed/rYyUEtOWIX4?html5=1&enablejsapi=1" title="Enrique Chávez" loading="lazy"></iframe>
-                            </div>
-                            <div class="artistas-text">
-                                <h3>Enrique Chávez</h3>
-                                <h2>Variado</h2>
-                                <p>Talentoso artista y compositor Mexicano, destacándose en el género ranchero.</p>
-                            </div>
-                        </div>
-                        <div class="artistas-item">
-                            <div class="embed-res">
-                                <iframe src="https://www.youtube.com/embed/2vrBpjQjAbk?html5=1&enablejsapi=1" title="Grupo Clybyer" loading="lazy"></iframe>
-                            </div>
-                            <div class="artistas-text">
-                                <h3>Grupo Clybyer</h3>
-                                <h2>Urbano</h2>
-                                <p>Un grupo de música urbana, cuyas raíces son de Putumayo.</p>
-                            </div>
-                        </div>
-                        <div class="artistas-item">
-                            <div class="embed-res">
-                                <iframe src="https://www.youtube.com/embed/AT7HHYvbtq4?html5=1&enablejsapi=1" title="José Escarpeta" loading="lazy"></iframe>
-                            </div>
-                            <div class="artistas-text">
-                                <h3>José Escarpeta</h3>
-                                <h2>Popular</h2>
-                                <p>Artista consagrado junto a su agrupación de música popular.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+   <section id="VIDEOS" class="elemento" style="display: none;">
+  <div class="content_artist">
+
+    <!-- Artista 1 -->
+    <article class="artistas-card">
+      <div class="rwd-media">
+        <iframe 
+          src="https://www.youtube.com/embed/02GlczrkIBk?html5=1&amp;enablejsapi=1" 
+          title="Elfre Delgado" 
+          loading="lazy" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="artistas-text">
+        <h3>Elfre Delgado</h3>
+        <h2>Vallenato</h2>
+        <p>Cantante del género vallenato, para gozar con ¡Sabrosura!</p>
+      </div>
+    </article>
+
+    <!-- Artista 2 -->
+    <article class="artistas-card">
+      <div class="rwd-media">
+        <iframe 
+          src="https://www.youtube.com/embed/W_qrpb-u18w?html5=1&amp;enablejsapi=1" 
+          title="Luis Alexis" 
+          loading="lazy" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="artistas-text">
+        <h3>Luis Alexis</h3>
+        <h2>Vallenato</h2>
+        <p>Artista Ecuatoriano del género Vallenato para el mundo. ¡Ay Ombe!</p>
+      </div>
+    </article>
+
+    <!-- Artista 3 -->
+    <article class="artistas-card">
+      <div class="rwd-media">
+        <iframe 
+          src="https://www.youtube.com/embed/ubHvNue4Ma4?html5=1&amp;enablejsapi=1" 
+          title="Rodolfo Chavijo" 
+          loading="lazy" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="artistas-text">
+        <h3>Rodolfo Chavijo</h3>
+        <h2>Popular</h2>
+        <p>Excelente intérprete dedicado al género norteño y popular.</p>
+      </div>
+    </article>
+
+    <!-- Artista 4 -->
+    <article class="artistas-card">
+      <div class="rwd-media">
+        <iframe 
+          src="https://www.youtube.com/embed/rYyUEtOWIX4?html5=1&amp;enablejsapi=1" 
+          title="Enrique Chávez" 
+          loading="lazy" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="artistas-text">
+        <h3>Enrique Chávez</h3>
+        <h2>Variado</h2>
+        <p>Talentoso artista y compositor Mexicano, destacándose en el género ranchero.</p>
+      </div>
+    </article>
+
+    <!-- Artista 5 -->
+    <article class="artistas-card">
+      <div class="rwd-media">
+        <iframe 
+          src="https://www.youtube.com/embed/2vrBpjQjAbk?html5=1&amp;enablejsapi=1" 
+          title="Grupo Clybyer" 
+          loading="lazy" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="artistas-text">
+        <h3>Grupo Clybyer</h3>
+        <h2>Urbano</h2>
+        <p>Un grupo de música urbana, cuyas raíces son de Putumayo.</p>
+      </div>
+    </article>
+
+    <!-- Artista 6 -->
+    <article class="artistas-card">
+      <div class="rwd-media">
+        <iframe 
+          src="https://www.youtube.com/embed/AT7HHYvbtq4?html5=1&amp;enablejsapi=1" 
+          title="José Escarpeta" 
+          loading="lazy" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="artistas-text">
+        <h3>José Escarpeta</h3>
+        <h2>Popular</h2>
+        <p>Artista consagrado junto a su agrupación de música popular.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
 
         <section id="ARTISTAS" class="elemento" style="display: none;">
             <div class="section">
@@ -600,12 +634,12 @@ loadSheet();
                 <h2 class="card-titles">Georgy Cañas</h2>
                 <p class="card-descriptions">
                      Cantante e interprete polifacetico de los diferentes generos musicales, oriundo del
-          			municipio de Chinchina - Caldas y radicado en Pereira, con una gran trayectoria en el plano musical.<br>
-				    Luego de haber integrado diferentes agrupaciones y orquestas a nivel nacional e internacional, decide
-					lanzar su carrera musical como solista con el genero popular, los invito a seguir una nueva propuesta.
+                    municipio de Chinchina - Caldas y radicado en Pereira, con una gran trayectoria en el plano musical.<br>
+                    Luego de haber integrado diferentes agrupaciones y orquestas a nivel nacional e internacional, decide
+                    lanzar su carrera musical como solista con el genero popular, los invito a seguir una nueva propuesta.
                 </p>
               
-			  <form id="vote-form">
+              <form id="vote-form">
               <ul id="artists-list">
               <li id="artist-1">
               
@@ -615,7 +649,7 @@ loadSheet();
                <div id="mensaje"></div>
 
               </li>
-		     </ul>
+             </ul>
             </form>
             </div>
         </div>
@@ -638,19 +672,19 @@ loadSheet();
                 <h2 class="card-titles">Cly&beyr</h2>
                 <p class="card-descriptions">
                   Es una agrupacion de género urbano, conformado por jóvenes Leguizameños dispuestos a dar todo por su talento,con su gran talento musical han viajado a diferentes de Colombia y Ecuador. Ha participado en eventos como ferias,
-				  carnavales, festivales y encuentros culturales, a estado lanzando diferentes sencillos: 
-				 "Leguízamo" un tema músical homenaje a una tierra de culturas en el sur del país.
-		       </p>
+                  carnavales, festivales y encuentros culturales, a estado lanzando diferentes sencillos: 
+                  "Leguízamo" un tema músical homenaje a una tierra de culturas en el sur del país.
+               </p>
               
-			  <form id="vote-form">
+              <form id="vote-form">
                <ul id="artists-list">
               <li id="artist-2">
              
                 <button type="button" class="vote-button" data-artist="2"><span class="vote-count" id="vote-2">0 votos</span></button>
-				 <div id="mensaje"></div>
-				 
+                 <div id="mensaje"></div>
+                 
               </li>
-		     </ul>
+             </ul>
             </form>
             </div>
         </div>
@@ -674,23 +708,23 @@ loadSheet();
                 <p class="card-descriptions">
                  Agrupación de género Tropical, constituida por jóvenes Leguizameños dispuestos a dar todo por su talento, reconocida a nivel
                  Departamental e Internacional, con su gran talento musical a recorrido diferentes partes de Colombia y Ecuador. Ha participado en eventos como 
-				 ferias, festivales y encuentros culturales. "LEGUIZAMO" hace homenaje a una tierra de culturas en el sur del pais.
-				</p>
+                 ferias, festivales y encuentros culturales. "LEGUIZAMO" hace homenaje a una tierra de culturas en el sur del pais.
+                </p>
               
-			 <form id="vote-form">
+             <form id="vote-form">
               <ul id="artists-list">
               <li id="artist-3">
               
                 <button type="button" class="vote-button" data-artist="3"><span class="vote-count" id="vote-3"> 0 votos</span></button>
-				 <div id="mensaje"></div>
-				 
+                 <div id="mensaje"></div>
+                 
               </li>
-		     </ul>
+             </ul>
            </form>
             </div>
         </div>
-		
-		  <!-- Tarjeta 4 -->
+        
+          <!-- Tarjeta 4 -->
           <div class="cards">
             <div class="card-headers">
                 <div class="sliders">
@@ -708,25 +742,25 @@ loadSheet();
                 <h2 class="card-titles">Las Indomables</h2>
                 <p class="card-descriptions">
                   Tenemos el gusto de presentarles a "Las Indomables" (Género Tecno-Carrilera) con el mejor repertorio de éxitos 
-				  del género, han alternado con varios artístas de cartelera en ferias y fiestas.
-				  Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos
-				  instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena. 
-	         </p>
+                  del género, han alternado con varios artístas de cartelera en ferias y fiestas.
+                  Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos
+                  instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena. 
+             </p>
               
-			  <form id="vote-form">
+              <form id="vote-form">
                  <ul id="artists-list">
                  <li id="artist-4">
                
                  <button type="button" class="vote-button" data-artist="4"><span class="vote-count" id="vote-4"> 0 votos</span></button>
-				  <div id="mensaje"></div>
-				  
+                  <div id="mensaje"></div>
+                  
                 </li>
-		        </ul>
+                </ul>
                </form>
             </div>
         </div>
-		
-		  <!-- Tarjeta 5 -->
+        
+          <!-- Tarjeta 5 -->
           <div class="cards">
             <div class="card-headers">
                 <div class="sliders">
@@ -744,25 +778,25 @@ loadSheet();
                 <h2 class="card-titles">Los Federales</h2>
                 <p class="card-descriptions">
                   Con más de 18 años de carrera musical "Los Federales de Colombia" son reconocidos
-				  por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Cuncurso de Temas
-				  Inéditos en Sinaloa Radio TV, con Lupita Villa en México.
-				  Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por exitos como: Vivo como un rey, A mi pueblo querido etc.
+                  por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Cuncurso de Temas
+                  Inéditos en Sinaloa Radio TV, con Lupita Villa en México.
+                  Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por exitos como: Vivo como un rey, A mi pueblo querido etc.
                 </p>
               
-			   <form id="vote-form">
+               <form id="vote-form">
                  <ul id="artists-list">
                   <li id="artist-5">
                  
                   <button type="button" class="vote-button" data-artist="5"><span class="vote-count" id="vote-5"> 0 votos</span></button>
-				   <div id="mensaje"></div>
-				   
+                   <div id="mensaje"></div>
+                   
                   </li>
-		         </ul>
+                 </ul>
                </form>
             </div>
         </div>
-		
-		  <!-- Tarjeta 6 -->
+        
+          <!-- Tarjeta 6 -->
           <div class="cards">
             <div class="card-headers">
                 <div class="sliders">
@@ -780,27 +814,27 @@ loadSheet();
                 <h2 class="card-titles">Yo me llamo Alzate</h2>
                 <p class="card-descriptions">
                   Un gran artista multifacético "Xavier El Gato blanco", participo
-				  en "Yo me llamo" interprentando a Alzate y catalogado como el "Mil Voces" por imitar artístas como Alzate, Yeison
-				  Jiménez,Alexis Escobar entre otros.<br>
-				
-				  La agrupación está integrada por: Voz oficial y un marco de (2) trompetas, (1) bajo, (1) piano o acordeón, (1) vihuela, (2) requintos,
-				  y (1) batería, total de (8) integrantes en escena.                   
-				</p>
+                  en "Yo me llamo" interprentando a Alzate y catalogado como el "Mil Voces" por imitar artístas como Alzate, Yeison
+                  Jiménez,Alexis Escobar entre otros.<br>
+                
+                  La agrupación está integrada por: Voz oficial y un marco de (2) trompetas, (1) bajo, (1) piano o acordeón, (1) vihuela, (2) requintos,
+                  y (1) batería, total de (8) integrantes en escena.                   
+                </p>
               
-			 <form id="vote-form">
+             <form id="vote-form">
                  <ul id="artists-list">
                   <li id="artist-6">
                  
                   <button type="button" class="vote-button" data-artist="6"><span class="vote-count" id="vote-6"> 0 votos</span></button>
-				   <div id="mensaje"></div>
-				   
+                   <div id="mensaje"></div>
+                   
                   </li>
-		         </ul>
+                 </ul>
                </form>
             </div>
         </div>
-		
-		  <!-- Tarjeta 7 -->
+        
+          <!-- Tarjeta 7 -->
           <div class="cards">
             <div class="card-headers">
                 <div class="sliders">
@@ -818,27 +852,27 @@ loadSheet();
                 <h2 class="card-titles">Pedro Vidal</h2>
                 <p class="card-descriptions">
                   Presentación Musical: Reinado Nacional De la Belleza AFRO, Carnaval de pasto, Festival Vallenato,
-				  Feria de las Flores, Feria de Cali, La feria de Manizales, entre otros.
+                  Feria de las Flores, Feria de Cali, La feria de Manizales, entre otros.
                   A nivel internacional, el artista show Central del festival más importante del mundo de los Colombianos,
-				  Festival que se da en la ciudad de New york "El Festival de Flushing" festivales en Washington DC. Miami Fl., 
-				  artista invitado en mis mundos internacionales y en el reinado de belleza de Bolivia.
-				  Diferentes festivales en Ecuador y Centroamérica.                
-				</p>
+                  Festival que se da en la ciudad de New york "El Festival de Flushing" festivales en Washington DC. Miami Fl., 
+                  artista invitado en mis mundos internacionales y en el reinado de belleza de Bolivia.
+                  Diferentes festivales en Ecuador y Centroamérica.                
+                </p>
               
-			  <form id="vote-form">
+              <form id="vote-form">
                    <ul id="artists-list">
                    <li id="artist-7">
                 
                 <button type="button" class="vote-button" data-artist="7"><span class="vote-count" id="vote-7"> 0 votos</span></button>
-				 <div id="mensaje"></div>
-				 
+                 <div id="mensaje"></div>
+                 
               </li>
-		     </ul>
+             </ul>
            </form>
             </div>
         </div>
-		
-		  <!-- Tarjeta 8 -->
+        
+          <!-- Tarjeta 8 -->
           <div class="cards">
             <div class="card-headers">
                 <div class="sliders">
@@ -857,26 +891,26 @@ loadSheet();
                 <p class="card-descriptions">
                   Es un orgullo presentar a Huberth Montero y Los Fantásticos del Vallenato (Género Vallenato)
                   Agrupación con más de 26 años de vida artística y con éxitos nacionales e internacionales como Te Extraño, 
-				  Dime Soledad, Porque Te Vas Y Solamente Tu entre otros.
+                  Dime Soledad, Porque Te Vas Y Solamente Tu entre otros.
                   Voz Líder, Acordeón, dos (2) Coros, Caja, Guacharaca, Congas, Timbal, Bajo, Guitarra, Piano, para un total 
-				  de once (11) integrantes en escena.
+                  de once (11) integrantes en escena.
                   La presentación de "Huberth Montero y los Fantásticos del Vallenato”.
-				</p>
+                </p>
               
-			    <form id="vote-form">
+                <form id="vote-form">
                   <ul id="artists-list">
                  <li id="artist-8">
               
                 <button type="button" class="vote-button" data-artist="8"><span class="vote-count" id="vote-8"> 0 votos</span></button>
-				 <div id="mensaje"></div>
-				 
+                 <div id="mensaje"></div>
+                 
                 </li>
-		        </ul>
+                </ul>
               </form>
             </div>
         </div>
-		
-		  <!-- Tarjeta 9 -->
+        
+          <!-- Tarjeta 9 -->
           <div class="cards">
             <div class="card-headers">
                 <div class="sliders">
@@ -894,32 +928,32 @@ loadSheet();
                 <h2 class="card-titles">Génesis Internacional</h2>
                 <p class="card-descriptions">
                   Es una agrupacion creada en el 2010 en la ciudad de San Juan de Pasto, impulsada con
-				  el propósito de exaltar el talento artístico femenino complementado con el empuje, ahínco y musicalidad masculinos. 
-				  Su propuesta musical es variada e influenciada por el género tropical fiestero y Tecnocumbiero por excelencia, el son sureño
-  				  y ritmos propios de la región nariñense y más adelante profundizará e incursionará en géneros musicales variados y caribeños
+                  el propósito de exaltar el talento artístico femenino complementado con el empuje, ahínco y musicalidad masculinos. 
+                  Su propuesta musical es variada e influenciada por el género tropical fiestero y Tecnocumbiero por excelencia, el son sureño
+                  y ritmos propios de la región nariñense y más adelante profundizará e incursionará en géneros musicales variados y caribeños
                   de la costa colombiana, el merengue, y la salsa.      
-				</p>
+                </p>
               
-			  <form id="vote-form">
+              <form id="vote-form">
                   <ul id="artists-list">
                  <li id="artist-9">
                
                 <button type="button" class="vote-button" data-artist="9"><span class="vote-count" id="vote-9"> 0 votos</span></button>
-				 <div id="mensaje"></div>
-				 
+                 <div id="mensaje"></div>
+                 
                  </li>
-		        </ul>
-               </form>	
+                </ul>
+               </form>    
             </div>
         </div>
-		
-		
-		 <script src="js/vote.js"></script>
-		 
+        
+        
+         <script src="js/vote.js"></script>
+         
           </div>
        </div>
-	   
-	   <script>
+       
+       <script>
         document.addEventListener('DOMContentLoaded', () => {
             const sliders = document.querySelectorAll('.sliders');
 
@@ -954,7 +988,7 @@ loadSheet();
             });
         });
     </script>
-	
+    
         </section>
 
         <section id="PRIVACIDAD" class="elemento" style="display: none;">
@@ -981,7 +1015,7 @@ loadSheet();
                 <div class="footer-columna">
                     <h3>Dirección</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Colombia</p>
-					 <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
+                     <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
                     <img loading="lazy" src="imagenes/paypal.png">
                  </a>
                 </div>
@@ -1008,7 +1042,7 @@ loadSheet();
     <!-- ==================== REPRODUCTOR STICKY ==================== -->
     <div class="music-player" id="musicPlayer">
         <div class="player-container">
-		
+        
             <div class="player-info">
 
     <div class="player-cover">
@@ -1040,27 +1074,27 @@ loadSheet();
 
 </div>
 
-			
+            
             <audio id="radio">
               <source src="https://virtual5.emisorasvirtuales.com/listen/la_fronterisima/live" type="audio/mpeg">
             </audio>
 
             <div class="player-controls">
-			
+            
             <button class="control-btn play-btn" id="playPauseBtn">
               <i class="fas fa-play"></i>
-			  
-			  
+              
+              
             </button>
-			
+            
            </div>
-			
+            
             <!-- Opción 1 - Moderna y Elegante -->
     <div class="time-info" id="timeInfo">
        <span class="live-dot"></span>
        <span class="live-text">ON</span>
     </div>
-			
+            
 
      <div class="live-modal" id="liveModal">
 
@@ -1118,7 +1152,7 @@ loadSheet();
 
 
     </div>
-		
+        
   </div>
 
 
@@ -1129,10 +1163,10 @@ loadSheet();
    
    
       
-	
-	<script src="js/cargar_news.js" defer></script>
-	
-	<script src="js/materialize.min.js" defer></script>
-	
+    
+    <script src="js/cargar_news.js" defer></script>
+    
+    <script src="js/materialize.min.js" defer></script>
+    
 </body>
 </html>

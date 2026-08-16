@@ -510,7 +510,7 @@ nav.menu {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding-top: 20px;
     margin-bottom: 10px;
     background-image: url('../imagenes/hero.jpg');
     background-size: cover;
@@ -931,131 +931,115 @@ nav.menu {
     }
 }
 
-/* ============================================ */
-/* BLOQUE 7: VIDEOS (ARTISTAS)                  */
-/* MODIFICADO: FONDO BLANCO CON LETRAS OSCURAS  */
-/* ============================================ */
+/* ==========================================================================
+   SECCIÓN ARTISTAS
+   ========================================================================== */
 
-.artistas {
-    width: 100%;
-    margin: 0 auto;
-    padding: 15px 20px;
-}
-
-.artistas-container {
+/* Grid contenedor: 2 columnas por fila */
+.content_artist {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.artistas-container:last-child {
-    margin-bottom: 0;
-}
-
-/* Tarjeta de artista */
-.artistas-item {
-    background: #FFFFFF;
+/* Estructura de cada tarjeta */
+.artistas-card {
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     height: 100%;
-    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.artistas-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.artistas-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.embed-res {
+/* Reproductor de video proporcional 16:9 */
+.rwd-media {
     position: relative;
     width: 100%;
+    height: 0;
     padding-bottom: 56.25%;
-    background: #000;
-    overflow: hidden;
+    background-color: #000000;
+    flex-shrink: 0;
 }
 
-.embed-res iframe {
+.rwd-media iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: none;
-    transition: transform 0.3s ease;
+    border: 0;
 }
 
-.artistas-item:hover .embed-res iframe {
-    transform: scale(1.02);
-}
-
+/* Estilos de los textos */
 .artistas-text {
-    padding: 20px;
-    flex-grow: 1;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    background: #FFFFFF;
+    flex-grow: 1;
 }
 
 .artistas-text h3 {
-    font-size: 18px;
+    font-size: 1.15rem;
     font-weight: 700;
     color: #20B2AA;
-    margin: 0 0 5px 0;
+    margin: 0 0 6px 0;
 }
 
 .artistas-text h3::after {
     content: '';
     display: block;
-    width: 40px;
+    width: 35px;
     height: 2px;
     background: linear-gradient(90deg, #0c3f43, #1a5c61);
-    margin: 10px auto 0;
+    margin: 8px auto 0;
     border-radius: 2px;
 }
 
 .artistas-text h2 {
     display: inline-block;
-    font-size: 0.70rem;
+    font-size: 0.72rem;
     font-weight: 600;
     color: #e74c3c;
-    margin: 0 0 12px 0;
+    margin: 6px 0 10px 0;
     text-transform: uppercase;
     letter-spacing: 1px;
     background: rgba(231, 76, 60, 0.1);
-    padding: 4px 12px;
+    padding: 3px 10px;
     border-radius: 20px;
 }
 
 .artistas-text p {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     line-height: 1.5;
     color: #2C3E50;
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    .artistas-container {
-        grid-template-columns: 1fr;
+/* ==========================================================================
+   RESPONSIVE: En pantallas menores a 768px pasa a 1 sola columna
+   ========================================================================== */
+@media (max-width:680px) {
+ 
+    .content_artist {
+        grid-template-columns: 1fr; /* 1 video por fila */
+        gap: 18px;
     }
 }
 
-@media (max-width: 480px) {
-    .artistas {
-        padding: 20px 5px;
-    }
-    .artistas-text {
-        padding: 18px;
-    }
-    .artistas-text h3 {
-        font-size: 20px;
-    }
-    .artistas-text p {
-        font-size: 14px;
-    }
-}
+
 
 /* ============================================ */
 /* BLOQUE 8: ARTISTAS CON SLIDER                */
@@ -1702,6 +1686,10 @@ nav.menu {
     height: 430px;
     display: block;
 }
+
+/* ============================================ */
+/* VIDEO SLIDER - BASE                          */
+/* ============================================ */
 
 /* ============================================ */
 /* VIDEO SLIDER - BASE                          */

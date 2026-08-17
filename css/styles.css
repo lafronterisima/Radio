@@ -50,7 +50,7 @@ body::before {
 }
 
 nav.menu {
-    background: #0c3f43;
+    background: #115087;
     backdrop-filter: blur(20px);
     height: 60px;
     line-height: 60px;
@@ -172,7 +172,7 @@ nav.menu {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #0c3f43;
+    background: #115087;
     backdrop-filter: blur(20px);
     min-width: 130px;
     border-radius: 16px;
@@ -213,7 +213,7 @@ nav.menu {
 
 /* ==================== SIDENAV MÓVIL ==================== */
 .sidenav {
-    background: #0c3f43;
+    background: #09365c;
     backdrop-filter: blur(20px);
     width: 280px;
     z-index: 1003 !important;
@@ -2277,7 +2277,7 @@ nav.menu {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #0c3f43;
+    background: #115087;
     backdrop-filter: blur(20px);
     border-top: 1px solid rgba(32, 178, 170, 0.3);
     z-index: 1001;
@@ -2521,7 +2521,7 @@ nav.menu {
     right: 0px;
     width: 360px;
     max-width: 95%;
-    background: #0c3f43;
+    background: #09366c;
     border-radius: 18px 18px 0 0;
     padding: 18px;
     transform: translateY(110%);
@@ -2537,7 +2537,7 @@ nav.menu {
 
 .live-modal-box h4 {
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 25px;
     color: #20B2AA;
     letter-spacing: 2px;
     font-size: 16px;

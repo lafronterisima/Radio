@@ -358,7 +358,7 @@ nav.menu {
 }
 
 .modal_container {
-    background: #0c3f43;
+    background: #09365c;
     border-radius: 28px 28px 0 0;
     padding: 25px 20px 30px;
     width: 100%;
@@ -2683,7 +2683,7 @@ nav.menu {
 
 .news-header {
     height: 55px;
-    background: #0c3f43;
+    background: #09365c;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -202,6 +202,7 @@ nav.menu {
     }
     .sidenav-trigger {
         display: flex !important;
+		left:-25px;
     }
     .share_btn {
         display: flex !important;
@@ -493,7 +494,7 @@ nav.menu {
 
 /* ==================== CONTENIDO PRINCIPAL ==================== */
 .main-content {
-    margin-top: 70px;
+    margin-top: 65px;
     padding: 0 5px;
     min-height: calc(100vh - 70px);
     width: 100%;

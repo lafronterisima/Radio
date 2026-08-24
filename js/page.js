@@ -4,26 +4,65 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar solo lo necesario al inicio
     initFastComponents();
 });
+// ==========================================
+// 1. INICIALIZACIÓN DE COMPONENTES MATERIALIZE
+// ==========================================
+function initSidenav() {
+    var elemsSidenav = document.querySelectorAll('.sidenav');
+    if (elemsSidenav.length > 0 && typeof M !== 'undefined') {
+        M.Sidenav.init(elemsSidenav, {
+            edge: 'left',
+            draggable: true
+        });
+    }
+}
 
-// Función para cargar componentes críticos primero
+function initDropdowns() {
+    var elemsDropdown = document.querySelectorAll('.dropdown-trigger');
+    if (elemsDropdown.length > 0 && typeof M !== 'undefined') {
+        M.Dropdown.init(elemsDropdown, {
+            coverTrigger: false,
+            constrainWidth: false
+        });
+    }
+}
+
+// ==========================================
+// 2. CONTROLADORES DE COMPONENTES DE LA APP
+// ==========================================
+function initSlideshows() {
+    // Lógica de tus slideshows locales
+}
+
+function initNavigation() {
+    // Lógica para cambiar entre secciones (#INICIO, #NOTAS, etc.)
+}
+
+function initPlayer() {
+    // Lógica del reproductor de audio / video
+}
+
+function initNonCritical() {
+    // Clima, widgets de SoundCloud, llamadas a Google Sheets/APIs, etc.
+    initDropdowns();
+}
+
+// ==========================================
+// 3. FLUJO PRINCIPAL DE CARGA
+// ==========================================
 function initFastComponents() {
-    // Slideshows (crítico)
-    initSlideshows();
-    
-    // Navegación (crítico)
-    initNavigation();
-    
-    // Sidenav (crítico)
+    // Inicializaciones críticas para UI/UX inmediata
     initSidenav();
-    
-    // Reproductor (crítico)
+    initSlideshows();
+    initNavigation();
     initPlayer();
     
-    // El resto carga después
-    setTimeout(() => {
-        initNonCritical();
-    }, 100);
+    // Tareas secundarias o pesadas diferidas
+    setTimeout(initNonCritical, 100);
 }
+
+// Un solo evento de entrada para evitar redundancias
+document.addEventListener('DOMContentLoaded', initFastComponents);
 
 // ==================== DATOS (optimizado) ====================
 const programsData = [
@@ -652,7 +691,7 @@ $(document).ready(function () {
 
             var lat = loc[0];
             var lon = loc[1];
-			
+            
             var url =
             "https://api.openweathermap.org/data/2.5/weather?lat="
             +lat+

@@ -126,7 +126,7 @@ nav.menu {
     color: white;
     width: 50px;
     height: 50px;
-    padding-top: 30px;
+    padding-top: 0px;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
@@ -359,7 +359,7 @@ nav.menu {
 }
 
 .modal_container {
-    background: #09365c;
+    background: #115087;
     border-radius: 28px 28px 0 0;
     padding: 25px 20px 30px;
     width: 100%;
@@ -938,8 +938,8 @@ nav.menu {
 
 /* Grid contenedor: 2 columnas por fila */
 .content_artist {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 24px;
     width: 100%;
     box-sizing: border-box;
@@ -949,7 +949,7 @@ nav.menu {
 .artistas-card {
     background: #ffffff;
     border: 1px solid #eee;
-    border-radius: 12px;
+    border-radius:0 px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: flex;
@@ -1032,14 +1032,13 @@ nav.menu {
 /* ==========================================================================
    RESPONSIVE: En pantallas menores a 768px pasa a 1 sola columna
    ========================================================================== */
-@media (max-width:680px) {
+@media (max-width:768px) {
  
     .content_artist {
-        grid-template-columns: 1fr; /* 1 video por fila */
+        grid-template-columns: 1fr; /* 2 video por fila */
         gap: 18px;
     }
 }
-
 
 
 /* ============================================ */
@@ -1057,7 +1056,7 @@ nav.menu {
 
 .cards {
     background: #FFFFFF;
-    border-radius: 24px;
+    border-radius: 1 px;
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.08);
@@ -2372,7 +2371,7 @@ nav.menu {
 .live-text {
     font-size: 11px;
     font-weight: 700;
-    color: #FF3B30;
+    color:white;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
@@ -2522,7 +2521,7 @@ nav.menu {
     right: 0px;
     width: 360px;
     max-width: 95%;
-    background: #09366c;
+    background: #115087;
     border-radius: 18px 18px 0 0;
     padding: 18px;
     transform: translateY(110%);
@@ -2684,7 +2683,7 @@ nav.menu {
 
 .news-header {
     height: 55px;
-    background: #09365c;
+    background: #115087;
     display: flex;
     align-items: center;
     justify-content: center;

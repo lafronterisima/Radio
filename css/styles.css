@@ -943,6 +943,7 @@ nav.menu {
     gap: 24px;
     width: 100%;
     box-sizing: border-box;
+	padding-top:10px;
 }
 
 /* Estructura de cada tarjeta */
@@ -1043,14 +1044,13 @@ nav.menu {
 
 /* ============================================ */
 /* BLOQUE 8: ARTISTAS CON SLIDER                */
-/* MODIFICADO: FONDO BLANCO CON LETRAS OSCURAS  */
 /* ============================================ */
 
 .contenedors {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 30px;
-    padding: 20px 5px;
+    padding: 10px 5px;
     width: 100%;
 }
 
@@ -1966,6 +1966,7 @@ nav.menu {
     flex: 2;
     min-width: 0;
     order: 1;
+	padding-top:10px;
 }
 
 .advert-container {
@@ -1974,6 +1975,7 @@ nav.menu {
     display: flex;
     flex-direction: column;
     gap: 20px;
+	padding-top:10px;
 }
 
 .advert-container .container-fluid {
@@ -2538,7 +2540,7 @@ nav.menu {
 .live-modal-box h4 {
     text-align: center;
     margin-bottom: 25px;
-    color: #20B2AA;
+    color: white;
     letter-spacing: 2px;
     font-size: 16px;
 }

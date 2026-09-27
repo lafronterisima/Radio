@@ -666,116 +666,82 @@ document.addEventListener("DOMContentLoaded", function () {
 // ==================== CLIMA (carga diferida) ====================
 $(document).ready(function () {
 
-
-    // Fondos según clima OpenWeather
+    // Fondos por código de ícono OpenWeather (Día y Noche)
     var iconLink = {
-
-        "01d":"https://www.walldevil.com/wallpapers/w04/163410-clear-sky-hot-air-balloons-nature.jpg",
-        "02d":"https://www.walldevil.com/wallpapers/w01/heaven-clouds-fields-grass-landscapes-wallpaper.jpg",
-        "03d":"https://www.walldevil.com/wallpapers/w01/sun-clouds-wallpaper.jpg",
-        "04d":"https://www.walldevil.com/wallpapers/w01/430984-clouds-skyscapes.jpg",
-        "09d":"https://www.walldevil.com/wallpapers/w01/541653-rain.jpg",
-        "10d":"https://www.walldevil.com/wallpapers/w01/430720-rain-raindrops.jpg",
-        "11d":"https://www.walldevil.com/wallpapers/a80/scenic-water-night-contrast-storm-bright-wallpaper-light-rain-lightning-nature-landscapes-wallpapers-trees-forest-reflection-lakes.jpg",
-        "13d":"https://www.walldevil.com/wallpapers/a41/screensavers-wallpapers-lake-screensaver-china-snowing-walls.jpg",
-        "50d":"https://www.walldevil.com/wallpapers/w02/859093-burj-al-arab-burj-khalifa-cityscapes-dubai-mist-skyscapes-skyscrapers-united-arab-emirates.jpg"
-
+        "01d": "https://www.walldevil.com/wallpapers/w04/163410-clear-sky-hot-air-balloons-nature.jpg",
+        "01n": "https://www.walldevil.com/wallpapers/a80/scenic-water-night-contrast-storm-bright-wallpaper-light-rain-lightning-nature-landscapes-wallpapers-trees-forest-reflection-lakes.jpg",
+        "02d": "https://www.walldevil.com/wallpapers/w01/heaven-clouds-fields-grass-landscapes-wallpaper.jpg",
+        "02n": "https://www.walldevil.com/wallpapers/w01/430984-clouds-skyscapes.jpg",
+        "03d": "https://www.walldevil.com/wallpapers/w01/sun-clouds-wallpaper.jpg",
+        "03n": "https://www.walldevil.com/wallpapers/w01/430984-clouds-skyscapes.jpg",
+        "04d": "https://www.walldevil.com/wallpapers/w01/430984-clouds-skyscapes.jpg",
+        "04n": "https://www.walldevil.com/wallpapers/w01/430984-clouds-skyscapes.jpg",
+        "09d": "https://www.walldevil.com/wallpapers/w01/541653-rain.jpg",
+        "09n": "https://www.walldevil.com/wallpapers/w01/541653-rain.jpg",
+        "10d": "https://www.walldevil.com/wallpapers/w01/430720-rain-raindrops.jpg",
+        "10n": "https://www.walldevil.com/wallpapers/w01/430720-rain-raindrops.jpg",
+        "11d": "https://www.walldevil.com/wallpapers/a80/scenic-water-night-contrast-storm-bright-wallpaper-light-rain-lightning-nature-landscapes-wallpapers-trees-forest-reflection-lakes.jpg",
+        "11n": "https://www.walldevil.com/wallpapers/a80/scenic-water-night-contrast-storm-bright-wallpaper-light-rain-lightning-nature-landscapes-wallpapers-trees-forest-reflection-lakes.jpg",
+        "13d": "https://www.walldevil.com/wallpapers/a41/screensavers-wallpapers-lake-screensaver-china-snowing-walls.jpg",
+        "13n": "https://www.walldevil.com/wallpapers/a41/screensavers-wallpapers-lake-screensaver-china-snowing-walls.jpg",
+        "50d": "https://www.walldevil.com/wallpapers/w02/859093-burj-al-arab-burj-khalifa-cityscapes-dubai-mist-skyscapes-skyscrapers-united-arab-emirates.jpg",
+        "50n": "https://www.walldevil.com/wallpapers/w02/859093-burj-al-arab-burj-khalifa-cityscapes-dubai-mist-skyscapes-skyscrapers-united-arab-emirates.jpg"
     };
 
-    $.ajax({
+    // Fondo por defecto en caso de fallo
+    var defaultBg = "https://www.walldevil.com/wallpapers/w04/163410-clear-sky-hot-air-balloons-nature.jpg";
 
-        dataType:"json",
-        url:"https://ipinfo.io/json",
-        success:function(info){
+    function obtenerIconoMaterial(iconCode) {
+        var code = iconCode.substring(0, 2);
+        var isNight = iconCode.endsWith("n");
+
+        switch (code) {
+            case "01": return isNight ? "bedtime" : "wb_sunny";
+            case "02": return isNight ? "nights_stay" : "wb_cloudy";
+            case "03":
+            case "04": return "cloud";
+            case "09": return "shower";
+            case "10": return isNight ? "nights_stay" : "grain";
+            case "11": return "flash_on";
+            case "13": return "ac_unit";
+            case "50": return "blur_on";
+            default:   return isNight ? "bedtime" : "wb_sunny";
+        }
+    }
+
+    // Petición de ubicación por IP
+    $.getJSON("https://ipinfo.io/json")
+        .done(function (info) {
+            if (!info.loc) return;
             var loc = info.loc.split(",");
-
             var lat = loc[0];
             var lon = loc[1];
-            
-            var url =
-            "https://api.openweathermap.org/data/2.5/weather?lat="
-            +lat+
-            "&lon="
-            +lon+
-            "&lang=es&appid=1049904eff61a8f80e9cbe66c3278bab";
 
+            var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" +
+                lat + "&lon=" + lon + "&units=metric&lang=es&appid=1049904eff61a8f80e9cbe66c3278bab";
 
+            // Petición del clima a OpenWeather
+            $.getJSON(weatherUrl)
+                .done(function (data) {
+                    var temperatura = Math.round(data.main.temp);
+                    var iconCode = data.weather[0].icon;
+                    var materialIcon = obtenerIconoMaterial(iconCode);
 
-            $.ajax({
+                    // Actualizar íconos y textos en la interfaz
+                    $("#weatherIcon, #weatherSidenavIcon").text(materialIcon);
+                    $("#weatherText, #weatherSidenavText").text(temperatura + "°C");
 
-                dataType:"json",
-                url:url,
-
-                success:function(data){
-
-                    var temperatura =
-                    data.main.temp - 273.15;
-
-                    var icon =
-                    data.weather[0].icon;
-                    var materialIcon;
-
-                    if(icon.includes("01")){
-                        materialIcon="wb_sunny";
-                    }
-
-                    else if(icon.includes("02") || icon.includes("03")){
-                        materialIcon="partly_cloudy_day";
-                    }
-
-                    else if(icon.includes("04")){
-                        materialIcon="cloud";
-                    }
-
-                    else if(icon.includes("09") || icon.includes("10")){
-                        materialIcon="rainy";
-                    }
-
-                    else if(icon.includes("11")){
-                        materialIcon="flash_on";
-                    }
-
-                    else if(icon.includes("13")){
-                        materialIcon="ac_unit";
-                    }
-
-                    else if(icon.includes("50")){
-                        materialIcon="foggy";
-                    }
-
-                    else{
-                        materialIcon="wb_sunny";
-                    }
-
-                    // Clima en el menú principal
-$("#weatherIcon")
-.html(materialIcon);
-
-$("#weatherText")
-.html(
-    temperatura.toFixed(0)+"°C"
-);
-
-
-// Clima en el Sidenav
-$("#weatherSidenavIcon")
-.html(materialIcon);
-
-$("#weatherSidenavText")
-.html(
-    temperatura.toFixed(0)+"°C"
-);
-
-                    $(".bgimg")
-                    .css(
-                        "background-image",
-                        'url("'+iconLink[icon]+'")'
-                    );
-                }
-            });
-        }
-    });
-
+                    // Cambiar imagen de fondo con fallback
+                    var bgUrl = iconLink[iconCode] || defaultBg;
+                    $(".bgimg").css("background-image", "url('" + bgUrl + "')");
+                })
+                .fail(function () {
+                    console.error("Error al obtener los datos del clima.");
+                });
+        })
+        .fail(function () {
+            console.error("Error al obtener la ubicación geográfica por IP.");
+        });
 });
 
 // ==================== COMPARTIR OPTIMIZADO Y CORREGIDO ====================

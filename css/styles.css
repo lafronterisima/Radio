@@ -613,7 +613,7 @@ nav.menu {
     }
     .hero {
         padding: 40px 5px;
-        margin-bottom: 35px;
+        margin-bottom: 10px;
         border-radius: 0px;
     }
     .hero h1 {
@@ -632,7 +632,7 @@ nav.menu {
     }
     .hero {
         padding: 35px 5px;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         border-radius: 0px;
     }
     .hero h1 {

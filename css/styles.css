@@ -282,51 +282,93 @@ nav.menu {
     transform: translateX(5px);
 }
 
+/* --- SECCIÓN CLIMA Y ENLACES (CENTRADOS) --- */
 .sidenav .enlaces {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
 }
 
-.sidenav .enlaces h2 {
-    font-size: 13px;
-    font-weight: 500;
-    margin: 0 0 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(232, 233, 240, 0.4);
-    text-align: center;
+.sidenav .enlaces {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
 }
 
-.sidenav .enlaces a {
+/* --- SECCIÓN CLIMA Y ENLACES (ESTILO PESTAÑA DE MENÚ) --- */
+.sidenav .enlaces {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.sidenav .enlaces {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.sidenav .enlaces a.weather-link {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: rgba(232, 233, 240, 0.7);
+    justify-content: center; /* Centra el contenido (ícono + texto) dentro de la pestaña */
+    gap: 15px;                  
+    padding: 14px 20px;
+    width: 90%;
+    max-width: 240px;
+    margin: 0 auto;             /* Centra el botón respecto al menú lateral */
+    color: rgba(232, 233, 240, 0.85);
     text-decoration: none;
-    margin-top: 10px;
-    font-size: 14px;
-    padding: 10px 15px;
-    border-radius: 40px;
+    font-size: 15px;
+    font-weight: 500;
     transition: all 0.3s ease;
+    border-radius: 40px;
+    box-sizing: border-box;
 }
 
-.sidenav .enlaces a:hover {
+.sidenav .enlaces a.weather-link:hover {
+    background: rgba(32, 178, 170, 0.15);
     color: #20B2AA;
-    background: rgba(32, 178, 170, 0.1);
     transform: translateX(5px);
 }
 
-.sidenav-overlay {
-    z-index: 1002 !important;
+/* Alineación exacta para el ícono de clima */
+#weatherSidenavIcon {
+    font-size: 24px;
+    width: 24px;              /* Ancho fijo para alinear el texto de forma simétrica */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
 }
 
-.enlaces a.weather-nav {
-    display: flex;
-    align-items: center;
+#weatherSidenavText {
+    line-height: 1;
+    display: inline-block;
 }
 
 @media (max-width: 480px) {

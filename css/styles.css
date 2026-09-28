@@ -214,7 +214,7 @@ nav.menu {
 
 /* ==================== SIDENAV MÓVIL ==================== */
 .sidenav {
-    background: #09365c;
+    background: #115087;
     backdrop-filter: blur(20px);
     width: 280px;
     z-index: 1003 !important;

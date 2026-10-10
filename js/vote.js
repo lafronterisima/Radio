@@ -89,7 +89,7 @@ async function registrarVoto(artistaId, boton) {
 function mostrarMensaje(artistaId, texto, color) {
   const li = document.getElementById(`artist-${artistaId}`);
   if (!li) return;
-  const mensajeDiv = li.querySelector("#mensaje");
+  const mensajeDiv = li.querySelector(".mensaje");
   if (!mensajeDiv) return;
 
   mensajeDiv.textContent = texto;

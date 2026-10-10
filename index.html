@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>La Fronterisima</title>
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="La Fronterisima - Plataforma de música colombiana e hispana. Escucha radio en vivo, descubre artistas, noticias y la mejor música 24/7.">
     <meta name="keywords" content="la fronterisima, música colombiana, radio online, artistas colombianos, vallenato, música popular">
     <meta name="author" content="La Fronterisima">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph -->
     <meta property="og:site_name" content="La Fronterísima">
     <meta property="og:title" content="La Fronterísima - Radio Digital">
@@ -18,108 +18,148 @@
     <meta property="og:image" content="https://www.lafronterisima.stream/frontera.png">
     <meta property="og:url" content="https://www.lafronterisima.stream">
     <meta property="og:type" content="website">
-	
-	  <!-- Canonical -->
+
     <link rel="canonical" href="https://www.lafronterisima.stream">
-	
-	  <!-- Preload (corregido) -->
+
     <link rel="preload" as="image" href="https://img.icons8.com/ios-filled/50/000000/play--v1.png" crossorigin="anonymous">
     <link rel="preload" as="image" href="https://img.icons8.com/ios-filled/50/000000/pause--v1.png" crossorigin="anonymous">
 
-    
-    <!-- Theme Color -->
     <meta name="theme-color" content="#1a1a2e">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    <!-- Favicon -->
+
     <link rel="icon" href="imagenes/frontera.png" type="image/png">
-    
-    <!-- Fonts -->
+
     <link rel="stylesheet" href="css/materialize.css">
-    <link rel="stylesheet" href="css/combined.min.css"> 
+    <link rel="stylesheet" href="css/combined.min.css">
     <link rel="stylesheet" href="css/outlined.css">
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/fonts-icon.css">
     <link rel="stylesheet" href="css/animate.css">
-    
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800|Roboto:400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Materialize CSS -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/materialize.min.js" defer></script>
-	
-    <script src="js/page.js" defer></script>
 
-   
+    <!-- ✅ FIX CRÍTICO: estilos de los sliders de artistas (porque combined.min.css da 404) -->
+   <style>
+    /* FIX DEFINITIVO para imágenes de artistas */
+    #ARTISTAS .cards .sliders {
+        position: relative !important;
+        width: 100% !important;
+        height: 280px !important;
+        min-height: 280px !important;
+        overflow: hidden !important;
+        border-radius: 12px 12px 0 0 !important;
+        background: #0f0f1a !important;
+    }
+    #ARTISTAS .cards .sliders .slides {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        transition: transform 0.4s ease !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+    #ARTISTAS .cards .sliders .slides img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    #ARTISTAS .cards .sliders .prev,
+    #ARTISTAS .cards .sliders .next {
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        background: rgba(0, 0, 0, 0.5) !important;
+        color: #fff !important;
+        border: none !important;
+        padding: 10px 14px !important;
+        cursor: pointer !important;
+        font-size: 18px !important;
+        border-radius: 4px !important;
+        z-index: 10 !important;
+    }
+    #ARTISTAS .cards .sliders .prev { left: 8px !important; }
+    #ARTISTAS .cards .sliders .next { right: 8px !important; }
+</style>
+
+    <script src="js/materialize.min.js" defer></script>
+    <script src="js/page.js" defer></script>
 </head>
 
 <body>
 
     <!-- ==================== NAVBAR FIJO ==================== -->
-   <div class="navbar-fixed">
-    <nav class="menu" role="navigation">
-        <div class="nav-wrappers">
-            <div class="sidenav-trigger" data-target="nav-mobile">
-                <i class="material-icons-outlined">menu</i>
-            </div>
-            
-              <div class="weather-nav" id="weatherNav">
+    <div class="navbar-fixed">
+        <nav class="menu" role="navigation">
+            <div class="nav-wrappers">
+                <div class="sidenav-trigger" data-target="nav-mobile">
+                    <i class="material-icons-outlined">menu</i>
+                </div>
+
+                <div class="weather-nav" id="weatherNav">
                     <i class="material-icons-outlined">wb_sunny</i>
                     <span id="weatherText">Cargando...</span>
                 </div>
 
-            <a class="share_btn" id="shareNavBtn">
-                <i class="material-icons-outlined">share</i>
-            </a>
+                <a class="share_btn" id="shareNavBtn">
+                    <i class="material-icons-outlined">share</i>
+                </a>
 
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>
-                <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
-                <li class="dropdown-container">
-                    <a href="#" class="submenu">
-                        <span class="material-icons-outlined">map</span> Catálogo 
-                        <span class="">▼</span>
-                    </a>
-                    <ul class="dropdown"> 
-                        <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Video</a></li>
-                        <li><a href="#PRIVACIDAD"><span class="material-icons-outlined">lock</span> Seguridad</a></li>
-                    </ul>
-                </li>
-                <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>
+                    <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
+                    <li class="dropdown-container">
+                        <a href="#" class="submenu">
+                            <span class="material-icons-outlined">map</span> Catálogo
+                            <span class="">▼</span>
+                        </a>
+                        <ul class="dropdown">
+                            <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Video</a></li>
+                            <li><a href="#PRIVACIDAD"><span class="material-icons-outlined">lock</span> Seguridad</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
     <!-- ==================== SIDENAV MÓVIL ==================== -->
     <nav id="nav-mobile" class="sidenav">
-    <div class="nav_perfil">
-        <div class="nav_logo">
-            <img src="imagenes/emisora.png" onerror="this.src='https://placehold.co/85x85/20B2AA/white?text=LF'" alt="Logo Emisora">
+        <div class="nav_perfil">
+            <div class="nav_logo">
+                <img src="imagenes/emisora.png" onerror="this.src='https://placehold.co/85x85/20B2AA/white?text=LF'" alt="Logo Emisora">
+            </div>
         </div>
-    </div>
-    
-    <ul class="navigation">
-        <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>
-        <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
-        <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Videos</a></li>
-        <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
-    </ul>
-    
-    <div class="enlaces">
-        <a href="#" class="weather-link" id="weatherSidenavLink">
-            <i class="material-icons-outlined" id="weatherSidenavIcon">wb_sunny</i>
-             <span id="weatherSidenavText">-- °C</span>
-        </a>
-    </div>
-  </nav>
-    
+
+        <ul class="navigation">
+            <li><a href="#INICIO"><span class="material-icons-outlined">home</span> Inicio</a></li>
+            <li><a href="#NOTAS"><span class="material-icons-outlined">newspaper</span> Noticias</a></li>
+            <li><a href="#VIDEOS"><span class="material-icons-outlined">camera</span> Videos</a></li>
+            <li><a href="#ARTISTAS"><span class="material-icons-outlined">headphones</span> Artistas</a></li>
+        </ul>
+
+        <div class="enlaces">
+            <a href="#" class="weather-link" id="weatherSidenavLink">
+                <i class="material-icons-outlined" id="weatherSidenavIcon">wb_sunny</i>
+                <span id="weatherSidenavText">-- °C</span>
+            </a>
+        </div>
+    </nav>
+
     <!-- ==================== MODAL COMPARTIR ==================== -->
     <div class="modal_wraper" id="shareModal">
         <div class="modal_container">
@@ -145,217 +185,164 @@
 
     <!-- ==================== CONTENIDO PRINCIPAL ==================== -->
     <main class="main-content">
-      
+
         <section id="INICIO" class="elemento visible">
             <div class="hero">
                 <h1>La Fronterísima</h1>
                 <p>Notas surcando fronteras</p>
             </div>
-            
-            <!-- Sección Matrix CORREGIDA -->
+
             <div class="matrix-section">
                 <div class="caja-matrix">
-                    <h3>INNOVACIÓN</h3>    
-                    <p>La Fronterísima es una plataforma digital de vanguardia que fusiona una diversa selección de música hispanoamericana y global con innovación tecnológica. Ofrecemos una experiencia sonora auténtica, emocionante y siempre actualizada, diseñada para conectar con el corazón de cada oyente.</p>                    
+                    <h3>INNOVACIÓN</h3>
+                    <p>La Fronterísima es una plataforma digital de vanguardia que fusiona una diversa selección de música hispanoamericana y global con innovación tecnológica. Ofrecemos una experiencia sonora auténtica, emocionante y siempre actualizada, diseñada para conectar con el corazón de cada oyente.</p>
                     <p>
                         <a href="https://www.facebook.com/lafronterisima" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a><br>
                         <a href="https://www.youtube.com/channel/UC3br-XVsFC1-vsGzco5H32w" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><br>
                         <a href="https://instagram.com/lafronterisimaonlain" target="_blank"><i class="fab fa-instagram"></i> Instagram</a><br>
-                        <a href="https://t.me/emisoralafronterisima_bot" target="_blank"><i class="fab fa-telegram"></i> Telegram</a> 
+                        <a href="https://t.me/emisoralafronterisima_bot" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
                     </p>
-                   
                 </div>
-                
+
                 <div class="contenedor_pt">
                     <div class="video-responsive">
                         <iframe id="video-canvas" src="https://www.youtube.com/embed/PvGZebtV6Ew?enablejsapi=1&html5=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 </div>
-                
+
                 <script>
-                const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
-                const iframe = document.getElementById('video-canvas');
+                    const API_URL = "https://opensheet.elk.sh/1PZ6hrcmQaSe6GW-_XCNX6lGk9uii7GXOcGN9LPE8lcY/videos";
+                    const iframe = document.getElementById('video-canvas');
 
-                let queuePlaylist = [];
-                let curQueue = 0;
+                    let queuePlaylist = [];
+                    let curQueue = 0;
 
-                // 1. Extraer ID del video
-                function extractID(url) {
-                    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-                    const match = url.match(regExp);
-                    return (match && match[2].length == 11) ? match[2] : url;
-                }
-
-                // 2. Cargar Google Sheets y configurar la URL inicial
-                async function loadSheet() {
-                    try {
-                        const res = await fetch(API_URL);
-                        const data = await res.json();
-
-                        queuePlaylist = data
-                            .filter(v => v.vid)
-                            .map(v => extractID(v.vid));
-
-                        if (queuePlaylist.length > 0) {
-                            startPlaylist();
-                        }
-                    } catch (e) {
-                        console.error("Error cargando la hoja:", e);
+                    function extractID(url) {
+                        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                        const match = url.match(regExp);
+                        return (match && match[2].length == 11) ? match[2] : url;
                     }
-                }
 
-                // 3. Crear la URL de Embed con el parámetro 'playlist'
-                // Esto permite que YouTube maneje la cola automáticamente
-                function startPlaylist() {
-                    const firstVideo = queuePlaylist[0];
-                    // Unimos el resto de la lista por comas para el parámetro playlist
-                    const otherVideos = queuePlaylist.slice(1).join(',');
-                    
-                    // Construimos la URL
-                    // loop=1 y playlist=ID1,ID2... hace que se reproduzcan todos en bucle
-                    const embedUrl = `https://www.youtube.com/embed/${firstVideo}?autoplay=1&mute=1&playlist=${queuePlaylist.join(',')}&loop=1`;
-                    
-                    iframe.src = embedUrl;
-                }
+                    async function loadSheet() {
+                        try {
+                            const res = await fetch(API_URL);
+                            const data = await res.json();
 
-                // Iniciar proceso
-                loadSheet();
+                            queuePlaylist = data
+                                .filter(v => v.vid)
+                                .map(v => extractID(v.vid));
+
+                            if (queuePlaylist.length > 0) {
+                                startPlaylist();
+                            }
+                        } catch (e) {
+                            console.error("Error cargando la hoja:", e);
+                        }
+                    }
+
+                    function startPlaylist() {
+                        const firstVideo = queuePlaylist[0];
+                        const embedUrl = `https://www.youtube.com/embed/${firstVideo}?autoplay=1&mute=1&playlist=${queuePlaylist.join(',')}&loop=1`;
+                        iframe.src = embedUrl;
+                    }
+
+                    loadSheet();
                 </script>
-                
             </div>
 
-            <!-- Sección Bloggers -->
-           <section id="bloggers">
-    <h3>NOSOTROS</h3>
+            <section id="bloggers">
+                <h3>NOSOTROS</h3>
 
-    <div class="contenido_block">
+                <div class="contenido_block">
+                    <div class="radiox">
+                        <div class="slideshow">
+                            <div class="mySlides1">
+                                <img loading="lazy" src="imagenes/Programación.jpg" alt="Programación">
+                            </div>
+                            <div class="mySlides1">
+                                <img loading="lazy" src="imagenes/arlex.jpg" alt="Arlex">
+                            </div>
+                            <div class="prev" onclick="plusSlides(-1, 0)">&#10094;</div>
+                            <div class="next" onclick="plusSlides(1, 0)">&#10095;</div>
+                        </div>
+                        <h4>Objetivo</h4>
+                        <div class="description">
+                            <p>Transformamos la tradición en una experiencia accesible, dinámica y enriquecedora, transmitiendo musica las 24 horas.</p>
+                        </div>
+                        <a class="btn1" href="sub/programas.html" target="_blank">Programas</a>
+                    </div>
 
-        <!-- Objetivo -->
-        <div class="radiox">
-            <div class="slideshow">
-                <div class="mySlides1">
-                    <img loading="lazy" src="imagenes/Programación.jpg" alt="Programación">
+                    <div class="radiox">
+                        <div class="slideshow">
+                            <div class="mySlides2">
+                                <img loading="lazy" src="imagenes/artistas.jpg" alt="Artistas">
+                            </div>
+                            <div class="mySlides2">
+                                <img loading="lazy" src="imagenes/contas.jpg" alt="Contacto">
+                            </div>
+                            <div class="prev" onclick="plusSlides(-1, 1)">&#10094;</div>
+                            <div class="next" onclick="plusSlides(1, 1)">&#10095;</div>
+                        </div>
+                        <h4>Info</h4>
+                        <div class="description">
+                            <p>La vanguardia de la comunicación y la música vive en lo digital. Sintoniza los sonidos del mundo hispano y descubre artistas que trascienden fronteras.</p>
+                        </div>
+                        <a class="btn1" href="sub/potcast.html" target="_blank">Podcast's</a>
+                    </div>
+
+                    <div class="radiox">
+                        <div class="slideshow">
+                            <div class="mySlides3">
+                                <img loading="lazy" src="imagenes/difusion.jpg" alt="Difusión">
+                            </div>
+                            <div class="mySlides3">
+                                <img loading="lazy" src="imagenes/noticias.jpg" alt="Noticias">
+                            </div>
+                            <div class="prev" onclick="plusSlides(-1, 2)">&#10094;</div>
+                            <div class="next" onclick="plusSlides(1, 2)">&#10095;</div>
+                        </div>
+                        <h4>Misión</h4>
+                        <div class="description">
+                            <p>Nuestra misión es hacer vibrar el alma de Hispanoamérica a través de la música. Cada canción que suena es una historia, una raíz, un latido cultural que viaja sin límites.</p>
+                        </div>
+                        <a class="btn1" href="sub/musicales.html" target="_blank">Canciones</a>
+                    </div>
                 </div>
-                <div class="mySlides1">
-                    <img loading="lazy" src="imagenes/arlex.jpg" alt="Arlex">
-                </div>
+            </section>
 
-                <div class="prev" onclick="plusSlides(-1, 0)">&#10094;</div>
-                <div class="next" onclick="plusSlides(1, 0)">&#10095;</div>
-            </div>
-
-            <h4>Objetivo</h4>
-
-            <div class="description">
-                <p>
-                    Transformamos la tradición en una experiencia accesible, dinámica y enriquecedora,
-                    transmitiendo musica las 24 horas.
-                </p>
-            </div>
-
-            <a class="btn1" href="sub/programas.html" target="_blank">Programas</a>
-        </div>
-
-        <!-- Info -->
-        <div class="radiox">
-            <div class="slideshow">
-                <div class="mySlides2">
-                    <img loading="lazy" src="imagenes/artistas.jpg" alt="Artistas">
-                </div>
-                <div class="mySlides2">
-                    <img loading="lazy" src="imagenes/contas.jpg" alt="Contacto">
-                </div>
-
-                <div class="prev" onclick="plusSlides(-1, 1)">&#10094;</div>
-                <div class="next" onclick="plusSlides(1, 1)">&#10095;</div>
-            </div>
-
-            <h4>Info</h4>
-
-            <div class="description">
-                <p>
-                    La vanguardia de la comunicación y la música vive en lo digital.
-                    Sintoniza los sonidos del mundo hispano y descubre artistas que
-                    trascienden fronteras.
-                </p>
-            </div>
-
-            <a class="btn1" href="sub/potcast.html" target="_blank">Podcast's</a>
-        </div>
-
-        <!-- Misión -->
-        <div class="radiox">
-            <div class="slideshow">
-                <div class="mySlides3">
-                    <img loading="lazy" src="imagenes/difusion.jpg" alt="Difusión">
-                </div>
-                <div class="mySlides3">
-                    <img loading="lazy" src="imagenes/noticias.jpg" alt="Noticias">
-                </div>
-
-                <div class="prev" onclick="plusSlides(-1, 2)">&#10094;</div>
-                <div class="next" onclick="plusSlides(1, 2)">&#10095;</div>
-            </div>
-
-            <h4>Misión</h4>
-
-            <div class="description">
-                <p>
-                    Nuestra misión es hacer vibrar el alma de Hispanoamérica a través
-                    de la música. Cada canción que suena es una historia, una raíz,
-                    un latido cultural que viaja sin límites.
-                </p>
-            </div>
-
-            <a class="btn1" href="sub/musicales.html" target="_blank">Canciones</a>
-        </div>
-
-    </div>
-</section>
-
-            <!-- Sección Podcast - Márgenes CORREGIDAS -->
-            <div class="boxes-podcast" id="podcast">    
+            <div class="boxes-podcast" id="podcast">
                 <div class="caja-portfa">
                     <h3>SOUNDS</h3>
-                    <div class="fb_back">           
+                    <div class="fb_back">
                         <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/125486431/favorites" width="100%" height="166" scrolling="no" frameborder="no"></iframe>
                     </div>
                 </div>
 
                 <div class="caja-portfa">
-                    <h3>ACTUALIDAD</h3>    
-                    <div class="fb_back" id="slider-container">    
+                    <h3>ACTUALIDAD</h3>
+                    <div class="fb_back" id="slider-container">
                         <img id="slidex" src="imagenes/1.jpg" width="100%" height="390px" alt="Actualidad">
                     </div>
                 </div>
-            
-                
-                 <script> 
-                 const images = [
-                  "imagenes/1.jpg",
-                  "imagenes/2.jpg",
-                  "imagenes/3.jpg"
-                ];
 
-                let currentImageIndex = 0;
+                <script>
+                    const images = [
+                        "imagenes/1.jpg",
+                        "imagenes/2.jpg",
+                        "imagenes/3.jpg"
+                    ];
 
-                // Función para cambiar las imágenes
-                function slideit() {
-                  // Cambiar la imagen
-                  document.getElementById("slidex").src = images[currentImageIndex];
+                    let currentImageIndex = 0;
 
-                  // Actualizar el índice de la imagen para la próxima
-                  currentImageIndex = (currentImageIndex + 1) % images.length;
-                }
+                    function slideit() {
+                        document.getElementById("slidex").src = images[currentImageIndex];
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                    }
 
-                // Cambiar la imagen cada 2.5 segundos
-                setInterval(slideit, 2500);
+                    setInterval(slideit, 2500);
+                </script>
+            </div>
 
-              </script>  
-                
-    </div>
-
-            <!-- Sección Video Background -->
             <div class="containers">
                 <div class="header-video">
                     <video src="" muted autoplay loop></video>
@@ -368,641 +355,548 @@
                 </div>
             </div>
 
-            <!-- Sección Fan Page -->
-      <div class="boxes-portfolio" id="fans">    
-    <!-- Fan Page -->
-    <div class="caja-portfolio">
-        <h3>FAN PAGE</h3>
-        <div class="fb_background">
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/lafronterisima&tabs=timeline&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" width="" height="" style="border:none;overflow:hidden;border-radius:10px;" scrolling="no" frameborder="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div>
+            <div class="boxes-portfolio" id="fans">
+                <div class="caja-portfolio">
+                    <h3>FAN PAGE</h3>
+                    <div class="fb_background">
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/lafronterisima&tabs=timeline&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" width="" height="" style="border:none;overflow:hidden;border-radius:10px;" scrolling="no" frameborder="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
 
-    <!-- Slider de Videos -->
-    <div class="caja-portfolio">
-        <h3>PROMO</h3>
-        <div class="video-slider" id="slider1">
-            <!-- Slides -->
-            <div class="slides active">
-                <iframe src="https://www.youtube.com/embed/PvGZebtV6Ew?enablejsapi=1&html5=1" title="Video Promo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            
-            <div class="slides">
-                <iframe src="https://www.youtube.com/embed/ZGNqaE10Oeg?enablejsapi=1&html5=1" title="Video Promo 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+                <div class="caja-portfolio">
+                    <h3>PROMO</h3>
+                    <div class="video-slider" id="slider1">
+                        <div class="slides active">
+                            <iframe src="https://www.youtube.com/embed/PvGZebtV6Ew?enablejsapi=1&html5=1" title="Video Promo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
 
-            <!-- Flechas con iconos Font Awesome -->
-            <div class="slide-arrow left" onclick="changeSlide(-1, 'slider1')">
-                <i class="fas fa-chevron-left"></i>
+                        <div class="slides">
+                            <iframe src="https://www.youtube.com/embed/ZGNqaE10Oeg?enablejsapi=1&html5=1" title="Video Promo 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="slide-arrow left" onclick="changeSlide(-1, 'slider1')">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="slide-arrow right" onclick="changeSlide(1, 'slider1')">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="slide-arrow right" onclick="changeSlide(1, 'slider1')">
-                <i class="fas fa-chevron-right"></i>
-            </div>
-        </div>
-    </div>
-</div>
-   
-                
-  </section>
+        </section>
 
         <!-- SECCIÓN NOTICIAS -->
         <section id="NOTAS" class="elemento" style="display: none;">
-            
             <div class="section">
-    <div class="notas_page">
-        <div id="publicaciones" class="containst">
-            <!-- Publicidad lateral -->
-            <div class="advert-container">
-                <div class="container-fluid">
-                    <div class="imagen">
-                        <a href="#">
-                            <img class="img-responsive" src="imagenes/consola.jpg" alt="Consola">
-                            <p>La Fronterísima</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="container-fluid">
-                    <div id="Adds">
-                        <img id="imgAdd" src="imagenes/3.jpg" style="display: block; width: 100%;" alt="Anuncio">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Contenido principal -->
-            <div class="main-contain">
-                <div id="notas_titular" class="container-fluid">
-                    <div class="contec">
-                        <div id="contex">
-                            <!-- Noticia principal -->
-                            <div class="news-box" onclick="loadNews('sub/news1.html')" style="cursor: pointer;">
-                                <h3>Lenguaje musical</h3>
-                                <div class="datetime"><span>1/5/2026 8:00 am</span></div>
-                                <div class="note">
-                                    <p>La música, una de las formas de expresión más antiguas y universales, ha acompañado a la humanidad a lo largo de su historia.</p>
-                                </div>
+                <div class="notas_page">
+                    <div id="publicaciones" class="containst">
+                        <div class="advert-container">
+                            <div class="container-fluid">
                                 <div class="imagen">
-                                    <img loading="lazy" class="img" src="images/musica.jpg" alt="Música">
-                                    <h5>Imagen tomada de: pixabay.com</h5>
+                                    <a href="#">
+                                        <img class="img-responsive" src="imagenes/consola.jpg" alt="Consola">
+                                        <p>La Fronterísima</p>
+                                    </a>
                                 </div>
                             </div>
-                            
-                            <!-- Grid de noticias -->
-                            <section class="news-container">
-                                <div class="infoes" onclick="loadNews('sub/news2.html')" style="cursor: pointer;">
-                                    <div class="top-info">
-                                        <img loading="lazy" src="images/natural1.jpg" alt="Naturaleza">
-                                        <h3>Un futuro sostenible</h3>
-                                        <div class="date">Enero 7, 2026</div>
-                                        <p>La naturaleza es un regalo invaluable que nos brinda vida, belleza y recursos esenciales.</p>
+                            <div class="container-fluid">
+                                <div id="Adds">
+                                    <img id="imgAdd" src="imagenes/3.jpg" style="display: block; width: 100%;" alt="Anuncio">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="main-contain">
+                            <div id="notas_titular" class="container-fluid">
+                                <div class="contec">
+                                    <div id="contex">
+                                        <div class="news-box" onclick="loadNews('sub/news1.html')" style="cursor: pointer;">
+                                            <h3>Lenguaje musical</h3>
+                                            <div class="datetime"><span>1/5/2026 8:00 am</span></div>
+                                            <div class="note">
+                                                <p>La música, una de las formas de expresión más antiguas y universales, ha acompañado a la humanidad a lo largo de su historia.</p>
+                                            </div>
+                                            <div class="imagen">
+                                                <img loading="lazy" class="img" src="images/musica.jpg" alt="Música">
+                                                <h5>Imagen tomada de: pixabay.com</h5>
+                                            </div>
+                                        </div>
+
+                                        <section class="news-container">
+                                            <div class="infoes" onclick="loadNews('sub/news2.html')" style="cursor: pointer;">
+                                                <div class="top-info">
+                                                    <img loading="lazy" src="images/natural1.jpg" alt="Naturaleza">
+                                                    <h3>Un futuro sostenible</h3>
+                                                    <div class="date">Enero 7, 2026</div>
+                                                    <p>La naturaleza es un regalo invaluable que nos brinda vida, belleza y recursos esenciales.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="news">
+                                                <div class="infoes" onclick="loadNews('sub/news3.html')" style="cursor: pointer;">
+                                                    <div class="top-info">
+                                                        <img src="images/mascotas1.jpg" alt="Mascotas">
+                                                        <h3>Cuidar las mascotas</h3>
+                                                        <div class="date">Enero 26, 2026</div>
+                                                        <p>Las mascotas son más que simples animales de compañía.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="infoes" onclick="loadNews('sub/news4.html')" style="cursor: pointer;">
+                                                    <div class="top-info">
+                                                        <img src="images/sociedad1.jpg" alt="Sociedad">
+                                                        <h3>Vínculos sociales</h3>
+                                                        <div class="date">Febrero 18, 2026</div>
+                                                        <p>Las mascotas son más que simples animales de compañía.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="news">
+                                                <div class="infoes" onclick="loadNews('sub/news5.html')" style="cursor: pointer;">
+                                                    <div class="top-info">
+                                                        <img src="images/pasatiempo1.jpg" alt="Pasatiempos">
+                                                        <h3>Actividades aire libre</h3>
+                                                        <div class="date">Marzo 15, 2026</div>
+                                                        <p>El tiempo libre brinda la oportunidad de mantenerse activo.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="infoes" onclick="loadNews('sub/news6.html')" style="cursor: pointer;">
+                                                    <div class="top-info">
+                                                        <img src="images/deporte1.jpg" alt="Deporte">
+                                                        <h3>Importancia del deporte</h3>
+                                                        <div class="date">Marzo 17, 2026</div>
+                                                        <p>El deporte es mucho más que competiciones y entretenimiento.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <section class="news-container" id="contenedor5"></section>
+                                        <div id="gif" class="loader center-block" style="display:none;"></div>
+                                        <div class="boton_content">
+                                            <button onclick="cargarNoticias()" type="button" id="boton">Cargar más</button>
+                                        </div>
                                     </div>
                                 </div>
-                                
-                                <div class="news">
-                                    <div class="infoes" onclick="loadNews('sub/news3.html')" style="cursor: pointer;">
-                                        <div class="top-info">
-                                            <img src="images/mascotas1.jpg" alt="Mascotas">
-                                            <h3>Cuidar las mascotas</h3>
-                                            <div class="date">Enero 26, 2026</div>
-                                            <p>Las mascotas son más que simples animales de compañía.</p>
-                                        </div>
-                                    </div>
-                                    <div class="infoes" onclick="loadNews('sub/news4.html')" style="cursor: pointer;">
-                                        <div class="top-info">
-                                            <img src="images/sociedad1.jpg" alt="Sociedad">
-                                            <h3>Vínculos sociales</h3>
-                                            <div class="date">Febrero 18, 2026</div>
-                                            <p>Las mascotas son más que simples animales de compañía.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="news">
-                                    <div class="infoes" onclick="loadNews('sub/news5.html')" style="cursor: pointer;">
-                                        <div class="top-info">
-                                            <img src="images/pasatiempo1.jpg" alt="Pasatiempos">
-                                            <h3>Actividades aire libre</h3>
-                                            <div class="date">Marzo 15, 2026</div>
-                                            <p>El tiempo libre brinda la oportunidad de mantenerse activo.</p>
-                                        </div>
-                                    </div>
-                                    <div class="infoes" onclick="loadNews('sub/news6.html')" style="cursor: pointer;">
-                                        <div class="top-info">
-                                            <img src="images/deporte1.jpg" alt="Deporte">
-                                            <h3>Importancia del deporte</h3>
-                                            <div class="date">Marzo 17, 2026</div>
-                                            <p>El deporte es mucho más que competiciones y entretenimiento.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                            
-                            <section class="news-container" id="contenedor5"></section>
-                            <div id="gif" class="loader center-block" style="display:none;"></div>
-                            <div class="boton_content">
-                                <button onclick="cargarNoticias()" type="button" id="boton">Cargar más</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-            
         </section>
 
         <!-- SECCIÓN VIDEOS -->
-   <section id="VIDEOS" class="elemento" style="display: none;">
-  <div class="content_artist">
+        <section id="VIDEOS" class="elemento" style="display: none;">
+            <div class="content_artist">
+                <article class="artistas-card">
+                    <div class="rwd-media">
+                        <iframe src="https://www.youtube.com/embed/02GlczrkIBk?html5=1&amp;enablejsapi=1" title="Elfre Delgado" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="artistas-text">
+                        <h3>Elfre Delgado</h3>
+                        <h2>Vallenato</h2>
+                        <p>Cantante del género vallenato, para gozar con ¡Sabrosura!</p>
+                    </div>
+                </article>
 
-    <!-- Artista 1 -->
-    <article class="artistas-card">
-      <div class="rwd-media">
-        <iframe 
-          src="https://www.youtube.com/embed/02GlczrkIBk?html5=1&amp;enablejsapi=1" 
-          title="Elfre Delgado" 
-          loading="lazy" 
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="artistas-text">
-        <h3>Elfre Delgado</h3>
-        <h2>Vallenato</h2>
-        <p>Cantante del género vallenato, para gozar con ¡Sabrosura!</p>
-      </div>
-    </article>
+                <article class="artistas-card">
+                    <div class="rwd-media">
+                        <iframe src="https://www.youtube.com/embed/W_qrpb-u18w?html5=1&amp;enablejsapi=1" title="Luis Alexis" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="artistas-text">
+                        <h3>Luis Alexis</h3>
+                        <h2>Vallenato</h2>
+                        <p>Artista Ecuatoriano del género Vallenato para el mundo. ¡Ay Ombe!</p>
+                    </div>
+                </article>
 
-    <!-- Artista 2 -->
-    <article class="artistas-card">
-      <div class="rwd-media">
-        <iframe 
-          src="https://www.youtube.com/embed/W_qrpb-u18w?html5=1&amp;enablejsapi=1" 
-          title="Luis Alexis" 
-          loading="lazy" 
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="artistas-text">
-        <h3>Luis Alexis</h3>
-        <h2>Vallenato</h2>
-        <p>Artista Ecuatoriano del género Vallenato para el mundo. ¡Ay Ombe!</p>
-      </div>
-    </article>
+                <article class="artistas-card">
+                    <div class="rwd-media">
+                        <iframe src="https://www.youtube.com/embed/ubHvNue4Ma4?html5=1&amp;enablejsapi=1" title="Rodolfo Chavijo" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="artistas-text">
+                        <h3>Rodolfo Chavijo</h3>
+                        <h2>Popular</h2>
+                        <p>Excelente intérprete dedicado al género norteño y popular.</p>
+                    </div>
+                </article>
 
-    <!-- Artista 3 -->
-    <article class="artistas-card">
-      <div class="rwd-media">
-        <iframe 
-          src="https://www.youtube.com/embed/ubHvNue4Ma4?html5=1&amp;enablejsapi=1" 
-          title="Rodolfo Chavijo" 
-          loading="lazy" 
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="artistas-text">
-        <h3>Rodolfo Chavijo</h3>
-        <h2>Popular</h2>
-        <p>Excelente intérprete dedicado al género norteño y popular.</p>
-      </div>
-    </article>
+                <article class="artistas-card">
+                    <div class="rwd-media">
+                        <iframe src="https://www.youtube.com/embed/rYyUEtOWIX4?html5=1&amp;enablejsapi=1" title="Enrique Chávez" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="artistas-text">
+                        <h3>Enrique Chávez</h3>
+                        <h2>Variado</h2>
+                        <p>Talentoso artista y compositor Mexicano, destacándose en el género ranchero.</p>
+                    </div>
+                </article>
 
-    <!-- Artista 4 -->
-    <article class="artistas-card">
-      <div class="rwd-media">
-        <iframe 
-          src="https://www.youtube.com/embed/rYyUEtOWIX4?html5=1&amp;enablejsapi=1" 
-          title="Enrique Chávez" 
-          loading="lazy" 
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="artistas-text">
-        <h3>Enrique Chávez</h3>
-        <h2>Variado</h2>
-        <p>Talentoso artista y compositor Mexicano, destacándose en el género ranchero.</p>
-      </div>
-    </article>
+                <article class="artistas-card">
+                    <div class="rwd-media">
+                        <iframe src="https://www.youtube.com/embed/2vrBpjQjAbk?html5=1&amp;enablejsapi=1" title="Grupo Clybyer" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="artistas-text">
+                        <h3>Grupo Clybyer</h3>
+                        <h2>Urbano</h2>
+                        <p>Un grupo de música urbana, cuyas raíces son de Putumayo.</p>
+                    </div>
+                </article>
 
-    <!-- Artista 5 -->
-    <article class="artistas-card">
-      <div class="rwd-media">
-        <iframe 
-          src="https://www.youtube.com/embed/2vrBpjQjAbk?html5=1&amp;enablejsapi=1" 
-          title="Grupo Clybyer" 
-          loading="lazy" 
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="artistas-text">
-        <h3>Grupo Clybyer</h3>
-        <h2>Urbano</h2>
-        <p>Un grupo de música urbana, cuyas raíces son de Putumayo.</p>
-      </div>
-    </article>
+                <article class="artistas-card">
+                    <div class="rwd-media">
+                        <iframe src="https://www.youtube.com/embed/AT7HHYvbtq4?html5=1&amp;enablejsapi=1" title="José Escarpeta" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                    <div class="artistas-text">
+                        <h3>José Escarpeta</h3>
+                        <h2>Popular</h2>
+                        <p>Artista consagrado junto a su agrupación de música popular.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-    <!-- Artista 6 -->
-    <article class="artistas-card">
-      <div class="rwd-media">
-        <iframe 
-          src="https://www.youtube.com/embed/AT7HHYvbtq4?html5=1&amp;enablejsapi=1" 
-          title="José Escarpeta" 
-          loading="lazy" 
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="artistas-text">
-        <h3>José Escarpeta</h3>
-        <h2>Popular</h2>
-        <p>Artista consagrado junto a su agrupación de música popular.</p>
-      </div>
-    </article>
-
-  </div>
-</section>
-
+        <!-- SECCIÓN ARTISTAS -->
         <section id="ARTISTAS" class="elemento" style="display: none;">
             <div class="section">
-             
                 <div class="contenedors">
-                     <!-- Tarjeta 1 -->
-        <div class="cards">
-            <div class="card-headers">
-                <div class="sliders">
-                    <div class="slides active">
-                          <img loading="lazy" src="artistas/Georgy.jpg" alt="">
-                    </div>
-                    <div class="slides">
-                         <img loading="lazy" src="artistas/Georgy.jpg" alt="">
-                    </div>
-                    <button class="prev" aria-label="Previous slide">&#10094;</button>
-                    <button class="next" aria-label="Next slide">&#10095;</button>
-                </div>
-            </div>
-            <div class="card-bodys">
-                <h2 class="card-titles">Georgy Cañas</h2>
-                <p class="card-descriptions">
-                     Cantante e interprete polifacetico de los diferentes generos musicales, oriundo del
-                    municipio de Chinchina - Caldas y radicado en Pereira, con una gran trayectoria en el plano musical.<br>
-                    Luego de haber integrado diferentes agrupaciones y orquestas a nivel nacional e internacional, decide
-                    lanzar su carrera musical como solista con el genero popular, los invito a seguir una nueva propuesta.
-                </p>
-              
-              <form id="vote-form">
-              <ul id="artists-list">
-              <li id="artist-1">
-              
-               <button type="button" class="vote-button" data-artist="1">
-               <span class="vote-count" id="vote-1">0 votos</span>
-               </button>
-               <div id="mensaje"></div>
 
-              </li>
-             </ul>
-            </form>
-            </div>
-        </div>
+                    <!-- Tarjeta 1 -->
+                    <div class="cards">
+                        <div class="card-headers">
+                            <div class="sliders">
+                                <div class="slides active">
+                                    <img loading="lazy" src="artistas/Georgy.jpg" alt="Georgy Cañas">
+                                </div>
+                                <div class="slides">
+                                    <img loading="lazy" src="artistas/Georgy.jpg" alt="Georgy Cañas">
+                                </div>
+                                <button class="prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="next" aria-label="Next slide">&#10095;</button>
+                            </div>
+                        </div>
+                        <div class="card-bodys">
+                            <h2 class="card-titles">Georgy Cañas</h2>
+                            <p class="card-descriptions">
+                                Cantante e interprete polifacetico de los diferentes generos musicales, oriundo del
+                                municipio de Chinchina - Caldas y radicado en Pereira, con una gran trayectoria en el plano musical.<br>
+                                Luego de haber integrado diferentes agrupaciones y orquestas a nivel nacional e internacional, decide
+                                lanzar su carrera musical como solista con el genero popular, los invito a seguir una nueva propuesta.
+                            </p>
 
-        <!-- Tarjeta 2 -->
-         <div class="cards">
-            <div class="card-headers">
-                <div class="sliders">
-                    <div class="slides active">
-                         <img loading="lazy" src="artistas/Cly&beyr.jpg" alt="">
+                            <div class="vote-form">
+                                <ul class="artists-list">
+                                    <li id="artist-1">
+                                        <button type="button" class="vote-button" data-artist="1">
+                                            <span class="vote-count" id="vote-1">0 votos</span>
+                                        </button>
+                                        <div class="mensaje"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="slides">
-                         <img loading="lazy" src="artistas/Cly&beyr.jpg" alt="">
-                    </div>
-                    <button class="prev" aria-label="Previous slide">&#10094;</button>
-                    <button class="next" aria-label="Next slide">&#10095;</button>
-                </div>
-            </div>
-            <div class="card-bodys">
-                <h2 class="card-titles">Cly&beyr</h2>
-                <p class="card-descriptions">
-                  Es una agrupacion de género urbano, conformado por jóvenes Leguizameños dispuestos a dar todo por su talento,con su gran talento musical han viajado a diferentes de Colombia y Ecuador. Ha participado en eventos como ferias,
-                  carnavales, festivales y encuentros culturales, a estado lanzando diferentes sencillos: 
-                  "Leguízamo" un tema músical homenaje a una tierra de culturas en el sur del país.
-               </p>
-              
-              <form id="vote-form">
-               <ul id="artists-list">
-              <li id="artist-2">
-             
-                <button type="button" class="vote-button" data-artist="2"><span class="vote-count" id="vote-2">0 votos</span></button>
-                 <div id="mensaje"></div>
-                 
-              </li>
-             </ul>
-            </form>
-            </div>
-        </div>
 
-        <!-- Tarjeta 3 -->
-          <div class="cards">
-            <div class="card-headers">
-                <div class="sliders">
-                    <div class="slides active">
-                         <img loading="lazy" src="artistas/Pentagrama Mix.jpg" alt="">
-                    </div>
-                    <div class="slides">
-                         <img loading="lazy" src="artistas/Pentagrama Mix.jpg" alt="">
-                    </div>
-                    <button class="prev" aria-label="Previous slide">&#10094;</button>
-                    <button class="next" aria-label="Next slide">&#10095;</button>
-                </div>
-            </div>
-            <div class="card-bodys">
-                <h2 class="card-titles">Pentagrama Mix</h2>
-                <p class="card-descriptions">
-                 Agrupación de género Tropical, constituida por jóvenes Leguizameños dispuestos a dar todo por su talento, reconocida a nivel
-                 Departamental e Internacional, con su gran talento musical a recorrido diferentes partes de Colombia y Ecuador. Ha participado en eventos como 
-                 ferias, festivales y encuentros culturales. "LEGUIZAMO" hace homenaje a una tierra de culturas en el sur del pais.
-                </p>
-              
-             <form id="vote-form">
-              <ul id="artists-list">
-              <li id="artist-3">
-              
-                <button type="button" class="vote-button" data-artist="3"><span class="vote-count" id="vote-3"> 0 votos</span></button>
-                 <div id="mensaje"></div>
-                 
-              </li>
-             </ul>
-           </form>
-            </div>
-        </div>
-        
-          <!-- Tarjeta 4 -->
-          <div class="cards">
-            <div class="card-headers">
-                <div class="sliders">
-                    <div class="slides active">
-                       <img loading="lazy" src="artistas/indomables.jpg" alt="">
-                    </div>
-                    <div class="slides">
-                        <img loading="lazy" src="artistas/indomables.jpg" alt="">
-                    </div>
-                    <button class="prev" aria-label="Previous slide">&#10094;</button>
-                    <button class="next" aria-label="Next slide">&#10095;</button>
-                </div>
-            </div>
-            <div class="card-bodys">
-                <h2 class="card-titles">Las Indomables</h2>
-                <p class="card-descriptions">
-                  Tenemos el gusto de presentarles a "Las Indomables" (Género Tecno-Carrilera) con el mejor repertorio de éxitos 
-                  del género, han alternado con varios artístas de cartelera en ferias y fiestas.
-                  Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos
-                  instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena. 
-             </p>
-              
-              <form id="vote-form">
-                 <ul id="artists-list">
-                 <li id="artist-4">
-               
-                 <button type="button" class="vote-button" data-artist="4"><span class="vote-count" id="vote-4"> 0 votos</span></button>
-                  <div id="mensaje"></div>
-                  
-                </li>
-                </ul>
-               </form>
-            </div>
-        </div>
-        
-          <!-- Tarjeta 5 -->
-          <div class="cards">
-            <div class="card-headers">
-                <div class="sliders">
-                    <div class="slides active">
-                       <img loading="lazy" src="artistas/federales.jpg" alt="">
-                    </div>
-                    <div class="slides">
-                        <img loading="lazy" src="artistas/federales.jpg" alt="">  <img loading="lazy" src="artistas/Georgy.jpg" alt="">
-                    </div>
-                    <button class="prev" aria-label="Previous slide">&#10094;</button>
-                    <button class="next" aria-label="Next slide">&#10095;</button>
-                </div>
-            </div>
-            <div class="card-bodys">
-                <h2 class="card-titles">Los Federales</h2>
-                <p class="card-descriptions">
-                  Con más de 18 años de carrera musical "Los Federales de Colombia" son reconocidos
-                  por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Cuncurso de Temas
-                  Inéditos en Sinaloa Radio TV, con Lupita Villa en México.
-                  Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por exitos como: Vivo como un rey, A mi pueblo querido etc.
-                </p>
-              
-               <form id="vote-form">
-                 <ul id="artists-list">
-                  <li id="artist-5">
-                 
-                  <button type="button" class="vote-button" data-artist="5"><span class="vote-count" id="vote-5"> 0 votos</span></button>
-                   <div id="mensaje"></div>
-                   
-                  </li>
-                 </ul>
-               </form>
-            </div>
-        </div>
-        
-          <!-- Tarjeta 6 -->
-          <div class="cards">
-            <div class="card-headers">
-                <div class="sliders">
-                    <div class="slides active">
-                       <img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="">
-                    </div>
-                    <div class="slides">
-                       <img loading="lazy" src="artistas/Yo me llamo Alzate.jpg" alt="">
-                    </div>
-                    <button class="prev" aria-label="Previous slide">&#10094;</button>
-                    <button class="next" aria-label="Next slide">&#10095;</button>
-                </div>
-            </div>
-            <div class="card-bodys">
-                <h2 class="card-titles">Yo me llamo Alzate</h2>
-                <p class="card-descriptions">
-                  Un gran artista multifacético "Xavier El Gato blanco", participo
-                  en "Yo me llamo" interprentando a Alzate y catalogado como el "Mil Voces" por imitar artístas como Alzate, Yeison
-                  Jiménez,Alexis Escobar entre otros.<br>
-                
-                  La agrupación está integrada por: Voz oficial y un marco de (2) trompetas, (1) bajo, (1) piano o acordeón, (1) vihuela, (2) requintos,
-                  y (1) batería, total de (8) integrantes en escena.                   
-                </p>
-              
-             <form id="vote-form">
-                 <ul id="artists-list">
-                  <li id="artist-6">
-                 
-                  <button type="button" class="vote-button" data-artist="6"><span class="vote-count" id="vote-6"> 0 votos</span></button>
-                   <div id="mensaje"></div>
-                   
-                  </li>
-                 </ul>
-               </form>
-            </div>
-        </div>
-        
-          <!-- Tarjeta 7 -->
-          <div class="cards">
-            <div class="card-headers">
-                <div class="sliders">
-                    <div class="slides active">
-                         <img loading="lazy" src="artistas/latin show.jpg" alt="">
-                    </div>
-                    <div class="slides">
-                         <img loading="lazy" src="artistas/latin show.jpg" alt="">
-                    </div>
-                    <button class="prev" aria-label="Previous slide">&#10094;</button>
-                    <button class="next" aria-label="Next slide">&#10095;</button>
-                </div>
-            </div>
-            <div class="card-bodys">
-                <h2 class="card-titles">Pedro Vidal</h2>
-                <p class="card-descriptions">
-                  Presentación Musical: Reinado Nacional De la Belleza AFRO, Carnaval de pasto, Festival Vallenato,
-                  Feria de las Flores, Feria de Cali, La feria de Manizales, entre otros.
-                  A nivel internacional, el artista show Central del festival más importante del mundo de los Colombianos,
-                  Festival que se da en la ciudad de New york "El Festival de Flushing" festivales en Washington DC. Miami Fl., 
-                  artista invitado en mis mundos internacionales y en el reinado de belleza de Bolivia.
-                  Diferentes festivales en Ecuador y Centroamérica.                
-                </p>
-              
-              <form id="vote-form">
-                   <ul id="artists-list">
-                   <li id="artist-7">
-                
-                <button type="button" class="vote-button" data-artist="7"><span class="vote-count" id="vote-7"> 0 votos</span></button>
-                 <div id="mensaje"></div>
-                 
-              </li>
-             </ul>
-           </form>
-            </div>
-        </div>
-        
-          <!-- Tarjeta 8 -->
-          <div class="cards">
-            <div class="card-headers">
-                <div class="sliders">
-                    <div class="slides active">
-                         <img loading="lazy" src="artistas/fantasticos vallenato.jpg" alt="">
-                    </div>
-                    <div class="slides">
-                         <img loading="lazy" src="artistas/fantasticos vallenato.jpg" alt="">
-                    </div>
-                    <button class="prev" aria-label="Previous slide">&#10094;</button>
-                    <button class="next" aria-label="Next slide">&#10095;</button>
-                </div>
-            </div>
-            <div class="card-bodys">
-                <h2 class="card-titles">Fantásticos del Vallenato</h2>
-                <p class="card-descriptions">
-                  Es un orgullo presentar a Huberth Montero y Los Fantásticos del Vallenato (Género Vallenato)
-                  Agrupación con más de 26 años de vida artística y con éxitos nacionales e internacionales como Te Extraño, 
-                  Dime Soledad, Porque Te Vas Y Solamente Tu entre otros.
-                  Voz Líder, Acordeón, dos (2) Coros, Caja, Guacharaca, Congas, Timbal, Bajo, Guitarra, Piano, para un total 
-                  de once (11) integrantes en escena.
-                  La presentación de "Huberth Montero y los Fantásticos del Vallenato”.
-                </p>
-              
-                <form id="vote-form">
-                  <ul id="artists-list">
-                 <li id="artist-8">
-              
-                <button type="button" class="vote-button" data-artist="8"><span class="vote-count" id="vote-8"> 0 votos</span></button>
-                 <div id="mensaje"></div>
-                 
-                </li>
-                </ul>
-              </form>
-            </div>
-        </div>
-        
-          <!-- Tarjeta 9 -->
-          <div class="cards">
-            <div class="card-headers">
-                <div class="sliders">
-                    <div class="slides active">
-                         <img loading="lazy" src="artistas/genesis%20orquesta.jpg" alt="">
-                    </div>
-                    <div class="slides">
-                         <img loading="lazy" src="artistas/genesis%20orquesta.jpg" alt="">
-                    </div>
-                    <button class="prev" aria-label="Previous slide">&#10094;</button>
-                    <button class="next" aria-label="Next slide">&#10095;</button>
-                </div>
-            </div>
-            <div class="card-bodys">
-                <h2 class="card-titles">Génesis Internacional</h2>
-                <p class="card-descriptions">
-                  Es una agrupacion creada en el 2010 en la ciudad de San Juan de Pasto, impulsada con
-                  el propósito de exaltar el talento artístico femenino complementado con el empuje, ahínco y musicalidad masculinos. 
-                  Su propuesta musical es variada e influenciada por el género tropical fiestero y Tecnocumbiero por excelencia, el son sureño
-                  y ritmos propios de la región nariñense y más adelante profundizará e incursionará en géneros musicales variados y caribeños
-                  de la costa colombiana, el merengue, y la salsa.      
-                </p>
-              
-              <form id="vote-form">
-                  <ul id="artists-list">
-                 <li id="artist-9">
-               
-                <button type="button" class="vote-button" data-artist="9"><span class="vote-count" id="vote-9"> 0 votos</span></button>
-                 <div id="mensaje"></div>
-                 
-                 </li>
-                </ul>
-               </form>    
-            </div>
-        </div>
-        
-        
-         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-         <script src="js/vote.js"></script>
-         
-          </div>
-       </div>
-       
-       <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sliders = document.querySelectorAll('.sliders');
+                    <!-- Tarjeta 2 -->
+                    <div class="cards">
+                        <div class="card-headers">
+                            <div class="sliders">
+                                <div class="slides active">
+                                    <img loading="lazy" src="artistas/Cly%26beyr.jpg" alt="Cly&amp;beyr">
+                                </div>
+                                <div class="slides">
+                                    <img loading="lazy" src="artistas/Cly%26beyr.jpg" alt="Cly&amp;beyr">
+                                </div>
+                                <button class="prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="next" aria-label="Next slide">&#10095;</button>
+                            </div>
+                        </div>
+                        <div class="card-bodys">
+                            <h2 class="card-titles">Cly&amp;beyr</h2>
+                            <p class="card-descriptions">
+                                Es una agrupacion de género urbano, conformado por jóvenes Leguizameños dispuestos a dar todo por su talento, con su gran talento musical han viajado a diferentes partes de Colombia y Ecuador. Ha participado en eventos como ferias,
+                                carnavales, festivales y encuentros culturales, ha estado lanzando diferentes sencillos:
+                                "Leguízamo" un tema músical homenaje a una tierra de culturas en el sur del país.
+                            </p>
 
-            sliders.forEach(slider => {
-                const slides = slider.querySelectorAll('.slides');
-                const prevButton = slider.querySelector('.prev');
-                const nextButton = slider.querySelector('.next');
-                let currentSlide = 0;
+                            <div class="vote-form">
+                                <ul class="artists-list">
+                                    <li id="artist-2">
+                                        <button type="button" class="vote-button" data-artist="2">
+                                            <span class="vote-count" id="vote-2">0 votos</span>
+                                        </button>
+                                        <div class="mensaje"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-                function showSlide(index) {
-                    if (index >= slides.length) {
-                        currentSlide = 0;
-                    } else if (index < 0) {
-                        currentSlide = slides.length - 1;
-                    } else {
-                        currentSlide = index;
-                    }
-                    slides.forEach((slide, i) => {
-                        slide.style.transform = `translateX(-${currentSlide * 100}%)`;
-                    });
-                }
+                    <!-- Tarjeta 3 -->
+                    <div class="cards">
+                        <div class="card-headers">
+                            <div class="sliders">
+                                <div class="slides active">
+                                    <img loading="lazy" src="artistas/Pentagrama%20Mix.jpg" alt="Pentagrama Mix">
+                                </div>
+                                <div class="slides">
+                                    <img loading="lazy" src="artistas/Pentagrama%20Mix.jpg" alt="Pentagrama Mix">
+                                </div>
+                                <button class="prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="next" aria-label="Next slide">&#10095;</button>
+                            </div>
+                        </div>
+                        <div class="card-bodys">
+                            <h2 class="card-titles">Pentagrama Mix</h2>
+                            <p class="card-descriptions">
+                                Agrupación de género Tropical, constituida por jóvenes Leguizameños dispuestos a dar todo por su talento, reconocida a nivel
+                                Departamental e Internacional, con su gran talento musical ha recorrido diferentes partes de Colombia y Ecuador. Ha participado en eventos como
+                                ferias, festivales y encuentros culturales. "LEGUIZAMO" hace homenaje a una tierra de culturas en el sur del país.
+                            </p>
 
-                prevButton.addEventListener('click', () => {
-                    showSlide(currentSlide - 1);
-                });
+                            <div class="vote-form">
+                                <ul class="artists-list">
+                                    <li id="artist-3">
+                                        <button type="button" class="vote-button" data-artist="3">
+                                            <span class="vote-count" id="vote-3">0 votos</span>
+                                        </button>
+                                        <div class="mensaje"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-                nextButton.addEventListener('click', () => {
-                    showSlide(currentSlide + 1);
-                });
+                    <!-- Tarjeta 4 -->
+                    <div class="cards">
+                        <div class="card-headers">
+                            <div class="sliders">
+                                <div class="slides active">
+                                    <img loading="lazy" src="artistas/indomables.jpg" alt="Las Indomables">
+                                </div>
+                                <div class="slides">
+                                    <img loading="lazy" src="artistas/indomables.jpg" alt="Las Indomables">
+                                </div>
+                                <button class="prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="next" aria-label="Next slide">&#10095;</button>
+                            </div>
+                        </div>
+                        <div class="card-bodys">
+                            <h2 class="card-titles">Las Indomables</h2>
+                            <p class="card-descriptions">
+                                Tenemos el gusto de presentarles a "Las Indomables" (Género Tecno-Carrilera) con el mejor repertorio de éxitos
+                                del género, han alternado con varios artístas de cartelera en ferias y fiestas.
+                                Las Indomables están conformadas por una delantera de (2) voces femeninas y (2) bailarinas, (5) músicos con sus respectivos
+                                instrumentos: Acordeón, batería, bajo, bajo sexto y teclado, para un total de nueve integrantes en escena.
+                            </p>
 
-          
-            });
-        });
-    </script>
-    
+                            <div class="vote-form">
+                                <ul class="artists-list">
+                                    <li id="artist-4">
+                                        <button type="button" class="vote-button" data-artist="4">
+                                            <span class="vote-count" id="vote-4">0 votos</span>
+                                        </button>
+                                        <div class="mensaje"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 5 -->
+                    <div class="cards">
+                        <div class="card-headers">
+                            <div class="sliders">
+                                <div class="slides active">
+                                    <img loading="lazy" src="artistas/federales.jpg" alt="Los Federales">
+                                </div>
+                                <div class="slides">
+                                    <img loading="lazy" src="artistas/federales.jpg" alt="Los Federales">
+                                </div>
+                                <button class="prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="next" aria-label="Next slide">&#10095;</button>
+                            </div>
+                        </div>
+                        <div class="card-bodys">
+                            <h2 class="card-titles">Los Federales</h2>
+                            <p class="card-descriptions">
+                                Con más de 18 años de carrera musical "Los Federales de Colombia" son reconocidos
+                                por ser grandes exponentes de la música norteña, de banda, ranchera y popular. Son ganadores del "Sexto Gran Concurso de Temas
+                                Inéditos en Sinaloa Radio TV, con Lupita Villa en México.
+                                Tienen un repertorio de más temas grabados. Son reconocidos en Antioquía por éxitos como: Vivo como un rey, A mi pueblo querido etc.
+                            </p>
+
+                            <div class="vote-form">
+                                <ul class="artists-list">
+                                    <li id="artist-5">
+                                        <button type="button" class="vote-button" data-artist="5">
+                                            <span class="vote-count" id="vote-5">0 votos</span>
+                                        </button>
+                                        <div class="mensaje"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 6 -->
+                    <div class="cards">
+                        <div class="card-headers">
+                            <div class="sliders">
+                                <div class="slides active">
+                                    <img loading="lazy" src="artistas/Yo%20me%20llamo%20Alzate.jpg" alt="Yo me llamo Alzate">
+                                </div>
+                                <div class="slides">
+                                    <img loading="lazy" src="artistas/Yo%20me%20llamo%20Alzate.jpg" alt="Yo me llamo Alzate">
+                                </div>
+                                <button class="prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="next" aria-label="Next slide">&#10095;</button>
+                            </div>
+                        </div>
+                        <div class="card-bodys">
+                            <h2 class="card-titles">Yo me llamo Alzate</h2>
+                            <p class="card-descriptions">
+                                Un gran artista multifacético "Xavier El Gato blanco", participo
+                                en "Yo me llamo" interpretando a Alzate y catalogado como el "Mil Voces" por imitar artístas como Alzate, Yeison
+                                Jiménez, Alexis Escobar entre otros.<br>
+
+                                La agrupación está integrada por: Voz oficial y un marco de (2) trompetas, (1) bajo, (1) piano o acordeón, (1) vihuela, (2) requintos,
+                                y (1) batería, total de (8) integrantes en escena.
+                            </p>
+
+                            <div class="vote-form">
+                                <ul class="artists-list">
+                                    <li id="artist-6">
+                                        <button type="button" class="vote-button" data-artist="6">
+                                            <span class="vote-count" id="vote-6">0 votos</span>
+                                        </button>
+                                        <div class="mensaje"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 7 -->
+                    <div class="cards">
+                        <div class="card-headers">
+                            <div class="sliders">
+                                <div class="slides active">
+                                    <img loading="lazy" src="artistas/latin%20show.jpg" alt="Pedro Vidal">
+                                </div>
+                                <div class="slides">
+                                    <img loading="lazy" src="artistas/latin%20show.jpg" alt="Pedro Vidal">
+                                </div>
+                                <button class="prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="next" aria-label="Next slide">&#10095;</button>
+                            </div>
+                        </div>
+                        <div class="card-bodys">
+                            <h2 class="card-titles">Pedro Vidal</h2>
+                            <p class="card-descriptions">
+                                Presentación Musical: Reinado Nacional De la Belleza AFRO, Carnaval de pasto, Festival Vallenato,
+                                Feria de las Flores, Feria de Cali, La feria de Manizales, entre otros.
+                                A nivel internacional, el artista show Central del festival más importante del mundo de los Colombianos,
+                                Festival que se da en la ciudad de New york "El Festival de Flushing" festivales en Washington DC. Miami Fl.,
+                                artista invitado en mis mundos internacionales y en el reinado de belleza de Bolivia.
+                                Diferentes festivales en Ecuador y Centroamérica.
+                            </p>
+
+                            <div class="vote-form">
+                                <ul class="artists-list">
+                                    <li id="artist-7">
+                                        <button type="button" class="vote-button" data-artist="7">
+                                            <span class="vote-count" id="vote-7">0 votos</span>
+                                        </button>
+                                        <div class="mensaje"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 8 -->
+                    <div class="cards">
+                        <div class="card-headers">
+                            <div class="sliders">
+                                <div class="slides active">
+                                    <img loading="lazy" src="artistas/fantasticos%20vallenato.jpg" alt="Fantásticos del Vallenato">
+                                </div>
+                                <div class="slides">
+                                    <img loading="lazy" src="artistas/fantasticos%20vallenato.jpg" alt="Fantásticos del Vallenato">
+                                </div>
+                                <button class="prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="next" aria-label="Next slide">&#10095;</button>
+                            </div>
+                        </div>
+                        <div class="card-bodys">
+                            <h2 class="card-titles">Fantásticos del Vallenato</h2>
+                            <p class="card-descriptions">
+                                Es un orgullo presentar a Huberth Montero y Los Fantásticos del Vallenato (Género Vallenato)
+                                Agrupación con más de 26 años de vida artística y con éxitos nacionales e internacionales como Te Extraño,
+                                Dime Soledad, Porque Te Vas Y Solamente Tu entre otros.
+                                Voz Líder, Acordeón, dos (2) Coros, Caja, Guacharaca, Congas, Timbal, Bajo, Guitarra, Piano, para un total
+                                de once (11) integrantes en escena.
+                                La presentación de "Huberth Montero y los Fantásticos del Vallenato".
+                            </p>
+
+                            <div class="vote-form">
+                                <ul class="artists-list">
+                                    <li id="artist-8">
+                                        <button type="button" class="vote-button" data-artist="8">
+                                            <span class="vote-count" id="vote-8">0 votos</span>
+                                        </button>
+                                        <div class="mensaje"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 9 -->
+                    <div class="cards">
+                        <div class="card-headers">
+                            <div class="sliders">
+                                <div class="slides active">
+                                    <img loading="lazy" src="artistas/genesis%20orquesta.jpg" alt="Génesis Internacional">
+                                </div>
+                                <div class="slides">
+                                    <img loading="lazy" src="artistas/genesis%20orquesta.jpg" alt="Génesis Internacional">
+                                </div>
+                                <button class="prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="next" aria-label="Next slide">&#10095;</button>
+                            </div>
+                        </div>
+                        <div class="card-bodys">
+                            <h2 class="card-titles">Génesis Internacional</h2>
+                            <p class="card-descriptions">
+                                Es una agrupacion creada en el 2010 en la ciudad de San Juan de Pasto, impulsada con
+                                el propósito de exaltar el talento artístico femenino complementado con el empuje, ahínco y musicalidad masculinos.
+                                Su propuesta musical es variada e influenciada por el género tropical fiestero y Tecnocumbiero por excelencia, el son sureño
+                                y ritmos propios de la región nariñense y más adelante profundizará e incursionará en géneros musicales variados y caribeños
+                                de la costa colombiana, el merengue, y la salsa.
+                            </p>
+
+                            <div class="vote-form">
+                                <ul class="artists-list">
+                                    <li id="artist-9">
+                                        <button type="button" class="vote-button" data-artist="9">
+                                            <span class="vote-count" id="vote-9">0 votos</span>
+                                        </button>
+                                        <div class="mensaje"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </section>
 
         <section id="PRIVACIDAD" class="elemento" style="display: none;">
             <div class="section">
-                <h2 style="margin-bottom: 35px; font-size: 23px; padding-top:25px; text-align:center" >🔒 Política de Privacidad</h2>
+                <h2 style="margin-bottom: 35px; font-size: 23px; padding-top:25px; text-align:center">🔒 Política de Privacidad</h2>
                 <div style="background: rgba(255,255,255,0.04); border-radius: 24px; padding: 30px;">
                     <p>La Fronterisima se compromete a proteger tu información personal. No compartimos tus datos con terceros sin tu consentimiento.</p>
                     <br>
@@ -1024,9 +918,9 @@
                 <div class="footer-columna">
                     <h3>Dirección</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Colombia</p>
-                     <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
-                    <img loading="lazy" src="imagenes/paypal.png">
-                 </a>
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=R5EEBM4HXMUE6" target="_blank" class="paypal-button">
+                        <img loading="lazy" src="imagenes/paypal.png">
+                    </a>
                 </div>
                 <div class="footer-columna">
                     <h3>Nosotros</h3>
@@ -1051,127 +945,127 @@
     <!-- ==================== REPRODUCTOR STICKY ==================== -->
     <div class="music-player" id="musicPlayer">
         <div class="player-container">
-        
+
             <div class="player-info">
+                <div class="player-cover">
+                    <i class="fas fa-radio"></i>
+                </div>
+            </div>
 
-    <div class="player-cover">
-        <i class="fas fa-radio"></i>
-    </div>
+            <div class="news-modals" id="NewsModals">
+                <div class="news-modals-boxs">
+                    <div class="news-header">
+                        <h4>INFO</h4>
+                        <span class="cerrar">&times;</span>
+                    </div>
+                    <div class="News-player">
+                        <iframe id="news-widget" src="" data-src="https://news.google.com/rss/" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
 
-</div>
-
-<!-- Modal Noticias -->
-<div class="news-modals" id="NewsModals">
-
-    <div class="news-modals-boxs">
-
-        <div class="news-header">
-            <h4>INFO</h4>
-            <span class="cerrar">&times;</span>
-        </div>
-
-        <div class="News-player">
-            <iframe
-                id="news-widget"
-                src=""
-                data-src="https://news.google.com/rss/](https://news.google.com/rss/"
-                loading="lazy">
-            </iframe>
-        </div>
-
-    </div>
-
-</div>
-
-            
             <audio id="radio">
-              <source src="https://virtual5.emisorasvirtuales.com/listen/la_fronterisima/live" type="audio/mpeg">
+                <source src="https://virtual5.emisorasvirtuales.com/listen/la_fronterisima/live" type="audio/mpeg">
             </audio>
 
             <div class="player-controls">
-            
-            <button class="control-btn play-btn" id="playPauseBtn">
-              <i class="fas fa-play"></i>
-              
-              
-            </button>
-            
-           </div>
-            
-            <!-- Opción 1 - Moderna y Elegante -->
-    <div class="time-info" id="timeInfo">
-       <span class="live-dot"></span>
-       <span class="live-text">ON</span>
-    </div>
-            
-
-     <div class="live-modal" id="liveModal">
-
-      <div class="live-modal-box">
-
-        <span class="close">&times;</span>
-
-        <h4>RADIO</h4>
-
-        <div class="radio-player">
-
-            <div class="station">
-                <div class="station-info">
-                    <div class="signal"></div>
-                    <span>Mensajeros de Gloria</span>
-                </div>
-
-                <audio id="radio1">
-                    <source src="https://stream.zeno.fm/6q6gx5fcn48uv">
-                </audio>
-
-                <button class="player-btns" onclick="toggleRadio('radio1', this)">▶</button>
-            </div> 
-
-            <div class="station">
-                <div class="station-info">
-                    <div class="signal"></div>
-                    <span>Radio Scom</span>
-                </div>
-
-                <audio id="radio2">
-                    <source src="https://emisorasdigitales2.com:7002/stream">
-                </audio>
-
-                <button class="player-btns" onclick="toggleRadio('radio2', this)">▶</button>
+                <button class="control-btn play-btn" id="playPauseBtn">
+                    <i class="fas fa-play"></i>
+                </button>
             </div>
 
-            <div class="station">
-                <div class="station-info">
-                    <div class="signal"></div>
-                    <span>Palacio Vallenato</span>
+            <div class="time-info" id="timeInfo">
+                <span class="live-dot"></span>
+                <span class="live-text">ON</span>
+            </div>
+
+            <div class="live-modal" id="liveModal">
+                <div class="live-modal-box">
+                    <span class="close">&times;</span>
+                    <h4>RADIO</h4>
+                    <div class="radio-player">
+                        <div class="station">
+                            <div class="station-info">
+                                <div class="signal"></div>
+                                <span>Mensajeros de Gloria</span>
+                            </div>
+                            <audio id="radio1">
+                                <source src="https://stream.zeno.fm/6q6gx5fcn48uv">
+                            </audio>
+                            <button class="player-btns" onclick="toggleRadio('radio1', this)">▶</button>
+                        </div>
+
+                        <div class="station">
+                            <div class="station-info">
+                                <div class="signal"></div>
+                                <span>Radio Scom</span>
+                            </div>
+                            <audio id="radio2">
+                                <source src="https://emisorasdigitales2.com:7002/stream">
+                            </audio>
+                            <button class="player-btns" onclick="toggleRadio('radio2', this)">▶</button>
+                        </div>
+
+                        <div class="station">
+                            <div class="station-info">
+                                <div class="signal"></div>
+                                <span>Palacio Vallenato</span>
+                            </div>
+                            <audio id="radio3">
+                                <source src="https://stream.zeno.fm/v5ecixm4fvduv">
+                            </audio>
+                            <button class="player-btns" onclick="toggleRadio('radio3', this)">▶</button>
+                        </div>
+                    </div>
                 </div>
-
-                <audio id="radio3">
-                    <source src="https://stream.zeno.fm/v5ecixm4fvduv">
-                </audio>
-
-                <button class="player-btns" onclick="toggleRadio('radio3', this)">▶</button>
             </div>
 
         </div>
-
     </div>
-</div>
 
-
-    </div>
-        
-  </div>
-
-
+    <!-- ==================== SCRIPTS AL FINAL ==================== -->
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://w.soundcloud.com/player/api.js" defer></script>
     <script src="js/cargar_news.js" defer></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
- 
-    
+
+    <!-- Supabase + Votación -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/vote.js"></script>
+
+    <!-- Slider de artistas -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliders = document.querySelectorAll('#ARTISTAS .sliders');
+            if (sliders.length === 0) return;
+
+            sliders.forEach(slider => {
+                const slides = slider.querySelectorAll('.slides');
+                const prevButton = slider.querySelector('.prev');
+                const nextButton = slider.querySelector('.next');
+                let currentSlide = 0;
+
+                // Posicionar slides inicialmente
+                slides.forEach((slide, i) => {
+                    slide.style.transform = `translateX(${i * 100}%)`;
+                });
+
+                function showSlide(index) {
+                    if (index >= slides.length) currentSlide = 0;
+                    else if (index < 0) currentSlide = slides.length - 1;
+                    else currentSlide = index;
+
+                    slides.forEach((slide, i) => {
+                        slide.style.transform = `translateX(${(i - currentSlide) * 100}%)`;
+                    });
+                }
+
+                if (prevButton) prevButton.addEventListener('click', () => showSlide(currentSlide - 1));
+                if (nextButton) nextButton.addEventListener('click', () => showSlide(currentSlide + 1));
+            });
+        });
+    </script>
+
 </body>
 </html>

@@ -980,19 +980,19 @@ nav.menu {
 
 /* Grid contenedor: 2 columnas por fila */
 .content_artist {
-     display: grid;
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 24px;
     width: 100%;
     box-sizing: border-box;
-	padding-top:10px;
+    padding-top: 10px;
 }
 
 /* Estructura de cada tarjeta */
 .artistas-card {
     background: #ffffff;
     border: 1px solid #eee;
-    border-radius:0 px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: flex;
@@ -1075,14 +1075,12 @@ nav.menu {
 /* ==========================================================================
    RESPONSIVE: En pantallas menores a 768px pasa a 1 sola columna
    ========================================================================== */
-@media (max-width:768px) {
- 
+@media (max-width: 768px) {
     .content_artist {
-        grid-template-columns: 1fr; /* 2 video por fila */
+        grid-template-columns: 1fr;
         gap: 18px;
     }
 }
-
 
 /* ============================================ */
 /* BLOQUE 8: ARTISTAS CON SLIDER                */
@@ -1098,7 +1096,7 @@ nav.menu {
 
 .cards {
     background: #FFFFFF;
-    border-radius: 1 px;
+    border-radius: 1px;
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.08);
@@ -1118,11 +1116,76 @@ nav.menu {
 .card-headers {
     position: relative;
     overflow: hidden;
-    height: 250px;
+    height: 280px;
     flex-shrink: 0;
     width: 100%;
 }
 
+/* ============================================ */
+/* ✅ FIX CRÍTICO: SLIDER DE IMÁGENES ARTISTAS  */
+/* ============================================ */
+
+#ARTISTAS .cards .sliders {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 280px !important;
+    overflow: hidden !important;
+    background: #0f0f1a !important;
+    display: block !important;
+}
+
+#ARTISTAS .cards .sliders .slides {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    transition: transform 0.4s ease !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+#ARTISTAS .cards .sliders .slides img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+#ARTISTAS .cards .sliders .prev,
+#ARTISTAS .cards .sliders .next {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: #fff !important;
+    border: none !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    padding: 0 !important;
+}
+
+#ARTISTAS .cards .sliders .prev:hover,
+#ARTISTAS .cards .sliders .next:hover {
+    background: #20B2AA !important;
+}
+
+#ARTISTAS .cards .sliders .prev { left: 10px !important; }
+#ARTISTAS .cards .sliders .next { right: 10px !important; }
+
+/* Reglas generales (fuera de #ARTISTAS) para compatibilidad */
 .sliders {
     position: relative;
     width: 100%;
@@ -1141,6 +1204,7 @@ nav.menu {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .sliders .prev,
@@ -1171,6 +1235,8 @@ nav.menu {
 .sliders .prev { left: 10px; }
 .sliders .next { right: 10px; }
 
+/* ============================================ */
+
 .card-bodys {
     padding: 20px;
     display: flex;
@@ -1197,6 +1263,21 @@ nav.menu {
     flex: 1;
 }
 
+.vote-form {
+    margin-top: auto;
+    width: 100%;
+}
+
+.artists-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
 .vote-button {
     background: linear-gradient(135deg, #20B2AA 0%, #FF6B35 100%);
     border: none;
@@ -1210,7 +1291,8 @@ nav.menu {
     margin-right: auto;
     display: block;
     transition: all 0.3s ease;
-    width: 40%;
+    width: 60%;
+    min-width: 140px;
     margin-top: auto;
 }
 
@@ -1221,10 +1303,22 @@ nav.menu {
 
 .vote-count {
     font-size: 14px;
-    margin-top: 10px;
     text-align: center;
-    color: #2C3E50;
+    color: #FFFFFF;
+    display: block;
+    padding: 2px 0;
 }
+
+.mensaje {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 6px;
+    min-height: 18px;
+}
+
+/* ============================================ */
+/* RESPONSIVE                                    */
+/* ============================================ */
 
 @media (max-width: 768px) {
     .contenedors {
@@ -1234,11 +1328,14 @@ nav.menu {
 
 @media (max-width: 480px) {
     .contenedors {
-        padding: 30 5px;
+        padding: 30px 5px;
         gap: 25px;
     }
     .card-headers {
-        height: 260px;
+        height: 240px;
+    }
+    #ARTISTAS .cards .sliders {
+        min-height: 240px !important;
     }
     .card-bodys {
         padding: 18px;
@@ -1246,13 +1343,13 @@ nav.menu {
     .card-titles {
         font-size: 17px;
     }
-    .card-descriptions p {
+    .card-descriptions {
         font-size: 14px;
         text-align: justify;
         margin: 0 auto;
     }
     .vote-button {
-        width: 40%;
+        width: 70%;
         padding: 11px 18px;
         font-size: 14px;
     }

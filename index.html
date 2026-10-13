@@ -46,54 +46,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
-    <!-- ✅ FIX CRÍTICO: estilos de los sliders de artistas (porque combined.min.css da 404) -->
-   <style>
-    /* FIX DEFINITIVO para imágenes de artistas */
-    #ARTISTAS .cards .sliders {
-        position: relative !important;
-        width: 100% !important;
-        height: 280px !important;
-        min-height: 280px !important;
-        overflow: hidden !important;
-        border-radius: 12px 12px 0 0 !important;
-        background: #0f0f1a !important;
-    }
-    #ARTISTAS .cards .sliders .slides {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        transition: transform 0.4s ease !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        display: block !important;
-    }
-    #ARTISTAS .cards .sliders .slides img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    #ARTISTAS .cards .sliders .prev,
-    #ARTISTAS .cards .sliders .next {
-        position: absolute !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        background: rgba(0, 0, 0, 0.5) !important;
-        color: #fff !important;
-        border: none !important;
-        padding: 10px 14px !important;
-        cursor: pointer !important;
-        font-size: 18px !important;
-        border-radius: 4px !important;
-        z-index: 10 !important;
-    }
-    #ARTISTAS .cards .sliders .prev { left: 8px !important; }
-    #ARTISTAS .cards .sliders .next { right: 8px !important; }
-</style>
+   
 
     <script src="js/materialize.min.js" defer></script>
     <script src="js/page.js" defer></script>
@@ -900,10 +853,10 @@
                 <div style="background: rgba(255,255,255,0.04); border-radius: 24px; padding: 30px;">
                     <p>La Fronterisima se compromete a proteger tu información personal. No compartimos tus datos con terceros sin tu consentimiento.</p>
                     <br>
-                    <p><strong>Tecnología y contenidos:</strong></p>
+                   <!--  <p><strong>Tecnología y contenidos:</strong></p>
                     <p>☁️ Clima en tiempo real por Open-Meteo.com</p>
                     <p>🤖 Inteligencia Artificial por OpenAI</p>
-                    <p>📢 Actualidad internacional por Euronews</p>
+                    <p>📢 Actualidad internacional por Euronews</p>  -->
                 </div>
             </div>
         </section>

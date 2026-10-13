@@ -1122,7 +1122,7 @@ nav.menu {
 }
 
 /* ============================================ */
-/* ✅ FIX CRÍTICO: SLIDER DE IMÁGENES ARTISTAS  */
+/* ✅ SLIDER DE IMÁGENES ARTISTAS  */
 /* ============================================ */
 
 #ARTISTAS .cards .sliders {
@@ -1322,35 +1322,38 @@ nav.menu {
 
 @media (max-width: 768px) {
     .contenedors {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; 
     }
 }
 
 @media (max-width: 480px) {
     .contenedors {
-        padding: 30px 5px;
+        padding: 10px 5px;
         gap: 25px;
     }
     .card-headers {
-        height: 240px;
+        height: 240px; 
     }
     #ARTISTAS .cards .sliders {
         min-height: 240px !important;
     }
     .card-bodys {
-        padding: 18px;
+        padding: 18px; 
     }
     .card-titles {
         font-size: 17px;
     }
-    .card-descriptions {
-        font-size: 14px;
-        text-align: justify;
-        margin: 0 auto;
-    }
+    .card-descriptions  {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+    margin: 0 auto 30px auto; 
+    width:100%;
+    flex: 1;
+   }
     .vote-button {
         width: 70%;
-        padding: 11px 18px;
+        padding: 15px 18px;
         font-size: 14px;
     }
 }

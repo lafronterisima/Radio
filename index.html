@@ -46,7 +46,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
-   
+    <link rel="preconnect" href="https://virtual5.emisorasvirtuales.com">
+    <link rel="dns-prefetch" href="https://virtual5.emisorasvirtuales.com">
 
     <script src="js/materialize.min.js" defer></script>
     <script src="js/page.js" defer></script>
@@ -139,11 +140,15 @@
     <!-- ==================== CONTENIDO PRINCIPAL ==================== -->
     <main class="main-content">
 
-        <section id="INICIO" class="elemento visible">
-            <div class="hero">
-                <h1>La Fronterísima</h1>
-                <p>Notas surcando fronteras</p>
-            </div>
+       <section id="INICIO" class="elemento visible">
+         <div class="hero">
+            <div class="hero-content">
+            <span class="badge-smart">🤖 Radio Digital</span>
+            <h1>La Fronterísima</h1>
+            <p class="eslogan">Notas que surcan fronteras</p>
+          </div>
+          </div>
+     
 
             <div class="matrix-section">
                 <div class="caja-matrix">
@@ -220,7 +225,7 @@
                         </div>
                         <h4>Objetivo</h4>
                         <div class="description">
-                            <p>Tu raíz, tu música: una experiencia moderna y cercana hecha para ti, que hace vibrar la tradición en cada rincón del mundo las 24 horas.</p>
+                            <p>Un espacio donde la tradición vibra las 24 horas en cada rincón del mundo, fusionando lo auténtico con lo contemporáneo. Tu raíz se renueva, se comparte y suena sin fronteras.</p>
                         </div>
                         <a class="btn1" href="sub/programas.html" target="_blank">Programas</a>
                     </div>
@@ -238,8 +243,8 @@
                         </div>
                         <h4>Info</h4>
                         <div class="description">
-                            <p>La vanguardia de la comunicación y la música vive en lo digital. Sintoniza los sonidos del mundo hispano y descubre artistas que trascienden fronteras.</p>
-                        </div>
+                            <p>La vanguardia de la comunicación y la música vive en lo digital. Sintoniza los sonidos del mundo hispano, déjate sorprender por nuevos talentos y descubre artistas que trascienden fronteras, estés donde estés.</p>
+					   </div>
                         <a class="btn1" href="sub/potcast.html" target="_blank">Podcast's</a>
                     </div>
 
@@ -927,8 +932,8 @@
                 </div>
             </div>
 
-            <audio id="radio">
-                <source src="https://virtual5.emisorasvirtuales.com/listen/la_fronterisima/live" type="audio/mpeg">
+            <audio id="radio" preload="auto" crossorigin="anonymous">
+              <source src="https://virtual5.emisorasvirtuales.com/listen/la_fronterisima/live" type="audio/mpeg">
             </audio>
 
             <div class="player-controls">

@@ -555,12 +555,34 @@ nav.menu {
     text-align: center;
     padding-top: 20px;
     margin-bottom: 10px;
-    background-image: url('../imagenes/hero.jpg');
+    background: linear-gradient(180deg, rgba(15, 15, 25, 0.5) 0%, rgba(10, 10, 15, 0.85) 100%), 
+                url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 0px;
     overflow: hidden;
+}
+
+.badge-smart {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.eslogan {
+    font-size: 15px;
+    opacity: 0.9;
+    margin: 0;
+    font-weight: 400;
+    color: #e0e0e0;
 }
 
 .hero::before {

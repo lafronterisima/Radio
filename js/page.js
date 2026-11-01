@@ -387,16 +387,28 @@ document.addEventListener('DOMContentLoaded', function() {
         else showSection('INICIO');
     }
 
+    // ⚡ OPTIMIZACIÓN: eliminar setTimeout(300) para no retrasar la interactividad.
+    // Inicializar submenús/enlaces/hash de inmediato; Sidenav en cuanto Materialize esté listo.
     function init() {
-        setTimeout(() => {
+        configurarSubmenu();
+        configurarEnlaces();
+        configurarCierreExterior();
+        window.addEventListener('hashchange', handleHash);
+        handleHash();
+
+        if (typeof M !== 'undefined' && M.Sidenav) {
             configurarSidenav();
             configurarTriggerSidenav();
-            configurarSubmenu();
-            configurarEnlaces();
-            configurarCierreExterior();
-            window.addEventListener('hashchange', handleHash);
-            handleHash();
-        }, 300);
+        } else {
+            const esperarM = setInterval(() => {
+                if (typeof M !== 'undefined' && M.Sidenav) {
+                    clearInterval(esperarM);
+                    configurarSidenav();
+                    configurarTriggerSidenav();
+                }
+            }, 50);
+            setTimeout(() => clearInterval(esperarM), 3000);
+        }
     }
 
     if (document.readyState === 'loading') {
@@ -742,22 +754,35 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ==================== REPRODUCTOR DE AUDIO ====================
+// ==================== REPRODUCTOR DE AUDIO ====================
 (function() {
+    // ⚡ Precarga temprana del audio principal (stream en vivo)
+    function precargarAudioPrincipal() {
+        const audio = document.getElementById('track') || document.getElementById('radio');
+        if (!audio) return;
+        if (audio.preload !== 'auto') {
+            audio.preload = 'auto';
+            audio.load();
+        }
+        document.querySelectorAll('.radio-player audio').forEach(a => {
+            if (!a.preload || a.preload === 'none') a.preload = 'metadata';
+        });
+    }
+
     function initMainPlayer() {
         const audio = document.getElementById('track') || document.getElementById('radio');
         const playPauseBtn = document.getElementById('playPauseBtn');
 
         if (!audio || !playPauseBtn) return;
 
-        // CARGA RÁPIDA: preload auto desde el inicio
-        audio.preload = 'auto';
-        audio.load();
+        if (audio.preload !== 'auto') audio.preload = 'auto';
+        if (audio.readyState === 0) audio.load();
 
         function pauseSecondaryRadios() {
             document.querySelectorAll('.radio-player audio').forEach(radio => {
                 if (!radio.paused) {
                     radio.pause();
-                    radio.currentTime = 0;
+                    // ⚡ Stream en vivo: NO resetear currentTime
                 }
             });
             document.querySelectorAll('.player-btns').forEach(btn => {
@@ -787,14 +812,18 @@ document.addEventListener("keydown", (e) => {
                 pauseSecondaryRadios();
                 audio.play().then(updateMainButton).catch(e => {
                     console.warn('Error reproduciendo:', e);
+                    // Reintento único para streams que tardan en conectar
                     audio.load();
-                    setTimeout(() => audio.play().catch(e2 => console.warn(e2)), 500);
+                    setTimeout(() => audio.play().then(updateMainButton).catch(e2 => console.warn(e2)), 300);
                 });
             } else {
                 audio.pause();
                 updateMainButton();
             }
         });
+
+        audio.addEventListener('waiting', () => playPauseBtn.classList.add('buffering'));
+        audio.addEventListener('playing', () => playPauseBtn.classList.remove('buffering'));
 
         audio.addEventListener('play', updateMainButton);
         audio.addEventListener('pause', updateMainButton);
@@ -813,7 +842,7 @@ document.addEventListener("keydown", (e) => {
         allSecondary.forEach(radio => {
             if (radio.id !== id && !radio.paused) {
                 radio.pause();
-                radio.currentTime = 0;
+                // ⚡ Stream en vivo: NO resetear currentTime
             }
         });
 
@@ -836,24 +865,37 @@ document.addEventListener("keydown", (e) => {
             }
         }
 
-        // CARGA RÁPIDA: forzar preload alto la primera vez
         if (!audioEl.dataset.loaded) {
-            audioEl.preload = 'auto';
-            audioEl.load();
+            if (audioEl.preload !== 'auto') {
+                audioEl.preload = 'auto';
+                audioEl.load();
+            }
             audioEl.dataset.loaded = '1';
         }
 
         if (audioEl.paused) {
-            audioEl.play()
-                .then(() => {
-                    btn.textContent = '❚❚';
-                    btn.classList.add('playing');
-                })
-                .catch(err => {
-                    console.log('❌ Error:', err);
-                    btn.textContent = '▶';
-                    btn.classList.remove('playing');
-                });
+            const playPromise = audioEl.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        btn.textContent = '❚❚';
+                        btn.classList.add('playing');
+                    })
+                    .catch(err => {
+                        console.log('❌ Error en play, reintentando:', err);
+                        audioEl.load();
+                        audioEl.play()
+                            .then(() => {
+                                btn.textContent = '❚❚';
+                                btn.classList.add('playing');
+                            })
+                            .catch(err2 => {
+                                console.log('❌ Error persistente:', err2);
+                                btn.textContent = '▶';
+                                btn.classList.remove('playing');
+                            });
+                    });
+            }
         } else {
             audioEl.pause();
             btn.textContent = '▶';
@@ -880,7 +922,7 @@ document.addEventListener("keydown", (e) => {
         document.querySelectorAll(".radio-player audio").forEach(audio => {
             if (!audio.paused) {
                 audio.pause();
-                audio.currentTime = 0;
+                // ⚡ Stream en vivo: NO resetear currentTime
             }
         });
 
@@ -894,7 +936,7 @@ document.addEventListener("keydown", (e) => {
         const audio = document.getElementById(id);
         if (audio && !audio.paused) {
             audio.pause();
-            audio.currentTime = 0;
+            // ⚡ Stream en vivo: NO resetear currentTime
         }
         document.querySelectorAll(".player-btns").forEach(btn => {
             const btnId = btn.getAttribute('onclick');
@@ -911,13 +953,17 @@ document.addEventListener("keydown", (e) => {
         return {
             id, isPlaying: !audio.paused,
             currentTime: audio.currentTime,
-            duration: audio.duration
+            duration: audio.duration  // En live será Infinity
         };
     };
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initMainPlayer);
+        document.addEventListener('DOMContentLoaded', function() {
+            precargarAudioPrincipal();
+            initMainPlayer();
+        });
     } else {
+        precargarAudioPrincipal();
         initMainPlayer();
     }
 })();

@@ -3007,7 +3007,7 @@ footer {
 
 .footer-copy p {
     padding: 8px 12px;
-    color: rgba(255,255,255,0.6);
+   /* color: rgba(255,255,255,0.6); */
 }
 
 .footer-redes a:hover {

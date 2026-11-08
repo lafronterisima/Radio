@@ -555,8 +555,9 @@ nav.menu {
     text-align: center;
     padding-top: 20px;
     margin-bottom: 10px;
-    background: linear-gradient(180deg, rgba(15, 15, 25, 0.5) 0%, rgba(10, 10, 15, 0.85) 100%), 
-                url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000&auto=format&fit=crop');
+   
+				
+	 background-image: url('../imagenes/hero.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
